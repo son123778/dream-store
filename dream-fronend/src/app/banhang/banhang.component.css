@@ -1,0 +1,130 @@
+/* Định dạng tổng quan */
+.dashboard-container {
+  font-family: Arial, sans-serif;
+  padding: 16px;
+  background-color: #f5f5f5;
+  max-width: 1200px; /* Giới hạn chiều rộng tối đa */
+  margin: 0 auto; /* Canh giữa màn hình */
+}
+
+/* Thanh điều hướng */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #294764;
+  color: white;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.navbar-actions .icon-btn {
+  background: white;
+  color: #294764;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Thẻ thông tin */
+.summary-cards {
+  display: flex;
+  flex-wrap: wrap; /* Cho phép xuống dòng khi không đủ chỗ */
+  gap: 16px;
+  margin: 16px 0;
+}
+
+.card {
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  text-align: center;
+  min-width: 240px; /* Đảm bảo kích thước tối thiểu */
+}
+
+.card h3 {
+  margin: 0 0 8px;
+}
+
+.card .amount {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.card .change {
+  color: gray;
+  font-size: 0.9rem;
+}
+
+/* Biểu đồ */
+.chart-container {
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px;
+}
+
+.chart-placeholder {
+  height: 200px;
+  background: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: gray;
+}
+
+/* Dữ liệu bán hàng */
+.sales-data {
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow-x: auto; /* Cuộn ngang nếu bảng vượt quá kích thước màn hình */
+}
+
+.sales-data table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.sales-data th,
+.sales-data td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.sales-data th {
+  background: #f5f5f5;
+  font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .summary-cards {
+    flex-direction: column; /* Xếp dọc thẻ thông tin */
+  }
+
+  .card {
+    width: 100%; /* Chiếm toàn bộ chiều ngang */
+  }
+}
+
+@media (max-width: 1200px) {
+  .dashboard-container {
+    padding: 8px; /* Giảm padding để phù hợp màn hình nhỏ hơn */
+  }
+
+  .navbar {
+    flex-direction: column; /* Xếp dọc các thành phần trong thanh điều hướng */
+    text-align: center;
+  }
+
+  .navbar-actions {
+    margin-top: 8px;
+  }
+}

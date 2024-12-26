@@ -1,0 +1,42 @@
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav mode="side" opened>
+    <div class="sidebar-header">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4Xv0a59ECw_EzDt2jRnv_YIQI8y-_YNIaVw&s" alt="Logo Cửa Hàng" class="logo">
+    </div>
+    <nav>
+      <a mat-button routerLink="/banhang" routerLinkActive="active-link">
+        <mat-icon>shopping_cart</mat-icon>
+        Bán Hàng
+      </a>
+      <a mat-button routerLink="/sanpham" routerLinkActive="active-link">
+        <mat-icon>inventory</mat-icon>
+        Sản Phẩm
+      </a>
+      <a mat-button routerLink="/voucher" routerLinkActive="active-link">
+        <mat-icon>card_giftcard</mat-icon>
+        Voucher
+      </a>
+      <a mat-button routerLink="/khuyenmai" routerLinkActive="active-link">
+        <mat-icon>local_offer</mat-icon>
+        Khuyến Mãi
+      </a>
+      <a mat-button routerLink="/khachhang" routerLinkActive="active-link">
+        <mat-icon>people</mat-icon>
+        Khách Hàng
+      </a>
+      <a mat-button routerLink="/nhanvien" routerLinkActive="active-link">
+        <mat-icon>person</mat-icon>
+        Nhân Viên
+      </a>
+      <a mat-button routerLink="/thongke" routerLinkActive="active-link">
+        <mat-icon>bar_chart</mat-icon>
+        Thống Kê
+      </a>
+    </nav>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

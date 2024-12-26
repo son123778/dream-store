@@ -1,0 +1,216 @@
+/* Container styling */
+/* Container styling */
+/* Container styling */
+.table-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px;
+    box-sizing: border-box;
+    position: relative; /* Để có thể điều chỉnh vị trí của bảng */
+    bottom: 10; /* Cố định vị trí ở dưới cùng */
+    margin-top: calc(60vh - 400px - 16px); /* Điều chỉnh khoảng cách với lề dưới */
+    margin-left: 0px; /* Dịch bảng sang trái */
+}
+
+/* Button styling */
+.btn-primary {
+    background-color: #294764;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 16px;
+}
+
+.btn-primary:hover {
+    background-color: #294764;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Scrollable table container */
+.table-scrollable {
+    max-height: 400px; /* Đặt chiều cao cố định */
+    overflow-y: auto; /* Cho phép cuộn dọc */
+    border-radius: 6px;
+}
+
+/* Table styling */
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+}
+
+.product-table th, .product-table td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.product-table th {
+    background-color: #294764;
+    color: white;
+    font-weight: bold;
+}
+
+.product-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.product-table tr:hover {
+    background-color: #f1f1f1;
+}
+.product-table th {
+    position: sticky; /* Cố định header */
+    top: 0; /* Đẩy header lên trên cùng */
+    z-index: 1; /* Đảm bảo header nằm trên nội dung */
+}
+
+.input-field {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 0 10px 0 10px;
+}
+
+.input {
+    height: 45px;
+    width: 80%; /* Đặt chiều rộng của input */
+    max-width: 300px; /* Hoặc bạn có thể sử dụng max-width để giới hạn chiều rộng tối đa */
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    outline: none;
+    margin-bottom: 20px;
+    color: #294764;
+}
+
+.input-box .input-field label{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    pointer-events: none;
+    transition: .5s;
+}
+.input-field input:focus ~ label
+{
+    top: -10px;
+    font-size: 13px;
+}
+.input-field input:valid ~ label
+{
+    top: -10px;
+    font-size: 13px;
+    color: #294764;
+}
+.input-field .input:focus, .input-field .input:valid{
+    border-bottom: 1px solid #294764;
+}
+
+
+
+/* Button styling */
+.btn-primary {
+    background-color: #294764;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 16px;
+    margin-top: calc(50vh - 400px - 16px);
+}
+
+.btn-primary:hover {
+    background-color: #096cd6;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Scrollable table container */
+.table-scrollable {
+    max-height: 400px; /* Đặt chiều cao cố định */
+    overflow-y: auto; /* Cho phép cuộn dọc */
+    border-radius: 6px;
+}
+
+/* Table styling */
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+}
+
+.product-table th, .product-table td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.product-table th {
+    background-color: #294764;
+    color: white;
+    font-weight: bold;
+}
+
+.product-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.product-table tr:hover {
+    background-color: #f1f1f1;
+}
+.product-table th {
+    position: sticky; /* Cố định header */
+    top: 0; /* Đẩy header lên trên cùng */
+    z-index: 1; /* Đảm bảo header nằm trên nội dung */
+}
+
+
+
+.input-field {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 0 10px 0 10px;
+}
+
+.input {
+    height: 45px;
+    width: 80%; /* Đặt chiều rộng của input */
+    max-width: 300px; /* Hoặc bạn có thể sử dụng max-width để giới hạn chiều rộng tối đa */
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    outline: none;
+    margin-bottom: 20px;
+    color: #40414a;
+}
+
+/* Các phần CSS khác không thay đổi */
+.input-box .input-field label{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    pointer-events: none;
+    transition: .5s;
+}
+.input-field input:focus ~ label
+{
+    top: -10px;
+    font-size: 13px;
+}
+.input-field input:valid ~ label
+{
+    top: -10px;
+    font-size: 13px;
+    color: #5d5076;
+}
+.input-field .input:focus, .input-field .input:valid{
+    border-bottom: 1px solid #743ae1;
+}
