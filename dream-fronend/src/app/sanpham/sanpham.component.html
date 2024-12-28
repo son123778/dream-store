@@ -339,10 +339,86 @@
                     <td>Hoạt động</td>
                     <td>
                         <a href=""class="button btn-danger">Sửa</a>
-                        <a href=""class="button btn-primary">Chi tiết</a>
+                        <button (click)="openModal()"class="button btn-primary">Chi tiết</button>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
+<!-- Modal -->
+<div class="modal-overlay" *ngIf="showModal" (click)="closeModal()">
+  <div class="modal-box" (click)="$event.stopPropagation()">
+    <form action="" method="post">
+        <div class="input-row">
+            <div class="input-field">
+                <label for="ma">Mã sản phẩm</label>
+                <input type="text" class="input" id="ma" name="ma" autocomplete="off">
+            </div>
+            <div class="input-field">
+                <label for="ten">Tên sản phẩm</label>
+                <input type="text" class="input" id="ten" name="ten">
+            </div>
+            <div class="input-field">
+                <label for="">Thương hiệu</label>
+                <select class="input" id="" name="">
+                    <option value="" disabled selected>Chọn thương hiệu</option>
+                    <option value="Nike">Nike</option>
+                    <option value="Adidas">Adidas</option>
+                </select>
+            </div>
+        </div>
+        <div class="input-row">
+            <div class="input-field">
+                <label for="">Xuất sứ</label>
+                <select class="input" id="" name="">
+                    <option value="" disabled selected>Chọn xuất sứ</option>
+                    <option value="">Việt Nam</option>
+                    <option value="">Trung</option>
+                </select>
+            </div>
+            <div class="input-field">
+                <label for="">Chất liệu</label>
+                <select class="input" id="" name="">
+                    <option value="" disabled selected>Chọn chất liệu</option>
+                    <option value="">Polime</option>
+                    <option value="">Cao su</option>
+                </select>
+            </div>
+            <div class="input-field">
+                <label for="">Cổ áo</label>
+                <select class="input" id="" name="">
+                    <option value="" disabled selected>Chọn cổ áo</option>
+                    <option value="">Cổ Chữ V</option>
+                    <option value="">Cổ tròn</option>
+                </select>
+            </div>
+        </div>
+        <div class="input-row">
+            <div class="input-field">
+                <label for="ngaytao">Ngày tạo</label>
+                <input type="date" class="input" id="ngaytao" name="ngaytao">
+            </div>
+            <div class="input-field">
+                <label for="ngaysua">Ngày sửa</label>
+                <input type="date" class="input" id="ngaysua" name="ngaysua">
+            </div>
+            <div class="input-field">
+                <label for="size">Trạng thái</label>
+                <select class="input" id="size" name="size">
+                    <option value="" disabled selected>Chọn trạng thái</option>
+                    <option value="Hoạt động">Hoạt động</option>
+                    <option value="Không hoạt động">Không hoạt động</option>
+                </select>
+            </div>
+        </div>
+        <div class="ps-2">
+            <button type="submit" class="btn-primary">Thêm sản phẩm</button>
+        </div>
+    </form>
+    <button (click)="closeModal()">Close</button>
+  </div>
+</div>
+
+
+  
