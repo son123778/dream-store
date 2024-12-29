@@ -116,23 +116,29 @@ var MatButtonBase = class _MatButtonBase {
    * https://material.angular.io/guide/theming#using-component-color-variants.
    */
   color;
+
   /** Whether the ripple effect is disabled or not. */
   get disableRipple() {
     return this._disableRipple;
   }
+
   set disableRipple(value) {
     this._disableRipple = value;
     this._updateRippleDisabled();
   }
+
   _disableRipple = false;
+
   /** Whether the button is disabled. */
   get disabled() {
     return this._disabled;
   }
+
   set disabled(value) {
     this._disabled = value;
     this._updateRippleDisabled();
   }
+
   _disabled = false;
   /** `aria-disabled` value of the button. */
   ariaDisabled;
@@ -148,6 +154,7 @@ var MatButtonBase = class _MatButtonBase {
    * meant to be tabbable and you have to prevent the button action (e.g. form submissions).
    */
   disabledInteractive;
+
   constructor() {
     inject(_CdkPrivateStyleLoader).load(_StructuralStylesLoader);
     const config = inject(MAT_BUTTON_CONFIG, {
@@ -169,13 +176,16 @@ var MatButtonBase = class _MatButtonBase {
       }
     }
   }
+
   ngAfterViewInit() {
     this._focusMonitor.monitor(this._elementRef, true);
   }
+
   ngOnDestroy() {
     this._focusMonitor.stopMonitoring(this._elementRef);
     this._rippleLoader?.destroyRipple(this._elementRef.nativeElement);
   }
+
   /** Focuses the button. */
   focus(origin = "program", options) {
     if (origin) {
@@ -184,18 +194,22 @@ var MatButtonBase = class _MatButtonBase {
       this._elementRef.nativeElement.focus(options);
     }
   }
+
   _getAriaDisabled() {
     if (this.ariaDisabled != null) {
       return this.ariaDisabled;
     }
     return this.disabled && this.disabledInteractive ? true : null;
   }
+
   _getDisabledAttribute() {
     return this.disabledInteractive || !this.disabled ? null : true;
   }
+
   _updateRippleDisabled() {
     this._rippleLoader?.setDisabled(this._elementRef.nativeElement, this.disableRipple || this.disabled);
   }
+
   static ɵfac = function MatButtonBase_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _MatButtonBase)();
   };
@@ -270,27 +284,32 @@ var MatAnchorBase = class _MatAnchorBase extends MatButtonBase {
   _renderer = inject(Renderer2);
   _cleanupClick;
   tabIndex;
+
   ngOnInit() {
     this._ngZone.runOutsideAngular(() => {
       this._cleanupClick = this._renderer.listen(this._elementRef.nativeElement, "click", this._haltDisabledEvents);
     });
   }
+
   ngOnDestroy() {
     super.ngOnDestroy();
     this._cleanupClick?.();
   }
+
   _haltDisabledEvents = (event) => {
     if (this.disabled) {
       event.preventDefault();
       event.stopImmediatePropagation();
     }
   };
+
   _getAriaDisabled() {
     if (this.ariaDisabled != null) {
       return this.ariaDisabled;
     }
     return this.disabled || null;
   }
+
   static ɵfac = /* @__PURE__ */ (() => {
     let ɵMatAnchorBase_BaseFactory;
     return function MatAnchorBase_Factory(__ngFactoryType__) {
@@ -486,12 +505,14 @@ var MAT_FAB_DEFAULT_OPTIONS = new InjectionToken("mat-mdc-fab-default-options", 
   providedIn: "root",
   factory: MAT_FAB_DEFAULT_OPTIONS_FACTORY
 });
+
 function MAT_FAB_DEFAULT_OPTIONS_FACTORY() {
   return {
     // The FAB by default has its color set to accent.
     color: "accent"
   };
 }
+
 var defaults = MAT_FAB_DEFAULT_OPTIONS_FACTORY();
 var MatFabButton = class _MatFabButton extends MatButtonBase {
   _options = inject(MAT_FAB_DEFAULT_OPTIONS, {
@@ -499,11 +520,13 @@ var MatFabButton = class _MatFabButton extends MatButtonBase {
   });
   _isFab = true;
   extended;
+
   constructor() {
     super();
     this._options = this._options || defaults;
     this.color = this._options.color || defaults.color;
   }
+
   static ɵfac = function MatFabButton_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _MatFabButton)();
   };
@@ -597,11 +620,13 @@ var MatMiniFabButton = class _MatMiniFabButton extends MatButtonBase {
     optional: true
   });
   _isFab = true;
+
   constructor() {
     super();
     this._options = this._options || defaults;
     this.color = this._options.color || defaults.color;
   }
+
   static ɵfac = function MatMiniFabButton_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _MatMiniFabButton)();
   };
@@ -683,11 +708,13 @@ var MatFabAnchor = class _MatFabAnchor extends MatAnchor {
   });
   _isFab = true;
   extended;
+
   constructor() {
     super();
     this._options = this._options || defaults;
     this.color = this._options.color || defaults.color;
   }
+
   static ɵfac = function MatFabAnchor_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _MatFabAnchor)();
   };
@@ -781,11 +808,13 @@ var MatMiniFabAnchor = class _MatMiniFabAnchor extends MatAnchor {
     optional: true
   });
   _isFab = true;
+
   constructor() {
     super();
     this._options = this._options || defaults;
     this.color = this._options.color || defaults.color;
   }
+
   static ɵfac = function MatMiniFabAnchor_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _MatMiniFabAnchor)();
   };
@@ -868,6 +897,7 @@ var MatIconButton = class _MatIconButton extends MatButtonBase {
       centered: true
     });
   }
+
   static ɵfac = function MatIconButton_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _MatIconButton)();
   };

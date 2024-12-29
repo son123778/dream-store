@@ -98,7 +98,7 @@ var HttpHeaders = class _HttpHeaders {
   /**
    * Internal map of lowercase header names to values.
    */
-  // TODO(issue/24571): remove '!'.
+    // TODO(issue/24571): remove '!'.
   headers;
   /**
    * Internal map of lowercased header names to the normalized
@@ -113,6 +113,7 @@ var HttpHeaders = class _HttpHeaders {
    * Queued updates to be materialized the next initialization.
    */
   lazyUpdate = null;
+
   /**  Constructs a new HTTP header object with the given values.*/
   constructor(headers) {
     if (!headers) {
@@ -146,6 +147,7 @@ var HttpHeaders = class _HttpHeaders {
       };
     }
   }
+
   /**
    * Checks for existence of a given header.
    *
@@ -157,6 +159,7 @@ var HttpHeaders = class _HttpHeaders {
     this.init();
     return this.headers.has(name.toLowerCase());
   }
+
   /**
    * Retrieves the first value of a given header.
    *
@@ -169,6 +172,7 @@ var HttpHeaders = class _HttpHeaders {
     const values = this.headers.get(name.toLowerCase());
     return values && values.length > 0 ? values[0] : null;
   }
+
   /**
    * Retrieves the names of the headers.
    *
@@ -178,6 +182,7 @@ var HttpHeaders = class _HttpHeaders {
     this.init();
     return Array.from(this.normalizedNames.values());
   }
+
   /**
    * Retrieves a list of values for a given header.
    *
@@ -189,6 +194,7 @@ var HttpHeaders = class _HttpHeaders {
     this.init();
     return this.headers.get(name.toLowerCase()) || null;
   }
+
   /**
    * Appends a new value to the existing set of values for a header
    * and returns them in a clone of the original instance.
@@ -205,6 +211,7 @@ var HttpHeaders = class _HttpHeaders {
       op: "a"
     });
   }
+
   /**
    * Sets or modifies a value for a given header in a clone of the original instance.
    * If the header already exists, its value is replaced with the given value
@@ -222,6 +229,7 @@ var HttpHeaders = class _HttpHeaders {
       op: "s"
     });
   }
+
   /**
    * Deletes values for a given header in a clone of the original instance.
    *
@@ -237,11 +245,13 @@ var HttpHeaders = class _HttpHeaders {
       op: "d"
     });
   }
+
   maybeSetNormalizedName(name, lcName) {
     if (!this.normalizedNames.has(lcName)) {
       this.normalizedNames.set(lcName, name);
     }
   }
+
   init() {
     if (!!this.lazyInit) {
       if (this.lazyInit instanceof _HttpHeaders) {
@@ -256,6 +266,7 @@ var HttpHeaders = class _HttpHeaders {
       }
     }
   }
+
   copyFrom(other) {
     other.init();
     Array.from(other.headers.keys()).forEach((key) => {
@@ -263,12 +274,14 @@ var HttpHeaders = class _HttpHeaders {
       this.normalizedNames.set(key, other.normalizedNames.get(key));
     });
   }
+
   clone(update) {
     const clone = new _HttpHeaders();
     clone.lazyInit = !!this.lazyInit && this.lazyInit instanceof _HttpHeaders ? this.lazyInit : this;
     clone.lazyUpdate = (this.lazyUpdate || []).concat([update]);
     return clone;
   }
+
   applyUpdate(update) {
     const key = update.name.toLowerCase();
     switch (update.op) {
@@ -307,6 +320,7 @@ var HttpHeaders = class _HttpHeaders {
         break;
     }
   }
+
   addHeaderEntry(name, value) {
     const key = name.toLowerCase();
     this.maybeSetNormalizedName(name, key);
@@ -316,12 +330,14 @@ var HttpHeaders = class _HttpHeaders {
       this.headers.set(key, [value]);
     }
   }
+
   setHeaderEntries(name, values) {
     const headerValues = (Array.isArray(values) ? values : [values]).map((value) => value.toString());
     const key = name.toLowerCase();
     this.headers.set(key, headerValues);
     this.maybeSetNormalizedName(name, key);
   }
+
   /**
    * @internal
    */
@@ -330,6 +346,7 @@ var HttpHeaders = class _HttpHeaders {
     Array.from(this.normalizedNames.keys()).forEach((key) => fn(this.normalizedNames.get(key), this.headers.get(key)));
   }
 };
+
 function assertValidHeaders(headers) {
   for (const [key, value] of Object.entries(headers)) {
     if (!(typeof value === "string" || typeof value === "number") && !Array.isArray(value)) {
@@ -337,6 +354,7 @@ function assertValidHeaders(headers) {
     }
   }
 }
+
 var HttpUrlEncodingCodec = class {
   /**
    * Encodes a key name for a URL parameter or query-string.
@@ -346,6 +364,7 @@ var HttpUrlEncodingCodec = class {
   encodeKey(key) {
     return standardEncoding(key);
   }
+
   /**
    * Encodes the value of a URL parameter or query-string.
    * @param value The value.
@@ -354,6 +373,7 @@ var HttpUrlEncodingCodec = class {
   encodeValue(value) {
     return standardEncoding(value);
   }
+
   /**
    * Decodes an encoded URL parameter or query-string key.
    * @param key The encoded key name.
@@ -362,6 +382,7 @@ var HttpUrlEncodingCodec = class {
   decodeKey(key) {
     return decodeURIComponent(key);
   }
+
   /**
    * Decodes an encoded URL parameter or query-string value.
    * @param value The encoded value.
@@ -371,6 +392,7 @@ var HttpUrlEncodingCodec = class {
     return decodeURIComponent(value);
   }
 };
+
 function paramParser(rawParams, codec) {
   const map2 = /* @__PURE__ */ new Map();
   if (rawParams.length > 0) {
@@ -385,6 +407,7 @@ function paramParser(rawParams, codec) {
   }
   return map2;
 }
+
 var STANDARD_ENCODING_REGEX = /%(\d[a-f0-9])/gi;
 var STANDARD_ENCODING_REPLACEMENTS = {
   "40": "@",
@@ -396,17 +419,21 @@ var STANDARD_ENCODING_REPLACEMENTS = {
   "3F": "?",
   "2F": "/"
 };
+
 function standardEncoding(v) {
   return encodeURIComponent(v).replace(STANDARD_ENCODING_REGEX, (s, t) => STANDARD_ENCODING_REPLACEMENTS[t] ?? s);
 }
+
 function valueToString(value) {
   return `${value}`;
 }
+
 var HttpParams = class _HttpParams {
   map;
   encoder;
   updates = null;
   cloneFrom = null;
+
   constructor(options = {}) {
     this.encoder = options.encoder || new HttpUrlEncodingCodec();
     if (!!options.fromString) {
@@ -425,6 +452,7 @@ var HttpParams = class _HttpParams {
       this.map = null;
     }
   }
+
   /**
    * Reports whether the body includes one or more values for a given parameter.
    * @param param The parameter name.
@@ -435,6 +463,7 @@ var HttpParams = class _HttpParams {
     this.init();
     return this.map.has(param);
   }
+
   /**
    * Retrieves the first value for a parameter.
    * @param param The parameter name.
@@ -446,6 +475,7 @@ var HttpParams = class _HttpParams {
     const res = this.map.get(param);
     return !!res ? res[0] : null;
   }
+
   /**
    * Retrieves all values for a  parameter.
    * @param param The parameter name.
@@ -456,6 +486,7 @@ var HttpParams = class _HttpParams {
     this.init();
     return this.map.get(param) || null;
   }
+
   /**
    * Retrieves all the parameters for this body.
    * @returns The parameter names in a string array.
@@ -464,6 +495,7 @@ var HttpParams = class _HttpParams {
     this.init();
     return Array.from(this.map.keys());
   }
+
   /**
    * Appends a new value to existing values for a parameter.
    * @param param The parameter name.
@@ -477,6 +509,7 @@ var HttpParams = class _HttpParams {
       op: "a"
     });
   }
+
   /**
    * Constructs a new body with appended values for the given parameter name.
    * @param params parameters and values
@@ -504,6 +537,7 @@ var HttpParams = class _HttpParams {
     });
     return this.clone(updates);
   }
+
   /**
    * Replaces the value for a parameter.
    * @param param The parameter name.
@@ -517,6 +551,7 @@ var HttpParams = class _HttpParams {
       op: "s"
     });
   }
+
   /**
    * Removes a given value or all values from a parameter.
    * @param param The parameter name.
@@ -531,6 +566,7 @@ var HttpParams = class _HttpParams {
       op: "d"
     });
   }
+
   /**
    * Serializes the body to an encoded string, where key-value pairs (separated by `=`) are
    * separated by `&`s.
@@ -542,6 +578,7 @@ var HttpParams = class _HttpParams {
       return this.map.get(key).map((value) => eKey + "=" + this.encoder.encodeValue(value)).join("&");
     }).filter((param) => param !== "").join("&");
   }
+
   clone(update) {
     const clone = new _HttpParams({
       encoder: this.encoder
@@ -550,6 +587,7 @@ var HttpParams = class _HttpParams {
     clone.updates = (this.updates || []).concat(update);
     return clone;
   }
+
   init() {
     if (this.map === null) {
       this.map = /* @__PURE__ */ new Map();
@@ -589,6 +627,7 @@ var HttpParams = class _HttpParams {
 };
 var HttpContext = class {
   map = /* @__PURE__ */ new Map();
+
   /**
    * Store a value in the context. If a value is already present it will be overwritten.
    *
@@ -601,6 +640,7 @@ var HttpContext = class {
     this.map.set(token, value);
     return this;
   }
+
   /**
    * Retrieve the value associated with the given token.
    *
@@ -614,6 +654,7 @@ var HttpContext = class {
     }
     return this.map.get(token);
   }
+
   /**
    * Delete the value associated with the given token.
    *
@@ -625,6 +666,7 @@ var HttpContext = class {
     this.map.delete(token);
     return this;
   }
+
   /**
    * Checks for existence of a given token.
    *
@@ -635,6 +677,7 @@ var HttpContext = class {
   has(token) {
     return this.map.has(token);
   }
+
   /**
    * @returns a list of tokens currently stored in the context.
    */
@@ -642,6 +685,7 @@ var HttpContext = class {
     return this.map.keys();
   }
 };
+
 function mightHaveBody(method) {
   switch (method) {
     case "DELETE":
@@ -654,18 +698,23 @@ function mightHaveBody(method) {
       return true;
   }
 }
+
 function isArrayBuffer(value) {
   return typeof ArrayBuffer !== "undefined" && value instanceof ArrayBuffer;
 }
+
 function isBlob(value) {
   return typeof Blob !== "undefined" && value instanceof Blob;
 }
+
 function isFormData(value) {
   return typeof FormData !== "undefined" && value instanceof FormData;
 }
+
 function isUrlSearchParams(value) {
   return typeof URLSearchParams !== "undefined" && value instanceof URLSearchParams;
 }
+
 var HttpRequest = class _HttpRequest {
   url;
   /**
@@ -679,7 +728,7 @@ var HttpRequest = class _HttpRequest {
   /**
    * Outgoing headers for this request.
    */
-  // TODO(issue/24571): remove '!'.
+    // TODO(issue/24571): remove '!'.
   headers;
   /**
    * Shared and mutable context that can be used by interceptors
@@ -719,7 +768,7 @@ var HttpRequest = class _HttpRequest {
    * new HttpParams({fromString: 'angular=awesome'})
    * ```
    */
-  // TODO(issue/24571): remove '!'.
+    // TODO(issue/24571): remove '!'.
   params;
   /**
    * The outgoing URL with all URL parameters set.
@@ -729,6 +778,7 @@ var HttpRequest = class _HttpRequest {
    * The HttpTransferCache option for the request
    */
   transferCache;
+
   constructor(method, url, third, fourth) {
     this.url = url;
     this.method = method.toUpperCase();
@@ -772,6 +822,7 @@ var HttpRequest = class _HttpRequest {
       }
     }
   }
+
   /**
    * Transform the free-form body into a serialized format suitable for
    * transmission to the server.
@@ -791,6 +842,7 @@ var HttpRequest = class _HttpRequest {
     }
     return this.body.toString();
   }
+
   /**
    * Examine the body and attempt to infer an appropriate MIME type
    * for it.
@@ -821,6 +873,7 @@ var HttpRequest = class _HttpRequest {
     }
     return null;
   }
+
   clone(update = {}) {
     const method = update.method || this.method;
     const url = update.url || this.url;
@@ -850,7 +903,7 @@ var HttpRequest = class _HttpRequest {
   }
 };
 var HttpEventType;
-(function(HttpEventType2) {
+(function (HttpEventType2) {
   HttpEventType2[HttpEventType2["Sent"] = 0] = "Sent";
   HttpEventType2[HttpEventType2["UploadProgress"] = 1] = "UploadProgress";
   HttpEventType2[HttpEventType2["ResponseHeader"] = 2] = "ResponseHeader";
@@ -884,8 +937,9 @@ var HttpResponseBase = class {
   /**
    * Type of the response, narrowed to either the full response or the header.
    */
-  // TODO(issue/24571): remove '!'.
+    // TODO(issue/24571): remove '!'.
   type;
+
   /**
    * Super-constructor for all responses.
    *
@@ -907,7 +961,9 @@ var HttpHeaderResponse = class _HttpHeaderResponse extends HttpResponseBase {
   constructor(init = {}) {
     super(init);
   }
+
   type = HttpEventType.ResponseHeader;
+
   /**
    * Copy this `HttpHeaderResponse`, overriding its contents with the
    * given parameter hash.
@@ -926,6 +982,7 @@ var HttpResponse = class _HttpResponse extends HttpResponseBase {
    * The response body, or `null` if one was not returned.
    */
   body;
+
   /**
    * Construct a new `HttpResponse`.
    */
@@ -933,7 +990,9 @@ var HttpResponse = class _HttpResponse extends HttpResponseBase {
     super(init);
     this.body = init.body !== void 0 ? init.body : null;
   }
+
   type = HttpEventType.Response;
+
   clone(update = {}) {
     return new _HttpResponse({
       body: update.body !== void 0 ? update.body : this.body,
@@ -952,6 +1011,7 @@ var HttpErrorResponse = class extends HttpResponseBase {
    * Errors are never okay, even when the status code is in the 2xx success range.
    */
   ok = false;
+
   constructor(init) {
     super(init, 0, "Unknown Error");
     if (this.status >= 200 && this.status < 300) {
@@ -965,7 +1025,7 @@ var HttpErrorResponse = class extends HttpResponseBase {
 var HTTP_STATUS_CODE_OK = 200;
 var HTTP_STATUS_CODE_NO_CONTENT = 204;
 var HttpStatusCode;
-(function(HttpStatusCode2) {
+(function (HttpStatusCode2) {
   HttpStatusCode2[HttpStatusCode2["Continue"] = 100] = "Continue";
   HttpStatusCode2[HttpStatusCode2["SwitchingProtocols"] = 101] = "SwitchingProtocols";
   HttpStatusCode2[HttpStatusCode2["Processing"] = 102] = "Processing";
@@ -1030,6 +1090,7 @@ var HttpStatusCode;
   HttpStatusCode2[HttpStatusCode2["NotExtended"] = 510] = "NotExtended";
   HttpStatusCode2[HttpStatusCode2["NetworkAuthenticationRequired"] = 511] = "NetworkAuthenticationRequired";
 })(HttpStatusCode || (HttpStatusCode = {}));
+
 function addBody(options, body) {
   return {
     body,
@@ -1043,11 +1104,14 @@ function addBody(options, body) {
     transferCache: options.transferCache
   };
 }
+
 var HttpClient = class _HttpClient {
   handler;
+
   constructor(handler) {
     this.handler = handler;
   }
+
   /**
    * Constructs an observable for a generic HTTP request that, when subscribed,
    * fires the request through the chain of registered interceptors and on to the
@@ -1145,6 +1209,7 @@ var HttpClient = class _HttpClient {
         throw new Error(`Unreachable: unhandled observe type ${options.observe}}`);
     }
   }
+
   /**
    * Constructs an observable that, when subscribed, causes the configured
    * `DELETE` request to execute on the server. See the individual overloads for
@@ -1157,6 +1222,7 @@ var HttpClient = class _HttpClient {
   delete(url, options = {}) {
     return this.request("DELETE", url, options);
   }
+
   /**
    * Constructs an observable that, when subscribed, causes the configured
    * `GET` request to execute on the server. See the individual overloads for
@@ -1165,6 +1231,7 @@ var HttpClient = class _HttpClient {
   get(url, options = {}) {
     return this.request("GET", url, options);
   }
+
   /**
    * Constructs an observable that, when subscribed, causes the configured
    * `HEAD` request to execute on the server. The `HEAD` method returns
@@ -1175,6 +1242,7 @@ var HttpClient = class _HttpClient {
   head(url, options = {}) {
     return this.request("HEAD", url, options);
   }
+
   /**
    * Constructs an `Observable` that, when subscribed, causes a request with the special method
    * `JSONP` to be dispatched via the interceptor pipeline.
@@ -1200,6 +1268,7 @@ var HttpClient = class _HttpClient {
       responseType: "json"
     });
   }
+
   /**
    * Constructs an `Observable` that, when subscribed, causes the configured
    * `OPTIONS` request to execute on the server. This method allows the client
@@ -1210,6 +1279,7 @@ var HttpClient = class _HttpClient {
   options(url, options = {}) {
     return this.request("OPTIONS", url, options);
   }
+
   /**
    * Constructs an observable that, when subscribed, causes the configured
    * `PATCH` request to execute on the server. See the individual overloads for
@@ -1218,6 +1288,7 @@ var HttpClient = class _HttpClient {
   patch(url, body, options = {}) {
     return this.request("PATCH", url, addBody(options, body));
   }
+
   /**
    * Constructs an observable that, when subscribed, causes the configured
    * `POST` request to execute on the server. The server responds with the location of
@@ -1227,6 +1298,7 @@ var HttpClient = class _HttpClient {
   post(url, body, options = {}) {
     return this.request("POST", url, addBody(options, body));
   }
+
   /**
    * Constructs an observable that, when subscribed, causes the configured
    * `PUT` request to execute on the server. The `PUT` method replaces an existing resource
@@ -1236,6 +1308,7 @@ var HttpClient = class _HttpClient {
   put(url, body, options = {}) {
     return this.request("PUT", url, addBody(options, body));
   }
+
   static ɵfac = function HttpClient_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _HttpClient)(ɵɵinject(HttpHandler));
   };
@@ -1253,6 +1326,7 @@ var HttpClient = class _HttpClient {
 })();
 var XSSI_PREFIX$1 = /^\)\]\}',?\n/;
 var REQUEST_URL_HEADER = `X-Request-URL`;
+
 function getResponseUrl$1(response) {
   if (response.url) {
     return response.url;
@@ -1260,6 +1334,7 @@ function getResponseUrl$1(response) {
   const xRequestUrl = REQUEST_URL_HEADER.toLocaleLowerCase();
   return response.headers.get(xRequestUrl);
 }
+
 var FetchBackend = class _FetchBackend {
   // We use an arrow function to always reference the current global implementation of `fetch`.
   // This is helpful for cases when the global `fetch` implementation is modified by external code,
@@ -1268,6 +1343,7 @@ var FetchBackend = class _FetchBackend {
     optional: true
   })?.fetch ?? ((...args) => globalThis.fetch(...args));
   ngZone = inject(NgZone);
+
   handle(request) {
     return new Observable((observer) => {
       const aborter = new AbortController();
@@ -1277,6 +1353,7 @@ var FetchBackend = class _FetchBackend {
       return () => aborter.abort();
     });
   }
+
   doRequest(request, signal, observer) {
     return __async(this, null, function* () {
       const init = this.createRequestInit(request);
@@ -1385,6 +1462,7 @@ var FetchBackend = class _FetchBackend {
       }
     });
   }
+
   parseBody(request, binContent, contentType) {
     switch (request.responseType) {
       case "json":
@@ -1400,6 +1478,7 @@ var FetchBackend = class _FetchBackend {
         return binContent.buffer;
     }
   }
+
   createRequestInit(req) {
     const headers = {};
     const credentials = req.withCredentials ? "include" : void 0;
@@ -1420,6 +1499,7 @@ var FetchBackend = class _FetchBackend {
       credentials
     };
   }
+
   concatChunks(chunks, totalLength) {
     const chunksAll = new Uint8Array(totalLength);
     let position = 0;
@@ -1429,6 +1509,7 @@ var FetchBackend = class _FetchBackend {
     }
     return chunksAll;
   }
+
   static ɵfac = function FetchBackend_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _FetchBackend)();
   };
@@ -1444,22 +1525,28 @@ var FetchBackend = class _FetchBackend {
 })();
 var FetchFactory = class {
 };
+
 function noop() {
 }
+
 function silenceSuperfluousUnhandledPromiseRejection(promise) {
   promise.then(noop, noop);
 }
+
 function interceptorChainEndFn(req, finalHandlerFn) {
   return finalHandlerFn(req);
 }
+
 function adaptLegacyInterceptorToChain(chainTailFn, interceptor) {
   return (initialRequest, finalHandlerFn) => interceptor.intercept(initialRequest, {
     handle: (downstreamRequest) => chainTailFn(downstreamRequest, finalHandlerFn)
   });
 }
+
 function chainedInterceptorFn(chainTailFn, interceptorFn, injector) {
   return (initialRequest, finalHandlerFn) => runInInjectionContext(injector, () => interceptorFn(initialRequest, (downstreamRequest) => chainTailFn(downstreamRequest, finalHandlerFn)));
 }
+
 var HTTP_INTERCEPTORS = new InjectionToken(ngDevMode ? "HTTP_INTERCEPTORS" : "");
 var HTTP_INTERCEPTOR_FNS = new InjectionToken(ngDevMode ? "HTTP_INTERCEPTOR_FNS" : "");
 var HTTP_ROOT_INTERCEPTOR_FNS = new InjectionToken(ngDevMode ? "HTTP_ROOT_INTERCEPTOR_FNS" : "");
@@ -1467,6 +1554,7 @@ var REQUESTS_CONTRIBUTE_TO_STABILITY = new InjectionToken(ngDevMode ? "REQUESTS_
   providedIn: "root",
   factory: () => true
 });
+
 function legacyInterceptorFnFactory() {
   let chain = null;
   return (req, handler) => {
@@ -1486,6 +1574,7 @@ function legacyInterceptorFnFactory() {
     }
   };
 }
+
 var fetchBackendWarningDisplayed = false;
 var HttpInterceptorHandler = class _HttpInterceptorHandler extends HttpHandler {
   backend;
@@ -1493,6 +1582,7 @@ var HttpInterceptorHandler = class _HttpInterceptorHandler extends HttpHandler {
   chain = null;
   pendingTasks = inject(PendingTasksInternal);
   contributeToStability = inject(REQUESTS_CONTRIBUTE_TO_STABILITY);
+
   constructor(backend, injector) {
     super();
     this.backend = backend;
@@ -1506,6 +1596,7 @@ var HttpInterceptorHandler = class _HttpInterceptorHandler extends HttpHandler {
       }
     }
   }
+
   handle(initialRequest) {
     if (this.chain === null) {
       const dedupedInterceptorFns = Array.from(/* @__PURE__ */ new Set([...this.injector.get(HTTP_INTERCEPTOR_FNS), ...this.injector.get(HTTP_ROOT_INTERCEPTOR_FNS, [])]));
@@ -1518,6 +1609,7 @@ var HttpInterceptorHandler = class _HttpInterceptorHandler extends HttpHandler {
       return this.chain(initialRequest, (downstreamRequest) => this.backend.handle(downstreamRequest));
     }
   }
+
   static ɵfac = function HttpInterceptorHandler_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _HttpInterceptorHandler)(ɵɵinject(HttpBackend), ɵɵinject(EnvironmentInjector));
   };
@@ -1543,12 +1635,14 @@ var JSONP_ERR_WRONG_RESPONSE_TYPE = "JSONP requests must use Json response type.
 var JSONP_ERR_HEADERS_NOT_SUPPORTED = "JSONP requests do not support headers.";
 var JsonpCallbackContext = class {
 };
+
 function jsonpCallbackContext() {
   if (typeof window === "object") {
     return window;
   }
   return {};
 }
+
 var JsonpClientBackend = class _JsonpClientBackend {
   callbackMap;
   document;
@@ -1556,16 +1650,19 @@ var JsonpClientBackend = class _JsonpClientBackend {
    * A resolved promise that can be used to schedule microtasks in the event handlers.
    */
   resolvedPromise = Promise.resolve();
+
   constructor(callbackMap, document2) {
     this.callbackMap = callbackMap;
     this.document = document2;
   }
+
   /**
    * Get the name of the next callback method, by incrementing the global `nextRequestId`.
    */
   nextCallback() {
     return `ng_jsonp_callback_${nextRequestId++}`;
   }
+
   /**
    * Processes a JSONP request and returns an event stream of the results.
    * @param req The request object.
@@ -1643,10 +1740,12 @@ var JsonpClientBackend = class _JsonpClientBackend {
       };
     });
   }
+
   removeListeners(script) {
     foreignDocument ??= this.document.implementation.createHTMLDocument();
     foreignDocument.adoptNode(script);
   }
+
   static ɵfac = function JsonpClientBackend_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _JsonpClientBackend)(ɵɵinject(JsonpCallbackContext), ɵɵinject(DOCUMENT));
   };
@@ -1668,17 +1767,21 @@ var JsonpClientBackend = class _JsonpClientBackend {
     }]
   }], null);
 })();
+
 function jsonpInterceptorFn(req, next) {
   if (req.method === "JSONP") {
     return inject(JsonpClientBackend).handle(req);
   }
   return next(req);
 }
+
 var JsonpInterceptor = class _JsonpInterceptor {
   injector;
+
   constructor(injector) {
     this.injector = injector;
   }
+
   /**
    * Identifies and handles a given JSONP request.
    * @param initialRequest The outgoing request object to handle.
@@ -1689,6 +1792,7 @@ var JsonpInterceptor = class _JsonpInterceptor {
   intercept(initialRequest, next) {
     return runInInjectionContext(this.injector, () => jsonpInterceptorFn(initialRequest, (downstreamRequest) => next.handle(downstreamRequest)));
   }
+
   static ɵfac = function JsonpInterceptor_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _JsonpInterceptor)(ɵɵinject(EnvironmentInjector));
   };
@@ -1705,6 +1809,7 @@ var JsonpInterceptor = class _JsonpInterceptor {
   }], null);
 })();
 var XSSI_PREFIX = /^\)\]\}',?\n/;
+
 function getResponseUrl(xhr) {
   if ("responseURL" in xhr && xhr.responseURL) {
     return xhr.responseURL;
@@ -1714,11 +1819,14 @@ function getResponseUrl(xhr) {
   }
   return null;
 }
+
 var HttpXhrBackend = class _HttpXhrBackend {
   xhrFactory;
+
   constructor(xhrFactory) {
     this.xhrFactory = xhrFactory;
   }
+
   /**
    * Processes a request and returns a stream of response events.
    * @param req The request object.
@@ -1891,6 +1999,7 @@ var HttpXhrBackend = class _HttpXhrBackend {
       });
     }));
   }
+
   static ɵfac = function HttpXhrBackend_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _HttpXhrBackend)(ɵɵinject(XhrFactory));
   };
@@ -1929,11 +2038,13 @@ var HttpXsrfCookieExtractor = class _HttpXsrfCookieExtractor {
    * @internal for testing
    */
   parseCount = 0;
+
   constructor(doc, platform, cookieName) {
     this.doc = doc;
     this.platform = platform;
     this.cookieName = cookieName;
   }
+
   getToken() {
     if (this.platform === "server") {
       return null;
@@ -1946,6 +2057,7 @@ var HttpXsrfCookieExtractor = class _HttpXsrfCookieExtractor {
     }
     return this.lastToken;
   }
+
   static ɵfac = function HttpXsrfCookieExtractor_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _HttpXsrfCookieExtractor)(ɵɵinject(DOCUMENT), ɵɵinject(PLATFORM_ID), ɵɵinject(XSRF_COOKIE_NAME));
   };
@@ -1977,6 +2089,7 @@ var HttpXsrfCookieExtractor = class _HttpXsrfCookieExtractor {
     }]
   }], null);
 })();
+
 function xsrfInterceptorFn(req, next) {
   const lcUrl = req.url.toLowerCase();
   if (!inject(XSRF_ENABLED) || req.method === "GET" || req.method === "HEAD" || lcUrl.startsWith("http://") || lcUrl.startsWith("https://")) {
@@ -1991,14 +2104,18 @@ function xsrfInterceptorFn(req, next) {
   }
   return next(req);
 }
+
 var HttpXsrfInterceptor = class _HttpXsrfInterceptor {
   injector;
+
   constructor(injector) {
     this.injector = injector;
   }
+
   intercept(initialRequest, next) {
     return runInInjectionContext(this.injector, () => xsrfInterceptorFn(initialRequest, (downstreamRequest) => next.handle(downstreamRequest)));
   }
+
   static ɵfac = function HttpXsrfInterceptor_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _HttpXsrfInterceptor)(ɵɵinject(EnvironmentInjector));
   };
@@ -2015,7 +2132,7 @@ var HttpXsrfInterceptor = class _HttpXsrfInterceptor {
   }], null);
 })();
 var HttpFeatureKind;
-(function(HttpFeatureKind2) {
+(function (HttpFeatureKind2) {
   HttpFeatureKind2[HttpFeatureKind2["Interceptors"] = 0] = "Interceptors";
   HttpFeatureKind2[HttpFeatureKind2["LegacyInterceptors"] = 1] = "LegacyInterceptors";
   HttpFeatureKind2[HttpFeatureKind2["CustomXsrfConfiguration"] = 2] = "CustomXsrfConfiguration";
@@ -2024,12 +2141,14 @@ var HttpFeatureKind;
   HttpFeatureKind2[HttpFeatureKind2["RequestsMadeViaParent"] = 5] = "RequestsMadeViaParent";
   HttpFeatureKind2[HttpFeatureKind2["Fetch"] = 6] = "Fetch";
 })(HttpFeatureKind || (HttpFeatureKind = {}));
+
 function makeHttpFeature(kind, providers) {
   return {
     ɵkind: kind,
     ɵproviders: providers
   };
 }
+
 function provideHttpClient(...features) {
   if (ngDevMode) {
     const featureKinds = new Set(features.map((f) => f.ɵkind));
@@ -2063,7 +2182,9 @@ function provideHttpClient(...features) {
   }
   return makeEnvironmentProviders(providers);
 }
+
 var LEGACY_INTERCEPTOR_FN = new InjectionToken(ngDevMode ? "LEGACY_INTERCEPTOR_FN" : "");
+
 function withInterceptorsFromDi() {
   return makeHttpFeature(HttpFeatureKind.LegacyInterceptors, [{
     provide: LEGACY_INTERCEPTOR_FN,
@@ -2074,10 +2195,11 @@ function withInterceptorsFromDi() {
     multi: true
   }]);
 }
+
 function withXsrfConfiguration({
-  cookieName,
-  headerName
-}) {
+                                 cookieName,
+                                 headerName
+                               }) {
   const providers = [];
   if (cookieName !== void 0) {
     providers.push({
@@ -2093,12 +2215,14 @@ function withXsrfConfiguration({
   }
   return makeHttpFeature(HttpFeatureKind.CustomXsrfConfiguration, providers);
 }
+
 function withNoXsrfProtection() {
   return makeHttpFeature(HttpFeatureKind.NoXsrfProtection, [{
     provide: XSRF_ENABLED,
     useValue: false
   }]);
 }
+
 function withJsonpSupport() {
   return makeHttpFeature(HttpFeatureKind.JsonpSupport, [JsonpClientBackend, {
     provide: JsonpCallbackContext,
@@ -2109,6 +2233,7 @@ function withJsonpSupport() {
     multi: true
   }]);
 }
+
 var HttpClientXsrfModule = class _HttpClientXsrfModule {
   /**
    * Disable the default XSRF protection.
@@ -2119,6 +2244,7 @@ var HttpClientXsrfModule = class _HttpClientXsrfModule {
       providers: [withNoXsrfProtection().ɵproviders]
     };
   }
+
   /**
    * Configure XSRF protection.
    * @param options An object that can specify either or both
@@ -2133,6 +2259,7 @@ var HttpClientXsrfModule = class _HttpClientXsrfModule {
       providers: withXsrfConfiguration(options).ɵproviders
     };
   }
+
   static ɵfac = function HttpClientXsrfModule_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _HttpClientXsrfModule)();
   };
@@ -2228,6 +2355,7 @@ var REQ_URL = "u";
 var RESPONSE_TYPE = "rt";
 var CACHE_OPTIONS = new InjectionToken(ngDevMode ? "HTTP_TRANSFER_STATE_CACHE_OPTIONS" : "");
 var ALLOWED_METHODS = ["GET", "HEAD"];
+
 function transferCacheInterceptorFn(req, next) {
   const _a = inject(CACHE_OPTIONS), {
     isCacheActive
@@ -2239,8 +2367,8 @@ function transferCacheInterceptorFn(req, next) {
     method: requestMethod
   } = req;
   if (!isCacheActive || requestOptions === false || // POST requests are allowed either globally or at request level
-  requestMethod === "POST" && !globalOptions.includePostRequests && !requestOptions || requestMethod !== "POST" && !ALLOWED_METHODS.includes(requestMethod) || // Do not cache request that require authorization when includeRequestsWithAuthHeaders is falsey
-  !globalOptions.includeRequestsWithAuthHeaders && hasAuthHeaders(req) || globalOptions.filter?.(req) === false) {
+    requestMethod === "POST" && !globalOptions.includePostRequests && !requestOptions || requestMethod !== "POST" && !ALLOWED_METHODS.includes(requestMethod) || // Do not cache request that require authorization when includeRequestsWithAuthHeaders is falsey
+    !globalOptions.includeRequestsWithAuthHeaders && hasAuthHeaders(req) || globalOptions.filter?.(req) === false) {
     return next(req);
   }
   const transferState = inject(TransferState);
@@ -2301,9 +2429,11 @@ function transferCacheInterceptorFn(req, next) {
     }
   }));
 }
+
 function hasAuthHeaders(req) {
   return req.headers.has("authorization") || req.headers.has("proxy-authorization");
 }
+
 function getFilteredHeaders(headers, includeHeaders) {
   if (!includeHeaders) {
     return {};
@@ -2317,9 +2447,11 @@ function getFilteredHeaders(headers, includeHeaders) {
   }
   return headersMap;
 }
+
 function sortAndConcatParams(params) {
   return [...params.keys()].sort().map((k) => `${k}=${params.getAll(k)}`).join("&");
 }
+
 function makeCacheKey(request, mappedRequestUrl) {
   const {
     params,
@@ -2337,6 +2469,7 @@ function makeCacheKey(request, mappedRequestUrl) {
   const hash = generateHash(key);
   return makeStateKey(hash);
 }
+
 function generateHash(value) {
   let hash = 0;
   for (const char of value) {
@@ -2345,6 +2478,7 @@ function generateHash(value) {
   hash += 2147483647 + 1;
   return hash.toString();
 }
+
 function withHttpTransferCache(cacheOptions) {
   return [{
     provide: CACHE_OPTIONS,
@@ -2373,6 +2507,7 @@ function withHttpTransferCache(cacheOptions) {
     }
   }];
 }
+
 function appendMissingHeadersDetection(url, headers, headersToInclude) {
   const warningProduced = /* @__PURE__ */ new Set();
   return new Proxy(headers, {
@@ -2394,6 +2529,7 @@ function appendMissingHeadersDetection(url, headers, headersToInclude) {
     }
   });
 }
+
 function mapRequestOriginUrl(url, originMap) {
   const origin = new URL(url, "resolve://").origin;
   const mappedOrigin = originMap[origin];
@@ -2405,6 +2541,7 @@ function mapRequestOriginUrl(url, originMap) {
   }
   return url.replace(origin, mappedOrigin);
 }
+
 function verifyMappedOrigin(url) {
   if (new URL(url, "resolve://").pathname !== "/") {
     throw new RuntimeError(2804, `Angular detected a URL with a path segment in the value provided for the \`HTTP_TRANSFER_CACHE_ORIGIN_MAP\` token: ${url}. The map should only contain origins without any other segments.`);
@@ -2419,34 +2556,43 @@ var BrowserDomAdapter = class _BrowserDomAdapter extends GenericBrowserDomAdapte
   static makeCurrent() {
     setRootDomAdapter(new _BrowserDomAdapter());
   }
+
   onAndCancel(el, evt, listener) {
     el.addEventListener(evt, listener);
     return () => {
       el.removeEventListener(evt, listener);
     };
   }
+
   dispatchEvent(el, evt) {
     el.dispatchEvent(evt);
   }
+
   remove(node) {
     node.remove();
   }
+
   createElement(tagName, doc) {
     doc = doc || this.getDefaultDocument();
     return doc.createElement(tagName);
   }
+
   createHtmlDocument() {
     return document.implementation.createHTMLDocument("fakeTitle");
   }
+
   getDefaultDocument() {
     return document;
   }
+
   isElementNode(node) {
     return node.nodeType === Node.ELEMENT_NODE;
   }
+
   isShadowRoot(node) {
     return node instanceof DocumentFragment;
   }
+
   /** @deprecated No longer being used in Ivy code. To be removed in version 14. */
   getGlobalEventTarget(doc, target) {
     if (target === "window") {
@@ -2460,28 +2606,35 @@ var BrowserDomAdapter = class _BrowserDomAdapter extends GenericBrowserDomAdapte
     }
     return null;
   }
+
   getBaseHref(doc) {
     const href = getBaseElementHref();
     return href == null ? null : relativePath(href);
   }
+
   resetBaseElement() {
     baseElement = null;
   }
+
   getUserAgent() {
     return window.navigator.userAgent;
   }
+
   getCookie(name) {
     return parseCookieValue(document.cookie, name);
   }
 };
 var baseElement = null;
+
 function getBaseElementHref() {
   baseElement = baseElement || document.querySelector("base");
   return baseElement ? baseElement.getAttribute("href") : null;
 }
+
 function relativePath(url) {
   return new URL(url, document.baseURI).pathname;
 }
+
 var BrowserGetTestability = class {
   addToWindow(registry) {
     _global["getAngularTestability"] = (elem, findInAncestors = true) => {
@@ -2496,7 +2649,7 @@ var BrowserGetTestability = class {
     const whenAllStable = (callback) => {
       const testabilities = _global["getAllAngularTestabilities"]();
       let count = testabilities.length;
-      const decrement = function() {
+      const decrement = function () {
         count--;
         if (count == 0) {
           callback();
@@ -2511,6 +2664,7 @@ var BrowserGetTestability = class {
     }
     _global["frameworkStabilizers"].push(whenAllStable);
   }
+
   findTestabilityInTree(registry, elem, findInAncestors) {
     if (elem == null) {
       return null;
@@ -2531,6 +2685,7 @@ var BrowserXhr = class _BrowserXhr {
   build() {
     return new XMLHttpRequest();
   }
+
   static ɵfac = function BrowserXhr_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _BrowserXhr)();
   };
@@ -2549,6 +2704,7 @@ var EventManager = class _EventManager {
   _zone;
   _plugins;
   _eventNameToPlugin = /* @__PURE__ */ new Map();
+
   /**
    * Initializes an instance of the event-manager service.
    */
@@ -2559,6 +2715,7 @@ var EventManager = class _EventManager {
     });
     this._plugins = plugins.slice().reverse();
   }
+
   /**
    * Registers a handler for a specific element and event.
    *
@@ -2572,12 +2729,14 @@ var EventManager = class _EventManager {
     const plugin = this._findPluginFor(eventName);
     return plugin.addEventListener(element, eventName, handler);
   }
+
   /**
    * Retrieves the compilation zone in which event listeners are registered.
    */
   getZone() {
     return this._zone;
   }
+
   /** @internal */
   _findPluginFor(eventName) {
     let plugin = this._eventNameToPlugin.get(eventName);
@@ -2592,6 +2751,7 @@ var EventManager = class _EventManager {
     this._eventNameToPlugin.set(eventName, plugin);
     return plugin;
   }
+
   static ɵfac = function EventManager_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _EventManager)(ɵɵinject(EVENT_MANAGER_PLUGINS), ɵɵinject(NgZone));
   };
@@ -2615,24 +2775,29 @@ var EventManager = class _EventManager {
 })();
 var EventManagerPlugin = class {
   _doc;
+
   // TODO: remove (has some usage in G3)
   constructor(_doc) {
     this._doc = _doc;
   }
+
   // Using non-null assertion because it's set by EventManager's constructor
   manager;
 };
 var APP_ID_ATTRIBUTE_NAME = "ng-app-id";
+
 function removeElements(elements) {
   for (const element of elements) {
     element.remove();
   }
 }
+
 function createStyleElement(style, doc) {
   const styleElement = doc.createElement("style");
   styleElement.textContent = style;
   return styleElement;
 }
+
 function addServerStyles(doc, appId, inline, external) {
   const elements = doc.head?.querySelectorAll(`style[${APP_ID_ATTRIBUTE_NAME}="${appId}"],link[${APP_ID_ATTRIBUTE_NAME}="${appId}"]`);
   if (elements) {
@@ -2652,12 +2817,14 @@ function addServerStyles(doc, appId, inline, external) {
     }
   }
 }
+
 function createLinkElement(url, doc) {
   const linkElement = doc.createElement("link");
   linkElement.setAttribute("rel", "stylesheet");
   linkElement.setAttribute("href", url);
   return linkElement;
 }
+
 var SharedStylesHost = class _SharedStylesHost {
   doc;
   appId;
@@ -2680,6 +2847,7 @@ var SharedStylesHost = class _SharedStylesHost {
    * Whether the application code is currently executing on a server.
    */
   isServer;
+
   constructor(doc, appId, nonce, platformId = {}) {
     this.doc = doc;
     this.appId = appId;
@@ -2688,6 +2856,7 @@ var SharedStylesHost = class _SharedStylesHost {
     addServerStyles(doc, appId, this.inline, this.external);
     this.hosts.add(doc.head);
   }
+
   /**
    * Adds embedded styles to the DOM via HTML `style` elements.
    * @param styles An array of style content strings.
@@ -2698,6 +2867,7 @@ var SharedStylesHost = class _SharedStylesHost {
     }
     urls?.forEach((value) => this.addUsage(value, this.external, createLinkElement));
   }
+
   /**
    * Removes embedded styles from the DOM that were added as HTML `style` elements.
    * @param styles An array of style content strings.
@@ -2708,6 +2878,7 @@ var SharedStylesHost = class _SharedStylesHost {
     }
     urls?.forEach((value) => this.removeUsage(value, this.external));
   }
+
   addUsage(value, usages, creator) {
     const record = usages.get(value);
     if (record) {
@@ -2722,6 +2893,7 @@ var SharedStylesHost = class _SharedStylesHost {
       });
     }
   }
+
   removeUsage(value, usages) {
     const record = usages.get(value);
     if (record) {
@@ -2732,6 +2904,7 @@ var SharedStylesHost = class _SharedStylesHost {
       }
     }
   }
+
   ngOnDestroy() {
     for (const [, {
       elements
@@ -2740,6 +2913,7 @@ var SharedStylesHost = class _SharedStylesHost {
     }
     this.hosts.clear();
   }
+
   /**
    * Adds a host node to the set of style hosts and adds all existing style usage to
    * the newly added host node.
@@ -2759,9 +2933,11 @@ var SharedStylesHost = class _SharedStylesHost {
       elements.push(this.addElement(hostNode, createLinkElement(url, this.doc)));
     }
   }
+
   removeHost(hostNode) {
     this.hosts.delete(hostNode);
   }
+
   addElement(host, element) {
     if (this.nonce) {
       element.setAttribute("nonce", this.nonce);
@@ -2771,6 +2947,7 @@ var SharedStylesHost = class _SharedStylesHost {
     }
     return host.appendChild(element);
   }
+
   static ɵfac = function SharedStylesHost_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _SharedStylesHost)(ɵɵinject(DOCUMENT), ɵɵinject(APP_ID), ɵɵinject(CSP_NONCE, 8), ɵɵinject(PLATFORM_ID));
   };
@@ -2827,15 +3004,19 @@ var REMOVE_STYLES_ON_COMPONENT_DESTROY = new InjectionToken(ngDevMode ? "RemoveS
   providedIn: "root",
   factory: () => REMOVE_STYLES_ON_COMPONENT_DESTROY_DEFAULT
 });
+
 function shimContentAttribute(componentShortId) {
   return CONTENT_ATTR.replace(COMPONENT_REGEX, componentShortId);
 }
+
 function shimHostAttribute(componentShortId) {
   return HOST_ATTR.replace(COMPONENT_REGEX, componentShortId);
 }
+
 function shimStylesContent(compId, styles) {
   return styles.map((s) => s.replace(COMPONENT_REGEX, compId));
 }
+
 var DomRendererFactory2 = class _DomRendererFactory2 {
   eventManager;
   sharedStylesHost;
@@ -2848,6 +3029,7 @@ var DomRendererFactory2 = class _DomRendererFactory2 {
   rendererByCompId = /* @__PURE__ */ new Map();
   defaultRenderer;
   platformIsServer;
+
   constructor(eventManager, sharedStylesHost, appId, removeStylesOnCompDestroy, doc, platformId, ngZone, nonce = null) {
     this.eventManager = eventManager;
     this.sharedStylesHost = sharedStylesHost;
@@ -2860,6 +3042,7 @@ var DomRendererFactory2 = class _DomRendererFactory2 {
     this.platformIsServer = isPlatformServer(platformId);
     this.defaultRenderer = new DefaultDomRenderer2(eventManager, doc, ngZone, this.platformIsServer);
   }
+
   createRenderer(element, type) {
     if (!element || !type) {
       return this.defaultRenderer;
@@ -2877,6 +3060,7 @@ var DomRendererFactory2 = class _DomRendererFactory2 {
     }
     return renderer;
   }
+
   getOrCreateRenderer(element, type) {
     const rendererByCompId = this.rendererByCompId;
     let renderer = rendererByCompId.get(type.id);
@@ -2901,9 +3085,11 @@ var DomRendererFactory2 = class _DomRendererFactory2 {
     }
     return renderer;
   }
+
   ngOnDestroy() {
     this.rendererByCompId.clear();
   }
+
   static ɵfac = function DomRendererFactory2_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _DomRendererFactory2)(ɵɵinject(EventManager), ɵɵinject(SharedStylesHost), ɵɵinject(APP_ID), ɵɵinject(REMOVE_STYLES_ON_COMPONENT_DESTROY), ɵɵinject(DOCUMENT), ɵɵinject(PLATFORM_ID), ɵɵinject(NgZone), ɵɵinject(CSP_NONCE));
   };
@@ -2964,40 +3150,50 @@ var DefaultDomRenderer2 = class {
    * This can be disabled for example by the AsyncAnimationRendererFactory
    */
   throwOnSyntheticProps = true;
+
   constructor(eventManager, doc, ngZone, platformIsServer) {
     this.eventManager = eventManager;
     this.doc = doc;
     this.ngZone = ngZone;
     this.platformIsServer = platformIsServer;
   }
+
   destroy() {
   }
+
   destroyNode = null;
+
   createElement(name, namespace) {
     if (namespace) {
       return this.doc.createElementNS(NAMESPACE_URIS[namespace] || namespace, name);
     }
     return this.doc.createElement(name);
   }
+
   createComment(value) {
     return this.doc.createComment(value);
   }
+
   createText(value) {
     return this.doc.createTextNode(value);
   }
+
   appendChild(parent, newChild) {
     const targetParent = isTemplateNode(parent) ? parent.content : parent;
     targetParent.appendChild(newChild);
   }
+
   insertBefore(parent, newChild, refChild) {
     if (parent) {
       const targetParent = isTemplateNode(parent) ? parent.content : parent;
       targetParent.insertBefore(newChild, refChild);
     }
   }
+
   removeChild(_parent, oldChild) {
     oldChild.remove();
   }
+
   selectRootElement(selectorOrNode, preserveContent) {
     let el = typeof selectorOrNode === "string" ? this.doc.querySelector(selectorOrNode) : selectorOrNode;
     if (!el) {
@@ -3008,12 +3204,15 @@ var DefaultDomRenderer2 = class {
     }
     return el;
   }
+
   parentNode(node) {
     return node.parentNode;
   }
+
   nextSibling(node) {
     return node.nextSibling;
   }
+
   setAttribute(el, name, value, namespace) {
     if (namespace) {
       name = namespace + ":" + name;
@@ -3027,6 +3226,7 @@ var DefaultDomRenderer2 = class {
       el.setAttribute(name, value);
     }
   }
+
   removeAttribute(el, name, namespace) {
     if (namespace) {
       const namespaceUri = NAMESPACE_URIS[namespace];
@@ -3039,12 +3239,15 @@ var DefaultDomRenderer2 = class {
       el.removeAttribute(name);
     }
   }
+
   addClass(el, name) {
     el.classList.add(name);
   }
+
   removeClass(el, name) {
     el.classList.remove(name);
   }
+
   setStyle(el, style, value, flags) {
     if (flags & (RendererStyleFlags2.DashCase | RendererStyleFlags2.Important)) {
       el.style.setProperty(style, value, flags & RendererStyleFlags2.Important ? "important" : "");
@@ -3052,6 +3255,7 @@ var DefaultDomRenderer2 = class {
       el.style[style] = value;
     }
   }
+
   removeStyle(el, style, flags) {
     if (flags & RendererStyleFlags2.DashCase) {
       el.style.removeProperty(style);
@@ -3059,6 +3263,7 @@ var DefaultDomRenderer2 = class {
       el.style[style] = "";
     }
   }
+
   setProperty(el, name, value) {
     if (el == null) {
       return;
@@ -3066,9 +3271,11 @@ var DefaultDomRenderer2 = class {
     (typeof ngDevMode === "undefined" || ngDevMode) && this.throwOnSyntheticProps && checkNoSyntheticProp(name, "property");
     el[name] = value;
   }
+
   setValue(node, value) {
     node.nodeValue = value;
   }
+
   listen(target, event, callback) {
     (typeof ngDevMode === "undefined" || ngDevMode) && this.throwOnSyntheticProps && checkNoSyntheticProp(event, "listener");
     if (typeof target === "string") {
@@ -3079,6 +3286,7 @@ var DefaultDomRenderer2 = class {
     }
     return this.eventManager.addEventListener(target, event, this.decoratePreventDefault(callback));
   }
+
   decoratePreventDefault(eventHandler) {
     return (event) => {
       if (event === "__ngUnwrap__") {
@@ -3093,6 +3301,7 @@ var DefaultDomRenderer2 = class {
   }
 };
 var AT_CHARCODE = (() => "@".charCodeAt(0))();
+
 function checkNoSyntheticProp(name, nameKind) {
   if (name.charCodeAt(0) === AT_CHARCODE) {
     throw new RuntimeError(5105, `Unexpected synthetic ${nameKind} ${name} found. Please make sure that:
@@ -3100,13 +3309,16 @@ function checkNoSyntheticProp(name, nameKind) {
   - There is corresponding configuration for the animation named \`${name}\` defined in the \`animations\` field of the \`@Component\` decorator (see https://angular.io/api/core/Component#animations).`);
   }
 }
+
 function isTemplateNode(node) {
   return node.tagName === "TEMPLATE" && node.content !== void 0;
 }
+
 var ShadowDomRenderer = class extends DefaultDomRenderer2 {
   sharedStylesHost;
   hostEl;
   shadowRoot;
+
   constructor(eventManager, sharedStylesHost, hostEl, component, doc, ngZone, nonce, platformIsServer) {
     super(eventManager, doc, ngZone, platformIsServer);
     this.sharedStylesHost = sharedStylesHost;
@@ -3135,21 +3347,27 @@ var ShadowDomRenderer = class extends DefaultDomRenderer2 {
       }
     }
   }
+
   nodeOrShadowRoot(node) {
     return node === this.hostEl ? this.shadowRoot : node;
   }
+
   appendChild(parent, newChild) {
     return super.appendChild(this.nodeOrShadowRoot(parent), newChild);
   }
+
   insertBefore(parent, newChild, refChild) {
     return super.insertBefore(this.nodeOrShadowRoot(parent), newChild, refChild);
   }
+
   removeChild(_parent, oldChild) {
     return super.removeChild(null, oldChild);
   }
+
   parentNode(node) {
     return this.nodeOrShadowRoot(super.parentNode(this.nodeOrShadowRoot(node)));
   }
+
   destroy() {
     this.sharedStylesHost.removeHost(this.shadowRoot);
   }
@@ -3159,6 +3377,7 @@ var NoneEncapsulationDomRenderer = class extends DefaultDomRenderer2 {
   removeStylesOnCompDestroy;
   styles;
   styleUrls;
+
   constructor(eventManager, sharedStylesHost, component, removeStylesOnCompDestroy, doc, ngZone, platformIsServer, compId) {
     super(eventManager, doc, ngZone, platformIsServer);
     this.sharedStylesHost = sharedStylesHost;
@@ -3166,9 +3385,11 @@ var NoneEncapsulationDomRenderer = class extends DefaultDomRenderer2 {
     this.styles = compId ? shimStylesContent(compId, component.styles) : component.styles;
     this.styleUrls = component.getExternalStyles?.(compId);
   }
+
   applyStyles() {
     this.sharedStylesHost.addStyles(this.styles, this.styleUrls);
   }
+
   destroy() {
     if (!this.removeStylesOnCompDestroy) {
       return;
@@ -3179,16 +3400,19 @@ var NoneEncapsulationDomRenderer = class extends DefaultDomRenderer2 {
 var EmulatedEncapsulationDomRenderer2 = class extends NoneEncapsulationDomRenderer {
   contentAttr;
   hostAttr;
+
   constructor(eventManager, sharedStylesHost, component, appId, removeStylesOnCompDestroy, doc, ngZone, platformIsServer) {
     const compId = appId + "-" + component.id;
     super(eventManager, sharedStylesHost, component, removeStylesOnCompDestroy, doc, ngZone, platformIsServer, compId);
     this.contentAttr = shimContentAttribute(compId);
     this.hostAttr = shimHostAttribute(compId);
   }
+
   applyToHost(element) {
     this.applyStyles();
     this.setAttribute(element, this.hostAttr, "");
   }
+
   createElement(parent, name) {
     const el = super.createElement(parent, name);
     super.setAttribute(el, this.contentAttr, "");
@@ -3199,18 +3423,22 @@ var DomEventsPlugin = class _DomEventsPlugin extends EventManagerPlugin {
   constructor(doc) {
     super(doc);
   }
+
   // This plugin should come last in the list of plugins, because it accepts all
   // events.
   supports(eventName) {
     return true;
   }
+
   addEventListener(element, eventName, handler) {
     element.addEventListener(eventName, handler, false);
     return () => this.removeEventListener(element, eventName, handler);
   }
+
   removeEventListener(target, eventName, callback) {
     return target.removeEventListener(eventName, callback);
   }
+
   static ɵfac = function DomEventsPlugin_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _DomEventsPlugin)(ɵɵinject(DOCUMENT));
   };
@@ -3260,6 +3488,7 @@ var KeyEventsPlugin = class _KeyEventsPlugin extends EventManagerPlugin {
   constructor(doc) {
     super(doc);
   }
+
   /**
    * Reports whether a named key event is supported.
    * @param eventName The event name to query.
@@ -3268,6 +3497,7 @@ var KeyEventsPlugin = class _KeyEventsPlugin extends EventManagerPlugin {
   supports(eventName) {
     return _KeyEventsPlugin.parseEventName(eventName) != null;
   }
+
   /**
    * Registers a handler for a specific element and key event.
    * @param element The HTML element to receive event notifications.
@@ -3283,6 +3513,7 @@ var KeyEventsPlugin = class _KeyEventsPlugin extends EventManagerPlugin {
       return getDOM().onAndCancel(element, parsedEvent["domEventName"], outsideHandler);
     });
   }
+
   /**
    * Parses the user provided full keyboard event definition and normalizes it for
    * later internal use. It ensures the string is all lowercase, converts special
@@ -3321,6 +3552,7 @@ var KeyEventsPlugin = class _KeyEventsPlugin extends EventManagerPlugin {
     result["fullKey"] = fullKey;
     return result;
   }
+
   /**
    * Determines whether the actual keys pressed match the configured key code string.
    * The `fullKeyCode` event is normalized in the `parseEventName` method when the
@@ -3356,6 +3588,7 @@ var KeyEventsPlugin = class _KeyEventsPlugin extends EventManagerPlugin {
     key += keycode;
     return key === fullKeyCode;
   }
+
   /**
    * Configures a handler callback for a key event.
    * @param fullKey The event name that combines all simultaneous keystrokes.
@@ -3370,10 +3603,12 @@ var KeyEventsPlugin = class _KeyEventsPlugin extends EventManagerPlugin {
       }
     };
   }
+
   /** @internal */
   static _normalizeKey(keyName) {
     return keyName === "esc" ? "escape" : keyName;
   }
+
   static ɵfac = function KeyEventsPlugin_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _KeyEventsPlugin)(ɵɵinject(DOCUMENT));
   };
@@ -3393,33 +3628,41 @@ var KeyEventsPlugin = class _KeyEventsPlugin extends EventManagerPlugin {
     }]
   }], null);
 })();
+
 function bootstrapApplication(rootComponent, options) {
   return internalCreateApplication(__spreadValues({
     rootComponent
   }, createProvidersConfig(options)));
 }
+
 function createApplication(options) {
   return internalCreateApplication(createProvidersConfig(options));
 }
+
 function createProvidersConfig(options) {
   return {
     appProviders: [...BROWSER_MODULE_PROVIDERS, ...options?.providers ?? []],
     platformProviders: INTERNAL_BROWSER_PLATFORM_PROVIDERS
   };
 }
+
 function provideProtractorTestingSupport() {
   return [...TESTABILITY_PROVIDERS];
 }
+
 function initDomAdapter() {
   BrowserDomAdapter.makeCurrent();
 }
+
 function errorHandler() {
   return new ErrorHandler();
 }
+
 function _document() {
   setDocument(document);
   return document;
 }
+
 var INTERNAL_BROWSER_PLATFORM_PROVIDERS = [{
   provide: PLATFORM_ID,
   useValue: PLATFORM_BROWSER_ID
@@ -3482,6 +3725,7 @@ var BrowserModule = class _BrowserModule {
       throw new RuntimeError(5100, `Providers from the \`BrowserModule\` have already been loaded. If you need access to common directives such as NgIf and NgFor, import the \`CommonModule\` instead.`);
     }
   }
+
   static ɵfac = function BrowserModule_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _BrowserModule)(ɵɵinject(BROWSER_MODULE_PROVIDERS_MARKER, 12));
   };
@@ -3516,10 +3760,12 @@ var BrowserModule = class _BrowserModule {
 var Meta = class _Meta {
   _doc;
   _dom;
+
   constructor(_doc) {
     this._doc = _doc;
     this._dom = getDOM();
   }
+
   /**
    * Retrieves or creates a specific `<meta>` tag element in the current HTML document.
    * In searching for an existing tag, Angular attempts to match the `name` or `property` attribute
@@ -3534,6 +3780,7 @@ var Meta = class _Meta {
     if (!tag) return null;
     return this._getOrCreateElement(tag, forceCreation);
   }
+
   /**
    * Retrieves or creates a set of `<meta>` tag elements in the current HTML document.
    * In searching for an existing tag, Angular attempts to match the `name` or `property` attribute
@@ -3551,6 +3798,7 @@ var Meta = class _Meta {
       return result;
     }, []);
   }
+
   /**
    * Retrieves a `<meta>` tag element in the current HTML document.
    * @param attrSelector The tag attribute and value to match against, in the format
@@ -3561,6 +3809,7 @@ var Meta = class _Meta {
     if (!attrSelector) return null;
     return this._doc.querySelector(`meta[${attrSelector}]`) || null;
   }
+
   /**
    * Retrieves a set of `<meta>` tag elements in the current HTML document.
    * @param attrSelector The tag attribute and value to match against, in the format
@@ -3572,6 +3821,7 @@ var Meta = class _Meta {
     const list = this._doc.querySelectorAll(`meta[${attrSelector}]`);
     return list ? [].slice.call(list) : [];
   }
+
   /**
    * Modifies an existing `<meta>` tag element in the current HTML document.
    * @param tag The tag description with which to replace the existing tag content.
@@ -3590,6 +3840,7 @@ var Meta = class _Meta {
     }
     return this._getOrCreateElement(tag, true);
   }
+
   /**
    * Removes an existing `<meta>` tag element from the current HTML document.
    * @param attrSelector A tag attribute and value to match against, to identify
@@ -3598,6 +3849,7 @@ var Meta = class _Meta {
   removeTag(attrSelector) {
     this.removeTagElement(this.getTag(attrSelector));
   }
+
   /**
    * Removes an existing `<meta>` tag element from the current HTML document.
    * @param meta The tag definition to match against to identify an existing tag.
@@ -3607,6 +3859,7 @@ var Meta = class _Meta {
       this._dom.remove(meta);
     }
   }
+
   _getOrCreateElement(meta, forceCreation = false) {
     if (!forceCreation) {
       const selector = this._parseSelector(meta);
@@ -3619,20 +3872,25 @@ var Meta = class _Meta {
     head.appendChild(element);
     return element;
   }
+
   _setMetaElementAttributes(tag, el) {
     Object.keys(tag).forEach((prop) => el.setAttribute(this._getMetaKeyMap(prop), tag[prop]));
     return el;
   }
+
   _parseSelector(tag) {
     const attr = tag.name ? "name" : "property";
     return `${attr}="${tag[attr]}"`;
   }
+
   _containsAttributes(tag, elem) {
     return Object.keys(tag).every((key) => elem.getAttribute(this._getMetaKeyMap(key)) === tag[key]);
   }
+
   _getMetaKeyMap(prop) {
     return META_KEYS_MAP[prop] || prop;
   }
+
   static ɵfac = function Meta_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _Meta)(ɵɵinject(DOCUMENT));
   };
@@ -3661,15 +3919,18 @@ var META_KEYS_MAP = {
 };
 var Title = class _Title {
   _doc;
+
   constructor(_doc) {
     this._doc = _doc;
   }
+
   /**
    * Get the title of the current HTML document.
    */
   getTitle() {
     return this._doc.title;
   }
+
   /**
    * Set the title of the current HTML document.
    * @param newTitle
@@ -3677,6 +3938,7 @@ var Title = class _Title {
   setTitle(newTitle) {
     this._doc.title = newTitle || "";
   }
+
   static ɵfac = function Title_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _Title)(ɵɵinject(DOCUMENT));
   };
@@ -3700,15 +3962,18 @@ var Title = class _Title {
     }]
   }], null);
 })();
+
 function exportNgVar(name, value) {
   if (typeof COMPILED === "undefined" || !COMPILED) {
     const ng = _global["ng"] = _global["ng"] || {};
     ng[name] = value;
   }
 }
+
 var ChangeDetectionPerfRecord = class {
   msPerTick;
   numTicks;
+
   constructor(msPerTick, numTicks) {
     this.msPerTick = msPerTick;
     this.numTicks = numTicks;
@@ -3716,9 +3981,11 @@ var ChangeDetectionPerfRecord = class {
 };
 var AngularProfiler = class {
   appRef;
+
   constructor(ref) {
     this.appRef = ref.injector.get(ApplicationRef);
   }
+
   // tslint:disable:no-console
   /**
    * Exercises change detection in a loop and then prints the average amount of
@@ -3759,13 +4026,16 @@ var AngularProfiler = class {
   }
 };
 var PROFILER_GLOBAL_NAME = "profiler";
+
 function enableDebugTools(ref) {
   exportNgVar(PROFILER_GLOBAL_NAME, new AngularProfiler(ref));
   return ref;
 }
+
 function disableDebugTools() {
   exportNgVar(PROFILER_GLOBAL_NAME, null);
 }
+
 var By = class {
   /**
    * Match all nodes.
@@ -3778,6 +4048,7 @@ var By = class {
   static all() {
     return () => true;
   }
+
   /**
    * Match elements by the given CSS selector.
    *
@@ -3791,6 +4062,7 @@ var By = class {
       return debugElement.nativeElement != null ? elementMatches(debugElement.nativeElement, selector) : false;
     };
   }
+
   /**
    * Match nodes that have the given directive present.
    *
@@ -3803,12 +4075,14 @@ var By = class {
     return (debugNode) => debugNode.providerTokens.indexOf(type) !== -1;
   }
 };
+
 function elementMatches(n, selector) {
   if (getDOM().isElementNode(n)) {
     return n.matches && n.matches(selector) || n.msMatchesSelector && n.msMatchesSelector(selector) || n.webkitMatchesSelector && n.webkitMatchesSelector(selector);
   }
   return false;
 }
+
 var EVENT_NAMES = {
   // pan
   "pan": true,
@@ -3881,6 +4155,7 @@ var HammerGestureConfig = class _HammerGestureConfig {
    * [HammerJS documentation](https://hammerjs.github.io/).
    */
   options;
+
   /**
    * Creates a [HammerJS Manager](https://hammerjs.github.io/api/#hammermanager)
    * and attaches it to a given HTML element.
@@ -3900,6 +4175,7 @@ var HammerGestureConfig = class _HammerGestureConfig {
     }
     return mc;
   }
+
   static ɵfac = function HammerGestureConfig_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _HammerGestureConfig)();
   };
@@ -3918,12 +4194,14 @@ var HammerGesturesPlugin = class _HammerGesturesPlugin extends EventManagerPlugi
   console;
   loader;
   _loaderPromise = null;
+
   constructor(doc, _config, console2, loader) {
     super(doc);
     this._config = _config;
     this.console = console2;
     this.loader = loader;
   }
+
   supports(eventName) {
     if (!EVENT_NAMES.hasOwnProperty(eventName.toLowerCase()) && !this.isCustomEvent(eventName)) {
       return false;
@@ -3936,6 +4214,7 @@ var HammerGesturesPlugin = class _HammerGesturesPlugin extends EventManagerPlugi
     }
     return true;
   }
+
   addEventListener(element, eventName, handler) {
     const zone = this.manager.getZone();
     eventName = eventName.toLowerCase();
@@ -3970,8 +4249,8 @@ var HammerGesturesPlugin = class _HammerGesturesPlugin extends EventManagerPlugi
     }
     return zone.runOutsideAngular(() => {
       const mc = this._config.buildHammer(element);
-      const callback = function(eventObj) {
-        zone.runGuarded(function() {
+      const callback = function (eventObj) {
+        zone.runGuarded(function () {
           handler(eventObj);
         });
       };
@@ -3984,9 +4263,11 @@ var HammerGesturesPlugin = class _HammerGesturesPlugin extends EventManagerPlugi
       };
     });
   }
+
   isCustomEvent(eventName) {
     return this._config.events.indexOf(eventName) > -1;
   }
+
   static ɵfac = function HammerGesturesPlugin_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _HammerGesturesPlugin)(ɵɵinject(DOCUMENT), ɵɵinject(HAMMER_GESTURE_CONFIG), ɵɵinject(Console), ɵɵinject(HAMMER_LOADER, 8));
   };
@@ -4088,10 +4369,12 @@ var DomSanitizer = class _DomSanitizer {
 })();
 var DomSanitizerImpl = class _DomSanitizerImpl extends DomSanitizer {
   _doc;
+
   constructor(_doc) {
     super();
     this._doc = _doc;
   }
+
   sanitize(ctx, value) {
     if (value == null) return null;
     switch (ctx) {
@@ -4146,21 +4429,27 @@ var DomSanitizerImpl = class _DomSanitizerImpl extends DomSanitizer {
         throw new RuntimeError(5202, (typeof ngDevMode === "undefined" || ngDevMode) && `Unexpected SecurityContext ${ctx} (see ${XSS_SECURITY_URL})`);
     }
   }
+
   bypassSecurityTrustHtml(value) {
     return bypassSanitizationTrustHtml(value);
   }
+
   bypassSecurityTrustStyle(value) {
     return bypassSanitizationTrustStyle(value);
   }
+
   bypassSecurityTrustScript(value) {
     return bypassSanitizationTrustScript(value);
   }
+
   bypassSecurityTrustUrl(value) {
     return bypassSanitizationTrustUrl(value);
   }
+
   bypassSecurityTrustResourceUrl(value) {
     return bypassSanitizationTrustResourceUrl(value);
   }
+
   static ɵfac = function DomSanitizerImpl_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _DomSanitizerImpl)(ɵɵinject(DOCUMENT));
   };
@@ -4185,34 +4474,41 @@ var DomSanitizerImpl = class _DomSanitizerImpl extends DomSanitizer {
   }], null);
 })();
 var HydrationFeatureKind;
-(function(HydrationFeatureKind2) {
+(function (HydrationFeatureKind2) {
   HydrationFeatureKind2[HydrationFeatureKind2["NoHttpTransferCache"] = 0] = "NoHttpTransferCache";
   HydrationFeatureKind2[HydrationFeatureKind2["HttpTransferCacheOptions"] = 1] = "HttpTransferCacheOptions";
   HydrationFeatureKind2[HydrationFeatureKind2["I18nSupport"] = 2] = "I18nSupport";
   HydrationFeatureKind2[HydrationFeatureKind2["EventReplay"] = 3] = "EventReplay";
   HydrationFeatureKind2[HydrationFeatureKind2["IncrementalHydration"] = 4] = "IncrementalHydration";
 })(HydrationFeatureKind || (HydrationFeatureKind = {}));
+
 function hydrationFeature(ɵkind, ɵproviders = [], ɵoptions = {}) {
   return {
     ɵkind,
     ɵproviders
   };
 }
+
 function withNoHttpTransferCache() {
   return hydrationFeature(HydrationFeatureKind.NoHttpTransferCache);
 }
+
 function withHttpTransferCacheOptions(options) {
   return hydrationFeature(HydrationFeatureKind.HttpTransferCacheOptions, withHttpTransferCache(options));
 }
+
 function withI18nSupport2() {
   return hydrationFeature(HydrationFeatureKind.I18nSupport, withI18nSupport());
 }
+
 function withEventReplay2() {
   return hydrationFeature(HydrationFeatureKind.EventReplay, withEventReplay());
 }
+
 function withIncrementalHydration2() {
   return hydrationFeature(HydrationFeatureKind.IncrementalHydration, withIncrementalHydration());
 }
+
 function provideZoneJsCompatibilityDetector() {
   return [{
     provide: ENVIRONMENT_INITIALIZER,
@@ -4228,6 +4524,7 @@ function provideZoneJsCompatibilityDetector() {
     multi: true
   }];
 }
+
 function provideClientHydration(...features) {
   const providers = [];
   const featuresKind = /* @__PURE__ */ new Set();
@@ -4246,6 +4543,7 @@ function provideClientHydration(...features) {
   }
   return makeEnvironmentProviders([typeof ngDevMode !== "undefined" && ngDevMode ? provideZoneJsCompatibilityDetector() : [], withDomHydration(), featuresKind.has(HydrationFeatureKind.NoHttpTransferCache) || hasHttpTransferCacheOptions ? [] : withHttpTransferCache({}), providers]);
 }
+
 var VERSION = new Version("19.0.5");
 
 export {

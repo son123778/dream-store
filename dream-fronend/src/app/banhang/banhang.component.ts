@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-banhang',
@@ -13,6 +13,6 @@ export class BanhangComponent {
 
   public chartLabels = ['January', 'February', 'March', 'April'];
   public chartData = [
-    { data: [65, 59, 80, 81], label: 'Sales' },
+    {data: [65, 59, 80, 81], label: 'Sales'},
   ];
 }
