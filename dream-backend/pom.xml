@@ -8,7 +8,7 @@
         <version>3.4.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>org.example</groupId>
+    <groupId>com.example</groupId>
     <artifactId>dream-backend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>dream-backend</name>
@@ -101,5 +101,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
