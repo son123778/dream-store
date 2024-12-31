@@ -1,4 +1,4 @@
-package com.example.dreambackend.services;
+package com.example.dreambackend.services.thuonghieu;
 
 import com.example.dreambackend.entities.ThuongHieu;
 

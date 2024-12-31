@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -17,7 +19,7 @@ public class ChatLieu{
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Column(name = "ma")
     private String ma;
@@ -25,6 +27,12 @@ public class ChatLieu{
     @Column(name = "ten")
     private String ten;
 
+    @Column(name = "ngay_sua")
+    private LocalDate ngaySua;
+
+    @Column(name = "ngay_tao")
+    private LocalDate ngayTao;
+
     @Column(name = "trang_thai")
-    private String trangThai;
+    private int trangThai;
 }

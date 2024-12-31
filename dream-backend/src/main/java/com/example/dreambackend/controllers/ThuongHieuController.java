@@ -1,6 +1,6 @@
 package com.example.dreambackend.controllers;
 import com.example.dreambackend.entities.ThuongHieu;
-import com.example.dreambackend.services.ThuongHieuService;
+import com.example.dreambackend.services.thuonghieu.ThuongHieuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
