@@ -17,7 +17,7 @@ public class ThuongHieuController {
 
     @GetMapping("/hien-thi")
     public ResponseEntity<List<ThuongHieu>> hienThi() {
-        List<ThuongHieu> listTH = thuongHieuService.getAllThuongHieu();
-        return ResponseEntity.ok(listTH);
+        List<ThuongHieu> listThuongHieu = thuongHieuService.getAllThuongHieu();
+        return ResponseEntity.ok(listThuongHieu);
     }
 }

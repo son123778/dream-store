@@ -6,15 +6,21 @@
   <component name="ChangeListManager">
     <list default="true" id="5d7dcb88-d015-40bd-b1c2-e4c2578857ff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/controllers/ChatLieuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/controllers/ChatLieuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/controllers/CoAoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/controllers/CoAoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/controllers/SanPhamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/controllers/SanPhamController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/controllers/ThuongHieuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/controllers/ThuongHieuController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/controllers/XuatXuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/controllers/XuatXuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/entities/SanPham.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/entities/SanPham.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/entities/ThuongHieu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/entities/ThuongHieu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/controllers/ChatLieuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/controllers/ChatLieuController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/controllers/CoAoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/controllers/CoAoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/controllers/SanPhamController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/controllers/SanPhamController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/controllers/ThuongHieuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/controllers/ThuongHieuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/entities/ChatLieu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/entities/ChatLieu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/entities/CoAo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/entities/CoAo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/entities/XuatXu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/entities/XuatXu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/services/IThuongHieuService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/services/ThuongHieuService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/controllers/XuatXuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/controllers/XuatXuController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/entities/SanPham.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/entities/SanPham.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/entities/ThuongHieu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/entities/ThuongHieu.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,6 +142,7 @@
       <workItem from="1735621551541" duration="1148000" />
       <workItem from="1735652505084" duration="4511000" />
       <workItem from="1735658759808" duration="1657000" />
+      <workItem from="1735736683015" duration="5000000" />
     </task>
     <servers />
   </component>
@@ -152,5 +159,13 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="this.h" custom="java.lang.reflect.Proxy" />
+        <watch expression="this.h" custom="java.lang.reflect.Proxy" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

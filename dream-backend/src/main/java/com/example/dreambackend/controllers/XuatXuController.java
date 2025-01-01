@@ -16,7 +16,7 @@ public class XuatXuController {
 
     @GetMapping("/hien-thi")
     public ResponseEntity<List<XuatXu>> hienThi() {
-        List<XuatXu> listXX = xuatXuService.getAllXuatXu();
-        return ResponseEntity.ok(listXX);
+        List<XuatXu> listXuatXu = xuatXuService.getAllXuatXu();
+        return ResponseEntity.ok(listXuatXu);
     }
 }
