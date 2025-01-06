@@ -10,6 +10,7 @@ import java.util.List;
 public class ChatLieuService implements IChatLieuService {
     @Autowired
     ChatLieuRepository chatLieuRepository;
+
     @Override
     public List<ChatLieu> getAllChatLieu() {
         return chatLieuRepository.findAll();
