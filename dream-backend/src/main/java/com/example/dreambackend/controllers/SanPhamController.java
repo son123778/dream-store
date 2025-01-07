@@ -17,6 +17,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/san-pham")
+// cho phép các request Angular truy cập vào các API
 @CrossOrigin(origins = "http://localhost:4200")
 public class SanPhamController {
     @Autowired
