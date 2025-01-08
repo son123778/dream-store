@@ -11,8 +11,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/co-ao")
-@CrossOrigin(origins = "http://localhost:4200")
 // cho phép các request Angular truy cập vào các API
+@CrossOrigin(origins = "http://localhost:4200")
 public class CoAoController {
     @Autowired
     CoAoService coAoService;
