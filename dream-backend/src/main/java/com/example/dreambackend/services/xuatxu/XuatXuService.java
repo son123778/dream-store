@@ -1,6 +1,9 @@
 package com.example.dreambackend.services.xuatxu;
 
+<<<<<<< HEAD
 import com.example.dreambackend.dtos.XuatXuDto;
+=======
+>>>>>>> dong
 import com.example.dreambackend.entities.XuatXu;
 import com.example.dreambackend.repositories.XuatXuRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +19,7 @@ public class XuatXuService implements IXuatXuService {
     public List<XuatXu> getAllXuatXu() {
         return xuatXuRepository.findAll();
     }
+<<<<<<< HEAD
 
     @Override
     public XuatXu getXuatXu(Integer idXuatXu) {
@@ -42,4 +46,6 @@ public class XuatXuService implements IXuatXuService {
         xuatXuRepository.save(xuatXuUpdate);
         return xuatXuUpdate;
     }
+=======
+>>>>>>> dong
 }

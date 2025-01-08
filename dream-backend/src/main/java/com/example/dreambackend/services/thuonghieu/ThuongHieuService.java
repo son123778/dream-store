@@ -1,6 +1,9 @@
 package com.example.dreambackend.services.thuonghieu;
 
+<<<<<<< HEAD
 import com.example.dreambackend.dtos.ThuongHieuDto;
+=======
+>>>>>>> dong
 import com.example.dreambackend.entities.ThuongHieu;
 import com.example.dreambackend.repositories.ThuongHieuRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +18,7 @@ public class ThuongHieuService implements IThuongHieuService{
     public List<ThuongHieu> getAllThuongHieu() {
         return thuongHieuRepository.findAll();
     }
+<<<<<<< HEAD
 
     @Override
     public ThuongHieu getThuongHieu(Integer idThuongHieu) {
@@ -41,4 +45,6 @@ public class ThuongHieuService implements IThuongHieuService{
         thuongHieuRepository.save(thuongHieuUpdate);
         return thuongHieuUpdate;
     }
+=======
+>>>>>>> dong
 }

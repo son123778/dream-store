@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 com\example\dreambackend\dtos\ThuongHieuDto.class
 com\example\dreambackend\controllers\ChatLieuController.class
 com\example\dreambackend\controllers\SanPhamController.class
@@ -36,3 +37,7 @@ com\example\dreambackend\services\sanpham\SanPhamService.class
 com\example\dreambackend\dtos\SanPhamChiTietDto.class
 com\example\dreambackend\services\xuatxu\XuatXuService.class
 com\example\dreambackend\services\chatlieu\ChatLieuService.class
+=======
+com\example\dreambackend\DreamBackendApplication.class
+com\example\dreambackend\entities\SanPham$SanPhamBuilder.class
+>>>>>>> dong
