@@ -81,30 +81,6 @@ import {
   ɵɵviewQuery
 } from "./chunk-7WEFQ6UK.js";
 
-// node_modules/@angular/cdk/fesm2022/coercion.mjs
-function coerceBooleanProperty(value) {
-  return value != null && `${value}` !== "false";
-}
-
-function coerceNumberProperty(value, fallbackValue = 0) {
-  if (_isNumberValue(value)) {
-    return Number(value);
-  }
-  return arguments.length === 2 ? fallbackValue : 0;
-}
-
-function _isNumberValue(value) {
-  return !isNaN(parseFloat(value)) && !isNaN(Number(value));
-}
-
-function coerceArray(value) {
-  return Array.isArray(value) ? value : [value];
-}
-
-function coerceElement(elementOrRef) {
-  return elementOrRef instanceof ElementRef ? elementOrRef.nativeElement : elementOrRef;
-}
-
 // node_modules/@angular/cdk/fesm2022/platform.mjs
 var hasV8BreakIterator;
 try {
@@ -139,17 +115,15 @@ var Platform = class _Platform {
   /** Whether the current browser is Firefox. */
   FIREFOX = this.isBrowser && /(firefox|minefield)/i.test(navigator.userAgent);
   /** Whether the current platform is Android. */
-    // Trident on mobile adds the android platform to the userAgent to trick detections.
+  // Trident on mobile adds the android platform to the userAgent to trick detections.
   ANDROID = this.isBrowser && /android/i.test(navigator.userAgent) && !this.TRIDENT;
   // Safari browsers will include the Safari keyword in their userAgent. Some browsers may fake
   // this and just place the Safari keyword in the userAgent. To be more safe about Safari every
   // Safari browser should also use Webkit as its layout engine.
   /** Whether the current browser is Safari. */
   SAFARI = this.isBrowser && /safari/i.test(navigator.userAgent) && this.WEBKIT;
-
   constructor() {
   }
-
   static ɵfac = function Platform_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _Platform)();
   };
@@ -183,7 +157,6 @@ var PlatformModule = class _PlatformModule {
   }], null, null);
 })();
 var supportsPassiveEvents;
-
 function supportsPassiveEventListeners() {
   if (supportsPassiveEvents == null && typeof window !== "undefined") {
     try {
@@ -196,20 +169,17 @@ function supportsPassiveEventListeners() {
   }
   return supportsPassiveEvents;
 }
-
 function normalizePassiveListenerOptions(options) {
   return supportsPassiveEventListeners() ? options : !!options.capture;
 }
-
 var RtlScrollAxisType;
-(function (RtlScrollAxisType2) {
+(function(RtlScrollAxisType2) {
   RtlScrollAxisType2[RtlScrollAxisType2["NORMAL"] = 0] = "NORMAL";
   RtlScrollAxisType2[RtlScrollAxisType2["NEGATED"] = 1] = "NEGATED";
   RtlScrollAxisType2[RtlScrollAxisType2["INVERTED"] = 2] = "INVERTED";
 })(RtlScrollAxisType || (RtlScrollAxisType = {}));
 var rtlScrollAxisType;
 var scrollBehaviorSupported;
-
 function supportsScrollBehavior() {
   if (scrollBehaviorSupported == null) {
     if (typeof document !== "object" || !document || typeof Element !== "function" || !Element) {
@@ -229,7 +199,6 @@ function supportsScrollBehavior() {
   }
   return scrollBehaviorSupported;
 }
-
 function getRtlScrollAxisType() {
   if (typeof document !== "object" || !document) {
     return RtlScrollAxisType.NORMAL;
@@ -258,9 +227,7 @@ function getRtlScrollAxisType() {
   }
   return rtlScrollAxisType;
 }
-
 var shadowDomIsSupported;
-
 function _supportsShadowDom() {
   if (shadowDomIsSupported == null) {
     const head = typeof document !== "undefined" ? document.head : null;
@@ -268,7 +235,6 @@ function _supportsShadowDom() {
   }
   return shadowDomIsSupported;
 }
-
 function _getShadowRoot(element) {
   if (_supportsShadowDom()) {
     const rootNode = element.getRootNode ? element.getRootNode() : null;
@@ -278,7 +244,6 @@ function _getShadowRoot(element) {
   }
   return null;
 }
-
 function _getFocusedElementPierceShadowDom() {
   let activeElement = typeof document !== "undefined" && document ? document.activeElement : null;
   while (activeElement && activeElement.shadowRoot) {
@@ -291,176 +256,9 @@ function _getFocusedElementPierceShadowDom() {
   }
   return activeElement;
 }
-
 function _getEventTarget(event) {
   return event.composedPath ? event.composedPath()[0] : event.target;
 }
-
-// node_modules/@angular/cdk/fesm2022/bidi.mjs
-var DIR_DOCUMENT = new InjectionToken("cdk-dir-doc", {
-  providedIn: "root",
-  factory: DIR_DOCUMENT_FACTORY
-});
-
-function DIR_DOCUMENT_FACTORY() {
-  return inject(DOCUMENT);
-}
-
-var RTL_LOCALE_PATTERN = /^(ar|ckb|dv|he|iw|fa|nqo|ps|sd|ug|ur|yi|.*[-_](Adlm|Arab|Hebr|Nkoo|Rohg|Thaa))(?!.*[-_](Latn|Cyrl)($|-|_))($|-|_)/i;
-
-function _resolveDirectionality(rawValue) {
-  const value = rawValue?.toLowerCase() || "";
-  if (value === "auto" && typeof navigator !== "undefined" && navigator?.language) {
-    return RTL_LOCALE_PATTERN.test(navigator.language) ? "rtl" : "ltr";
-  }
-  return value === "rtl" ? "rtl" : "ltr";
-}
-
-var Directionality = class _Directionality {
-  /** The current 'ltr' or 'rtl' value. */
-  value = "ltr";
-  /** Stream that emits whenever the 'ltr' / 'rtl' state changes. */
-  change = new EventEmitter();
-
-  constructor() {
-    const _document = inject(DIR_DOCUMENT, {
-      optional: true
-    });
-    if (_document) {
-      const bodyDir = _document.body ? _document.body.dir : null;
-      const htmlDir = _document.documentElement ? _document.documentElement.dir : null;
-      this.value = _resolveDirectionality(bodyDir || htmlDir || "ltr");
-    }
-  }
-
-  ngOnDestroy() {
-    this.change.complete();
-  }
-
-  static ɵfac = function Directionality_Factory(__ngFactoryType__) {
-    return new (__ngFactoryType__ || _Directionality)();
-  };
-  static ɵprov = ɵɵdefineInjectable({
-    token: _Directionality,
-    factory: _Directionality.ɵfac,
-    providedIn: "root"
-  });
-};
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(Directionality, [{
-    type: Injectable,
-    args: [{
-      providedIn: "root"
-    }]
-  }], () => [], null);
-})();
-var Dir = class _Dir {
-  /** Normalized direction that accounts for invalid/unsupported values. */
-  _dir = "ltr";
-  /** Whether the `value` has been set to its initial value. */
-  _isInitialized = false;
-  /** Direction as passed in by the consumer. */
-  _rawDir;
-  /** Event emitted when the direction changes. */
-  change = new EventEmitter();
-
-  /** @docs-private */
-  get dir() {
-    return this._dir;
-  }
-
-  set dir(value) {
-    const previousValue = this._dir;
-    this._dir = _resolveDirectionality(value);
-    this._rawDir = value;
-    if (previousValue !== this._dir && this._isInitialized) {
-      this.change.emit(this._dir);
-    }
-  }
-
-  /** Current layout direction of the element. */
-  get value() {
-    return this.dir;
-  }
-
-  /** Initialize once default value has been set. */
-  ngAfterContentInit() {
-    this._isInitialized = true;
-  }
-
-  ngOnDestroy() {
-    this.change.complete();
-  }
-
-  static ɵfac = function Dir_Factory(__ngFactoryType__) {
-    return new (__ngFactoryType__ || _Dir)();
-  };
-  static ɵdir = ɵɵdefineDirective({
-    type: _Dir,
-    selectors: [["", "dir", ""]],
-    hostVars: 1,
-    hostBindings: function Dir_HostBindings(rf, ctx) {
-      if (rf & 2) {
-        ɵɵattribute("dir", ctx._rawDir);
-      }
-    },
-    inputs: {
-      dir: "dir"
-    },
-    outputs: {
-      change: "dirChange"
-    },
-    exportAs: ["dir"],
-    features: [ɵɵProvidersFeature([{
-      provide: Directionality,
-      useExisting: _Dir
-    }])]
-  });
-};
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(Dir, [{
-    type: Directive,
-    args: [{
-      selector: "[dir]",
-      providers: [{
-        provide: Directionality,
-        useExisting: Dir
-      }],
-      host: {
-        "[attr.dir]": "_rawDir"
-      },
-      exportAs: "dir"
-    }]
-  }], null, {
-    change: [{
-      type: Output,
-      args: ["dirChange"]
-    }],
-    dir: [{
-      type: Input
-    }]
-  });
-})();
-var BidiModule = class _BidiModule {
-  static ɵfac = function BidiModule_Factory(__ngFactoryType__) {
-    return new (__ngFactoryType__ || _BidiModule)();
-  };
-  static ɵmod = ɵɵdefineNgModule({
-    type: _BidiModule,
-    imports: [Dir],
-    exports: [Dir]
-  });
-  static ɵinj = ɵɵdefineInjector({});
-};
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(BidiModule, [{
-    type: NgModule,
-    args: [{
-      imports: [Dir],
-      exports: [Dir]
-    }]
-  }], null, null);
-})();
 
 // node_modules/@angular/cdk/fesm2022/private.mjs
 var appsWithLoaders = /* @__PURE__ */ new WeakMap();
@@ -468,7 +266,6 @@ var _CdkPrivateStyleLoader = class __CdkPrivateStyleLoader {
   _appRef;
   _injector = inject(Injector);
   _environmentInjector = inject(EnvironmentInjector);
-
   /**
    * Loads a set of styles.
    * @param loader Component which will be instantiated to load the styles.
@@ -494,7 +291,6 @@ var _CdkPrivateStyleLoader = class __CdkPrivateStyleLoader {
       }));
     }
   }
-
   static ɵfac = function _CdkPrivateStyleLoader_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || __CdkPrivateStyleLoader)();
   };
@@ -555,12 +351,31 @@ var A = 65;
 var Z = 90;
 var META = 91;
 var MAC_META = 224;
-
 function hasModifierKey(event, ...modifiers) {
   if (modifiers.length) {
     return modifiers.some((modifier) => event[modifier]);
   }
   return event.altKey || event.shiftKey || event.ctrlKey || event.metaKey;
+}
+
+// node_modules/@angular/cdk/fesm2022/coercion.mjs
+function coerceBooleanProperty(value) {
+  return value != null && `${value}` !== "false";
+}
+function coerceNumberProperty(value, fallbackValue = 0) {
+  if (_isNumberValue(value)) {
+    return Number(value);
+  }
+  return arguments.length === 2 ? fallbackValue : 0;
+}
+function _isNumberValue(value) {
+  return !isNaN(parseFloat(value)) && !isNaN(Number(value));
+}
+function coerceArray(value) {
+  return Array.isArray(value) ? value : [value];
+}
+function coerceElement(elementOrRef) {
+  return elementOrRef instanceof ElementRef ? elementOrRef.nativeElement : elementOrRef;
 }
 
 // node_modules/@angular/cdk/fesm2022/coercion/private.mjs
@@ -591,12 +406,10 @@ function shouldIgnoreRecord(record) {
   }
   return false;
 }
-
 var MutationObserverFactory = class _MutationObserverFactory {
   create(callback) {
     return typeof MutationObserver === "undefined" ? null : new MutationObserver(callback);
   }
-
   static ɵfac = function MutationObserverFactory_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _MutationObserverFactory)();
   };
@@ -619,14 +432,11 @@ var ContentObserver = class _ContentObserver {
   /** Keeps track of the existing MutationObservers so they can be reused. */
   _observedElements = /* @__PURE__ */ new Map();
   _ngZone = inject(NgZone);
-
   constructor() {
   }
-
   ngOnDestroy() {
     this._observedElements.forEach((_, element) => this._cleanupObserver(element));
   }
-
   observe(elementOrRef) {
     const element = coerceElement(elementOrRef);
     return new Observable((observer) => {
@@ -642,7 +452,6 @@ var ContentObserver = class _ContentObserver {
       };
     });
   }
-
   /**
    * Observes the given element by using the existing MutationObserver if available, or creating a
    * new one if not.
@@ -670,7 +479,6 @@ var ContentObserver = class _ContentObserver {
       return this._observedElements.get(element).stream;
     });
   }
-
   /**
    * Un-observes the given element and cleans up the underlying MutationObserver if nobody else is
    * observing this element.
@@ -683,7 +491,6 @@ var ContentObserver = class _ContentObserver {
       }
     }
   }
-
   /** Clean up the underlying MutationObserver for the specified element. */
   _cleanupObserver(element) {
     if (this._observedElements.has(element)) {
@@ -698,7 +505,6 @@ var ContentObserver = class _ContentObserver {
       this._observedElements.delete(element);
     }
   }
-
   static ɵfac = function ContentObserver_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _ContentObserver)();
   };
@@ -721,7 +527,6 @@ var CdkObserveContent = class _CdkObserveContent {
   _elementRef = inject(ElementRef);
   /** Event emitted for each change in the element's content. */
   event = new EventEmitter();
-
   /**
    * Whether observing content is disabled. This option can be used
    * to disconnect the underlying MutationObserver until it is needed.
@@ -729,50 +534,39 @@ var CdkObserveContent = class _CdkObserveContent {
   get disabled() {
     return this._disabled;
   }
-
   set disabled(value) {
     this._disabled = value;
     this._disabled ? this._unsubscribe() : this._subscribe();
   }
-
   _disabled = false;
-
   /** Debounce interval for emitting the changes. */
   get debounce() {
     return this._debounce;
   }
-
   set debounce(value) {
     this._debounce = coerceNumberProperty(value);
     this._subscribe();
   }
-
   _debounce;
   _currentSubscription = null;
-
   constructor() {
   }
-
   ngAfterContentInit() {
     if (!this._currentSubscription && !this.disabled) {
       this._subscribe();
     }
   }
-
   ngOnDestroy() {
     this._unsubscribe();
   }
-
   _subscribe() {
     this._unsubscribe();
     const stream = this._contentObserver.observe(this._elementRef);
     this._currentSubscription = (this.debounce ? stream.pipe(debounceTime(this.debounce)) : stream).subscribe(this.event);
   }
-
   _unsubscribe() {
     this._currentSubscription?.unsubscribe();
   }
-
   static ɵfac = function CdkObserveContent_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _CdkObserveContent)();
   };
@@ -863,7 +657,6 @@ var MediaMatcher = class _MediaMatcher {
   });
   /** The internal matchMedia method to return back a MediaQueryList like object. */
   _matchMedia;
-
   constructor() {
     this._matchMedia = this._platform.isBrowser && window.matchMedia ? (
       // matchMedia is bound to the window scope intentionally as it is an illegal invocation to
@@ -871,7 +664,6 @@ var MediaMatcher = class _MediaMatcher {
       window.matchMedia.bind(window)
     ) : noopMatchMedia;
   }
-
   /**
    * Evaluates the given media query and returns the native MediaQueryList from which results
    * can be retrieved.
@@ -884,7 +676,6 @@ var MediaMatcher = class _MediaMatcher {
     }
     return this._matchMedia(query);
   }
-
   static ɵfac = function MediaMatcher_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _MediaMatcher)();
   };
@@ -902,7 +693,6 @@ var MediaMatcher = class _MediaMatcher {
     }]
   }], () => [], null);
 })();
-
 function createEmptyStyleRule(query, nonce) {
   if (mediaQueriesForWebkitCompatibility.has(query)) {
     return;
@@ -924,7 +714,6 @@ function createEmptyStyleRule(query, nonce) {
     console.error(e);
   }
 }
-
 function noopMatchMedia(query) {
   return {
     matches: query === "all" || query === "",
@@ -935,7 +724,6 @@ function noopMatchMedia(query) {
     }
   };
 }
-
 var BreakpointObserver = class _BreakpointObserver {
   _mediaMatcher = inject(MediaMatcher);
   _zone = inject(NgZone);
@@ -943,16 +731,13 @@ var BreakpointObserver = class _BreakpointObserver {
   _queries = /* @__PURE__ */ new Map();
   /** A subject for all other observables to takeUntil based on. */
   _destroySubject = new Subject();
-
   constructor() {
   }
-
   /** Completes the active subject, signalling to all other observables to complete. */
   ngOnDestroy() {
     this._destroySubject.next();
     this._destroySubject.complete();
   }
-
   /**
    * Whether one or more media queries match the current viewport size.
    * @param value One or more media queries to check.
@@ -962,7 +747,6 @@ var BreakpointObserver = class _BreakpointObserver {
     const queries = splitQueries(coerceArray(value));
     return queries.some((mediaQuery) => this._registerQuery(mediaQuery).mql.matches);
   }
-
   /**
    * Gets an observable of results for the given queries that will emit new results for any changes
    * in matching of the given queries.
@@ -980,16 +764,15 @@ var BreakpointObserver = class _BreakpointObserver {
         breakpoints: {}
       };
       breakpointStates.forEach(({
-                                  matches,
-                                  query
-                                }) => {
+        matches,
+        query
+      }) => {
         response.matches = response.matches || matches;
         response.breakpoints[query] = matches;
       });
       return response;
     }));
   }
-
   /** Registers a specific query to be listened for. */
   _registerQuery(query) {
     if (this._queries.has(query)) {
@@ -1003,8 +786,8 @@ var BreakpointObserver = class _BreakpointObserver {
         mql.removeListener(handler);
       };
     }).pipe(startWith(mql), map(({
-                                   matches
-                                 }) => ({
+      matches
+    }) => ({
       query,
       matches
     })), takeUntil(this._destroySubject));
@@ -1015,7 +798,6 @@ var BreakpointObserver = class _BreakpointObserver {
     this._queries.set(query, output);
     return output;
   }
-
   static ɵfac = function BreakpointObserver_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _BreakpointObserver)();
   };
@@ -1033,14 +815,12 @@ var BreakpointObserver = class _BreakpointObserver {
     }]
   }], () => [], null);
 })();
-
 function splitQueries(queries) {
   return queries.map((query) => query.split(",")).reduce((a1, a2) => a1.concat(a2)).map((query) => query.trim());
 }
 
 // node_modules/@angular/cdk/fesm2022/a11y.mjs
 var ID_DELIMITER = " ";
-
 function addAriaReferencedId(el, attr, id) {
   const ids = getAriaReferenceIds(el, attr);
   id = id.trim();
@@ -1050,7 +830,6 @@ function addAriaReferencedId(el, attr, id) {
   ids.push(id);
   el.setAttribute(attr, ids.join(ID_DELIMITER));
 }
-
 function removeAriaReferencedId(el, attr, id) {
   const ids = getAriaReferenceIds(el, attr);
   id = id.trim();
@@ -1061,12 +840,10 @@ function removeAriaReferencedId(el, attr, id) {
     el.removeAttribute(attr);
   }
 }
-
 function getAriaReferenceIds(el, attr) {
   const attrValue = el.getAttribute(attr);
   return attrValue?.match(/\S+/g) ?? [];
 }
-
 var CDK_DESCRIBEDBY_ID_PREFIX = "cdk-describedby-message";
 var CDK_DESCRIBEDBY_HOST_ATTRIBUTE = "cdk-describedby-host";
 var nextId = 0;
@@ -1079,12 +856,10 @@ var AriaDescriber = class _AriaDescriber {
   _messagesContainer = null;
   /** Unique ID for the service. */
   _id = `${nextId++}`;
-
   constructor() {
     inject(_CdkPrivateStyleLoader).load(_VisuallyHiddenLoader);
     this._id = inject(APP_ID) + "-" + nextId++;
   }
-
   describe(hostElement, message, role) {
     if (!this._canBeDescribed(hostElement, message)) {
       return;
@@ -1103,7 +878,6 @@ var AriaDescriber = class _AriaDescriber {
       this._addMessageReference(hostElement, key);
     }
   }
-
   removeDescription(hostElement, message, role) {
     if (!message || !this._isElementNode(hostElement)) {
       return;
@@ -1123,7 +897,6 @@ var AriaDescriber = class _AriaDescriber {
       this._messagesContainer = null;
     }
   }
-
   /** Unregisters all created message elements and removes the message container. */
   ngOnDestroy() {
     const describedElements = this._document.querySelectorAll(`[${CDK_DESCRIBEDBY_HOST_ATTRIBUTE}="${this._id}"]`);
@@ -1135,7 +908,6 @@ var AriaDescriber = class _AriaDescriber {
     this._messagesContainer = null;
     this._messageRegistry.clear();
   }
-
   /**
    * Creates a new element in the visually hidden message container element with the message
    * as its content and adds it to the message registry.
@@ -1154,13 +926,11 @@ var AriaDescriber = class _AriaDescriber {
       referenceCount: 0
     });
   }
-
   /** Deletes the message element from the global messages container. */
   _deleteMessageElement(key) {
     this._messageRegistry.get(key)?.messageElement?.remove();
     this._messageRegistry.delete(key);
   }
-
   /** Creates the global container for all aria-describedby messages. */
   _createMessagesContainer() {
     if (this._messagesContainer) {
@@ -1181,13 +951,11 @@ var AriaDescriber = class _AriaDescriber {
     this._document.body.appendChild(messagesContainer);
     this._messagesContainer = messagesContainer;
   }
-
   /** Removes all cdk-describedby messages that are hosted through the element. */
   _removeCdkDescribedByReferenceIds(element) {
     const originalReferenceIds = getAriaReferenceIds(element, "aria-describedby").filter((id) => id.indexOf(CDK_DESCRIBEDBY_ID_PREFIX) != 0);
     element.setAttribute("aria-describedby", originalReferenceIds.join(" "));
   }
-
   /**
    * Adds a message reference to the element using aria-describedby and increments the registered
    * message's reference count.
@@ -1198,7 +966,6 @@ var AriaDescriber = class _AriaDescriber {
     element.setAttribute(CDK_DESCRIBEDBY_HOST_ATTRIBUTE, this._id);
     registeredMessage.referenceCount++;
   }
-
   /**
    * Removes a message reference from the element using aria-describedby
    * and decrements the registered message's reference count.
@@ -1209,7 +976,6 @@ var AriaDescriber = class _AriaDescriber {
     removeAriaReferencedId(element, "aria-describedby", registeredMessage.messageElement.id);
     element.removeAttribute(CDK_DESCRIBEDBY_HOST_ATTRIBUTE);
   }
-
   /** Returns true if the element has been described by the provided message ID. */
   _isElementDescribedByMessage(element, key) {
     const referenceIds = getAriaReferenceIds(element, "aria-describedby");
@@ -1217,7 +983,6 @@ var AriaDescriber = class _AriaDescriber {
     const messageId = registeredMessage && registeredMessage.messageElement.id;
     return !!messageId && referenceIds.indexOf(messageId) != -1;
   }
-
   /** Determines whether a message can be described on a particular element. */
   _canBeDescribed(element, message) {
     if (!this._isElementNode(element)) {
@@ -1230,12 +995,10 @@ var AriaDescriber = class _AriaDescriber {
     const ariaLabel = element.getAttribute("aria-label");
     return trimmedMessage ? !ariaLabel || ariaLabel.trim() !== trimmedMessage : false;
   }
-
   /** Checks whether a node is an Element node. */
   _isElementNode(element) {
     return element.nodeType === this._document.ELEMENT_NODE;
   }
-
   static ɵfac = function AriaDescriber_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _AriaDescriber)();
   };
@@ -1253,17 +1016,14 @@ var AriaDescriber = class _AriaDescriber {
     }]
   }], () => [], null);
 })();
-
 function getKey(message, role) {
   return typeof message === "string" ? `${role || ""}/${message}` : message;
 }
-
 function setMessageId(element, serviceId) {
   if (!element.id) {
     element.id = `${CDK_DESCRIBEDBY_ID_PREFIX}-${serviceId}-${nextId++}`;
   }
 }
-
 var DEFAULT_TYPEAHEAD_DEBOUNCE_INTERVAL_MS = 200;
 var Typeahead = class {
   _letterKeyStream = new Subject();
@@ -1274,7 +1034,6 @@ var Typeahead = class {
   _skipPredicateFn;
   _selectedItem = new Subject();
   selectedItem = this._selectedItem;
-
   constructor(initialItems, config) {
     const typeAheadInterval = typeof config?.debounceInterval === "number" ? config.debounceInterval : DEFAULT_TYPEAHEAD_DEBOUNCE_INTERVAL_MS;
     if (config?.skipPredicate) {
@@ -1286,21 +1045,17 @@ var Typeahead = class {
     this.setItems(initialItems);
     this._setupKeyHandler(typeAheadInterval);
   }
-
   destroy() {
     this._pressedLetters = [];
     this._letterKeyStream.complete();
     this._selectedItem.complete();
   }
-
   setCurrentSelectedItemIndex(index) {
     this._selectedItemIndex = index;
   }
-
   setItems(items) {
     this._items = items;
   }
-
   handleKey(event) {
     const keyCode = event.keyCode;
     if (event.key && event.key.length === 1) {
@@ -1309,17 +1064,14 @@ var Typeahead = class {
       this._letterKeyStream.next(String.fromCharCode(keyCode));
     }
   }
-
   /** Gets whether the user is currently typing into the manager using the typeahead feature. */
   isTyping() {
     return this._pressedLetters.length > 0;
   }
-
   /** Resets the currently stored sequence of typed letters. */
   reset() {
     this._pressedLetters = [];
   }
-
   _setupKeyHandler(typeAheadInterval) {
     this._letterKeyStream.pipe(tap((letter) => this._pressedLetters.push(letter)), debounceTime(typeAheadInterval), filter(() => this._pressedLetters.length > 0), map(() => this._pressedLetters.join("").toLocaleUpperCase())).subscribe((inputString) => {
       for (let i = 1; i < this._items.length + 1; i++) {
@@ -1362,7 +1114,6 @@ var TreeKeyManager = class {
   _typeahead;
   _typeaheadSubscription = Subscription.EMPTY;
   _hasInitialFocused = false;
-
   _initializeFocus() {
     if (this._hasInitialFocused || this._items.length === 0) {
       return;
@@ -1386,7 +1137,6 @@ var TreeKeyManager = class {
     }
     this._hasInitialFocused = true;
   }
-
   /**
    *
    * @param items List of TreeKeyManager options. Can be synchronous or asynchronous.
@@ -1431,17 +1181,14 @@ var TreeKeyManager = class {
       this._setTypeAhead(config.typeAheadDebounceInterval);
     }
   }
-
   /** Stream that emits any time the focused item changes. */
   change = new Subject();
-
   /** Cleans up the key manager. */
   destroy() {
     this._typeaheadSubscription.unsubscribe();
     this._typeahead?.destroy();
     this.change.complete();
   }
-
   /**
    * Handles a keyboard event on the tree.
    * @param event Keyboard event that represents the user interaction with the tree.
@@ -1484,37 +1231,30 @@ var TreeKeyManager = class {
     this._typeahead?.reset();
     event.preventDefault();
   }
-
   /** Index of the currently active item. */
   getActiveItemIndex() {
     return this._activeItemIndex;
   }
-
   /** The currently active item. */
   getActiveItem() {
     return this._activeItem;
   }
-
   /** Focus the first available item. */
   _focusFirstItem() {
     this.focusItem(this._findNextAvailableItemIndex(-1));
   }
-
   /** Focus the last available item. */
   _focusLastItem() {
     this.focusItem(this._findPreviousAvailableItemIndex(this._items.length));
   }
-
   /** Focus the next available item. */
   _focusNextItem() {
     this.focusItem(this._findNextAvailableItemIndex(this._activeItemIndex));
   }
-
   /** Focus the previous available item. */
   _focusPreviousItem() {
     this.focusItem(this._findPreviousAvailableItemIndex(this._activeItemIndex));
   }
-
   focusItem(itemOrIndex, options = {}) {
     options.emitChangeEvent ??= true;
     let index = typeof itemOrIndex === "number" ? itemOrIndex : this._items.findIndex((item) => this._trackByFn(item) === this._trackByFn(itemOrIndex));
@@ -1538,7 +1278,6 @@ var TreeKeyManager = class {
       this._activateCurrentItem();
     }
   }
-
   _updateActiveItemIndex(newItems) {
     const activeItem = this._activeItem;
     if (!activeItem) {
@@ -1550,7 +1289,6 @@ var TreeKeyManager = class {
       this._typeahead?.setCurrentSelectedItemIndex(newIndex);
     }
   }
-
   _setTypeAhead(debounceInterval) {
     this._typeahead = new Typeahead(this._items, {
       debounceInterval: typeof debounceInterval === "number" ? debounceInterval : void 0,
@@ -1560,7 +1298,6 @@ var TreeKeyManager = class {
       this.focusItem(item);
     });
   }
-
   _findNextAvailableItemIndex(startingIndex) {
     for (let i = startingIndex + 1; i < this._items.length; i++) {
       if (!this._skipPredicateFn(this._items[i])) {
@@ -1569,7 +1306,6 @@ var TreeKeyManager = class {
     }
     return startingIndex;
   }
-
   _findPreviousAvailableItemIndex(startingIndex) {
     for (let i = startingIndex - 1; i >= 0; i--) {
       if (!this._skipPredicateFn(this._items[i])) {
@@ -1578,7 +1314,6 @@ var TreeKeyManager = class {
     }
     return startingIndex;
   }
-
   /**
    * If the item is already expanded, we collapse the item. Otherwise, we will focus the parent.
    */
@@ -1596,7 +1331,6 @@ var TreeKeyManager = class {
       this.focusItem(parent);
     }
   }
-
   /**
    * If the item is already collapsed, we expand the item. Otherwise, we will focus the first child.
    */
@@ -1616,18 +1350,15 @@ var TreeKeyManager = class {
       });
     }
   }
-
   _isCurrentItemExpanded() {
     if (!this._activeItem) {
       return false;
     }
     return typeof this._activeItem.isExpanded === "boolean" ? this._activeItem.isExpanded : this._activeItem.isExpanded();
   }
-
   _isItemDisabled(item) {
     return typeof item.isDisabled === "boolean" ? item.isDisabled : item.isDisabled?.();
   }
-
   /** For all items that are the same level as the current item, we expand those items. */
   _expandAllItemsAtCurrentItemLevel() {
     if (!this._activeItem) {
@@ -1646,26 +1377,21 @@ var TreeKeyManager = class {
       }
     });
   }
-
   _activateCurrentItem() {
     this._activeItem?.activate();
   }
 };
-
 function TREE_KEY_MANAGER_FACTORY() {
   return (items, options) => new TreeKeyManager(items, options);
 }
-
 var TREE_KEY_MANAGER = new InjectionToken("tree-key-manager", {
   providedIn: "root",
   factory: TREE_KEY_MANAGER_FACTORY
 });
 var InteractivityChecker = class _InteractivityChecker {
   _platform = inject(Platform);
-
   constructor() {
   }
-
   /**
    * Gets whether an element is disabled.
    *
@@ -1675,7 +1401,6 @@ var InteractivityChecker = class _InteractivityChecker {
   isDisabled(element) {
     return element.hasAttribute("disabled");
   }
-
   /**
    * Gets whether an element is visible for the purposes of interactivity.
    *
@@ -1687,7 +1412,6 @@ var InteractivityChecker = class _InteractivityChecker {
   isVisible(element) {
     return hasGeometry(element) && getComputedStyle(element).visibility === "visible";
   }
-
   /**
    * Gets whether an element can be reached via Tab key.
    * Assumes that the element has already been checked with isFocusable.
@@ -1736,7 +1460,6 @@ var InteractivityChecker = class _InteractivityChecker {
     }
     return element.tabIndex >= 0;
   }
-
   /**
    * Gets whether an element can be focused by the user.
    *
@@ -1747,7 +1470,6 @@ var InteractivityChecker = class _InteractivityChecker {
   isFocusable(element, config) {
     return isPotentiallyFocusable(element) && !this.isDisabled(element) && (config?.ignoreVisibility || this.isVisible(element));
   }
-
   static ɵfac = function InteractivityChecker_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _InteractivityChecker)();
   };
@@ -1765,7 +1487,6 @@ var InteractivityChecker = class _InteractivityChecker {
     }]
   }], () => [], null);
 })();
-
 function getFrameElement(window2) {
   try {
     return window2.frameElement;
@@ -1773,32 +1494,25 @@ function getFrameElement(window2) {
     return null;
   }
 }
-
 function hasGeometry(element) {
   return !!(element.offsetWidth || element.offsetHeight || typeof element.getClientRects === "function" && element.getClientRects().length);
 }
-
 function isNativeFormElement(element) {
   let nodeName = element.nodeName.toLowerCase();
   return nodeName === "input" || nodeName === "select" || nodeName === "button" || nodeName === "textarea";
 }
-
 function isHiddenInput(element) {
   return isInputElement(element) && element.type == "hidden";
 }
-
 function isAnchorWithHref(element) {
   return isAnchorElement(element) && element.hasAttribute("href");
 }
-
 function isInputElement(element) {
   return element.nodeName.toLowerCase() == "input";
 }
-
 function isAnchorElement(element) {
   return element.nodeName.toLowerCase() == "a";
 }
-
 function hasValidTabIndex(element) {
   if (!element.hasAttribute("tabindex") || element.tabIndex === void 0) {
     return false;
@@ -1806,7 +1520,6 @@ function hasValidTabIndex(element) {
   let tabIndex = element.getAttribute("tabindex");
   return !!(tabIndex && !isNaN(parseInt(tabIndex, 10)));
 }
-
 function getTabIndexValue(element) {
   if (!hasValidTabIndex(element)) {
     return null;
@@ -1814,24 +1527,20 @@ function getTabIndexValue(element) {
   const tabIndex = parseInt(element.getAttribute("tabindex") || "", 10);
   return isNaN(tabIndex) ? -1 : tabIndex;
 }
-
 function isPotentiallyTabbableIOS(element) {
   let nodeName = element.nodeName.toLowerCase();
   let inputType = nodeName === "input" && element.type;
   return inputType === "text" || inputType === "password" || nodeName === "select" || nodeName === "textarea";
 }
-
 function isPotentiallyFocusable(element) {
   if (isHiddenInput(element)) {
     return false;
   }
   return isNativeFormElement(element) || isAnchorWithHref(element) || element.hasAttribute("contenteditable") || hasValidTabIndex(element);
 }
-
 function getWindow(node) {
   return node.ownerDocument && node.ownerDocument.defaultView || window;
 }
-
 var FocusTrap = class {
   _element;
   _checker;
@@ -1844,12 +1553,10 @@ var FocusTrap = class {
   // Event listeners for the anchors. Need to be regular functions so that we can unbind them later.
   startAnchorListener = () => this.focusLastTabbableElement();
   endAnchorListener = () => this.focusFirstTabbableElement();
-
   /** Whether the focus trap is active. */
   get enabled() {
     return this._enabled;
   }
-
   set enabled(value) {
     this._enabled = value;
     if (this._startAnchor && this._endAnchor) {
@@ -1857,9 +1564,7 @@ var FocusTrap = class {
       this._toggleAnchorTabIndex(value, this._endAnchor);
     }
   }
-
   _enabled = true;
-
   constructor(_element, _checker, _ngZone, _document, deferAnchors = false, _injector) {
     this._element = _element;
     this._checker = _checker;
@@ -1870,7 +1575,6 @@ var FocusTrap = class {
       this.attachAnchors();
     }
   }
-
   /** Destroys the focus trap by cleaning up the anchors. */
   destroy() {
     const startAnchor = this._startAnchor;
@@ -1886,7 +1590,6 @@ var FocusTrap = class {
     this._startAnchor = this._endAnchor = null;
     this._hasAttached = false;
   }
-
   /**
    * Inserts the anchors into the DOM. This is usually done automatically
    * in the constructor, but can be deferred for cases like directives with `*ngIf`.
@@ -1914,7 +1617,6 @@ var FocusTrap = class {
     }
     return this._hasAttached;
   }
-
   /**
    * Waits for the zone to stabilize, then focuses the first tabbable element.
    * @returns Returns a promise that resolves with a boolean, depending
@@ -1925,7 +1627,6 @@ var FocusTrap = class {
       this._executeOnStable(() => resolve(this.focusInitialElement(options)));
     });
   }
-
   /**
    * Waits for the zone to stabilize, then focuses
    * the first tabbable element within the focus trap region.
@@ -1937,7 +1638,6 @@ var FocusTrap = class {
       this._executeOnStable(() => resolve(this.focusFirstTabbableElement(options)));
     });
   }
-
   /**
    * Waits for the zone to stabilize, then focuses
    * the last tabbable element within the focus trap region.
@@ -1949,7 +1649,6 @@ var FocusTrap = class {
       this._executeOnStable(() => resolve(this.focusLastTabbableElement(options)));
     });
   }
-
   /**
    * Get the specified boundary element of the trapped region.
    * @param bound The boundary to get (start or end of trapped region).
@@ -1971,7 +1670,6 @@ var FocusTrap = class {
     }
     return markers.length ? markers[markers.length - 1] : this._getLastTabbableElement(this._element);
   }
-
   /**
    * Focuses the element that should be focused when the focus trap is initialized.
    * @returns Whether focus was moved successfully.
@@ -1995,7 +1693,6 @@ var FocusTrap = class {
     }
     return this.focusFirstTabbableElement(options);
   }
-
   /**
    * Focuses the first tabbable element within the focus trap region.
    * @returns Whether focus was moved successfully.
@@ -2007,7 +1704,6 @@ var FocusTrap = class {
     }
     return !!redirectToElement;
   }
-
   /**
    * Focuses the last tabbable element within the focus trap region.
    * @returns Whether focus was moved successfully.
@@ -2019,14 +1715,12 @@ var FocusTrap = class {
     }
     return !!redirectToElement;
   }
-
   /**
    * Checks whether the focus trap has successfully been attached.
    */
   hasAttached() {
     return this._hasAttached;
   }
-
   /** Get the first tabbable element from a DOM subtree (inclusive). */
   _getFirstTabbableElement(root) {
     if (this._checker.isFocusable(root) && this._checker.isTabbable(root)) {
@@ -2041,7 +1735,6 @@ var FocusTrap = class {
     }
     return null;
   }
-
   /** Get the last tabbable element from a DOM subtree (inclusive). */
   _getLastTabbableElement(root) {
     if (this._checker.isFocusable(root) && this._checker.isTabbable(root)) {
@@ -2056,7 +1749,6 @@ var FocusTrap = class {
     }
     return null;
   }
-
   /** Creates an anchor element. */
   _createAnchor() {
     const anchor = this._document.createElement("div");
@@ -2066,7 +1758,6 @@ var FocusTrap = class {
     anchor.setAttribute("aria-hidden", "true");
     return anchor;
   }
-
   /**
    * Toggles the `tabindex` of an anchor, based on the enabled state of the focus trap.
    * @param isEnabled Whether the focus trap is enabled.
@@ -2075,7 +1766,6 @@ var FocusTrap = class {
   _toggleAnchorTabIndex(isEnabled, anchor) {
     isEnabled ? anchor.setAttribute("tabindex", "0") : anchor.removeAttribute("tabindex");
   }
-
   /**
    * Toggles the`tabindex` of both anchors to either trap Tab focus or allow it to escape.
    * @param enabled: Whether the anchors should trap Tab.
@@ -2086,7 +1776,6 @@ var FocusTrap = class {
       this._toggleAnchorTabIndex(enabled, this._endAnchor);
     }
   }
-
   /** Executes a function when the zone is stable. */
   _executeOnStable(fn) {
     if (this._injector) {
@@ -2103,11 +1792,9 @@ var FocusTrapFactory = class _FocusTrapFactory {
   _ngZone = inject(NgZone);
   _document = inject(DOCUMENT);
   _injector = inject(Injector);
-
   constructor() {
     inject(_CdkPrivateStyleLoader).load(_VisuallyHiddenLoader);
   }
-
   /**
    * Creates a focus-trapped region around the given element.
    * @param element The element around which focus will be trapped.
@@ -2118,7 +1805,6 @@ var FocusTrapFactory = class _FocusTrapFactory {
   create(element, deferCaptureElements = false) {
     return new FocusTrap(element, this._checker, this._ngZone, this._document, deferCaptureElements, this._injector);
   }
-
   static ɵfac = function FocusTrapFactory_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _FocusTrapFactory)();
   };
@@ -2143,31 +1829,26 @@ var CdkTrapFocus = class _CdkTrapFocus {
   focusTrap;
   /** Previously focused element to restore focus to upon destroy when using autoCapture. */
   _previouslyFocusedElement = null;
-
   /** Whether the focus trap is active. */
   get enabled() {
     return this.focusTrap?.enabled || false;
   }
-
   set enabled(value) {
     if (this.focusTrap) {
       this.focusTrap.enabled = value;
     }
   }
-
   /**
    * Whether the directive should automatically move focus into the trapped region upon
    * initialization and return focus to the previous activeElement upon destruction.
    */
   autoCapture;
-
   constructor() {
     const platform = inject(Platform);
     if (platform.isBrowser) {
       this.focusTrap = this._focusTrapFactory.create(this._elementRef.nativeElement, true);
     }
   }
-
   ngOnDestroy() {
     this.focusTrap?.destroy();
     if (this._previouslyFocusedElement) {
@@ -2175,32 +1856,27 @@ var CdkTrapFocus = class _CdkTrapFocus {
       this._previouslyFocusedElement = null;
     }
   }
-
   ngAfterContentInit() {
     this.focusTrap?.attachAnchors();
     if (this.autoCapture) {
       this._captureFocus();
     }
   }
-
   ngDoCheck() {
     if (this.focusTrap && !this.focusTrap.hasAttached()) {
       this.focusTrap.attachAnchors();
     }
   }
-
   ngOnChanges(changes) {
     const autoCaptureChange = changes["autoCapture"];
     if (autoCaptureChange && !autoCaptureChange.firstChange && this.autoCapture && this.focusTrap?.hasAttached()) {
       this._captureFocus();
     }
   }
-
   _captureFocus() {
     this._previouslyFocusedElement = _getFocusedElementPierceShadowDom();
     this.focusTrap?.focusInitialElementWhenReady();
   }
-
   static ɵfac = function CdkTrapFocus_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _CdkTrapFocus)();
   };
@@ -2242,12 +1918,10 @@ var CdkTrapFocus = class _CdkTrapFocus {
 var ConfigurableFocusTrap = class extends FocusTrap {
   _focusTrapManager;
   _inertStrategy;
-
   /** Whether the FocusTrap is enabled. */
   get enabled() {
     return this._enabled;
   }
-
   set enabled(value) {
     this._enabled = value;
     if (this._enabled) {
@@ -2256,26 +1930,22 @@ var ConfigurableFocusTrap = class extends FocusTrap {
       this._focusTrapManager.deregister(this);
     }
   }
-
   constructor(_element, _checker, _ngZone, _document, _focusTrapManager, _inertStrategy, config, injector) {
     super(_element, _checker, _ngZone, _document, config.defer, injector);
     this._focusTrapManager = _focusTrapManager;
     this._inertStrategy = _inertStrategy;
     this._focusTrapManager.register(this);
   }
-
   /** Notifies the FocusTrapManager that this FocusTrap will be destroyed. */
   destroy() {
     this._focusTrapManager.deregister(this);
     super.destroy();
   }
-
   /** @docs-private Implemented as part of ManagedFocusTrap. */
   _enable() {
     this._inertStrategy.preventFocus(this);
     this.toggleAnchors(true);
   }
-
   /** @docs-private Implemented as part of ManagedFocusTrap. */
   _disable() {
     this._inertStrategy.allowFocus(this);
@@ -2285,7 +1955,6 @@ var ConfigurableFocusTrap = class extends FocusTrap {
 var EventListenerFocusTrapInertStrategy = class {
   /** Focus event handler. */
   _listener = null;
-
   /** Adds a document event listener that keeps focus inside the FocusTrap. */
   preventFocus(focusTrap) {
     if (this._listener) {
@@ -2296,7 +1965,6 @@ var EventListenerFocusTrapInertStrategy = class {
       focusTrap._document.addEventListener("focus", this._listener, true);
     });
   }
-
   /** Removes the event listener added in preventFocus. */
   allowFocus(focusTrap) {
     if (!this._listener) {
@@ -2305,7 +1973,6 @@ var EventListenerFocusTrapInertStrategy = class {
     focusTrap._document.removeEventListener("focus", this._listener, true);
     this._listener = null;
   }
-
   /**
    * Refocuses the first element in the FocusTrap if the focus event target was outside
    * the FocusTrap.
@@ -2330,7 +1997,6 @@ var FocusTrapManager = class _FocusTrapManager {
   // A stack of the FocusTraps on the page. Only the FocusTrap at the
   // top of the stack is active.
   _focusTrapStack = [];
-
   /**
    * Disables the FocusTrap at the top of the stack, and then pushes
    * the new FocusTrap onto the stack.
@@ -2344,7 +2010,6 @@ var FocusTrapManager = class _FocusTrapManager {
     stack.push(focusTrap);
     focusTrap._enable();
   }
-
   /**
    * Removes the FocusTrap from the stack, and activates the
    * FocusTrap that is the new top of the stack.
@@ -2360,7 +2025,6 @@ var FocusTrapManager = class _FocusTrapManager {
       }
     }
   }
-
   static ɵfac = function FocusTrapManager_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _FocusTrapManager)();
   };
@@ -2385,14 +2049,12 @@ var ConfigurableFocusTrapFactory = class _ConfigurableFocusTrapFactory {
   _document = inject(DOCUMENT);
   _inertStrategy;
   _injector = inject(Injector);
-
   constructor() {
     const inertStrategy = inject(FOCUS_TRAP_INERT_STRATEGY, {
       optional: true
     });
     this._inertStrategy = inertStrategy || new EventListenerFocusTrapInertStrategy();
   }
-
   create(element, config = {
     defer: false
   }) {
@@ -2406,7 +2068,6 @@ var ConfigurableFocusTrapFactory = class _ConfigurableFocusTrapFactory {
     }
     return new ConfigurableFocusTrap(element, this._checker, this._ngZone, this._document, this._focusTrapManager, this._inertStrategy, configObject, this._injector);
   }
-
   static ɵfac = function ConfigurableFocusTrapFactory_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _ConfigurableFocusTrapFactory)();
   };
@@ -2424,16 +2085,13 @@ var ConfigurableFocusTrapFactory = class _ConfigurableFocusTrapFactory {
     }]
   }], () => [], null);
 })();
-
 function isFakeMousedownFromScreenReader(event) {
   return event.buttons === 0 || event.detail === 0;
 }
-
 function isFakeTouchstartFromScreenReader(event) {
   const touch = event.touches && event.touches[0] || event.changedTouches && event.changedTouches[0];
   return !!touch && touch.identifier === -1 && (touch.radiusX == null || touch.radiusX === 1) && (touch.radiusY == null || touch.radiusY === 1);
 }
-
 var INPUT_MODALITY_DETECTOR_OPTIONS = new InjectionToken("cdk-input-modality-detector-options");
 var INPUT_MODALITY_DETECTOR_DEFAULT_OPTIONS = {
   ignoreKeys: [ALT, CONTROL, MAC_META, META, SHIFT]
@@ -2449,12 +2107,10 @@ var InputModalityDetector = class _InputModalityDetector {
   modalityDetected;
   /** Emits when the input modality changes. */
   modalityChanged;
-
   /** The most recently detected input modality. */
   get mostRecentModality() {
     return this._modality.value;
   }
-
   /**
    * The most recently detected input modality event target. Is null if no input modality has been
    * detected or if the associated event target is null for some unknown reason.
@@ -2504,7 +2160,6 @@ var InputModalityDetector = class _InputModalityDetector {
     this._modality.next("touch");
     this._mostRecentTarget = _getEventTarget(event);
   };
-
   constructor() {
     const ngZone = inject(NgZone);
     const document2 = inject(DOCUMENT);
@@ -2522,7 +2177,6 @@ var InputModalityDetector = class _InputModalityDetector {
       });
     }
   }
-
   ngOnDestroy() {
     this._modality.complete();
     if (this._platform.isBrowser) {
@@ -2531,7 +2185,6 @@ var InputModalityDetector = class _InputModalityDetector {
       document.removeEventListener("touchstart", this._onTouchstart, modalityEventListenerOptions);
     }
   }
-
   static ɵfac = function InputModalityDetector_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _InputModalityDetector)();
   };
@@ -2553,11 +2206,9 @@ var LIVE_ANNOUNCER_ELEMENT_TOKEN = new InjectionToken("liveAnnouncerElement", {
   providedIn: "root",
   factory: LIVE_ANNOUNCER_ELEMENT_TOKEN_FACTORY
 });
-
 function LIVE_ANNOUNCER_ELEMENT_TOKEN_FACTORY() {
   return null;
 }
-
 var LIVE_ANNOUNCER_DEFAULT_OPTIONS = new InjectionToken("LIVE_ANNOUNCER_DEFAULT_OPTIONS");
 var uniqueIds = 0;
 var LiveAnnouncer = class _LiveAnnouncer {
@@ -2570,14 +2221,12 @@ var LiveAnnouncer = class _LiveAnnouncer {
   _previousTimeout;
   _currentPromise;
   _currentResolve;
-
   constructor() {
     const elementToken = inject(LIVE_ANNOUNCER_ELEMENT_TOKEN, {
       optional: true
     });
     this._liveElement = elementToken || this._createLiveElement();
   }
-
   announce(message, ...args) {
     const defaultOptions = this._defaultOptions;
     let politeness;
@@ -2615,7 +2264,6 @@ var LiveAnnouncer = class _LiveAnnouncer {
       return this._currentPromise;
     });
   }
-
   /**
    * Clears the current text from the announcer element. Can be used to prevent
    * screen readers from reading the text out again while the user is going
@@ -2626,7 +2274,6 @@ var LiveAnnouncer = class _LiveAnnouncer {
       this._liveElement.textContent = "";
     }
   }
-
   ngOnDestroy() {
     clearTimeout(this._previousTimeout);
     this._liveElement?.remove();
@@ -2634,7 +2281,6 @@ var LiveAnnouncer = class _LiveAnnouncer {
     this._currentResolve?.();
     this._currentPromise = this._currentResolve = void 0;
   }
-
   _createLiveElement() {
     const elementClass = "cdk-live-announcer-element";
     const previousElements = this._document.getElementsByClassName(elementClass);
@@ -2650,7 +2296,6 @@ var LiveAnnouncer = class _LiveAnnouncer {
     this._document.body.appendChild(liveEl);
     return liveEl;
   }
-
   /**
    * Some browsers won't expose the accessibility node of the live announcer element if there is an
    * `aria-modal` and the live announcer is outside of it. This method works around the issue by
@@ -2668,7 +2313,6 @@ var LiveAnnouncer = class _LiveAnnouncer {
       }
     }
   }
-
   static ɵfac = function LiveAnnouncer_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _LiveAnnouncer)();
   };
@@ -2691,12 +2335,10 @@ var CdkAriaLive = class _CdkAriaLive {
   _liveAnnouncer = inject(LiveAnnouncer);
   _contentObserver = inject(ContentObserver);
   _ngZone = inject(NgZone);
-
   /** The aria-live politeness level to use when announcing messages. */
   get politeness() {
     return this._politeness;
   }
-
   set politeness(value) {
     this._politeness = value === "off" || value === "assertive" ? value : "polite";
     if (this._politeness === "off") {
@@ -2716,23 +2358,19 @@ var CdkAriaLive = class _CdkAriaLive {
       });
     }
   }
-
   _politeness = "polite";
   /** Time in milliseconds after which to clear out the announcer element. */
   duration;
   _previousAnnouncedText;
   _subscription;
-
   constructor() {
     inject(_CdkPrivateStyleLoader).load(_VisuallyHiddenLoader);
   }
-
   ngOnDestroy() {
     if (this._subscription) {
       this._subscription.unsubscribe();
     }
   }
-
   static ɵfac = function CdkAriaLive_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _CdkAriaLive)();
   };
@@ -2765,7 +2403,7 @@ var CdkAriaLive = class _CdkAriaLive {
   });
 })();
 var FocusMonitorDetectionMode;
-(function (FocusMonitorDetectionMode2) {
+(function(FocusMonitorDetectionMode2) {
   FocusMonitorDetectionMode2[FocusMonitorDetectionMode2["IMMEDIATE"] = 0] = "IMMEDIATE";
   FocusMonitorDetectionMode2[FocusMonitorDetectionMode2["EVENTUAL"] = 1] = "EVENTUAL";
 })(FocusMonitorDetectionMode || (FocusMonitorDetectionMode = {}));
@@ -2823,14 +2461,12 @@ var FocusMonitor = class _FocusMonitor {
   });
   /** Subject for stopping our InputModalityDetector subscription. */
   _stopInputModalityDetector = new Subject();
-
   constructor() {
     const options = inject(FOCUS_MONITOR_DEFAULT_OPTIONS, {
       optional: true
     });
     this._detectionMode = options?.detectionMode || FocusMonitorDetectionMode.IMMEDIATE;
   }
-
   /**
    * Event listener for `focus` and 'blur' events on the document.
    * Needs to be an arrow function in order to preserve the context when it gets bound.
@@ -2845,7 +2481,6 @@ var FocusMonitor = class _FocusMonitor {
       }
     }
   };
-
   monitor(element, checkChildren = false) {
     const nativeElement = coerceElement(element);
     if (!this._platform.isBrowser || nativeElement.nodeType !== 1) {
@@ -2868,7 +2503,6 @@ var FocusMonitor = class _FocusMonitor {
     this._registerGlobalListeners(info);
     return info.subject;
   }
-
   stopMonitoring(element) {
     const nativeElement = coerceElement(element);
     const elementInfo = this._elementInfo.get(nativeElement);
@@ -2879,7 +2513,6 @@ var FocusMonitor = class _FocusMonitor {
       this._removeGlobalListeners(elementInfo);
     }
   }
-
   focusVia(element, origin, options) {
     const nativeElement = coerceElement(element);
     const focusedElement = this._getDocument().activeElement;
@@ -2892,22 +2525,18 @@ var FocusMonitor = class _FocusMonitor {
       }
     }
   }
-
   ngOnDestroy() {
     this._elementInfo.forEach((_info, element) => this.stopMonitoring(element));
   }
-
   /** Access injected document if available or fallback to global document reference */
   _getDocument() {
     return this._document || document;
   }
-
   /** Use defaultView of injected document if available or fallback to global window reference */
   _getWindow() {
     const doc = this._getDocument();
     return doc.defaultView || window;
   }
-
   _getFocusOrigin(focusEventTarget) {
     if (this._origin) {
       if (this._originFromTouchInteraction) {
@@ -2924,7 +2553,6 @@ var FocusMonitor = class _FocusMonitor {
     }
     return "program";
   }
-
   /**
    * Returns whether the focus event should be attributed to touch. Recall that in IMMEDIATE mode, a
    * touch origin isn't immediately reset at the next tick (see _setOrigin). This means that when we
@@ -2936,7 +2564,6 @@ var FocusMonitor = class _FocusMonitor {
   _shouldBeAttributedToTouch(focusEventTarget) {
     return this._detectionMode === FocusMonitorDetectionMode.EVENTUAL || !!focusEventTarget?.contains(this._inputModalityDetector._mostRecentTarget);
   }
-
   /**
    * Sets the focus classes on the element based on the given focus origin.
    * @param element The element to update the classes on.
@@ -2949,7 +2576,6 @@ var FocusMonitor = class _FocusMonitor {
     element.classList.toggle("cdk-mouse-focused", origin === "mouse");
     element.classList.toggle("cdk-program-focused", origin === "program");
   }
-
   /**
    * Updates the focus origin. If we're using immediate detection mode, we schedule an async
    * function to clear the origin at the end of a timeout. The duration of the timeout depends on
@@ -2968,7 +2594,6 @@ var FocusMonitor = class _FocusMonitor {
       }
     });
   }
-
   /**
    * Handles focus events on a registered element.
    * @param event The focus event.
@@ -2982,7 +2607,6 @@ var FocusMonitor = class _FocusMonitor {
     }
     this._originChanged(element, this._getFocusOrigin(focusEventTarget), elementInfo);
   }
-
   /**
    * Handles blur events on a registered element.
    * @param event The blur event.
@@ -2996,13 +2620,11 @@ var FocusMonitor = class _FocusMonitor {
     this._setClasses(element);
     this._emitOrigin(elementInfo, null);
   }
-
   _emitOrigin(info, origin) {
     if (info.subject.observers.length) {
       this._ngZone.run(() => info.subject.next(origin));
     }
   }
-
   _registerGlobalListeners(elementInfo) {
     if (!this._platform.isBrowser) {
       return;
@@ -3030,7 +2652,6 @@ var FocusMonitor = class _FocusMonitor {
       });
     }
   }
-
   _removeGlobalListeners(elementInfo) {
     const rootNode = elementInfo.rootNode;
     if (this._rootNodeFocusListenerCount.has(rootNode)) {
@@ -3051,14 +2672,12 @@ var FocusMonitor = class _FocusMonitor {
       clearTimeout(this._originTimeoutId);
     }
   }
-
   /** Updates all the state on an element once its focus origin has changed. */
   _originChanged(element, origin, elementInfo) {
     this._setClasses(element, origin);
     this._emitOrigin(elementInfo, origin);
     this._lastFocusOrigin = origin;
   }
-
   /**
    * Collects the `MonitoredElementInfo` of a particular element and
    * all of its ancestors that have enabled `checkChildren`.
@@ -3073,7 +2692,6 @@ var FocusMonitor = class _FocusMonitor {
     });
     return results;
   }
-
   /**
    * Returns whether an interaction is likely to have come from the user clicking the `label` of
    * an `input` or `textarea` in order to focus it.
@@ -3097,7 +2715,6 @@ var FocusMonitor = class _FocusMonitor {
     }
     return false;
   }
-
   static ɵfac = function FocusMonitor_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _FocusMonitor)();
   };
@@ -3121,14 +2738,11 @@ var CdkMonitorFocus = class _CdkMonitorFocus {
   _monitorSubscription;
   _focusOrigin = null;
   cdkFocusChange = new EventEmitter();
-
   constructor() {
   }
-
   get focusOrigin() {
     return this._focusOrigin;
   }
-
   ngAfterViewInit() {
     const element = this._elementRef.nativeElement;
     this._monitorSubscription = this._focusMonitor.monitor(element, element.nodeType === 1 && element.hasAttribute("cdkMonitorSubtreeFocus")).subscribe((origin) => {
@@ -3136,14 +2750,12 @@ var CdkMonitorFocus = class _CdkMonitorFocus {
       this.cdkFocusChange.emit(origin);
     });
   }
-
   ngOnDestroy() {
     this._focusMonitor.stopMonitoring(this._elementRef);
     if (this._monitorSubscription) {
       this._monitorSubscription.unsubscribe();
     }
   }
-
   static ɵfac = function CdkMonitorFocus_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _CdkMonitorFocus)();
   };
@@ -3170,7 +2782,7 @@ var CdkMonitorFocus = class _CdkMonitorFocus {
   });
 })();
 var HighContrastMode;
-(function (HighContrastMode2) {
+(function(HighContrastMode2) {
   HighContrastMode2[HighContrastMode2["NONE"] = 0] = "NONE";
   HighContrastMode2[HighContrastMode2["BLACK_ON_WHITE"] = 1] = "BLACK_ON_WHITE";
   HighContrastMode2[HighContrastMode2["WHITE_ON_BLACK"] = 2] = "WHITE_ON_BLACK";
@@ -3187,7 +2799,6 @@ var HighContrastModeDetector = class _HighContrastModeDetector {
   _hasCheckedHighContrastMode;
   _document = inject(DOCUMENT);
   _breakpointSubscription;
-
   constructor() {
     this._breakpointSubscription = inject(BreakpointObserver).observe("(forced-colors: active)").subscribe(() => {
       if (this._hasCheckedHighContrastMode) {
@@ -3196,7 +2807,6 @@ var HighContrastModeDetector = class _HighContrastModeDetector {
       }
     });
   }
-
   /** Gets the current high-contrast-mode for the page. */
   getHighContrastMode() {
     if (!this._platform.isBrowser) {
@@ -3221,11 +2831,9 @@ var HighContrastModeDetector = class _HighContrastModeDetector {
     }
     return HighContrastMode.NONE;
   }
-
   ngOnDestroy() {
     this._breakpointSubscription.unsubscribe();
   }
-
   /** Applies CSS classes indicating high-contrast mode to document body (browser-only). */
   _applyBodyHighContrastModeCssClasses() {
     if (!this._hasCheckedHighContrastMode && this._platform.isBrowser && this._document.body) {
@@ -3240,7 +2848,6 @@ var HighContrastModeDetector = class _HighContrastModeDetector {
       }
     }
   }
-
   static ɵfac = function HighContrastModeDetector_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _HighContrastModeDetector)();
   };
@@ -3262,7 +2869,6 @@ var A11yModule = class _A11yModule {
   constructor() {
     inject(HighContrastModeDetector)._applyBodyHighContrastModeCssClasses();
   }
-
   static ɵfac = function A11yModule_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _A11yModule)();
   };
@@ -3287,7 +2893,6 @@ var A11yModule = class _A11yModule {
 var counters = {};
 var _IdGenerator = class __IdGenerator {
   _appId = inject(APP_ID);
-
   /**
    * Generates a unique ID with a specific prefix.
    * @param prefix Prefix to add to the ID.
@@ -3301,7 +2906,6 @@ var _IdGenerator = class __IdGenerator {
     }
     return `${prefix}${counters[prefix]++}`;
   }
-
   static ɵfac = function _IdGenerator_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || __IdGenerator)();
   };
@@ -3320,13 +2924,165 @@ var _IdGenerator = class __IdGenerator {
   }], null, null);
 })();
 
+// node_modules/@angular/cdk/fesm2022/bidi.mjs
+var DIR_DOCUMENT = new InjectionToken("cdk-dir-doc", {
+  providedIn: "root",
+  factory: DIR_DOCUMENT_FACTORY
+});
+function DIR_DOCUMENT_FACTORY() {
+  return inject(DOCUMENT);
+}
+var RTL_LOCALE_PATTERN = /^(ar|ckb|dv|he|iw|fa|nqo|ps|sd|ug|ur|yi|.*[-_](Adlm|Arab|Hebr|Nkoo|Rohg|Thaa))(?!.*[-_](Latn|Cyrl)($|-|_))($|-|_)/i;
+function _resolveDirectionality(rawValue) {
+  const value = rawValue?.toLowerCase() || "";
+  if (value === "auto" && typeof navigator !== "undefined" && navigator?.language) {
+    return RTL_LOCALE_PATTERN.test(navigator.language) ? "rtl" : "ltr";
+  }
+  return value === "rtl" ? "rtl" : "ltr";
+}
+var Directionality = class _Directionality {
+  /** The current 'ltr' or 'rtl' value. */
+  value = "ltr";
+  /** Stream that emits whenever the 'ltr' / 'rtl' state changes. */
+  change = new EventEmitter();
+  constructor() {
+    const _document = inject(DIR_DOCUMENT, {
+      optional: true
+    });
+    if (_document) {
+      const bodyDir = _document.body ? _document.body.dir : null;
+      const htmlDir = _document.documentElement ? _document.documentElement.dir : null;
+      this.value = _resolveDirectionality(bodyDir || htmlDir || "ltr");
+    }
+  }
+  ngOnDestroy() {
+    this.change.complete();
+  }
+  static ɵfac = function Directionality_Factory(__ngFactoryType__) {
+    return new (__ngFactoryType__ || _Directionality)();
+  };
+  static ɵprov = ɵɵdefineInjectable({
+    token: _Directionality,
+    factory: _Directionality.ɵfac,
+    providedIn: "root"
+  });
+};
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(Directionality, [{
+    type: Injectable,
+    args: [{
+      providedIn: "root"
+    }]
+  }], () => [], null);
+})();
+var Dir = class _Dir {
+  /** Normalized direction that accounts for invalid/unsupported values. */
+  _dir = "ltr";
+  /** Whether the `value` has been set to its initial value. */
+  _isInitialized = false;
+  /** Direction as passed in by the consumer. */
+  _rawDir;
+  /** Event emitted when the direction changes. */
+  change = new EventEmitter();
+  /** @docs-private */
+  get dir() {
+    return this._dir;
+  }
+  set dir(value) {
+    const previousValue = this._dir;
+    this._dir = _resolveDirectionality(value);
+    this._rawDir = value;
+    if (previousValue !== this._dir && this._isInitialized) {
+      this.change.emit(this._dir);
+    }
+  }
+  /** Current layout direction of the element. */
+  get value() {
+    return this.dir;
+  }
+  /** Initialize once default value has been set. */
+  ngAfterContentInit() {
+    this._isInitialized = true;
+  }
+  ngOnDestroy() {
+    this.change.complete();
+  }
+  static ɵfac = function Dir_Factory(__ngFactoryType__) {
+    return new (__ngFactoryType__ || _Dir)();
+  };
+  static ɵdir = ɵɵdefineDirective({
+    type: _Dir,
+    selectors: [["", "dir", ""]],
+    hostVars: 1,
+    hostBindings: function Dir_HostBindings(rf, ctx) {
+      if (rf & 2) {
+        ɵɵattribute("dir", ctx._rawDir);
+      }
+    },
+    inputs: {
+      dir: "dir"
+    },
+    outputs: {
+      change: "dirChange"
+    },
+    exportAs: ["dir"],
+    features: [ɵɵProvidersFeature([{
+      provide: Directionality,
+      useExisting: _Dir
+    }])]
+  });
+};
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(Dir, [{
+    type: Directive,
+    args: [{
+      selector: "[dir]",
+      providers: [{
+        provide: Directionality,
+        useExisting: Dir
+      }],
+      host: {
+        "[attr.dir]": "_rawDir"
+      },
+      exportAs: "dir"
+    }]
+  }], null, {
+    change: [{
+      type: Output,
+      args: ["dirChange"]
+    }],
+    dir: [{
+      type: Input
+    }]
+  });
+})();
+var BidiModule = class _BidiModule {
+  static ɵfac = function BidiModule_Factory(__ngFactoryType__) {
+    return new (__ngFactoryType__ || _BidiModule)();
+  };
+  static ɵmod = ɵɵdefineNgModule({
+    type: _BidiModule,
+    imports: [Dir],
+    exports: [Dir]
+  });
+  static ɵinj = ɵɵdefineInjector({});
+};
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(BidiModule, [{
+    type: NgModule,
+    args: [{
+      imports: [Dir],
+      exports: [Dir]
+    }]
+  }], null, null);
+})();
+
 // node_modules/@angular/material/fesm2022/core.mjs
 var _c0 = ["*", [["mat-option"], ["ng-container"]]];
 var _c1 = ["*", "mat-option, ng-container"];
 var _c2 = ["text"];
 var _c3 = [[["mat-icon"]], "*"];
 var _c4 = ["mat-icon", "*"];
-
 function MatOption_Conditional_0_Template(rf, ctx) {
   if (rf & 1) {
     ɵɵelement(0, "mat-pseudo-checkbox", 1);
@@ -3336,7 +3092,6 @@ function MatOption_Conditional_0_Template(rf, ctx) {
     ɵɵproperty("disabled", ctx_r0.disabled)("state", ctx_r0.selected ? "checked" : "unchecked");
   }
 }
-
 function MatOption_Conditional_5_Template(rf, ctx) {
   if (rf & 1) {
     ɵɵelement(0, "mat-pseudo-checkbox", 3);
@@ -3346,7 +3101,6 @@ function MatOption_Conditional_5_Template(rf, ctx) {
     ɵɵproperty("disabled", ctx_r0.disabled);
   }
 }
-
 function MatOption_Conditional_6_Template(rf, ctx) {
   if (rf & 1) {
     ɵɵelementStart(0, "span", 4);
@@ -3359,7 +3113,6 @@ function MatOption_Conditional_6_Template(rf, ctx) {
     ɵɵtextInterpolate1("(", ctx_r0.group.label, ")");
   }
 }
-
 var _c5 = ["mat-internal-form-field", ""];
 var _c6 = ["*"];
 var VERSION = new Version("19.0.4");
@@ -3371,7 +3124,6 @@ var MatCommonModule = class _MatCommonModule {
   constructor() {
     inject(HighContrastModeDetector)._applyBodyHighContrastModeCssClasses();
   }
-
   static ɵfac = function MatCommonModule_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _MatCommonModule)();
   };
@@ -3397,11 +3149,9 @@ var MAT_DATE_LOCALE = new InjectionToken("MAT_DATE_LOCALE", {
   providedIn: "root",
   factory: MAT_DATE_LOCALE_FACTORY
 });
-
 function MAT_DATE_LOCALE_FACTORY() {
   return inject(LOCALE_ID);
 }
-
 var NOT_IMPLEMENTED = "Method not implemented";
 var DateAdapter = class {
   /** The locale to use for all dates. */
@@ -3409,7 +3159,6 @@ var DateAdapter = class {
   _localeChanges = new Subject();
   /** A stream that emits when the locale changes. */
   localeChanges = this._localeChanges;
-
   /**
    * Sets the time of one date to the time of another.
    * @param target Date whose time will be set.
@@ -3420,7 +3169,6 @@ var DateAdapter = class {
   setTime(target, hours, minutes, seconds) {
     throw new Error(NOT_IMPLEMENTED);
   }
-
   /**
    * Gets the hours component of the given date.
    * @param date The date to extract the hours from.
@@ -3428,7 +3176,6 @@ var DateAdapter = class {
   getHours(date) {
     throw new Error(NOT_IMPLEMENTED);
   }
-
   /**
    * Gets the minutes component of the given date.
    * @param date The date to extract the minutes from.
@@ -3436,7 +3183,6 @@ var DateAdapter = class {
   getMinutes(date) {
     throw new Error(NOT_IMPLEMENTED);
   }
-
   /**
    * Gets the seconds component of the given date.
    * @param date The date to extract the seconds from.
@@ -3444,7 +3190,6 @@ var DateAdapter = class {
   getSeconds(date) {
     throw new Error(NOT_IMPLEMENTED);
   }
-
   /**
    * Parses a date with a specific time from a user-provided value.
    * @param value The value to parse.
@@ -3454,7 +3199,6 @@ var DateAdapter = class {
   parseTime(value, parseFormat) {
     throw new Error(NOT_IMPLEMENTED);
   }
-
   /**
    * Adds an amount of seconds to the specified date.
    * @param date Date to which to add the seconds.
@@ -3463,7 +3207,6 @@ var DateAdapter = class {
   addSeconds(date, amount) {
     throw new Error(NOT_IMPLEMENTED);
   }
-
   /**
    * Given a potential date object, returns that same date object if it is
    * a valid date, or `null` if it's not a valid date.
@@ -3473,7 +3216,6 @@ var DateAdapter = class {
   getValidDateOrNull(obj) {
     return this.isDateInstance(obj) && this.isValid(obj) ? obj : null;
   }
-
   /**
    * Attempts to deserialize a value to a valid date object. This is different from parsing in that
    * deserialize should only accept non-ambiguous, locale-independent formats (e.g. a ISO 8601
@@ -3492,7 +3234,6 @@ var DateAdapter = class {
     }
     return this.invalid();
   }
-
   /**
    * Sets the locale used for all dates.
    * @param locale The new locale.
@@ -3501,7 +3242,6 @@ var DateAdapter = class {
     this.locale = locale;
     this._localeChanges.next();
   }
-
   /**
    * Compares two dates.
    * @param first The first date to compare.
@@ -3512,7 +3252,6 @@ var DateAdapter = class {
   compareDate(first, second) {
     return this.getYear(first) - this.getYear(second) || this.getMonth(first) - this.getMonth(second) || this.getDate(first) - this.getDate(second);
   }
-
   /**
    * Compares the time values of two dates.
    * @param first First date to compare.
@@ -3523,7 +3262,6 @@ var DateAdapter = class {
   compareTime(first, second) {
     return this.getHours(first) - this.getHours(second) || this.getMinutes(first) - this.getMinutes(second) || this.getSeconds(first) - this.getSeconds(second);
   }
-
   /**
    * Checks if two dates are equal.
    * @param first The first date to check.
@@ -3542,7 +3280,6 @@ var DateAdapter = class {
     }
     return first == second;
   }
-
   /**
    * Checks if the times of two dates are equal.
    * @param first The first date to check.
@@ -3561,7 +3298,6 @@ var DateAdapter = class {
     }
     return first == second;
   }
-
   /**
    * Clamp the given date between min and max dates.
    * @param date The date to clamp.
@@ -3583,7 +3319,6 @@ var DateAdapter = class {
 var MAT_DATE_FORMATS = new InjectionToken("mat-date-formats");
 var ISO_8601_REGEX = /^\d{4}-\d{2}-\d{2}(?:T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|(?:(?:\+|-)\d{2}:\d{2}))?)?$/;
 var TIME_REGEX = /^(\d?\d)[:.](\d?\d)(?:[:.](\d?\d))?\s*(AM|PM)?$/i;
-
 function range(length, valueFunction) {
   const valuesArray = Array(length);
   for (let i = 0; i < length; i++) {
@@ -3591,7 +3326,6 @@ function range(length, valueFunction) {
   }
   return valuesArray;
 }
-
 var NativeDateAdapter = class _NativeDateAdapter extends DateAdapter {
   /**
    * @deprecated No longer being used. To be removed.
@@ -3602,7 +3336,6 @@ var NativeDateAdapter = class _NativeDateAdapter extends DateAdapter {
   _matDateLocale = inject(MAT_DATE_LOCALE, {
     optional: true
   });
-
   constructor() {
     super();
     const matDateLocale = inject(MAT_DATE_LOCALE, {
@@ -3613,23 +3346,18 @@ var NativeDateAdapter = class _NativeDateAdapter extends DateAdapter {
     }
     super.setLocale(this._matDateLocale);
   }
-
   getYear(date) {
     return date.getFullYear();
   }
-
   getMonth(date) {
     return date.getMonth();
   }
-
   getDate(date) {
     return date.getDate();
   }
-
   getDayOfWeek(date) {
     return date.getDay();
   }
-
   getMonthNames(style) {
     const dtf = new Intl.DateTimeFormat(this.locale, {
       month: style,
@@ -3637,7 +3365,6 @@ var NativeDateAdapter = class _NativeDateAdapter extends DateAdapter {
     });
     return range(12, (i) => this._format(dtf, new Date(2017, i, 1)));
   }
-
   getDateNames() {
     const dtf = new Intl.DateTimeFormat(this.locale, {
       day: "numeric",
@@ -3645,7 +3372,6 @@ var NativeDateAdapter = class _NativeDateAdapter extends DateAdapter {
     });
     return range(31, (i) => this._format(dtf, new Date(2017, 0, i + 1)));
   }
-
   getDayOfWeekNames(style) {
     const dtf = new Intl.DateTimeFormat(this.locale, {
       weekday: style,
@@ -3653,7 +3379,6 @@ var NativeDateAdapter = class _NativeDateAdapter extends DateAdapter {
     });
     return range(7, (i) => this._format(dtf, new Date(2017, 0, i + 1)));
   }
-
   getYearName(date) {
     const dtf = new Intl.DateTimeFormat(this.locale, {
       year: "numeric",
@@ -3661,7 +3386,6 @@ var NativeDateAdapter = class _NativeDateAdapter extends DateAdapter {
     });
     return this._format(dtf, date);
   }
-
   getFirstDayOfWeek() {
     if (typeof Intl !== "undefined" && Intl.Locale) {
       const locale = new Intl.Locale(this.locale);
@@ -3670,15 +3394,12 @@ var NativeDateAdapter = class _NativeDateAdapter extends DateAdapter {
     }
     return 0;
   }
-
   getNumDaysInMonth(date) {
     return this.getDate(this._createDateWithOverflow(this.getYear(date), this.getMonth(date) + 1, 0));
   }
-
   clone(date) {
     return new Date(date.getTime());
   }
-
   createDate(year, month, date) {
     if (typeof ngDevMode === "undefined" || ngDevMode) {
       if (month < 0 || month > 11) {
@@ -3694,18 +3415,15 @@ var NativeDateAdapter = class _NativeDateAdapter extends DateAdapter {
     }
     return result;
   }
-
   today() {
     return /* @__PURE__ */ new Date();
   }
-
   parse(value, parseFormat) {
     if (typeof value == "number") {
       return new Date(value);
     }
     return value ? new Date(Date.parse(value)) : null;
   }
-
   format(date, displayFormat) {
     if (!this.isValid(date)) {
       throw Error("NativeDateAdapter: Cannot format invalid date.");
@@ -3715,11 +3433,9 @@ var NativeDateAdapter = class _NativeDateAdapter extends DateAdapter {
     }));
     return this._format(dtf, date);
   }
-
   addCalendarYears(date, years) {
     return this.addCalendarMonths(date, years * 12);
   }
-
   addCalendarMonths(date, months) {
     let newDate = this._createDateWithOverflow(this.getYear(date), this.getMonth(date) + months, this.getDate(date));
     if (this.getMonth(newDate) != ((this.getMonth(date) + months) % 12 + 12) % 12) {
@@ -3727,15 +3443,12 @@ var NativeDateAdapter = class _NativeDateAdapter extends DateAdapter {
     }
     return newDate;
   }
-
   addCalendarDays(date, days) {
     return this._createDateWithOverflow(this.getYear(date), this.getMonth(date), this.getDate(date) + days);
   }
-
   toIso8601(date) {
     return [date.getUTCFullYear(), this._2digit(date.getUTCMonth() + 1), this._2digit(date.getUTCDate())].join("-");
   }
-
   /**
    * Returns the given value if given a valid Date or null. Deserializes valid ISO 8601 strings
    * (https://www.ietf.org/rfc/rfc3339.txt) into valid Dates and empty string into null. Returns an
@@ -3755,19 +3468,15 @@ var NativeDateAdapter = class _NativeDateAdapter extends DateAdapter {
     }
     return super.deserialize(value);
   }
-
   isDateInstance(obj) {
     return obj instanceof Date;
   }
-
   isValid(date) {
     return !isNaN(date.getTime());
   }
-
   invalid() {
     return /* @__PURE__ */ new Date(NaN);
   }
-
   setTime(target, hours, minutes, seconds) {
     if (typeof ngDevMode === "undefined" || ngDevMode) {
       if (!inRange(hours, 0, 23)) {
@@ -3784,19 +3493,15 @@ var NativeDateAdapter = class _NativeDateAdapter extends DateAdapter {
     clone.setHours(hours, minutes, seconds, 0);
     return clone;
   }
-
   getHours(date) {
     return date.getHours();
   }
-
   getMinutes(date) {
     return date.getMinutes();
   }
-
   getSeconds(date) {
     return date.getSeconds();
   }
-
   parseTime(userValue, parseFormat) {
     if (typeof userValue !== "string") {
       return userValue instanceof Date ? new Date(userValue.getTime()) : null;
@@ -3814,11 +3519,9 @@ var NativeDateAdapter = class _NativeDateAdapter extends DateAdapter {
     }
     return result || this.invalid();
   }
-
   addSeconds(date, amount) {
     return new Date(date.getTime() + amount * 1e3);
   }
-
   /** Creates a date but allows the month and date to overflow. */
   _createDateWithOverflow(year, month, date) {
     const d = /* @__PURE__ */ new Date();
@@ -3826,7 +3529,6 @@ var NativeDateAdapter = class _NativeDateAdapter extends DateAdapter {
     d.setHours(0, 0, 0, 0);
     return d;
   }
-
   /**
    * Pads a number to make it two digits.
    * @param n The number to pad.
@@ -3835,7 +3537,6 @@ var NativeDateAdapter = class _NativeDateAdapter extends DateAdapter {
   _2digit(n) {
     return ("00" + n).slice(-2);
   }
-
   /**
    * When converting Date object to string, javascript built-in functions may return wrong
    * results because it applies its internal DST rules. The DST rules around the world change
@@ -3853,7 +3554,6 @@ var NativeDateAdapter = class _NativeDateAdapter extends DateAdapter {
     d.setUTCHours(date.getHours(), date.getMinutes(), date.getSeconds(), date.getMilliseconds());
     return dtf.format(d);
   }
-
   /**
    * Attempts to parse a time string into a date object. Returns null if it cannot be parsed.
    * @param value Time string to parse.
@@ -3876,7 +3576,6 @@ var NativeDateAdapter = class _NativeDateAdapter extends DateAdapter {
     }
     return null;
   }
-
   static ɵfac = function NativeDateAdapter_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _NativeDateAdapter)();
   };
@@ -3890,11 +3589,9 @@ var NativeDateAdapter = class _NativeDateAdapter extends DateAdapter {
     type: Injectable
   }], () => [], null);
 })();
-
 function inRange(value, min, max) {
   return !isNaN(value) && value >= min && value <= max;
 }
-
 var MAT_NATIVE_DATE_FORMATS = {
   parse: {
     dateInput: null,
@@ -3973,7 +3670,6 @@ var MatNativeDateModule = class _MatNativeDateModule {
     }]
   }], null, null);
 })();
-
 function provideNativeDateAdapter(formats = MAT_NATIVE_DATE_FORMATS) {
   return [{
     provide: DateAdapter,
@@ -3983,12 +3679,10 @@ function provideNativeDateAdapter(formats = MAT_NATIVE_DATE_FORMATS) {
     useValue: formats
   }];
 }
-
 var ShowOnDirtyErrorStateMatcher = class _ShowOnDirtyErrorStateMatcher {
   isErrorState(control, form) {
     return !!(control && control.invalid && (control.dirty || form && form.submitted));
   }
-
   static ɵfac = function ShowOnDirtyErrorStateMatcher_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _ShowOnDirtyErrorStateMatcher)();
   };
@@ -4006,7 +3700,6 @@ var ErrorStateMatcher = class _ErrorStateMatcher {
   isErrorState(control, form) {
     return !!(control && control.invalid && (control.touched || form && form.submitted));
   }
-
   static ɵfac = function ErrorStateMatcher_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _ErrorStateMatcher)();
   };
@@ -4096,7 +3789,7 @@ var MatLineModule = class _MatLineModule {
   }], null, null);
 })();
 var RippleState;
-(function (RippleState2) {
+(function(RippleState2) {
   RippleState2[RippleState2["FADING_IN"] = 0] = "FADING_IN";
   RippleState2[RippleState2["VISIBLE"] = 1] = "VISIBLE";
   RippleState2[RippleState2["FADING_OUT"] = 2] = "FADING_OUT";
@@ -4109,14 +3802,12 @@ var RippleRef = class {
   _animationForciblyDisabledThroughCss;
   /** Current state of the ripple. */
   state = RippleState.HIDDEN;
-
   constructor(_renderer, element, config, _animationForciblyDisabledThroughCss = false) {
     this._renderer = _renderer;
     this.element = element;
     this.config = config;
     this._animationForciblyDisabledThroughCss = _animationForciblyDisabledThroughCss;
   }
-
   /** Fades out the ripple element. */
   fadeOut() {
     this._renderer.fadeOutRipple(this);
@@ -4128,7 +3819,6 @@ var passiveCapturingEventOptions$1 = normalizePassiveListenerOptions({
 });
 var RippleEventManager = class {
   _events = /* @__PURE__ */ new Map();
-
   /** Adds an event handler. */
   addHandler(ngZone, name, element, handler) {
     const handlersForEvent = this._events.get(name);
@@ -4146,7 +3836,6 @@ var RippleEventManager = class {
       });
     }
   }
-
   /** Removes an event handler. */
   removeHandler(name, element, handler) {
     const handlersForEvent = this._events.get(name);
@@ -4166,7 +3855,6 @@ var RippleEventManager = class {
       document.removeEventListener(name, this._delegateEventHandler, passiveCapturingEventOptions$1);
     }
   }
-
   /** Event handler that is bound and which dispatches the events to the different targets. */
   _delegateEventHandler = (event) => {
     const target = _getEventTarget(event);
@@ -4250,7 +3938,6 @@ var RippleRenderer = class _RippleRenderer {
    */
   _containerRect;
   static _eventManager = new RippleEventManager();
-
   constructor(_target, _ngZone, elementOrElementRef, _platform, injector) {
     this._target = _target;
     this._ngZone = _ngZone;
@@ -4262,7 +3949,6 @@ var RippleRenderer = class _RippleRenderer {
       injector.get(_CdkPrivateStyleLoader).load(_MatRippleStylesLoader);
     }
   }
-
   /**
    * Fades in a ripple at the given coordinates.
    * @param x Coordinate within the element, along the X axis at which to start the ripple.
@@ -4295,9 +3981,9 @@ var RippleRenderer = class _RippleRenderer {
     const userTransitionProperty = computedStyles.transitionProperty;
     const userTransitionDuration = computedStyles.transitionDuration;
     const animationForciblyDisabledThroughCss = userTransitionProperty === "none" || // Note: The canonical unit for serialized CSS `<time>` properties is seconds. Additionally
-      // some browsers expand the duration for every property (in our case `opacity` and `transform`).
-      userTransitionDuration === "0s" || userTransitionDuration === "0s, 0s" || // If the container is 0x0, it's likely `display: none`.
-      containerRect.width === 0 && containerRect.height === 0;
+    // some browsers expand the duration for every property (in our case `opacity` and `transform`).
+    userTransitionDuration === "0s" || userTransitionDuration === "0s, 0s" || // If the container is 0x0, it's likely `display: none`.
+    containerRect.width === 0 && containerRect.height === 0;
     const rippleRef = new RippleRef(this, ripple, config, animationForciblyDisabledThroughCss);
     ripple.style.transform = "scale3d(1, 1, 1)";
     rippleRef.state = RippleState.FADING_IN;
@@ -4331,7 +4017,6 @@ var RippleRenderer = class _RippleRenderer {
     }
     return rippleRef;
   }
-
   /** Fades out a ripple reference. */
   fadeOutRipple(rippleRef) {
     if (rippleRef.state === RippleState.FADING_OUT || rippleRef.state === RippleState.HIDDEN) {
@@ -4346,12 +4031,10 @@ var RippleRenderer = class _RippleRenderer {
       this._finishRippleTransition(rippleRef);
     }
   }
-
   /** Fades out all currently active ripples. */
   fadeOutAll() {
     this._getActiveRipples().forEach((ripple) => ripple.fadeOut());
   }
-
   /** Fades out all currently active non-persistent ripples. */
   fadeOutAllNonPersistent() {
     this._getActiveRipples().forEach((ripple) => {
@@ -4360,7 +4043,6 @@ var RippleRenderer = class _RippleRenderer {
       }
     });
   }
-
   /** Sets up the trigger event listeners */
   setupTriggerEvents(elementOrElementRef) {
     const element = coerceElement(elementOrElementRef);
@@ -4373,7 +4055,6 @@ var RippleRenderer = class _RippleRenderer {
       _RippleRenderer._eventManager.addHandler(this._ngZone, type, element, this);
     });
   }
-
   /**
    * Handles all registered events.
    * @docs-private
@@ -4395,7 +4076,6 @@ var RippleRenderer = class _RippleRenderer {
       this._pointerUpEventsRegistered = true;
     }
   }
-
   /** Method that will be called if the fade-in or fade-in transition completed. */
   _finishRippleTransition(rippleRef) {
     if (rippleRef.state === RippleState.FADING_IN) {
@@ -4404,7 +4084,6 @@ var RippleRenderer = class _RippleRenderer {
       this._destroyRipple(rippleRef);
     }
   }
-
   /**
    * Starts the fade-out transition of the given ripple if it's not persistent and the pointer
    * is not held down anymore.
@@ -4419,7 +4098,6 @@ var RippleRenderer = class _RippleRenderer {
       rippleRef.fadeOut();
     }
   }
-
   /** Destroys the given ripple by removing it from the DOM and updating its state. */
   _destroyRipple(rippleRef) {
     const eventListeners = this._activeRipples.get(rippleRef) ?? null;
@@ -4440,7 +4118,6 @@ var RippleRenderer = class _RippleRenderer {
     }
     rippleRef.element.remove();
   }
-
   /** Function being called whenever the trigger is being pressed using mouse. */
   _onMousedown(event) {
     const isFakeMousedown = isFakeMousedownFromScreenReader(event);
@@ -4450,7 +4127,6 @@ var RippleRenderer = class _RippleRenderer {
       this.fadeInRipple(event.clientX, event.clientY, this._target.rippleConfig);
     }
   }
-
   /** Function being called whenever the trigger is being pressed using touch. */
   _onTouchStart(event) {
     if (!this._target.rippleDisabled && !isFakeTouchstartFromScreenReader(event)) {
@@ -4464,7 +4140,6 @@ var RippleRenderer = class _RippleRenderer {
       }
     }
   }
-
   /** Function being called whenever the trigger is being released. */
   _onPointerUp() {
     if (!this._isPointerDown) {
@@ -4478,11 +4153,9 @@ var RippleRenderer = class _RippleRenderer {
       }
     });
   }
-
   _getActiveRipples() {
     return Array.from(this._activeRipples.keys());
   }
-
   /** Removes previously registered event listeners from the trigger element. */
   _removeTriggerEvents() {
     const trigger = this._triggerElement;
@@ -4495,13 +4168,11 @@ var RippleRenderer = class _RippleRenderer {
     }
   }
 };
-
 function distanceToFurthestCorner(x, y, rect) {
   const distX = Math.max(Math.abs(x - rect.left), Math.abs(x - rect.right));
   const distY = Math.max(Math.abs(y - rect.top), Math.abs(y - rect.bottom));
   return Math.sqrt(distX * distX + distY * distY);
 }
-
 var MAT_RIPPLE_GLOBAL_OPTIONS = new InjectionToken("mat-ripple-global-options");
 var MatRipple = class _MatRipple {
   _elementRef = inject(ElementRef);
@@ -4529,7 +4200,6 @@ var MatRipple = class _MatRipple {
    * `NoopAnimationsModule` is being used.
    */
   animation;
-
   /**
    * Whether click events will not trigger the ripple. Ripples can be still launched manually
    * by using the `launch()` method.
@@ -4537,7 +4207,6 @@ var MatRipple = class _MatRipple {
   get disabled() {
     return this._disabled;
   }
-
   set disabled(value) {
     if (value) {
       this.fadeOutAllNonPersistent();
@@ -4545,9 +4214,7 @@ var MatRipple = class _MatRipple {
     this._disabled = value;
     this._setupTriggerEventsIfEnabled();
   }
-
   _disabled = false;
-
   /**
    * The element that triggers the ripple when click events are received.
    * Defaults to the directive's host element.
@@ -4555,12 +4222,10 @@ var MatRipple = class _MatRipple {
   get trigger() {
     return this._trigger || this._elementRef.nativeElement;
   }
-
   set trigger(trigger) {
     this._trigger = trigger;
     this._setupTriggerEventsIfEnabled();
   }
-
   _trigger;
   /** Renderer for the ripple DOM manipulations. */
   _rippleRenderer;
@@ -4568,7 +4233,6 @@ var MatRipple = class _MatRipple {
   _globalOptions;
   /** @docs-private Whether ripple directive is initialized and the input bindings are set. */
   _isInitialized = false;
-
   constructor() {
     const ngZone = inject(NgZone);
     const platform = inject(Platform);
@@ -4579,26 +4243,21 @@ var MatRipple = class _MatRipple {
     this._globalOptions = globalOptions || {};
     this._rippleRenderer = new RippleRenderer(this, ngZone, this._elementRef, platform, injector);
   }
-
   ngOnInit() {
     this._isInitialized = true;
     this._setupTriggerEventsIfEnabled();
   }
-
   ngOnDestroy() {
     this._rippleRenderer._removeTriggerEvents();
   }
-
   /** Fades out all currently showing ripple elements. */
   fadeOutAll() {
     this._rippleRenderer.fadeOutAll();
   }
-
   /** Fades out all currently showing non-persistent ripple elements. */
   fadeOutAllNonPersistent() {
     this._rippleRenderer.fadeOutAllNonPersistent();
   }
-
   /**
    * Ripple configuration from the directive's input values.
    * @docs-private Implemented as part of RippleTarget
@@ -4615,7 +4274,6 @@ var MatRipple = class _MatRipple {
       terminateOnPointerUp: this._globalOptions.terminateOnPointerUp
     };
   }
-
   /**
    * Whether ripples on pointer-down are disabled or not.
    * @docs-private Implemented as part of RippleTarget
@@ -4623,14 +4281,12 @@ var MatRipple = class _MatRipple {
   get rippleDisabled() {
     return this.disabled || !!this._globalOptions.disabled;
   }
-
   /** Sets up the trigger event listeners if ripples are enabled. */
   _setupTriggerEventsIfEnabled() {
     if (!this.disabled && this._isInitialized) {
       this._rippleRenderer.setupTriggerEvents(this.trigger);
     }
   }
-
   /** Launches a manual ripple at the specified coordinated or just by the ripple config. */
   launch(configOrX, y = 0, config) {
     if (typeof configOrX === "number") {
@@ -4639,7 +4295,6 @@ var MatRipple = class _MatRipple {
       return this._rippleRenderer.fadeInRipple(0, 0, __spreadValues(__spreadValues({}, this.rippleConfig), configOrX));
     }
   }
-
   static ɵfac = function MatRipple_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _MatRipple)();
   };
@@ -4742,10 +4397,8 @@ var MatPseudoCheckbox = class _MatPseudoCheckbox {
    * indicator inside a square box. 'minimal' appearance only renders the checkmark/mixedmark.
    */
   appearance = "full";
-
   constructor() {
   }
-
   static ɵfac = function MatPseudoCheckbox_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _MatPseudoCheckbox)();
   };
@@ -4837,14 +4490,12 @@ var MatOptgroup = class _MatOptgroup {
   _labelId = inject(_IdGenerator).getId("mat-optgroup-label-");
   /** Whether the group is in inert a11y mode. */
   _inert;
-
   constructor() {
     const parent = inject(MAT_OPTION_PARENT_COMPONENT, {
       optional: true
     });
     this._inert = parent?.inertGroups ?? false;
   }
-
   static ɵfac = function MatOptgroup_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _MatOptgroup)();
   };
@@ -4928,7 +4579,6 @@ var MatOptgroup = class _MatOptgroup {
 var MatOptionSelectionChange = class {
   source;
   isUserInput;
-
   constructor(source, isUserInput = false) {
     this.source = source;
     this.isUserInput = isUserInput;
@@ -4948,55 +4598,45 @@ var MatOption = class _MatOption {
   _active = false;
   _disabled = false;
   _mostRecentViewValue = "";
-
   /** Whether the wrapping component is in multiple selection mode. */
   get multiple() {
     return this._parent && this._parent.multiple;
   }
-
   /** Whether or not the option is currently selected. */
   get selected() {
     return this._selected;
   }
-
   /** The form value of the option. */
   value;
   /** The unique ID of the option. */
   id = inject(_IdGenerator).getId("mat-option-");
-
   /** Whether the option is disabled. */
   get disabled() {
     return this.group && this.group.disabled || this._disabled;
   }
-
   set disabled(value) {
     this._disabled = value;
   }
-
   /** Whether ripples for the option are disabled. */
   get disableRipple() {
     return this._signalDisableRipple ? this._parent.disableRipple() : !!this._parent?.disableRipple;
   }
-
   /** Whether to display checkmark for single-selection. */
   get hideSingleSelectionIndicator() {
     return !!(this._parent && this._parent.hideSingleSelectionIndicator);
   }
-
   /** Event emitted when the option is selected or deselected. */
-    // tslint:disable-next-line:no-output-on-prefix
+  // tslint:disable-next-line:no-output-on-prefix
   onSelectionChange = new EventEmitter();
   /** Element containing the option's text. */
   _text;
   /** Emits when the state of the option changes and any parents have to be notified. */
   _stateChanges = new Subject();
-
   constructor() {
     inject(_CdkPrivateStyleLoader).load(_StructuralStylesLoader);
     inject(_CdkPrivateStyleLoader).load(_VisuallyHiddenLoader);
     this._signalDisableRipple = !!this._parent && isSignal(this._parent.disableRipple);
   }
-
   /**
    * Whether or not the option is currently active and ready to be selected.
    * An active option displays styles as if it is focused, but the
@@ -5006,7 +4646,6 @@ var MatOption = class _MatOption {
   get active() {
     return this._active;
   }
-
   /**
    * The displayed value of the option. It is necessary to show the selected option in the
    * select's trigger.
@@ -5014,7 +4653,6 @@ var MatOption = class _MatOption {
   get viewValue() {
     return (this._text?.nativeElement.textContent || "").trim();
   }
-
   /** Selects the option. */
   select(emitEvent = true) {
     if (!this._selected) {
@@ -5025,7 +4663,6 @@ var MatOption = class _MatOption {
       }
     }
   }
-
   /** Deselects the option. */
   deselect(emitEvent = true) {
     if (this._selected) {
@@ -5036,7 +4673,6 @@ var MatOption = class _MatOption {
       }
     }
   }
-
   /** Sets focus onto this option. */
   focus(_origin, options) {
     const element = this._getHostElement();
@@ -5044,7 +4680,6 @@ var MatOption = class _MatOption {
       element.focus(options);
     }
   }
-
   /**
    * This method sets display styles on the option to make it appear
    * active. This is used by the ActiveDescendantKeyManager so key
@@ -5056,7 +4691,6 @@ var MatOption = class _MatOption {
       this._changeDetectorRef.markForCheck();
     }
   }
-
   /**
    * This method removes display styles on the option that made it appear
    * active. This is used by the ActiveDescendantKeyManager so key
@@ -5068,12 +4702,10 @@ var MatOption = class _MatOption {
       this._changeDetectorRef.markForCheck();
     }
   }
-
   /** Gets the label to be used when determining whether the option should be focused. */
   getLabel() {
     return this.viewValue;
   }
-
   /** Ensures the option is selected when activated from the keyboard. */
   _handleKeydown(event) {
     if ((event.keyCode === ENTER || event.keyCode === SPACE) && !hasModifierKey(event)) {
@@ -5081,7 +4713,6 @@ var MatOption = class _MatOption {
       event.preventDefault();
     }
   }
-
   /**
    * `Selects the option while indicating the selection came from the user. Used to
    * determine if the select's view -> model callback should be invoked.`
@@ -5093,7 +4724,6 @@ var MatOption = class _MatOption {
       this._emitSelectionChangeEvent(true);
     }
   }
-
   /** Returns the correct tabindex for the option depending on disabled state. */
   // This method is only used by `MatLegacyOption`. Keeping it here to avoid breaking the types.
   // That's because `MatLegacyOption` use `MatOption` type in a few places such as
@@ -5101,12 +4731,10 @@ var MatOption = class _MatOption {
   _getTabIndex() {
     return this.disabled ? "-1" : "0";
   }
-
   /** Gets the host DOM element. */
   _getHostElement() {
     return this._element.nativeElement;
   }
-
   ngAfterViewChecked() {
     if (this._selected) {
       const viewValue = this.viewValue;
@@ -5118,16 +4746,13 @@ var MatOption = class _MatOption {
       }
     }
   }
-
   ngOnDestroy() {
     this._stateChanges.complete();
   }
-
   /** Emits the selection change event. */
   _emitSelectionChangeEvent(isUserInput = false) {
     this.onSelectionChange.emit(new MatOptionSelectionChange(this, isUserInput));
   }
-
   static ɵfac = function MatOption_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _MatOption)();
   };
@@ -5336,7 +4961,6 @@ var MatRippleLoader = class _MatRippleLoader {
   _ngZone = inject(NgZone);
   _injector = inject(Injector);
   _hosts = /* @__PURE__ */ new Map();
-
   constructor() {
     this._ngZone.runOutsideAngular(() => {
       for (const event of rippleInteractionEvents) {
@@ -5344,7 +4968,6 @@ var MatRippleLoader = class _MatRippleLoader {
       }
     });
   }
-
   ngOnDestroy() {
     const hosts = this._hosts.keys();
     for (const host of hosts) {
@@ -5354,7 +4977,6 @@ var MatRippleLoader = class _MatRippleLoader {
       this._document?.removeEventListener(event, this._onInteraction, eventListenerOptions);
     }
   }
-
   /**
    * Configures the ripple that will be rendered by the ripple loader.
    *
@@ -5373,7 +4995,6 @@ var MatRippleLoader = class _MatRippleLoader {
       host.setAttribute(matRippleDisabled, "");
     }
   }
-
   /** Sets the disabled state on the ripple instance corresponding to the given host element. */
   setDisabled(host, disabled) {
     const ripple = this._hosts.get(host);
@@ -5389,7 +5010,6 @@ var MatRippleLoader = class _MatRippleLoader {
       host.removeAttribute(matRippleDisabled);
     }
   }
-
   /**
    * Handles creating and attaching component internals
    * when a component is initially interacted with.
@@ -5403,7 +5023,6 @@ var MatRippleLoader = class _MatRippleLoader {
       }
     }
   };
-
   /** Creates a MatRipple and appends it to the given element. */
   _createRipple(host) {
     if (!this._document || this._hosts.has(host)) {
@@ -5440,7 +5059,6 @@ var MatRippleLoader = class _MatRippleLoader {
     });
     host.removeAttribute(matRippleUninitialized);
   }
-
   destroyRipple(host) {
     const ripple = this._hosts.get(host);
     if (ripple) {
@@ -5448,7 +5066,6 @@ var MatRippleLoader = class _MatRippleLoader {
       this._hosts.delete(host);
     }
   }
-
   static ɵfac = function MatRippleLoader_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _MatRippleLoader)();
   };
@@ -5525,24 +5142,24 @@ var _MatInternalFormField = class __MatInternalFormField {
 })();
 
 export {
-  coerceBooleanProperty,
-  coerceNumberProperty,
-  coerceElement,
   Platform,
   RtlScrollAxisType,
   supportsScrollBehavior,
   getRtlScrollAxisType,
-  Directionality,
-  BidiModule,
   _CdkPrivateStyleLoader,
   ESCAPE,
   hasModifierKey,
+  coerceBooleanProperty,
+  coerceNumberProperty,
+  coerceElement,
   InteractivityChecker,
   FocusTrapFactory,
   FocusMonitor,
+  Directionality,
+  BidiModule,
   MatCommonModule,
   _StructuralStylesLoader,
   MatRippleModule,
   MatRippleLoader
 };
-//# sourceMappingURL=chunk-RNQNS65U.js.map
+//# sourceMappingURL=chunk-WF5IEBFW.js.map
