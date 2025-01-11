@@ -2,6 +2,8 @@ package com.example.dreambackend.controllers;
 
 import com.example.dreambackend.dtos.CoAoDto;
 import com.example.dreambackend.entities.CoAo;
+import com.example.dreambackend.requests.CoAoRequest;
+import com.example.dreambackend.respones.CoAoRespone;
 import com.example.dreambackend.services.coao.CoAoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,14 +20,20 @@ public class CoAoController {
     CoAoService coAoService;
 
     @GetMapping("/hien-thi")
-    public ResponseEntity<List<CoAo>> hienThi() {
-        List<CoAo> listCoAo = coAoService.getAllCoAo();
+    public ResponseEntity<List<CoAoRespone>> hienThi() {
+        List<CoAoRespone> listCoAo = coAoService.getAllCoAo();
         return ResponseEntity.ok(listCoAo);
     }
 
     @PostMapping("/add")
-    public ResponseEntity<?> add(@RequestBody CoAoDto coAoDto) {
-        coAoService.addCoAo(coAoDto);
+    public ResponseEntity<?> add(@RequestBody CoAoRequest coAoRequest) {
+        coAoService.addCoAo(coAoRequest);
         return ResponseEntity.ok("Thêm thành công");
+    }
+
+    @PutMapping("/update")
+    public ResponseEntity<?> update(@RequestBody CoAoRequest coAoRequest) {
+        coAoService.updateCoAo(coAoRequest);
+        return ResponseEntity.ok("Sửa thành công");
     }
 }

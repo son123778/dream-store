@@ -5,45 +5,46 @@ import com.example.dreambackend.dtos.XuatXuDto;
 
 import com.example.dreambackend.entities.XuatXu;
 import com.example.dreambackend.repositories.XuatXuRepository;
+import com.example.dreambackend.requests.XuatXuRequest;
+import com.example.dreambackend.respones.XuatXuRespone;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
 public class XuatXuService implements IXuatXuService {
     @Autowired
     XuatXuRepository xuatXuRepository;
+
     @Override
-    public List<XuatXu> getAllXuatXu() {
-        return xuatXuRepository.findAll();
+    public List<XuatXuRespone> getAllXuatXu() {
+        return xuatXuRepository.getAllXuatXuRespone();
     }
 
-
     @Override
-    public XuatXu getXuatXu(Integer idXuatXu) {
-        return xuatXuRepository.findById(idXuatXu).orElseThrow(()->
+    public XuatXu getXuatXu(Integer id) {
+        return xuatXuRepository.findById(id).orElseThrow(()->
                 new RuntimeException("Không tìm thấy id xuất xứ"));
     }
 
     @Override
-    public XuatXu addXuatXu(XuatXuDto xuatXuDto) {
-        XuatXu newXuatXu = XuatXu.builder()
-                .ma(xuatXuDto.getMa())
-                .ten(xuatXuDto.getTen())
-                .ngayTao(xuatXuDto.getNgayTao())
-                .ngaySua(xuatXuDto.getNgaySua())
-                .trangThai(xuatXuDto.getTrangThai())
-                .build();
-        return xuatXuRepository.save(newXuatXu);
+    public XuatXu addXuatXu(XuatXuRequest xuatXuRequest) {
+        XuatXu xuatXu = new XuatXu();
+        BeanUtils.copyProperties(xuatXuRequest, xuatXu);
+        xuatXu.setNgayTao(LocalDate.now());
+        xuatXu.setNgaySua(LocalDate.now());
+        return xuatXuRepository.save(xuatXu);
     }
 
     @Override
-    public XuatXu updateXuatXu(Integer idXuatXu, XuatXuDto xuatXuDto) {
-        XuatXu xuatXuUpdate = getXuatXu(idXuatXu);
-        xuatXuUpdate.setTen(xuatXuDto.getTen());
-        xuatXuRepository.save(xuatXuUpdate);
-        return xuatXuUpdate;
+    public XuatXu updateXuatXu(XuatXuRequest xuatXuRequest) {
+        XuatXu xuatXuUpDate = xuatXuRepository.findById(xuatXuRequest.getId()).orElseThrow(()->
+                new RuntimeException("Không tìm thấy xuất xứ với id: " + xuatXuRequest.getId()));
+        BeanUtils.copyProperties(xuatXuRequest, xuatXuUpDate,"id","ngayTao");
+        xuatXuUpDate.setNgaySua(LocalDate.now());
+        return xuatXuRepository.save(xuatXuUpDate);
     }
-
 }

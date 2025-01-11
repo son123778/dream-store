@@ -5,7 +5,6 @@ import lombok.*;
 
 import java.time.LocalDate;
 
-@Builder
 @Getter
 @Setter
 @NoArgsConstructor
@@ -49,4 +48,7 @@ public class SanPham{
     @JoinColumn(name = "id_co_ao", referencedColumnName = "id")
     private CoAo coAo;
 
+    @ManyToOne
+    @JoinColumn(name = "id_anh", referencedColumnName = "id")
+    private Anh anh;
 }
