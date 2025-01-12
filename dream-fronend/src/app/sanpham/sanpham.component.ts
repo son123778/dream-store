@@ -31,46 +31,44 @@ export class SanphamComponent implements OnInit {
   this.listXuatXu()
   }
 
-  listSanPham(): void{
-   // Lấy danh sách sản phẩm từ service
-   this.sanphamService.getSanPham().subscribe(data => {
-    console.log("data",data)
-    this.sanPhams = data;
-  });
+  listSanPham(): void {
+    this.sanphamService.getSanPham().subscribe(data => {
+      console.log("data", data);
+      this.sanPhams = Array.isArray(data.content) ? data.content : [];
+    });
   }
-
-  listThuongHieu(): void{
-    // lấy danh sách thương hiệu từ service
+  
+  listThuongHieu(): void {
     this.sanphamService.getThuongHieu().subscribe(data => {
-      console.log("data", data)
-      this.thuongHieus = data;
+      console.log("Thương Hiệu Data", data); // Log dữ liệu
+      this.thuongHieus = Array.isArray(data) ? data : []; // Gán dữ liệu từ response
+    }, error => {
+      console.error("Lỗi khi gọi API thương hiệu", error); // Log lỗi nếu có
     });
   }
-
-  listChatLieu(): void{
-    // lấy danh sách chất liệu từ service
+  
+  
+  
+  listChatLieu(): void {
     this.sanphamService.getChatLieu().subscribe(data => {
-      console.log("data",data)
-      this.chatLieus = data;
+      console.log("Chất Liệu Data", data);
+      this.chatLieus = Array.isArray(data) ? data : []; // Gán dữ liệu đúng từ thuộc tính content
     });
   }
-
-  listCoAo(): void{
-    // lấy danh sách chất liệu từ service
+  
+  listCoAo(): void {
     this.sanphamService.getCoAo().subscribe(data => {
-      console.log("data",data)
-      this.coAos = data;
+      console.log("Cổ Áo Data", data);
+      this.coAos = Array.isArray(data) ? data : []; // Gán dữ liệu đúng từ thuộc tính content
     });
   }
-
-  listXuatXu(): void{
-    // lấy danh sách chất liệu từ service
-    this.sanphamService.getXuauXu().subscribe(data => {
-      console.log("data",data)
-      this.xuatXus = data;
+  
+  listXuatXu(): void {
+    this.sanphamService.getXuatXu().subscribe(data => {
+      console.log("Xuất Xứ Data", data);
+      this.xuatXus = Array.isArray(data) ? data : []; 
     });
-  }
-
+  }  
   // Hàm mở modal
   openModal() {
     this.showModal = true;

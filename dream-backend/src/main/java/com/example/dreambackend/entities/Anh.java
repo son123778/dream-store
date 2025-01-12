@@ -24,4 +24,7 @@ public class Anh {
     @Column(name = "trang_thai")
     private String trangThai;
 
+    @ManyToOne
+    @JoinColumn(name = "id_san_pham",referencedColumnName = "id")
+    private SanPham sanPham;
 }

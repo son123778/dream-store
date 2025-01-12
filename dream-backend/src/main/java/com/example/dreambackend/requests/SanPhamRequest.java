@@ -30,6 +30,4 @@ public class SanPhamRequest {
     private CoAo coAo;
 
     private XuatXu xuatXu;
-
-    private Anh anh;
 }

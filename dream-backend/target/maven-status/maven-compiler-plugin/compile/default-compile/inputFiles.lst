@@ -2,9 +2,11 @@ D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\configs\Swag
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\configs\WebConfig.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\controllers\ChatLieuController.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\controllers\CoAoController.java
+D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\controllers\MauSacController.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\controllers\NhanVienController.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\controllers\SanPhamChiTietController.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\controllers\SanPhamController.java
+D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\controllers\SizeController.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\controllers\ThuongHieuController.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\controllers\XuatXuController.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\DreamBackendApplication.java
@@ -31,6 +33,7 @@ D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\repositories
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\repositories\NhanVienRepository.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\repositories\SanPhamChiTietRepository.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\repositories\SanPhamRepository.java
+D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\repositories\SizeRepository.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\repositories\ThuongHieuRepository.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\repositories\XuatXuRepository.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\requests\ChatLieuRequest.java
@@ -59,6 +62,8 @@ D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\Nha
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\NhanVien\NhanVienService.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\sanpham\ISanPhamService.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\sanpham\SanPhamService.java
+D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\size\ISizeService.java
+D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\size\SizeService.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\thuonghieu\IThuongHieuService.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\thuonghieu\ThuongHieuService.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\xuatxu\IXuatXuService.java

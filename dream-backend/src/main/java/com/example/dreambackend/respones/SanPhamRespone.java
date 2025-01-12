@@ -1,13 +1,12 @@
 package com.example.dreambackend.respones;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
-@Data
-@AllArgsConstructor
+@Getter
+@Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class SanPhamRespone {
     private Integer id;
 
@@ -36,8 +35,5 @@ public class SanPhamRespone {
     private Integer idXuatXu;
 
     private String tenXuatXu;
-
-    private Integer idAnh;
-
-    private String anhUrl;
 }
+

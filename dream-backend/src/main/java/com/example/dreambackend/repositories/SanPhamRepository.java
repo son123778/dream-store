@@ -12,17 +12,20 @@ import org.springframework.stereotype.Repository;
 public interface SanPhamRepository extends JpaRepository<SanPham, Integer> {
     @Query("""
     select new com.example.dreambackend.respones.SanPhamRespone(
-    sp.id,
-    sp.ma,
-    sp.ten,
-    sp.ngayTao,
-    sp.ngaySua,
-    sp.trangThai,
-    sp.chatLieu.ten,
-    sp.thuongHieu.ten,
-    sp.coAo.ten,
-    sp.xuatXu.ten,
-    sp.anh.anhUrl
+            sp.id,
+            sp.ma,
+            sp.ten,
+            sp.ngayTao,
+            sp.ngaySua,
+            sp.trangThai,
+            sp.chatLieu.id,
+            sp.chatLieu.ten,
+            sp.thuongHieu.id,
+            sp.thuongHieu.ten,
+            sp.coAo.id,
+            sp.coAo.ten,
+            sp.xuatXu.id,
+            sp.xuatXu.ten
         ) from SanPham sp
         """)
     Page<SanPhamRespone> getAllSanPhamRepone(Pageable pageable);
