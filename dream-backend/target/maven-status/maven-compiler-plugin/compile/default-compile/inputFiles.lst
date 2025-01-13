@@ -62,6 +62,8 @@ D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\Nha
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\NhanVien\NhanVienService.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\sanpham\ISanPhamService.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\sanpham\SanPhamService.java
+D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\sanphamchitiet\ISanPhamChiTiet.java
+D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\sanphamchitiet\SanPhamChiTietService.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\size\ISizeService.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\size\SizeService.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\thuonghieu\IThuongHieuService.java

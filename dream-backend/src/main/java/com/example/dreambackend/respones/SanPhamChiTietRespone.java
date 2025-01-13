@@ -32,10 +32,6 @@ public class SanPhamChiTietRespone {
 
     private String tenSanPham;
 
-    private Integer idKhuyenMai;
-
-    private String tenKhuyenMai;
-
     private Integer idSize;
 
     private String tenSize;

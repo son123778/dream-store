@@ -30,8 +30,6 @@ public class SanPhamChiTietRequest {
 
     private SanPham sanPham;
 
-    private KhuyenMai khuyenMai;
-
     private Size size;
 
     private MauSac mauSac;
