@@ -6,7 +6,7 @@ import com.example.dreambackend.respones.SanPhamChiTietRespone;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-public interface ISanPhamChiTiet {
+public interface ISanPhamChiTietService {
     Page<SanPhamChiTietRespone> getAllSanPhamChiTiet(Pageable pageable);
 
     SanPhamChiTiet getsanPhamChiTietById(Integer id);

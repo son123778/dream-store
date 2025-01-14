@@ -6,10 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="5d7dcb88-d015-40bd-b1c2-e4c2578857ff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/controllers/SanPhamChiTietController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/controllers/SanPhamChiTietController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/repositories/SanPhamChiTietRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/repositories/SanPhamChiTietRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/requests/SanPhamChiTietRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/requests/SanPhamChiTietRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/respones/SanPhamChiTietRespone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/respones/SanPhamChiTietRespone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/entities/Anh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/entities/Anh.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/services/sanphamchitiet/ISanPhamChiTiet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/services/sanphamchitiet/ISanPhamChiTietService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/services/sanphamchitiet/SanPhamChiTietService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/services/sanphamchitiet/SanPhamChiTietService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +151,8 @@
       <workItem from="1736690241290" duration="1556000" />
       <workItem from="1736691995880" duration="3639000" />
       <workItem from="1736696227265" duration="2892000" />
-      <workItem from="1736774105795" duration="2869000" />
+      <workItem from="1736774105795" duration="6918000" />
+      <workItem from="1736862375702" duration="5815000" />
     </task>
     <servers />
   </component>

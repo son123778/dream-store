@@ -6,7 +6,6 @@ import com.example.dreambackend.requests.SanPhamChiTietRequest;
 import com.example.dreambackend.respones.SanPhamChiTietRespone;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -14,7 +13,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 
 @Service
-public class SanPhamChiTietService implements ISanPhamChiTiet{
+public class SanPhamChiTietService implements ISanPhamChiTietService {
     @Autowired
     SanPhamChiTietRepository sanPhamChiTietRepository;
 

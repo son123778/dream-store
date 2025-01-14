@@ -1,5 +1,6 @@
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\configs\SwaggerConfig.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\configs\WebConfig.java
+D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\controllers\AnhController.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\controllers\ChatLieuController.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\controllers\CoAoController.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\controllers\MauSacController.java
@@ -27,6 +28,7 @@ D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\entities\San
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\entities\Size.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\entities\ThuongHieu.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\entities\XuatXu.java
+D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\repositories\AnhRepository.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\repositories\ChatLieuRepository.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\repositories\CoAoRepository.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\repositories\MauSacRepository.java
@@ -36,6 +38,7 @@ D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\repositories
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\repositories\SizeRepository.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\repositories\ThuongHieuRepository.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\repositories\XuatXuRepository.java
+D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\requests\AnhRequest.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\requests\ChatLieuRequest.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\requests\CoAoRequest.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\requests\MauSacRequest.java
@@ -44,6 +47,7 @@ D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\requests\San
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\requests\SizeRequest.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\requests\ThuongHieuRequest.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\requests\XuatXuRequest.java
+D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\respones\AnhRespone.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\respones\ChatLieuRespone.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\respones\CoAoRespone.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\respones\MauSacRepone.java
@@ -52,6 +56,8 @@ D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\respones\San
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\respones\SizeRespone.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\respones\ThuongHieuRespone.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\respones\XuatXuRespone.java
+D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\anh\AnhService.java
+D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\anh\IAnhService.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\chatlieu\ChatLieuService.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\chatlieu\IChatLieuService.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\coao\CoAoService.java
@@ -62,7 +68,7 @@ D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\Nha
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\NhanVien\NhanVienService.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\sanpham\ISanPhamService.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\sanpham\SanPhamService.java
-D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\sanphamchitiet\ISanPhamChiTiet.java
+D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\sanphamchitiet\ISanPhamChiTietService.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\sanphamchitiet\SanPhamChiTietService.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\size\ISizeService.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\size\SizeService.java
