@@ -24,11 +24,11 @@ public class ChatLieu{
     @Column(name = "ten")
     private String ten;
 
-    @Column(name = "ngay_sua")
-    private LocalDate ngaySua;
-
     @Column(name = "ngay_tao")
     private LocalDate ngayTao;
+
+    @Column(name = "ngay_sua")
+    private LocalDate ngaySua;
 
     @Column(name = "trang_thai")
     private int trangThai;

@@ -161,22 +161,22 @@
       </thead>
       <tbody>
         <tr *ngFor="let sanPham of sanPhams">
-          <td>{{ sanPham.ma}}</td>
-          <td>{{ sanPham.ten}}</td>
-          <td>{{ sanPham.thuongHieu.ten}}</td>
-          <td>{{ sanPham.xuatXu.ten }}</td>
-          <td>{{ sanPham.chatLieu.ten }}</td>
-          <td>{{ sanPham.coAo.ten }}</td>
+          <td>{{ sanPham.ma }}</td>
+          <td>{{ sanPham.ten }}</td>
+          <td>{{ sanPham.tenThuongHieu }}</td>
+          <td>{{ sanPham.tenXuatXu }}</td>
+          <td>{{ sanPham.tenChatLieu }}</td>
+          <td>{{ sanPham.tenCoAo }}</td>
           <td>{{ sanPham.ngayTao }}</td>
           <td>{{ sanPham.ngaySua }}</td>
-          <td>{{ sanPham.trangThai?"Hoạt động":"Không hoạt động" }}</td>
+          <td>{{ sanPham.trangThai === 1 ? "Hoạt động" : "Không hoạt động" }}</td>
           <td><img [src]="sanPham.anh" alt="Ảnh sản phẩm" /></td>
           <td>
             <button (click)="openModal()" class="button btn-primary">Chi tiết</button>
             <a href="" class="button btn-danger">Sửa</a>
-          </td>
+          </td>          
         </tr>
-      </tbody>
+      </tbody>      
     </table>
   </div>
 </div>

@@ -1,4 +1,11 @@
 import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger
+} from "./chunk-XBYJB54V.js";
+import {
   BidiModule,
   Directionality,
   ESCAPE,
@@ -15,13 +22,6 @@ import {
   hasModifierKey,
   supportsScrollBehavior
 } from "./chunk-WF5IEBFW.js";
-import {
-  animate,
-  state,
-  style,
-  transition,
-  trigger
-} from "./chunk-XBYJB54V.js";
 import {
   DOCUMENT
 } from "./chunk-VP6DRI4E.js";
