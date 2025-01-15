@@ -35,7 +35,7 @@ public class SanPhamController {
 
     @GetMapping("/hien-thi")
     public ResponseEntity<Page<SanPhamRespone>> hienThi(@RequestParam(value = "page", defaultValue = "0") Integer page) {
-        int pageSize = 5;
+        int pageSize = 10;
         Pageable pageable = PageRequest.of(page, pageSize);
         Page<SanPhamRespone> listSanPham = sanPhamService.getAllSanPham(pageable);
         return ResponseEntity.ok(listSanPham);

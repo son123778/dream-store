@@ -1,72 +1,56 @@
-<!-- <div class="border rounded-2">
-    <form action="" method="post">
-        <div class="input-row">
-            <div class="input-field">
-                <label for="ma">Mã sản phẩm</label>
-                <input type="text" class="input" id="ma" name="ma" autocomplete="off">
-            </div>
-            <div class="input-field">
-                <label for="ten">Tên sản phẩm</label>
-                <input type="text" class="input" id="ten" name="ten">
-            </div>
-            <div class="input-field">
-                <label for="">Thương hiệu</label>
-                <select class="input" id="" name="">
-                    <option value="" disabled selected>Chọn thương hiệu</option>
-                    <option value="Nike">Nike</option>
-                    <option value="Adidas">Adidas</option>
-                </select>
-            </div>
-        </div>
-        <div class="input-row">
-            <div class="input-field">
-                <label for="">Xuất sứ</label>
-                <select class="input" id="" name="">
-                    <option value="" disabled selected>Chọn xuất sứ</option>
-                    <option value="">Việt Nam</option>
-                    <option value="">Trung</option>
-                </select>
-            </div>
-            <div class="input-field">
-                <label for="">Chất liệu</label>
-                <select class="input" id="" name="">
-                    <option value="" disabled selected>Chọn chất liệu</option>
-                    <option value="">Polime</option>
-                    <option value="">Cao su</option>
-                </select>
-            </div>
-            <div class="input-field">
-                <label for="">Cổ áo</label>
-                <select class="input" id="" name="">
-                    <option value="" disabled selected>Chọn cổ áo</option>
-                    <option value="">Cổ Chữ V</option>
-                    <option value="">Cổ tròn</option>
-                </select>
-            </div>
-        </div>
-        <div class="input-row">
-            <div class="input-field">
-                <label for="ngaytao">Ngày tạo</label>
-                <input type="date" class="input" id="ngaytao" name="ngaytao">
-            </div>
-            <div class="input-field">
-                <label for="ngaysua">Ngày sửa</label>
-                <input type="date" class="input" id="ngaysua" name="ngaysua">
-            </div>
-            <div class="input-field">
-                <label for="size">Trạng thái</label>
-                <select class="input" id="size" name="size">
-                    <option value="" disabled selected>Chọn trạng thái</option>
-                    <option value="Hoạt động">Hoạt động</option>
-                    <option value="Không hoạt động">Không hoạt động</option>
-                </select>
-            </div>
-        </div>
-        <div class="ps-2">
-            <button type="submit" class="btn-primary">Thêm sản phẩm</button>
-        </div>
-    </form>
-</div> -->
+<div>
+  <p class="title">Danh sách sản phẩm</p>
+  <p class="filter">Tìm kiếm sản phẩm</p>
+</div>
+<div class="bordered-container">
+  <div class="input-row">
+    <!-- Combobox 1 -->
+    <div class="input-field">
+      <select class="input" id="thuongHieu" name="thuongHieu">
+        <option value="" disabled selected>Chọn thương hiệu</option>
+        <option>ok</option>
+      </select>
+      <label for="thuongHieu">Thương hiệu</label>
+    </div>
+
+    <!-- Combobox 2 -->
+    <div class="input-field">
+      <select class="input" id="xuatXu" name="xuatXu">
+        <option value="" disabled selected>Chọn xuất xứ</option>
+        <option>ok</option>
+      </select>
+      <label for="xuatXu">Xuất xứ</label>
+    </div>
+
+    <!-- Combobox 3 -->
+    <div class="input-field">
+      <select class="input" id="chatLieu" name="chatLieu">
+        <option value="" disabled selected>Chọn chất liệu</option>
+        <option>ok</option>
+      </select>
+      <label for="chatLieu">Chất liệu</label>
+    </div>
+
+    <!-- Combobox 4 -->
+    <div class="input-field">
+      <select class="input" id="coAo" name="coAo">
+        <option value="" disabled selected>Chọn cổ áo</option>
+        <option>ok</option>
+      </select>
+      <label for="coAo">Cổ áo</label>
+    </div>
+
+    <!-- Combobox 5 -->
+    <div class="input-field">
+      <select class="input" id="trangThai" name="trangThai">
+        <option value="" disabled selected>Chọn trạng thái</option>
+        <option>OK</option>
+      </select>
+      <label for="trangThai">Trạng thái</label>
+    </div>
+  </div>
+</div>
+
 <!-- Modal -->
 <div class="modal-overlay" *ngIf="showModal" (click)="closeModal()">
   <div class="modal-box" (click)="$event.stopPropagation()">
@@ -93,7 +77,7 @@
       <div class="input-row">
         <div class="input-field">
           <select class="input" id="xuatXu" name="xuatXu">
-            <option value="" disabled selected>Chọn xuất sứ</option>
+            <option value="" disabled selected>Chọn xuất xứ</option>
             <option *ngFor="let xuatXu of xuatXus" [value]="xuatXu.id">{{xuatXu.ten}}</option>
           </select>
           <label for="xuatXu">Xuất xứ</label>
@@ -137,27 +121,27 @@
     </form>
   </div>
 </div>
-<div>
-  <p class="title">Danh sách sản phẩm</p>
-  <button (click)="openModal()" class="button btn-primary">Thêm sản phẩm</button>
-</div>
 <div class="table-container">
+  <div class="button-row">
+    <button (click)="openModal()" class="button btn-primary">Thêm sản phẩm</button>
+    <button (click)="openModal()" class="button btn-primary">Quản lý thuộc tính</button>
+    <button (click)="openModal()" class="button btn-primary">Xuất file excel</button>
+  </div>
   <div class="table-scrollable">
     <table class="product-table">
       <thead>
-      <tr>
-        <th>Mã sản phẩm</th>
-        <th>Tên sản phẩm</th>
-        <th>Thương hiệu</th>
-        <th>Xuất sứ</th>
-        <th>Chất liệu</th>
-        <th>Cổ áo</th>
-        <th>Ngày tạo</th>
-        <th>Ngày sửa</th>
-        <th>Trạng thái</th>
-        <th>Ảnh</th>
-        <th colspan="2">Hành động</th>
-      </tr>
+        <tr>
+          <th>Mã sản phẩm</th>
+          <th>Tên sản phẩm</th>
+          <th>Thương hiệu</th>
+          <th>Xuất xứ</th>
+          <th>Chất liệu</th>
+          <th>Cổ áo</th>
+          <th>Ngày tạo</th>
+          <th>Ngày sửa</th>
+          <th>Trạng thái</th>
+          <th colspan="2">Hành động</th>
+        </tr>
       </thead>
       <tbody>
         <tr *ngFor="let sanPham of sanPhams">
@@ -170,21 +154,20 @@
           <td>{{ sanPham.ngayTao }}</td>
           <td>{{ sanPham.ngaySua }}</td>
           <td>{{ sanPham.trangThai === 1 ? "Hoạt động" : "Không hoạt động" }}</td>
-          <td><img [src]="sanPham.anh" alt="Ảnh sản phẩm" /></td>
           <td>
             <button (click)="openModal()" class="button btn-primary">Chi tiết</button>
             <a href="" class="button btn-danger">Sửa</a>
-          </td>          
+          </td>
         </tr>
-      </tbody>      
+      </tbody>
     </table>
   </div>
 </div>
-<div>
+<!-- <div>
   <p class="title1">Danh sách sản phẩm chi tiết</p>
   <p class="filter">Lọc</p>
-</div>
-<div class="table-container pt-5">
+</div> -->
+<!-- <div class="table-container pt-5">
   <div class="table-scrollable">
     <table class="product-table">
       <thead>
@@ -216,126 +199,13 @@
         <td>Hoạt động</td>
         <td>
           <a href="" class="button btn-danger">Sửa</a>
-          <a href="" class="button btn-primary">Chi tiết</a>
-        </td>
-      </tr>
-
-      <tr>
-        <td>SP001</td>
-        <td>Áo thể thao Nike</td>
-        <td>10000</td>
-        <td>100</td>
-        <td>Đỏ</td>
-        <td>L</td>
-        <td>2024-12-25</td>
-        <td>2024-12-26</td>
-        <td>20%</td>
-        <td>Hoạt động</td>
-        <td>
-          <a href="" class="button btn-danger">Sửa</a>
-          <a href="" class="button btn-primary">Chi tiết</a>
-        </td>
-      </tr>
-      <tr>
-        <td>SP001</td>
-        <td>Áo thể thao Nike</td>
-        <td>10000</td>
-        <td>100</td>
-        <td>Đỏ</td>
-        <td>L</td>
-        <td>2024-12-25</td>
-        <td>2024-12-26</td>
-        <td>20%</td>
-        <td>Hoạt động</td>
-        <td>
-          <a href="" class="button btn-danger">Sửa</a>
-          <a href="" class="button btn-primary">Chi tiết</a>
-        </td>
-      </tr>
-      <tr>
-        <td>SP001</td>
-        <td>Áo thể thao Nike</td>
-        <td>10000</td>
-        <td>100</td>
-        <td>Đỏ</td>
-        <td>L</td>
-        <td>2024-12-25</td>
-        <td>2024-12-26</td>
-        <td>20%</td>
-        <td>Hoạt động</td>
-        <td>
-          <a href="" class="button btn-danger">Sửa</a>
-          <a href="" class="button btn-primary">Chi tiết</a>
-        </td>
-      </tr>
-      <tr>
-        <td>SP001</td>
-        <td>Áo thể thao Nike</td>
-        <td>10000</td>
-        <td>100</td>
-        <td>Đỏ</td>
-        <td>L</td>
-        <td>2024-12-25</td>
-        <td>2024-12-26</td>
-        <td>20%</td>
-        <td>Hoạt động</td>
-        <td>
-          <a href="" class="button btn-danger">Sửa</a>
-          <a href="" class="button btn-primary">Chi tiết</a>
-        </td>
-      </tr>
-      <tr>
-        <td>SP001</td>
-        <td>Áo thể thao Nike</td>
-        <td>10000</td>
-        <td>100</td>
-        <td>Đỏ</td>
-        <td>L</td>
-        <td>2024-12-25</td>
-        <td>2024-12-26</td>
-        <td>20%</td>
-        <td>Hoạt động</td>
-        <td>
-          <a href="" class="button btn-danger">Sửa</a>
-          <a href="" class="button btn-primary">Chi tiết</a>
-        </td>
-      </tr>
-      <tr>
-        <td>SP001</td>
-        <td>Áo thể thao Nike</td>
-        <td>10000</td>
-        <td>100</td>
-        <td>Đỏ</td>
-        <td>L</td>
-        <td>2024-12-25</td>
-        <td>2024-12-26</td>
-        <td>20%</td>
-        <td>Hoạt động</td>
-        <td>
-          <a href="" class="button btn-danger">Sửa</a>
-          <a href="" class="button btn-primary">Chi tiết</a>
-        </td>
-      </tr>
-      <tr>
-        <td>SP001</td>
-        <td>Áo thể thao Nike</td>
-        <td>10000</td>
-        <td>100</td>
-        <td>Đỏ</td>
-        <td>L</td>
-        <td>2024-12-25</td>
-        <td>2024-12-26</td>
-        <td>20%</td>
-        <td>Hoạt động</td>
-        <td>
-          <a href="" class="button btn-danger">Sửa</a>
           <button (click)="openModal()" class="button btn-primary">Chi tiết</button>
         </td>
       </tr>
       </tbody>
     </table>
   </div>
-</div>
+</div> -->
 
 
 

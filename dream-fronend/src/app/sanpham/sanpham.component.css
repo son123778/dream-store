@@ -1,33 +1,42 @@
 /* Container styling */
 .title {
+  padding-left: 15px;
   font-size: 18px;
   font-weight: bold;
   color: #294764;
 }
 
 .title1 {
+  margin-left: -3px;
   font-size: 18px;
   font-weight: bold;
   color: #294764;
-  padding-top: 50px;
+
+}
+.button-row {
+  margin-left: -3px; /* Đồng nhất khoảng cách với bảng */
 }
 
+.table-container {
+  margin-left: 20px; /* Điều chỉnh bảng sát nút Thêm sản phẩm */
+}
 .filter {
   margin-top: -20px; /* Giảm khoảng cách trên để sát hơn */
   font-size: 14px; /* Thay đổi kích thước phông chữ nếu cần */
   color: #294764; /* Để giữ màu sắc nhất quán */
   font-weight: bold; /* Để làm nổi bật chữ "Lọc" */
+  padding-left: 15px;
 }
-
+.button.btn-primary {
+  margin-bottom: 10px; /* Giảm khoảng cách dưới của nút */
+}
 .table-container {
-  width: 100%;
-  margin: 0 auto;
+  margin-top: 7px; /* Đẩy cả bảng và nút lên trên */
+  margin-left: 20px;
+  width: 97%;
   padding: 0px;
   box-sizing: border-box;
-  position: relative; /* Để có thể điều chỉnh vị trí của bảng */
-  bottom: 10; /* Cố định vị trí ở dưới cùng */
-  margin-top: calc(60vh - 400px - -10px); /* Điều chỉnh khoảng cách với lề dưới */
-  margin-left: 0px; /* Dịch bảng sang trái */
+  position: relative;
 }
 
 .btn-primary:hover {
@@ -37,7 +46,7 @@
 
 /* Scrollable table container */
 .table-scrollable {
-  max-height: 230px; /* Đặt chiều cao cố định */
+  max-height: 420px; /* Đặt chiều cao cố định */
   overflow-y: auto; /* Cho phép cuộn dọc */
   border-radius: 6px;
 }
@@ -51,8 +60,9 @@
 
 .product-table th, .product-table td {
   padding: 12px 15px;
-  text-align: left;
   font-size: 10px;
+  text-align: center; /* Căn giữa nội dung trong ô */
+  word-wrap: break-word; 
 }
 
 .product-table td {
@@ -121,11 +131,27 @@
   margin-bottom: 16px;
   margin-top: 20px;
 }
+.bordered-container {
+  height: 130px;
+  width: 97%;
+  margin-left: 17px;
+  /* border: 1px solid rgba(41, 71, 100, 0.5); Giảm độ dày và làm mờ màu viền */
+  padding: 20px; /* Khoảng cách giữa viền và nội dung */
+  border-radius: 8px; /* Bo tròn góc */
+  box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.1); 
+}
+form {
+  flex: 1; /* Chia đều không gian cho các form */
+  margin-right: 10px; /* Khoảng cách giữa các form */
+}
 
+form:last-child {
+  margin-right: 0; /* Bỏ margin phải cho form cuối cùng */
+}
 .input-row {
   display: flex; /* Sử dụng flexbox để sắp xếp các trường trên một hàng */
   justify-content: space-between; /* Phân bổ khoảng cách đều giữa các trường */
-  margin-bottom: 20px; /* Khoảng cách giữa các hàng */
+  margin: 10px 0;/* Khoảng cách giữa các hàng */
 }
 
 /* Label căn trái */
@@ -136,7 +162,8 @@
   transform: translateY(-50%); /* Căn giữa theo chiều dọc */
   color: #294764;
   pointer-events: none; /* Đảm bảo label không ảnh hưởng đến tương tác */
-  transition: all 0.3s ease; /* Hiệu ứng chuyển đổi */
+  transition: all 0.3s ease; 
+  /* Hiệu ứng chuyển đổi */
 }
 
 .input-field .input:focus + label,
@@ -155,6 +182,7 @@
   flex: 1; /* Mỗi trường sẽ có cùng một độ rộng */
   margin-right: 10px; /* Khoảng cách bên phải giữa các trường */
   font-size: 14px;
+  position: relative;
 }
 
 .input-field:last-child {
@@ -179,21 +207,12 @@
 .btn-danger {
   background-color: #294764; /* Màu vàng cho nút sửa */
 }
-
-.btn-success {
-  background-color: #294764; /* Màu xanh cho nút thêm */
-}
-
 .btn-danger:hover {
   background-color: #032749; /* Hiệu ứng hover cho nút sửa */
 }
 
 .btn-primary:hover {
   background-color: #032749; /* Hiệu ứng hover cho nút chi tiết */
-}
-
-.btn-success:hover {
-  background-color: #032749; /* Màu xanh cho nút thêm */
 }
 
 /* modal*/
@@ -253,5 +272,3 @@
   font-weight: bold;
   transition: color 0.3s ease;
 }
-
-
