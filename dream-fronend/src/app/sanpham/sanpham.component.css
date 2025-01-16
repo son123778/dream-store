@@ -236,13 +236,13 @@ form:last-child {
   width: 600px; /* Tăng độ rộng */
   height: 600px; /* Tăng chiều cao */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Tăng độ bóng */
-  text-align: center;
+
   overflow-y: auto; /* Thêm cuộn dọc nếu nội dung quá dài */
 }
 
 .modal-box .btn-primary {
   padding: 10px 15px; /* Giảm padding */
-  font-size: 12px; /* Giảm kích thước chữ */
+  font-size: 10px; /* Giảm kích thước chữ */
   margin-top: -70px; /* Dịch nút lên trên thêm */
   position: relative; /* Giữ nguyên vị trí so với modal */
 }
@@ -272,3 +272,40 @@ form:last-child {
   font-weight: bold;
   transition: color 0.3s ease;
 }
+
+
+/* sản phẩm chi tiết */
+.modal-full {
+  width: 80%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  top: 0;
+  right: 35px;
+  position: fixed;
+  background: white;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+
+/* Căn lề trái cho chữ tiêu đề và tìm kiếm */
+.modal-box .title,
+.modal-box .filter {
+  text-align: left; /* Căn lề trái */
+}
+.modal-box .button-row button {
+  font-size: 10px; /* Kích thước chữ vừa phải */
+}
+
+/* Dịch button xuống */
+.modal-box .button-row {
+  margin-top: 15px; /* Điều chỉnh khoảng cách phía trên nút */
+}
+
+/* Dịch bảng xuống */
+.modal-box .table-container {
+  margin-top: 150px; /* Điều chỉnh khoảng cách phía trên bảng */
+}
+
+

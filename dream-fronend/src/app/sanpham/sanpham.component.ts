@@ -10,11 +10,13 @@ import { SanphamService } from './sanpham.service';
 })
 export class SanphamComponent implements OnInit {
   sanPhams: any[] = [];
+  sanPhamChiTiets: any[] = [];
   thuongHieus: any[] = [];
   chatLieus: any[] = [];
   coAos: any[] = [];
   xuatXus: any[] = [];
-  showModal: boolean = false; // Trạng thái để kiểm tra modal hiển thị hay không
+  showModal: boolean = false;
+  showModalSanPhamChiTiet: boolean = false;  // Trạng thái để kiểm tra modal hiển thị hay không
 
   constructor(private sanphamService: SanphamService) {}
 
@@ -25,6 +27,7 @@ export class SanphamComponent implements OnInit {
   // hàm load 
   loadData() : void{
   this.listSanPham()
+  this.listSanPhamChiTiet()
   this.listThuongHieu()
   this.listChatLieu()
   this.listCoAo()
@@ -36,6 +39,13 @@ export class SanphamComponent implements OnInit {
       console.log("data", data);
       this.sanPhams = Array.isArray(data.content) ? data.content : [];
     });
+  }
+
+  listSanPhamChiTiet(): void{
+    this.sanphamService.getSanPhamChiTiet().subscribe(dataSanPhamChiTiet => {
+      console.log("data", dataSanPhamChiTiet);
+      this.sanPhamChiTiets = Array.isArray(dataSanPhamChiTiet.content) ? dataSanPhamChiTiet.content : [];
+    })
   }
   
   listThuongHieu(): void {
@@ -69,13 +79,23 @@ export class SanphamComponent implements OnInit {
       this.xuatXus = Array.isArray(data) ? data : []; 
     });
   }  
-  // Hàm mở modal
-  openModal() {
+  // Hàm mở modal sản phẩm
+  openModalSanPham() {
     this.showModal = true;
   }
 
-  // Hàm đóng modal
-  closeModal() {
+  // Hàm đóng modal sản phẩm
+  closeModalSanPham() {
     this.showModal = false;
   }
+
+    // Hàm mở modal sản phẩm chi tiết
+    openModalSanPhamChiTiet() {
+      this.showModalSanPhamChiTiet = true;
+    }
+  
+    // Hàm đóng modal sản phẩm chi tiết
+    closeModalSanPhamChiTiet() {
+      this.showModalSanPhamChiTiet = false;
+    }
 }

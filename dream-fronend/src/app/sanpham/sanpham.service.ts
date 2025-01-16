@@ -13,7 +13,12 @@ export class SanphamService {
   // hàm sản phẩm
   getSanPham(): Observable<ApiResponseSanPham> {
     return this.http.get<ApiResponseSanPham>(this.apiUrl + '/san-pham/hien-thi');
-  }  
+  }
+  
+  getSanPhamChiTiet(): Observable<ApiResponseSanPhamChiTiet>{
+    return this.http.get<ApiResponseSanPhamChiTiet>(this.apiUrl + '/san-pham-chi-tiet/hien-thi');
+  }
+
   getThuongHieu(): Observable<ThuongHieu[]> {
     return this.http.get<ThuongHieu[]>(this.apiUrl + '/thuong-hieu/hien-thi').pipe();
   }
@@ -71,6 +76,49 @@ export interface ApiResponseSanPham {
   numberOfElements: number;
   empty: boolean;
 }
+// Interface cho `SanPhamChiTiet`
+export interface SanPhamChiTiet {
+  id: number;
+  ma: string;
+  gia: number;
+  soLuong: number;
+  ngayTao: string;
+  ngaySua: string;
+  trangThai: number;
+  idSanPham: number;
+  tenSanPham: string;
+  idSize: number;
+  tenSize: string;
+  idMauSac: number;
+  tenMauSac: string;
+}
+
+// Interface cho ApiResponse của `SanPhamChiTiet`
+export interface ApiResponseSanPhamChiTiet {
+  content: SanPhamChiTiet[];
+  pageable: {
+    pageNumber: number;
+    pageSize: number;
+    sort: {
+      empty: boolean;
+      unsorted: boolean;
+      sorted: boolean;
+    };
+    offset: number;
+    unpaged: boolean;
+    paged: boolean;
+  };
+  last: boolean;
+  totalElements: number;
+  totalPages: number;
+  first: boolean;
+  size: number;
+  number: number;
+  numberOfElements: number;
+  empty: boolean;
+}
+
+// thuộc tính
 export interface ThuongHieu {
   id: number;
   ma: string;

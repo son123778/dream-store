@@ -52,10 +52,10 @@
 </div>
 
 <!-- Modal -->
-<div class="modal-overlay" *ngIf="showModal" (click)="closeModal()">
+<div class="modal-overlay" *ngIf="showModal" (click)="closeModalSanPham()">
   <div class="modal-box" (click)="$event.stopPropagation()">
     <!-- Nút Close ở góc trên -->
-    <button class="close-btn" (click)="closeModal()">×</button>
+    <button class="close-btn" (click)="closeModalSanPham()">×</button>
     <form action="" method="post">
       <div class="input-row">
         <div class="input-field">
@@ -123,9 +123,9 @@
 </div>
 <div class="table-container">
   <div class="button-row">
-    <button (click)="openModal()" class="button btn-primary">Thêm sản phẩm</button>
-    <button (click)="openModal()" class="button btn-primary">Quản lý thuộc tính</button>
-    <button (click)="openModal()" class="button btn-primary">Xuất file excel</button>
+    <button (click)="openModalSanPham()" class="button btn-primary">Thêm sản phẩm</button>
+    <button (click)="openModalSanPham()" class="button btn-primary">Quản lý thuộc tính</button>
+    <button (click)="openModalSanPham()" class="button btn-primary">Xuất file excel</button>
   </div>
   <div class="table-scrollable">
     <table class="product-table">
@@ -155,7 +155,7 @@
           <td>{{ sanPham.ngaySua }}</td>
           <td>{{ sanPham.trangThai === 1 ? "Hoạt động" : "Không hoạt động" }}</td>
           <td>
-            <button (click)="openModal()" class="button btn-primary">Chi tiết</button>
+            <button (click)="openModalSanPhamChiTiet()" class="button btn-primary">Chi tiết</button>
             <a href="" class="button btn-danger">Sửa</a>
           </td>
         </tr>
@@ -163,49 +163,61 @@
     </table>
   </div>
 </div>
-<!-- <div>
-  <p class="title1">Danh sách sản phẩm chi tiết</p>
-  <p class="filter">Lọc</p>
-</div> -->
-<!-- <div class="table-container pt-5">
-  <div class="table-scrollable">
-    <table class="product-table">
-      <thead>
-      <tr>
-        <th>Mã sản phẩm chi tiết</th>
-        <th>Tên sản phẩm</th>
-        <th>Giá</th>
-        <th>Số lượng</th>
-        <th>Màu sắc</th>
-        <th>Size</th>
-        <th>Ngày tạo</th>
-        <th>Ngày sửa</th>
-        <th>Khuyến mại</th>
-        <th>Trạng thái</th>
-        <th colspan="2">Hành động</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td>SP001</td>
-        <td>Áo thể thao Nike</td>
-        <td>10000</td>
-        <td>100</td>
-        <td>Đỏ</td>
-        <td>L</td>
-        <td>2024-12-25</td>
-        <td>2024-12-26</td>
-        <td>20%</td>
-        <td>Hoạt động</td>
-        <td>
-          <a href="" class="button btn-danger">Sửa</a>
-          <button (click)="openModal()" class="button btn-primary">Chi tiết</button>
-        </td>
-      </tr>
-      </tbody>
-    </table>
+
+<!-- Modal Chi Tiết -->
+<div class="modal-overlay" *ngIf="showModalSanPhamChiTiet" (click)="closeModalSanPhamChiTiet()">
+  <div class="modal-box modal-full" (click)="$event.stopPropagation()">
+    <!-- Nút Close -->
+    <button class="close-btn" (click)="closeModalSanPhamChiTiet()">×</button>
+    <div>
+      <p class="title">Danh sách sản phẩm chi tiết</p>
+      <p class="filter">Tìm kiếm sản phẩm chi tiết</p>
+    </div>
+    <div class="detail-container">
+      <div class="table-container">
+        <div class="button-row">
+          <button (click)="openModalSanPham()" class="button btn-primary">Thêm sản phẩm chi tiết</button>
+          <button (click)="openModalSanPham()" class="button btn-primary">Xuất file excel</button>
+        </div>
+        <div class="table-scrollable">
+          <table class="product-table">
+            <thead>
+              <tr>
+                <th>Mã sản phẩm chi tiết</th>
+                <th>Tên sản phẩm</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
+                <th>Ngày tạo</th>
+                <th>Ngày sửa</th>
+                <th>Size</th>
+                <th>Màu sắc</th>
+                <th>Trạng thái</th>
+                <th colspan="2">Hành động</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let sanPham of sanPhamChiTiets">
+                <td>{{ sanPham.ma }}</td>
+                <td>{{ sanPham.tenSanPham }}</td>
+                <td>{{ sanPham.gia }}</td>
+                <td>{{ sanPham.soLuong }}</td>
+                <td>{{ sanPham.ngayTao }}</td>
+                <td>{{ sanPham.ngaySua }}</td>
+                <td>{{ sanPham.tenMauSac }}</td>
+                <td>{{ sanPham.tenSize }}</td>
+                <td>{{ sanPham.trangThai === 1 ? "Hoạt động" : "Không hoạt động" }}</td>
+                <td>
+                  <button (click)="openModalSanPhamChiTiet()" class="button btn-primary">Chi tiết</button>
+                  <a href="" class="button btn-danger">Sửa</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
-</div> -->
+</div>
 
 
 
