@@ -34,7 +34,7 @@ export class SanphamService {
   getXuatXu(): Observable<XuatXu[]> {
     return this.http.get<XuatXu[]>(this.apiUrl + '/xuat-xu/hien-thi').pipe();
   }
-  
+    
 }
 export interface SanPham {
   id: number;
@@ -52,6 +52,7 @@ export interface SanPham {
   idXuatXu: number;
   tenXuatXu: string;
 }
+
 
 export interface ApiResponseSanPham {
   content: SanPham[];

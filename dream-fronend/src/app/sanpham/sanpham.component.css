@@ -148,6 +148,9 @@ form {
 form:last-child {
   margin-right: 0; /* Bỏ margin phải cho form cuối cùng */
 }
+#trangThai{
+  width: 140px;
+}
 .input-row {
   display: flex; /* Sử dụng flexbox để sắp xếp các trường trên một hàng */
   justify-content: space-between; /* Phân bổ khoảng cách đều giữa các trường */
@@ -233,10 +236,9 @@ form:last-child {
   background: white;
   padding: 30px; /* Tăng padding */
   border-radius: 10px;
-  width: 600px; /* Tăng độ rộng */
-  height: 600px; /* Tăng chiều cao */
+  width: 700px; /* Tăng độ rộng */
+  height: 550px; /* Tăng chiều cao */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Tăng độ bóng */
-
   overflow-y: auto; /* Thêm cuộn dọc nếu nội dung quá dài */
 }
 

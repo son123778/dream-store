@@ -99,24 +99,16 @@
       </div>
       <div class="input-row">
         <div class="input-field">
-          <input type="date" class="input" id="ngaytao" name="ngaytao">
-          <label for="ngaytao">Ngày tạo</label>
-        </div>
-        <div class="input-field">
-          <input type="date" class="input" id="ngaysua" name="ngaysua">
-          <label for="ngaysua">Ngày sửa</label>
-        </div>
-        <div class="input-field">
-          <select class="input" id="size" name="size">
+          <select class="input" id="trangThai" name="trangThai">
             <option value="" disabled selected>Chọn trạng thái</option>
-            <option value="Hoạt động">Hoạt động</option>
-            <option value="Không hoạt động">Không hoạt động</option>
+            <option value="1">Hoạt động</option>
+            <option value="0">Không hoạt động</option>
           </select>
           <label for="size">Trạng thái</label>
         </div>
       </div>
       <div class="ps-2">
-        <button type="submit" class="btn-primary">Thêm sản phẩm</button>
+        <button type="submit" class="btn-primary">Lưu</button>
       </div>
     </form>
   </div>
@@ -155,9 +147,9 @@
           <td>{{ sanPham.ngaySua }}</td>
           <td>{{ sanPham.trangThai === 1 ? "Hoạt động" : "Không hoạt động" }}</td>
           <td>
-            <button (click)="openModalSanPhamChiTiet()" class="button btn-primary">Chi tiết</button>
+            <button (click)="openModalSanPhamChiTiet(sanPham.id)" class="button btn-primary">Chi tiết</button>
             <a href="" class="button btn-danger">Sửa</a>
-          </td>
+          </td>          
         </tr>
       </tbody>
     </table>
@@ -207,7 +199,7 @@
                 <td>{{ sanPham.tenSize }}</td>
                 <td>{{ sanPham.trangThai === 1 ? "Hoạt động" : "Không hoạt động" }}</td>
                 <td>
-                  <button (click)="openModalSanPhamChiTiet()" class="button btn-primary">Chi tiết</button>
+                  <button class="button btn-primary">Chi tiết</button>
                   <a href="" class="button btn-danger">Sửa</a>
                 </td>
               </tr>

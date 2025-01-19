@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SanphamService } from './sanpham.service';
 
+
 @Component({
   selector: 'app-sanpham',
   imports: [CommonModule],
@@ -9,6 +10,7 @@ import { SanphamService } from './sanpham.service';
   styleUrls: ['./sanpham.component.css']
 })
 export class SanphamComponent implements OnInit {
+  newSanPham: any = {};
   sanPhams: any[] = [];
   sanPhamChiTiets: any[] = [];
   thuongHieus: any[] = [];
@@ -17,7 +19,7 @@ export class SanphamComponent implements OnInit {
   xuatXus: any[] = [];
   showModal: boolean = false;
   showModalSanPhamChiTiet: boolean = false;  // Trạng thái để kiểm tra modal hiển thị hay không
-
+ 
   constructor(private sanphamService: SanphamService) {}
 
   ngOnInit(): void {
@@ -57,8 +59,6 @@ export class SanphamComponent implements OnInit {
     });
   }
   
-  
-  
   listChatLieu(): void {
     this.sanphamService.getChatLieu().subscribe(data => {
       console.log("Chất Liệu Data", data);
@@ -89,13 +89,20 @@ export class SanphamComponent implements OnInit {
     this.showModal = false;
   }
 
-    // Hàm mở modal sản phẩm chi tiết
-    openModalSanPhamChiTiet() {
+  // Hàm mở modal sản phẩm chi tiết
+  openModalSanPhamChiTiet(idSanPham: number): void {
+    this.sanphamService.getSanPhamChiTiet().subscribe(dataSanPhamChiTiet => {
+      this.sanPhamChiTiets = Array.isArray(dataSanPhamChiTiet.content)
+        ? dataSanPhamChiTiet.content.filter(item => item.idSanPham === idSanPham)
+        : [];
+      console.log("San phẩm chi tiết:", this.sanPhamChiTiets);
       this.showModalSanPhamChiTiet = true;
-    }
-  
+    });
+  }    
+    
     // Hàm đóng modal sản phẩm chi tiết
     closeModalSanPhamChiTiet() {
       this.showModalSanPhamChiTiet = false;
     }
+    
 }
