@@ -32,4 +32,6 @@ public class ChatLieu{
 
     @Column(name = "trang_thai")
     private int trangThai;
+
+
 }

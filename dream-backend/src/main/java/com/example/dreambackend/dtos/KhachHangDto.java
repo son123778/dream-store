@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class KhachHangDto {
 
-    private String ma; // Mã voucher
+    private String ma;
 
     private String ten;
 
@@ -28,5 +28,4 @@ public class KhachHangDto {
     private LocalDate ngaySua;
     @JsonProperty("trang_thai")
     private Integer trangThai;
-
 }

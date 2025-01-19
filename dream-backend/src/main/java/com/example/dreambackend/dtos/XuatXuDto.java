@@ -21,4 +21,6 @@ public class XuatXuDto {
 
     @JsonProperty("trang_thai")
     private int trangThai;
+
+
 }

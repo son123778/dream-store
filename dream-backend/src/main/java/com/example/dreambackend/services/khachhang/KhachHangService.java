@@ -21,7 +21,8 @@ public class KhachHangService implements IKhachHangService{
 
     @Override
     public KhachHang getKhachHangById(Integer id) {
-        return khachHangRepository.findById(id).get();
+        return khachHangRepository.findById(id).orElseThrow(()
+                -> new RuntimeException("Không tim được id cua khach hang"));
     }
 
     @Override

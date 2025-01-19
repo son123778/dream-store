@@ -2,9 +2,6 @@ package com.example.dreambackend.controllers;
 
 import com.example.dreambackend.dtos.KhachHangDto;
 import com.example.dreambackend.entities.KhachHang;
-import com.example.dreambackend.repositories.KhachHangRepository;
-import com.example.dreambackend.repositories.NhanVienRepository;
-import com.example.dreambackend.services.NhanVien.NhanVienService;
 import com.example.dreambackend.services.khachhang.KhachHangService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,10 +15,7 @@ import java.util.List;
 public class KhachHangController {
     @Autowired
     KhachHangService khachHangService;
-    @Autowired
-    private NhanVienRepository nhanVienRepository;
-    @Autowired
-    private NhanVienService nhanVienService;
+
 
     @GetMapping("/hien-thi")
     public ResponseEntity<List<KhachHang>> hienthi(){
