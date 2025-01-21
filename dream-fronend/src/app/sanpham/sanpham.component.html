@@ -54,20 +54,19 @@
 <!-- Modal -->
 <div class="modal-overlay" *ngIf="showModal" (click)="closeModalSanPham()">
   <div class="modal-box" (click)="$event.stopPropagation()">
-    <!-- Nút Close ở góc trên -->
     <button class="close-btn" (click)="closeModalSanPham()">×</button>
     <form action="" method="post">
       <div class="input-row">
         <div class="input-field">
-          <input type="text" class="input" id="ma" name="ma" autocomplete="off">
+          <input type="text" class="input" id="ma" name="ma" [(ngModel)]="sanPhamRequest.ma" autocomplete="off">
           <label for="ma">Mã sản phẩm</label>
         </div>
         <div class="input-field">
-          <input type="text" class="input" id="ten" name="ten">
+          <input type="text" class="input" id="ten" name="ten" [(ngModel)]="sanPhamRequest.ten">
           <label for="ten">Tên sản phẩm</label>
         </div>
         <div class="input-field">
-          <select class="input" id="thuongHieu" name="thuongHieu">
+          <select class="input" id="thuongHieu" name="thuongHieu" [(ngModel)]="sanPhamRequest.thuongHieu.id">
             <option value="" disabled selected>Chọn thương hiệu</option>
             <option *ngFor="let thuongHieu of thuongHieus" [value]="thuongHieu.id">{{thuongHieu.ten}}</option>
           </select>
@@ -76,21 +75,21 @@
       </div>
       <div class="input-row">
         <div class="input-field">
-          <select class="input" id="xuatXu" name="xuatXu">
+          <select class="input" id="xuatXu" name="xuatXu" [(ngModel)]="sanPhamRequest.xuatXu.id">
             <option value="" disabled selected>Chọn xuất xứ</option>
             <option *ngFor="let xuatXu of xuatXus" [value]="xuatXu.id">{{xuatXu.ten}}</option>
           </select>
           <label for="xuatXu">Xuất xứ</label>
         </div>
         <div class="input-field">
-          <select class="input" id="chatLieu" name="chatLieu">
+          <select class="input" id="chatLieu" name="chatLieu" [(ngModel)]="sanPhamRequest.chatLieu.id">
             <option value="" disabled selected>Chọn chất liệu</option>
             <option *ngFor="let chatLieu of chatLieus" [value]="chatLieu.id">{{chatLieu.ten}}</option>
           </select>
           <label for="chatLieu">Chất liệu</label>
         </div>
         <div class="input-field">
-          <select class="input" id="coAo" name="coAo">
+          <select class="input" id="coAo" name="coAo" [(ngModel)]="sanPhamRequest.coAo.id">
             <option value="" disabled selected>Chọn cổ áo</option>
             <option *ngFor="let coAo of coAos" [value]="coAo.id">{{coAo.ten}}</option>
           </select>
@@ -99,20 +98,21 @@
       </div>
       <div class="input-row">
         <div class="input-field">
-          <select class="input" id="trangThai" name="trangThai">
+          <select class="input" id="trangThai" name="trangThai" [(ngModel)]="sanPhamRequest.trangThai">
             <option value="" disabled selected>Chọn trạng thái</option>
             <option value="1">Hoạt động</option>
             <option value="0">Không hoạt động</option>
           </select>
-          <label for="size">Trạng thái</label>
+          <label for="trangThai">Trạng thái</label>
         </div>
       </div>
       <div class="ps-2">
-        <button type="submit" class="btn-primary">Lưu</button>
+        <button type="button" class="btn-primary" (click)="addSanPham()">Lưu</button>
       </div>
     </form>
   </div>
 </div>
+
 <div class="table-container">
   <div class="button-row">
     <button (click)="openModalSanPham()" class="button btn-primary">Thêm sản phẩm</button>

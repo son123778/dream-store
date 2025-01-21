@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SanphamService } from './sanpham.service';
-
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-sanpham',
-  imports: [CommonModule],
+  imports: [CommonModule ,FormsModule],
   templateUrl: './sanpham.component.html',
   styleUrls: ['./sanpham.component.css']
 })
@@ -19,7 +19,17 @@ export class SanphamComponent implements OnInit {
   xuatXus: any[] = [];
   showModal: boolean = false;
   showModalSanPhamChiTiet: boolean = false;  // Trạng thái để kiểm tra modal hiển thị hay không
- 
+  sanPhamRequest: any = {
+    ma: '',
+    ten: '',
+    thuongHieu: { id: '' },
+    xuatXu: { id: '' },
+    chatLieu: { id: '' },
+    coAo: { id: '' },
+    trangThai: 0,
+    ngayTao: '',
+    ngaySua: ''
+  };
   constructor(private sanphamService: SanphamService) {}
 
   ngOnInit(): void {
@@ -104,5 +114,25 @@ export class SanphamComponent implements OnInit {
     closeModalSanPhamChiTiet() {
       this.showModalSanPhamChiTiet = false;
     }
+
+    // thêm sản phẩm
+    addSanPham(): void {
+      this.sanPhamRequest.ngayTao = new Date().toISOString().split('T')[0];
+      this.sanPhamRequest.ngaySua = new Date().toISOString().split('T')[0]; 
+      this.sanPhamRequest.trangThai = 0
+      console.log("SanPham Request:", this.sanPhamRequest);
     
+      this.sanphamService.addSanPham(this.sanPhamRequest).subscribe({
+        next: (response) => {
+          console.log("Thêm sản phẩm thành công:", response);
+          alert("Thêm sản phẩm thành công");
+          this.closeModalSanPham();
+          this.listSanPham(); // Reload danh sách sản phẩm
+        },
+        error: (error) => {
+          console.error("Lỗi khi thêm sản phẩm:", error);
+          alert("Thêm sản phẩm thất bại");
+        }
+      });
+    } 
 }

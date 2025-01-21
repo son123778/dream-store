@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SanphamService {
+  // đường dẫn api
   private apiUrl = 'http://localhost:8080/api'; // URL backend
 
   constructor(private http: HttpClient) {}
@@ -34,7 +35,11 @@ export class SanphamService {
   getXuatXu(): Observable<XuatXu[]> {
     return this.http.get<XuatXu[]>(this.apiUrl + '/xuat-xu/hien-thi').pipe();
   }
-    
+
+  addSanPham(sanPhamRequest: any): Observable<any> {
+    return this.http.post(this.apiUrl + '/san-pham/add', sanPhamRequest);
+  }
+  
 }
 export interface SanPham {
   id: number;
@@ -77,7 +82,7 @@ export interface ApiResponseSanPham {
   numberOfElements: number;
   empty: boolean;
 }
-// Interface cho `SanPhamChiTiet`
+// Interface cho SanPhamChiTiet
 export interface SanPhamChiTiet {
   id: number;
   ma: string;
@@ -94,7 +99,7 @@ export interface SanPhamChiTiet {
   tenMauSac: string;
 }
 
-// Interface cho ApiResponse của `SanPhamChiTiet`
+// Interface cho ApiResponse của SanPhamChiTiet
 export interface ApiResponseSanPhamChiTiet {
   content: SanPhamChiTiet[];
   pageable: {

@@ -15,7 +15,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/san-pham")
@@ -42,10 +44,14 @@ public class SanPhamController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<?> addSanPham(@RequestBody SanPhamRequest sanPhamRequest) {
+    public ResponseEntity<Map<String, String>> addSanPham(@RequestBody SanPhamRequest sanPhamRequest) {
         sanPhamService.addSanPham(sanPhamRequest);
-        return ResponseEntity.ok("Thêm thành công");
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "Thêm thành công");
+
+        return ResponseEntity.ok(response);
     }
+
 
     @PutMapping("/update")
     public ResponseEntity<?> updateSanPham(@RequestBody SanPhamRequest sanPhamRequest) {
