@@ -64,6 +64,12 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.projectlombok</groupId>-->
+<!--            <artifactId>lombok</artifactId>-->
+<!--            <version>1.18.28</version> &lt;!&ndash; Hoặc phiên bản mới nhất &ndash;&gt;-->
+<!--            <scope>provided</scope>-->
+<!--        </dependency>-->
 
         <!--    thư viện swak -->
         <dependency>

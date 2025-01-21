@@ -1,10 +1,10 @@
+// Controller Class
 package com.example.dreambackend.controllers;
 
-
-
 import com.example.dreambackend.entities.NhanVien;
-import com.example.dreambackend.repositories.NhanVienRepository;
+import com.example.dreambackend.services.NhanVien.INhanVienService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,48 +14,33 @@ import java.util.List;
 public class NhanVienController {
 
     @Autowired
-    private NhanVienRepository nhanVienRepository;
+    private INhanVienService nhanVienService;
 
-    // Lấy danh sách nhân viên
     @GetMapping
-    public List<NhanVien> getAllNhanVien() {
-        return nhanVienRepository.findAll();
+    public ResponseEntity<List<NhanVien>> getAllNhanVien() {
+        return ResponseEntity.ok(nhanVienService.getAllNhanVien());
     }
 
-    // Lấy nhân viên theo ID
     @GetMapping("/{id}")
-    public NhanVien getNhanVienById(@PathVariable int id) {
-        return nhanVienRepository.findById(id).orElseThrow(() ->
-                new RuntimeException("Không tìm thấy nhân viên có ID: " + id));
+    public ResponseEntity<NhanVien> getNhanVienById(@PathVariable int id) {
+        return nhanVienService.getNhanVienById(id)
+                .map(ResponseEntity::ok)
+                .orElseThrow(() -> new RuntimeException("NhanVien not found with id: " + id));
     }
-//
-//    // Thêm nhân viên mới
-//    @PostMapping
-//    public NhanVien addNhanVien(@RequestBody NhanVien nhanVien) {
-//        return nhanVienRepository.save(nhanVien);
-//    }
-//
-//    // Cập nhật thông tin nhân viên
-//    @PutMapping("/{id}")
-//    public NhanVien updateNhanVien(@PathVariable int id, @RequestBody NhanVien nhanVien) {
-//        NhanVien existing = nhanVienRepository.findById(id).orElseThrow(() ->
-//                new RuntimeException("Không tìm thấy nhân viên có ID: " + id));
-//
-//        existing.setTen(nhanVien.getTen());
-//        existing.setNgaySinh(nhanVien.getNgaySinh());
-//        existing.setGioiTinh(nhanVien.getGioiTinh());
-//        existing.setEmail(nhanVien.getEmail());
-//        existing.setSoDienThoai(nhanVien.getSoDienThoai());
-//        existing.setTaiKhoan(nhanVien.getTaiKhoan());
-//        existing.setMatKhau(nhanVien.getMatKhau());
-//
-//        return nhanVienRepository.save(existing);
-//    }
-//
-//    // Xóa nhân viên
-//    @DeleteMapping("/{id}")
-//    public String deleteNhanVien(@PathVariable int id) {
-//        nhanVienRepository.deleteById(id);
-//        return "Đã xóa nhân viên có ID: " + id;
-//    }
+
+    @PostMapping
+    public ResponseEntity<NhanVien> createNhanVien(@RequestBody NhanVien nhanVien) {
+        return ResponseEntity.ok(nhanVienService.createNhanVien(nhanVien));
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<NhanVien> updateNhanVien(@PathVariable int id, @RequestBody NhanVien updatedNhanVien) {
+        return ResponseEntity.ok(nhanVienService.updateNhanVien(id, updatedNhanVien));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteNhanVien(@PathVariable int id) {
+        nhanVienService.deleteNhanVien(id);
+        return ResponseEntity.noContent().build();
+    }
 }
