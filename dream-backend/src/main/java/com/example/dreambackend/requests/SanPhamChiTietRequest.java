@@ -1,6 +1,5 @@
 package com.example.dreambackend.requests;
 
-import com.example.dreambackend.entities.KhuyenMai;
 import com.example.dreambackend.entities.MauSac;
 import com.example.dreambackend.entities.SanPham;
 import com.example.dreambackend.entities.Size;
