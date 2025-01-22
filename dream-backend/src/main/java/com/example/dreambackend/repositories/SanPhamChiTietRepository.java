@@ -53,6 +53,4 @@ WHERE spct.trangThai = 1
     List<SanPhamChiTietDto> findAvailableProducts(@Param("khuyenMaiId") Integer khuyenMaiId);
     // Phương thức để tìm tất cả sản phẩm liên kết với một khuyến mãi cụ thể
     List<SanPhamChiTiet> findAllByKhuyenMaiId(Integer khuyenMaiId);
-
-
 }
