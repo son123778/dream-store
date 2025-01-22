@@ -1,20 +1,106 @@
+/* Bảng danh sách nhân viên */
 table {
-  border-collapse: collapse;
-  margin: 20px 0;
-  font-size: 16px;
   width: 100%;
+  border-collapse: collapse;
+  font-size: 12px; /* Tăng kích thước chữ cho dễ nhìn */
+}
+
+th, td {
+  padding: 8px; /* Giảm padding */
+  text-align: left;
+  border-bottom: 1px solid #ddd; /* Thêm đường kẻ dưới mỗi hàng */
+  white-space: nowrap; /* Ngăn chữ xuống dòng */
+  overflow: hidden; /* Ẩn phần chữ bị tràn */
+  text-overflow: ellipsis; /* Hiển thị dấu ... nếu chữ bị tràn */
+  max-width: 150px; /* Giới hạn chiều rộng tối đa của mỗi cột, tùy chỉnh theo nội dung */
 }
 
 th {
-  background-color: #f4f4f4;
+  background-color: #294764;
+  color: white;
   font-weight: bold;
 }
 
-td, th {
-  border: 1px solid #ddd;
-  padding: 8px;
+tr:nth-child(even) {
+  background-color: #f2f2f2;
 }
 
 tr:hover {
-  background-color: #f9f9f9;
+  background-color: #ddd;
+}
+
+/* Hình ảnh nhân viên */
+img {
+  max-width: 50px;
+  max-height: 50px;
+  vertical-align: middle; /* Căn giữa ảnh theo chiều dọc */
+}
+
+/* Form Thêm/Sửa Nhân Viên */
+.form-container {
+  max-width: 600px; /* Giới hạn chiều rộng form */
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+  margin-top: 0;
+}
+
+.form-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="password"],
+.form-container input[type="date"],
+.form-container input[type="number"],
+.form-container input[type="file"],
+.form-container select {
+  width: calc(100% - 12px); /* Chiều rộng full trừ padding */
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+.form-container input[type="radio"] {
+  margin-right: 5px;
+}
+
+.form-container button {
+  padding: 10px 20px;
+  background-color: #294764;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.form-container button:hover {
+  background-color: #032749;
+}
+
+/* Flexbox cho các trường trên cùng một hàng (nếu cần) */
+.form-row {
+  display: flex;
+  gap: 10px; /* Khoảng cách giữa các phần tử */
+  margin-bottom: 10px;
+}
+
+.form-row > div {
+  flex: 1; /* Chia đều không gian cho các phần tử con */
+}
+/*Ẩn password*/
+.hidden-password{
+  font-style: italic;
+  color: gray;
 }

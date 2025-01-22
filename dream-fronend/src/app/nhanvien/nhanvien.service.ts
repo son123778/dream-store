@@ -1,22 +1,27 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class NhanvienService {
-  private apiUrl = 'http://localhost:8080/api/nhanvien'; // URL backend
+  private baseUrl = 'http://localhost:8080/api/nhanvien';
 
   constructor(private http: HttpClient) {}
 
-  // Lấy danh sách nhân viên
-  getAllNhanVien(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+  getNhanVien(status?: number, keyword?: string): Observable<any[]> {
+    let params = new HttpParams();
+    if (status !== undefined) params = params.set('trangThai', status.toString());
+    if (keyword) params = params.set('keyword', keyword);
+    return this.http.get<any[]>(this.baseUrl, { params });
   }
 
-  // Lấy thông tin chi tiết nhân viên theo ID
-  getNhanVienById(id: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/${id}`);
+  createNhanVien(data: any): Observable<any> {
+    return this.http.post<any>(this.baseUrl, data);
   }
+
+  updateNhanVien(id: number, data: any): Observable<any> {
+    return this.http.put<any>(`${this.baseUrl}/${id}`, data);
+  }  
 }

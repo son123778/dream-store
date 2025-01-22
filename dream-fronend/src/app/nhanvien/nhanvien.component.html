@@ -1,34 +1,142 @@
-<div>
-  <h2>Danh sách nhân viên</h2>
+<div class="container" *ngIf="state === 'list'">
+  <h2>Quản lý Nhân Viên</h2>
 
-  <!-- Hiển thị lỗi nếu có -->
-  <div *ngIf="error" style="color: red;">{{ error }}</div>
+  <!-- Tìm kiếm và lọc -->
+  <div class="search-filter">
+    <input type="text" placeholder="Tìm kiếm..." [(ngModel)]="searchQuery" (input)="applyFilter()" />
+    <div class="filter">
+      <label>
+        <input type="radio" name="status" value="" [(ngModel)]="statusFilter" (change)="applyFilter()" />
+        Tất cả
+      </label>
+      <label>
+        <input type="radio" name="status" value="1" [(ngModel)]="statusFilter" (change)="applyFilter()" />
+        Đang làm
+      </label>
+      <label>
+        <input type="radio" name="status" value="0" [(ngModel)]="statusFilter" (change)="applyFilter()" />
+        Nghỉ việc
+      </label>
+    </div>
+  </div>
 
-  <!-- Hiển thị bảng danh sách nhân viên -->
-  <table border="1" cellspacing="0" cellpadding="10" style="width: 100%; text-align: left;">
+  <!-- Nút thêm mới -->
+  <button (click)="showCreateForm()">Thêm Nhân Viên</button>
+
+  <!-- Bảng danh sách nhân viên -->
+  <table>
     <thead>
       <tr>
         <th>ID</th>
-        <th>Mã</th>
+        <th>Vai Trò</th>
+        <th>Mã NV</th>
         <th>Tên</th>
-        <th>Giới tính</th>
-        <th>Ngày sinh</th>
+        <th>Giới Tính</th>
+        <th>Ngày Sinh</th>
         <th>Email</th>
-        <th>Số điện thoại</th>
-        <th>Trạng thái</th>
+        <th>SĐT</th>
+        <th>Tài Khoản</th>
+        <th>Mật Khẩu</th>
+        <th>Ảnh</th>
+        <th>Trạng Thái</th>
+        <th>Ngày Tạo</th>
+        <th>Ngày Sửa</th>
+        <th>Hành Động</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let nhanvien of nhanviens">
-        <td>{{ nhanvien.id }}</td>
-        <td>{{ nhanvien.ma }}</td>
-        <td>{{ nhanvien.ten }}</td>
-        <td>{{ nhanvien.gioiTinh ? 'Nam' : 'Nữ' }}</td>
-        <td>{{ nhanvien.ngaySinh }}</td>
-        <td>{{ nhanvien.email }}</td>
-        <td>{{ nhanvien.soDienThoai }}</td>
-        <td>{{ nhanvien.trangThai === 1 ? 'Hoạt động' : 'Không hoạt động' }}</td>
+      <tr *ngFor="let nv of filteredNhanViens">
+        <td>{{ nv.id }}</td>
+        <td>{{ nv.idVaiTro }}</td>
+        <td>{{ nv.ma }}</td>
+        <td>{{ nv.ten }}</td>
+        <td>{{ nv.gioiTinh ? 'Nam' : 'Nữ' }}</td>
+        <td>{{ nv.ngaySinh }}</td>
+        <td>{{ nv.email }}</td>
+        <td>{{ nv.soDienThoai }}</td>
+        <td>{{ nv.taiKhoan }}</td>
+        <td>{{ nv.matKhau ? '******' : '' }}</td>
+        <td>
+          <img [src]="nv.anh ? '/uploads/' + nv.anh : 'assets/default-avatar.png'" alt="Ảnh nhân viên" width="50" />
+        </td>
+        <td>{{ nv.trangThai === 1 ? 'Đang làm' : 'Nghỉ việc' }}</td>
+        <td>{{ nv.ngayTao }}</td>
+        <td>{{ nv.ngaySua }}</td>
+        <td>
+          <button (click)="showEditForm(nv)">Sửa</button>
+        </td>
       </tr>
     </tbody>
   </table>
+</div>
+
+<!-- Form Thêm/Sửa Nhân Viên -->
+<div *ngIf="state === 'form'" class="form-container">
+  <h2>{{ isEditing ? 'Sửa Nhân Viên' : 'Thêm Nhân Viên' }}</h2>
+  <form (ngSubmit)="saveNhanVien()">
+    <div>
+      <label>Vai Trò:</label>
+      <input type="number" [(ngModel)]="currentNhanVien.idVaiTro" name="idVaiTro" required />
+    </div>
+    <div>
+      <label>Mã NV:</label>
+      <input type="text" [(ngModel)]="currentNhanVien.ma" name="ma" required />
+    </div>
+    <div>
+      <label>Tên:</label>
+      <input type="text" [(ngModel)]="currentNhanVien.ten" name="ten" required />
+    </div>
+    <div>
+      <label>Giới Tính:</label>
+      <label>
+        <input type="radio" [(ngModel)]="currentNhanVien.gioiTinh" [value]="true" name="gioiTinh" />
+        Nam
+      </label>
+      <label>
+        <input type="radio" [(ngModel)]="currentNhanVien.gioiTinh" [value]="false" name="gioiTinh" />
+        Nữ
+      </label>
+    </div>
+    <div>
+      <label>Ngày Sinh:</label>
+      <input type="date" [(ngModel)]="currentNhanVien.ngaySinh" name="ngaySinh" required />
+    </div>
+    <div>
+      <label>Email:</label>
+      <input type="email" [(ngModel)]="currentNhanVien.email" name="email" required />
+    </div>
+    <div>
+      <label>SĐT:</label>
+      <input type="text" [(ngModel)]="currentNhanVien.soDienThoai" name="soDienThoai" required />
+    </div>
+    <div>
+      <label>Tài Khoản:</label>
+      <input type="text" [(ngModel)]="currentNhanVien.taiKhoan" name="taiKhoan" required />
+    </div>
+    <div>
+      <label>Mật Khẩu:</label>
+      <input type="password" [(ngModel)]="currentNhanVien.matKhau" name="matKhau" required />
+    </div>    
+    <div>
+      <label>Ảnh:</label>
+      <input type="file" (change)="onFileSelected($event)" />
+    </div>
+    <div>
+      <label>Trạng Thái:</label>
+      <select [(ngModel)]="currentNhanVien.trangThai" name="trangThai">
+        <option [value]="1">Đang làm</option>
+        <option [value]="0">Nghỉ việc</option>
+      </select>
+    </div>
+    <div>
+      <label>Ngày Tạo:</label>
+      <input type="datetime-local" [(ngModel)]="currentNhanVien.ngayTao" name="ngayTao" [readonly]="isEditing" />
+    </div>
+    <div>
+      <label>Ngày Sửa:</label>
+      <input type="datetime-local" [(ngModel)]="currentNhanVien.ngaySua" name="ngaySua" [readonly]="!isEditing" />
+    </div>
+    <button type="submit">{{ isEditing ? 'Lưu Thay Đổi' : 'Thêm' }}</button>
+    <button type="button" (click)="backToList()">Hủy</button>
+  </form>
 </div>
