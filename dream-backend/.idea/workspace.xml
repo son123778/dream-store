@@ -4,91 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d7dcb88-d015-40bd-b1c2-e4c2578857ff" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/.tsbuildinfo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_common.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_common_http.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_common_http.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_core.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_core.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_material_button.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_material_button.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_material_button.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_material_button.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_material_icon.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_material_icon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_material_icon.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_material_icon.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_material_sidenav.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_material_sidenav.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_material_sidenav.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_material_sidenav.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_material_toolbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_material_toolbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_material_toolbar.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_material_toolbar.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_platform-browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_platform-browser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_platform-browser_animations.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_platform-browser_animations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_platform-browser_animations.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_platform-browser_animations.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_router.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_router.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_router.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/_metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/_metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/chunk-7WEFQ6UK.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/chunk-7WEFQ6UK.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/chunk-AIKTVCN7.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/chunk-AIKTVCN7.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/chunk-D7R6MQMR.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/chunk-D7R6MQMR.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/chunk-VP6DRI4E.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/chunk-VP6DRI4E.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/chunk-WF5IEBFW.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/chunk-WF5IEBFW.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/chunk-XBYJB54V.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/chunk-XBYJB54V.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_common.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_common_http.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_common_http.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_core.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_core.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_material_button.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_material_button.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_material_button.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_material_button.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_material_icon.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_material_icon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_material_icon.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_material_icon.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_material_sidenav.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_material_sidenav.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_material_sidenav.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_material_sidenav.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_material_toolbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_material_toolbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_material_toolbar.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_material_toolbar.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_platform-browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_platform-browser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_platform-browser_animations.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_platform-browser_animations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_platform-server.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_platform-server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_router.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_ssr.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_ssr.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_ssr_node.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_ssr_node.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_ssr_node.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_ssr_node.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/_metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/_metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chunk-2IBB4QGM.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chunk-2IBB4QGM.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chunk-2M2HMFBT.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chunk-2M2HMFBT.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chunk-3IVTDJG7.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chunk-3IVTDJG7.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chunk-5EZB52YK.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chunk-5EZB52YK.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chunk-7TTVXZSZ.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chunk-7TTVXZSZ.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chunk-LVICFDOM.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chunk-LVICFDOM.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chunk-ODTVZUKY.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chunk-ODTVZUKY.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chunk-PEAVEDUD.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chunk-PEAVEDUD.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chunk-PQUNTQ7K.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chunk-PQUNTQ7K.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chunk-YYVGA3BD.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chunk-YYVGA3BD.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/express.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/express.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/src/app/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/src/app/app.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/src/app/app.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/src/app/nhanvien/nhanvien.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/src/app/nhanvien/nhanvien.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/src/app/nhanvien/nhanvien.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/src/app/nhanvien/nhanvien.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/src/app/nhanvien/nhanvien.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/src/app/nhanvien/nhanvien.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/src/app/nhanvien/nhanvien.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/src/app/nhanvien/nhanvien.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/src/app/nhanvien/nhanvien.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/src/app/nhanvien/nhanvien.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/src/app/thongke/thongke.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/src/app/thongke/thongke.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/src/app/thongke/thongke.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/src/app/thongke/thongke.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/src/app/thongke/thongke.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/src/app/thongke/thongke.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/src/app/thongke/thongke.component.ts" afterDir="false" />
-    </list>
+    <list default="true" id="5d7dcb88-d015-40bd-b1c2-e4c2578857ff" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -148,6 +64,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2024.3.1.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
