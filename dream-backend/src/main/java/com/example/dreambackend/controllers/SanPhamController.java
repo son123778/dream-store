@@ -48,15 +48,14 @@ public class SanPhamController {
         sanPhamService.addSanPham(sanPhamRequest);
         Map<String, String> response = new HashMap<>();
         response.put("message", "Thêm thành công");
-
         return ResponseEntity.ok(response);
     }
 
-
     @PutMapping("/update")
-    public ResponseEntity<?> updateSanPham(@RequestBody SanPhamRequest sanPhamRequest) {
+    public ResponseEntity<Map<String, String>> updateSanPham(@RequestBody SanPhamRequest sanPhamRequest) {
         sanPhamService.updateSanPham(sanPhamRequest);
-        return ResponseEntity.ok("Sửa thành công");
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "Sửa thành công");
+        return ResponseEntity.ok(response);
     }
-
 }

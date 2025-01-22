@@ -1,3 +1,12 @@
+<script>
+  document.getElementById("editButtonId").addEventListener("click", function(event) {
+      event.preventDefault();
+      // Hiển thị form sửa
+      document.getElementById("editForm").style.display = "block";
+  });
+</script>
+
+
 <div>
   <p class="title">Danh sách sản phẩm</p>
   <p class="filter">Tìm kiếm sản phẩm</p>
@@ -55,7 +64,7 @@
 <div class="modal-overlay" *ngIf="showModal" (click)="closeModalSanPham()">
   <div class="modal-box" (click)="$event.stopPropagation()">
     <button class="close-btn" (click)="closeModalSanPham()">×</button>
-    <form action="" method="post">
+    <form>
       <div class="input-row">
         <div class="input-field">
           <input type="text" class="input" id="ma" name="ma" [(ngModel)]="sanPhamRequest.ma" autocomplete="off">
@@ -106,9 +115,12 @@
           <label for="trangThai">Trạng thái</label>
         </div>
       </div>
-      <div class="ps-2">
-        <button type="button" class="btn-primary" (click)="addSanPham()">Lưu</button>
-      </div>
+      <button type="button" class="btn-primary" 
+      *ngIf="!sanPhamRequest.id" 
+      (click)="addSanPham()">Thêm</button>
+    <button type="button" class="btn-primary" 
+      *ngIf="sanPhamRequest.id" 
+      (click)="updateSanPham()">Cập nhật</button>    
     </form>
   </div>
 </div>
@@ -147,8 +159,8 @@
           <td>{{ sanPham.ngaySua }}</td>
           <td>{{ sanPham.trangThai === 1 ? "Hoạt động" : "Không hoạt động" }}</td>
           <td>
-            <button (click)="openModalSanPhamChiTiet(sanPham.id)" class="button btn-primary">Chi tiết</button>
-            <a href="" class="button btn-danger">Sửa</a>
+              <button (click)="openModalSanPhamChiTiet(sanPham.id)" class="button btn-primary">Chi tiết</button>
+              <a href="javascript:void(0);" (click)="editSanPham(sanPham); $event.preventDefault();" class="button btn-danger">Sửa</a>
           </td>          
         </tr>
       </tbody>

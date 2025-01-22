@@ -30,6 +30,21 @@ export class SanphamComponent implements OnInit {
     ngayTao: '',
     ngaySua: ''
   };
+  editSanPham(sanPham: any): void {
+    this.sanPhamRequest = { 
+      id: sanPham.id, // Thêm ID vào đây
+      ma: sanPham.ma,
+      ten: sanPham.ten,
+      thuongHieu: { id: sanPham.idThuongHieu },
+      xuatXu: { id: sanPham.idXuatXu },
+      chatLieu: { id: sanPham.idChatLieu },
+      coAo: { id: sanPham.idCoAo },
+      trangThai: sanPham.trangThai,
+      ngayTao: sanPham.ngayTao,
+      ngaySua: new Date().toISOString().split('T')[0], // Ngày sửa là ngày hiện tại
+    };
+    this.showModal = true; // Mở modal
+}
   constructor(private sanphamService: SanphamService) {}
 
   ngOnInit(): void {
@@ -59,6 +74,7 @@ export class SanphamComponent implements OnInit {
       this.sanPhamChiTiets = Array.isArray(dataSanPhamChiTiet.content) ? dataSanPhamChiTiet.content : [];
     })
   }
+  
   
   listThuongHieu(): void {
     this.sanphamService.getThuongHieu().subscribe(data => {
@@ -101,6 +117,7 @@ export class SanphamComponent implements OnInit {
 
   // Hàm mở modal sản phẩm chi tiết
   openModalSanPhamChiTiet(idSanPham: number): void {
+    this.showModal = false;
     this.sanphamService.getSanPhamChiTiet().subscribe(dataSanPhamChiTiet => {
       this.sanPhamChiTiets = Array.isArray(dataSanPhamChiTiet.content)
         ? dataSanPhamChiTiet.content.filter(item => item.idSanPham === idSanPham)
@@ -119,7 +136,7 @@ export class SanphamComponent implements OnInit {
     addSanPham(): void {
       this.sanPhamRequest.ngayTao = new Date().toISOString().split('T')[0];
       this.sanPhamRequest.ngaySua = new Date().toISOString().split('T')[0]; 
-      this.sanPhamRequest.trangThai = 0
+      this.sanPhamRequest.trangThai = 1
       console.log("SanPham Request:", this.sanPhamRequest);
     
       this.sanphamService.addSanPham(this.sanPhamRequest).subscribe({
@@ -134,5 +151,25 @@ export class SanphamComponent implements OnInit {
           alert("Thêm sản phẩm thất bại");
         }
       });
-    } 
+    }
+    // sửa sản phẩm
+    updateSanPham(): void {
+      this.sanPhamRequest.ngaySua = new Date().toISOString().split('T')[0]; // Ngày sửa hiện tại
+    
+      console.log("Update SanPham Request:", this.sanPhamRequest);
+    
+      this.sanphamService.updateSanPham(this.sanPhamRequest).subscribe({
+        next: (response) => {
+          console.log("Cập nhật sản phẩm thành công:", response);
+          alert("Cập nhật sản phẩm thành công");
+          this.closeModalSanPham();
+          this.listSanPham(); // Reload danh sách sản phẩm
+        },
+        error: (error) => {
+          console.error("Lỗi khi cập nhật sản phẩm:", error);
+          alert("Cập nhật sản phẩm thất bại");
+        }
+      });
+    }
+    
 }

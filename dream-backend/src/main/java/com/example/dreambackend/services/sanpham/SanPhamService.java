@@ -35,50 +35,8 @@ public class SanPhamService implements ISanPhamService {
     @Override
     public SanPham addSanPham(SanPhamRequest sanPhamRequest) {
         SanPham sanPham = new SanPham();
-
         // Copy các thuộc tính cơ bản từ request sang entity
         BeanUtils.copyProperties(sanPhamRequest, sanPham);
-
-        // Xử lý thuộc tính ChatLieu
-        if (sanPhamRequest.getChatLieu() != null && sanPhamRequest.getChatLieu().getId() != null) {
-            Optional<ChatLieu> chatLieuOpt = chatLieuRepository.findById(sanPhamRequest.getChatLieu().getId());
-            if (chatLieuOpt.isPresent()) {
-                sanPham.setChatLieu(chatLieuOpt.get());
-            } else {
-                throw new IllegalArgumentException("ChatLieu không tồn tại!");
-            }
-        }
-
-        // Xử lý thuộc tính ThuongHieu
-        if (sanPhamRequest.getThuongHieu() != null && sanPhamRequest.getThuongHieu().getId() != null) {
-            Optional<ThuongHieu> thuongHieuOpt = thuongHieuRepository.findById(sanPhamRequest.getThuongHieu().getId());
-            if (thuongHieuOpt.isPresent()) {
-                sanPham.setThuongHieu(thuongHieuOpt.get());
-            } else {
-                throw new IllegalArgumentException("ThuongHieu không tồn tại!");
-            }
-        }
-
-        // Xử lý thuộc tính CoAo
-        if (sanPhamRequest.getCoAo() != null && sanPhamRequest.getCoAo().getId() != null) {
-            Optional<CoAo> coAoOpt = coAoRepository.findById(sanPhamRequest.getCoAo().getId());
-            if (coAoOpt.isPresent()) {
-                sanPham.setCoAo(coAoOpt.get());
-            } else {
-                throw new IllegalArgumentException("CoAo không tồn tại!");
-            }
-        }
-
-        // Xử lý thuộc tính XuatXu
-        if (sanPhamRequest.getXuatXu() != null && sanPhamRequest.getXuatXu().getId() != null) {
-            Optional<XuatXu> xuatXuOpt = xuatXuRepository.findById(sanPhamRequest.getXuatXu().getId());
-            if (xuatXuOpt.isPresent()) {
-                sanPham.setXuatXu(xuatXuOpt.get());
-            } else {
-                throw new IllegalArgumentException("XuatXu không tồn tại!");
-            }
-        }
-
         // Set ngày tạo và ngày sửa
         sanPham.setNgayTao(LocalDate.now());
         sanPham.setNgaySua(LocalDate.now());

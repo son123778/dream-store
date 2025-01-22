@@ -39,6 +39,11 @@ export class SanphamService {
   addSanPham(sanPhamRequest: any): Observable<any> {
     return this.http.post(this.apiUrl + '/san-pham/add', sanPhamRequest);
   }
+
+  updateSanPham(sanPhamRequest: any): Observable<any> {
+    return this.http.put(this.apiUrl + '/san-pham/update', sanPhamRequest);
+  }
+  
   
 }
 export interface SanPham {
