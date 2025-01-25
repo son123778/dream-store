@@ -2,14 +2,22 @@ import { createRequire } from 'module';const require = createRequire(import.meta
 import {
   Router,
   loadChildren
+<<<<<<<< HEAD:dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chunk-SSILNW2E.js
 } from "./chunk-2D52OEXS.js";
+========
+} from "./chunk-7TTVXZSZ.js";
+>>>>>>>> b0e479149fe90cec499ba701274f9fc54237ece9:dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chunk-ESWKMI5Q.js
 import {
   INITIAL_CONFIG,
   SERVER_CONTEXT,
   platformServer,
   renderApplication,
   renderModule
+<<<<<<<< HEAD:dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chunk-SSILNW2E.js
 } from "./chunk-F7262MDN.js";
+========
+} from "./chunk-2IBB4QGM.js";
+>>>>>>>> b0e479149fe90cec499ba701274f9fc54237ece9:dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chunk-ESWKMI5Q.js
 import {
   APP_BASE_HREF,
   PlatformLocation
@@ -11289,4 +11297,8 @@ export {
   AngularAppEngine,
   createRequestHandler
 };
+<<<<<<<< HEAD:dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chunk-SSILNW2E.js
 //# sourceMappingURL=chunk-SSILNW2E.js.map
+========
+//# sourceMappingURL=chunk-ESWKMI5Q.js.map
+>>>>>>>> b0e479149fe90cec499ba701274f9fc54237ece9:dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chunk-ESWKMI5Q.js

@@ -19,4 +19,3 @@ public class SanPhamChiTietDto {
     private boolean isDisabled;
 
 }
-
