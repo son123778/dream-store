@@ -3,9 +3,14 @@ package com.example.dreambackend.services.coao;
 import com.example.dreambackend.dtos.CoAoDto;
 import com.example.dreambackend.entities.CoAo;
 import com.example.dreambackend.repositories.CoAoRepository;
+import com.example.dreambackend.requests.CoAoRequest;
+import com.example.dreambackend.respones.CoAoRespone;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -14,33 +19,32 @@ public class CoAoService implements ICoAoService {
     CoAoRepository coAoRepository;
 
     @Override
-    public List<CoAo> getAllCoAo() {
-        return coAoRepository.findAll();
+    public List<CoAoRespone> getAllCoAo() {
+        return coAoRepository.getAllCoAoRespones();
     }
 
     @Override
-    public CoAo getCoAoById(Integer idCoAo) {
-        return coAoRepository.findById(idCoAo).orElseThrow(()->
+    public CoAo getCoAoById(Integer id) {
+        return coAoRepository.findById(id).orElseThrow(()->
                 new RuntimeException("Không tìm thấy id cổ áo"));
     }
 
     @Override
-    public CoAo addCoAo(CoAoDto coAoDto) {
-        CoAo newCoAo = CoAo.builder()
-                .ma(coAoDto.getMa())
-                .ten(coAoDto.getTen())
-                .ngayTao(coAoDto.getNgayTao())
-                .ngaySua(coAoDto.getNgaySua())
-                .trangThai(coAoDto.getTrangThai())
-                .build();
-        return coAoRepository.save(newCoAo);
+    public CoAo addCoAo(CoAoRequest coAoRequest) {
+        CoAo coAo = new CoAo();
+        BeanUtils.copyProperties(coAoRequest, coAo);
+        coAo.setNgayTao(LocalDate.now());
+        coAo.setNgaySua(LocalDate.now());
+        return coAoRepository.save(coAo);
     }
 
     @Override
-    public CoAo updateCoAo(Integer idCoAo, CoAoDto coAoDto) {
-        CoAo coAoUpdate = getCoAoById(idCoAo);
-        coAoUpdate.setTen(coAoDto.getTen());
-        coAoRepository.save(coAoUpdate);
-        return coAoUpdate;
+    public CoAo updateCoAo(CoAoRequest coAoRequest) {
+        CoAo coAoUpdate = coAoRepository.findById(coAoRequest.getId()).orElseThrow(()->
+                new RuntimeException("Không tìm thấy cổ áo với id: "+coAoRequest.getId()));
+        // sao chép thuộc tính từ request sang đối tượng cần nhập trừ id với ngày tạo
+        BeanUtils.copyProperties(coAoRequest, coAoUpdate,"id","ngayTao");
+        coAoUpdate.setNgaySua(LocalDate.now());
+        return coAoRepository.save(coAoUpdate);
     }
 }
