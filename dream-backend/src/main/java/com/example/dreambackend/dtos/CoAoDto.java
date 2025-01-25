@@ -22,4 +22,6 @@ public class CoAoDto {
 
     @JsonProperty("trang_thai")
     private int trangThai;
+
+
 }
