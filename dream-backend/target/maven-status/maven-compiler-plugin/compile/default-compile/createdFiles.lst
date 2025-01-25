@@ -1,7 +1,5 @@
-com\example\dreambackend\repositories\SizeRepository.class
 com\example\dreambackend\controllers\ChatLieuController.class
 com\example\dreambackend\dtos\ChatLieuDto.class
-com\example\dreambackend\requests\MauSacRequest.class
 com\example\dreambackend\services\coao\ICoAoService.class
 com\example\dreambackend\services\coao\CoAoService.class
 com\example\dreambackend\repositories\NhanVienRepository.class

@@ -1,28 +1,35 @@
 package com.example.dreambackend.entities;
-import lombok.Builder;
+
 import jakarta.persistence.*;
-import jakarta.persistence.Table;
 import lombok.*;
 
 import java.time.LocalDate;
 @Builder
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
-@Table(name = "chat_lieu")
-public class ChatLieu{
+@Table(name = "khach_hang")
+public class KhachHang {
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "ma")
+    @Column(name = "ma", nullable = false,length = 10)
     private String ma;
 
-    @Column(name = "ten")
+    @Column(name = "ten", length = 30)
     private String ten;
+
+    @Column(name = "gioi_tinh")
+    private Boolean gioiTinh;
+
+    @Column(name = "so_dien_thoai")
+    private String soDienThoai;
+
+    @Column(name = "mat_khau")
+    private String matKhau;
 
     @Column(name = "ngay_tao")
     private LocalDate ngayTao;
@@ -31,7 +38,7 @@ public class ChatLieu{
     private LocalDate ngaySua;
 
     @Column(name = "trang_thai")
-    private int trangThai;
+    private Integer trangThai;
 
 
 }
