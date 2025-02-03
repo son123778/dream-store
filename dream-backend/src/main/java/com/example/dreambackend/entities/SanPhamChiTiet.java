@@ -48,4 +48,7 @@ public class SanPhamChiTiet {
     @JoinColumn(name = "id_mau_sac",referencedColumnName = "id")
     private MauSac mauSac;
 
+    @ManyToOne
+    @JoinColumn(name = "id_khuyen_mai",referencedColumnName = "id")
+    private KhuyenMai khuyenMai;
 }

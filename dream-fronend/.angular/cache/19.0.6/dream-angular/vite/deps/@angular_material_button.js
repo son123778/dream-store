@@ -6,8 +6,8 @@ import {
   Platform,
   _CdkPrivateStyleLoader,
   _StructuralStylesLoader
-} from "./chunk-RNQNS65U.js";
-import "./chunk-VP6DRI4E.js";
+} from "./chunk-EG2MLVRF.js";
+import "./chunk-CUIEDR4A.js";
 import {
   ANIMATION_MODULE_TYPE,
   ChangeDetectionStrategy,
@@ -41,7 +41,7 @@ import {
   ɵɵgetInheritedFactory,
   ɵɵprojection,
   ɵɵprojectionDef
-} from "./chunk-7WEFQ6UK.js";
+} from "./chunk-KB6DLHMF.js";
 
 // node_modules/@angular/material/fesm2022/button.mjs
 var _c0 = ["mat-button", ""];
