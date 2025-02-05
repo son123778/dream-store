@@ -15,6 +15,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 @RequestMapping("/api/san-pham-chi-tiet")
 @CrossOrigin(origins = "http://localhost:4200")
@@ -42,12 +45,16 @@ public class SanPhamChiTietController {
     @PostMapping("/add")
     public ResponseEntity<?> add(@RequestBody SanPhamChiTietRequest sanPhamChiTietRequest) {
         sanPhamChiTietService.addSanPhamChiTiet(sanPhamChiTietRequest);
-        return ResponseEntity.ok("Thêm thành công");
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "Thêm thành công");
+        return ResponseEntity.ok(response);
     }
 
     @PutMapping("/update")
     public ResponseEntity<?> update(@RequestBody SanPhamChiTietRequest sanPhamChiTietRequest) {
         sanPhamChiTietService.addSanPhamChiTiet(sanPhamChiTietRequest);
-        return ResponseEntity.ok("Sửa thành công");
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "Thêm thành công");
+        return ResponseEntity.ok(response);
     }
 }

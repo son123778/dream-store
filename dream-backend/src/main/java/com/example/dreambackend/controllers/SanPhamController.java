@@ -58,4 +58,10 @@ public class SanPhamController {
         response.put("message", "Sửa thành công");
         return ResponseEntity.ok(response);
     }
+
+    @GetMapping("/xuat-excel")
+    public ResponseEntity<byte[]> exportSanPhamToExcel() {
+        List<SanPhamRespone> sanPhams = sanPhamService.getAllSanPham(Pageable.unpaged()).getContent();
+        return sanPhamService.exportSanPhamToExcel(sanPhams);
+    }
 }

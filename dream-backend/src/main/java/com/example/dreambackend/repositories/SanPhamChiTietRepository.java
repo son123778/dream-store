@@ -25,10 +25,10 @@ public interface SanPhamChiTietRepository extends JpaRepository<SanPhamChiTiet, 
         spct.trangThai,
         spct.sanPham.id,
         spct.sanPham.ten,
-        spct.mauSac.id,
-        spct.mauSac.ten,
         spct.size.id,
-        spct.size.ten
+        spct.size.ten,
+        spct.mauSac.id,
+        spct.mauSac.ten
         ) from SanPhamChiTiet spct
     """)
     Page<SanPhamChiTietRespone> getAllSanPhamChiTietRespone(Pageable pageable);

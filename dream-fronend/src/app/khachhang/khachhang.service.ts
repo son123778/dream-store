@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class KhachHangService {
-  private apiUrl = 'http://localhost:8080/api/khachhang'; // URL backend
+  private apiUrl = 'http://localhost:8080/api/khach-hang'; // URL backend
 
   constructor(private http: HttpClient) {}
 

@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-sanpham',
+  standalone: true,
   imports: [CommonModule ,FormsModule],
   templateUrl: './sanpham.component.html',
   styleUrls: ['./sanpham.component.css']
@@ -17,8 +18,20 @@ export class SanphamComponent implements OnInit {
   chatLieus: any[] = [];
   coAos: any[] = [];
   xuatXus: any[] = [];
+  sizes: any[] = [];
+  mauSacs: any[] = [];
   showModal: boolean = false;
-  showModalSanPhamChiTiet: boolean = false;  // Trạng thái để kiểm tra modal hiển thị hay không
+  showModalSanPhamChiTiet: boolean = false;
+  showModalSanPhamChiTietThem: boolean = false;   // Trạng thái để kiểm tra modal hiển thị hay không
+
+  searchFilter: any = {
+    thuongHieu: { id: '' },
+    xuatXu: { id: '' },
+    chatLieu: { id: '' },
+    coAo: { id: '' },
+    trangThai: ''
+  };
+  
   sanPhamRequest: any = {
     ma: '',
     ten: '',
@@ -26,10 +39,31 @@ export class SanphamComponent implements OnInit {
     xuatXu: { id: '' },
     chatLieu: { id: '' },
     coAo: { id: '' },
-    trangThai: 0,
+    trangThai: 1,
     ngayTao: '',
     ngaySua: ''
   };
+
+  sanPhamChiTietRequest: any = {
+  ma: '',             
+  gia: '',            
+  soLuong: '',         
+  sanPham: {          
+    id: '',         
+    ten: ''          
+  },
+  size: {            
+    id: ''           
+  },
+  mauSac: {            
+    id: ''           
+  },
+  trangThai: 1,        
+  ngayTao: '',         
+  ngaySua: ''          
+};
+
+
   editSanPham(sanPham: any): void {
     this.sanPhamRequest = { 
       id: sanPham.id, // Thêm ID vào đây
@@ -44,6 +78,7 @@ export class SanphamComponent implements OnInit {
       ngaySua: new Date().toISOString().split('T')[0], // Ngày sửa là ngày hiện tại
     };
     this.showModal = true; // Mở modal
+    
 }
   constructor(private sanphamService: SanphamService) {}
 
@@ -59,6 +94,8 @@ export class SanphamComponent implements OnInit {
   this.listChatLieu()
   this.listCoAo()
   this.listXuatXu()
+  this.listSize()
+  this.listMauSac()
   }
 
   listSanPham(): void {
@@ -104,10 +141,68 @@ export class SanphamComponent implements OnInit {
       console.log("Xuất Xứ Data", data);
       this.xuatXus = Array.isArray(data) ? data : []; 
     });
-  }  
+  }
+  
+  listSize(): void {
+    this.sanphamService.getSize().subscribe(data => {
+      console.log("Size Data", data);
+      this.sizes = Array.isArray(data) ? data : []; 
+    });
+  } 
+
+  listMauSac(): void {
+    this.sanphamService.getMauSac().subscribe(data => {
+      console.log("Màu sắc Data", data);
+      this.mauSacs = Array.isArray(data) ? data : []; 
+    });
+  } 
   // Hàm mở modal sản phẩm
   openModalSanPham() {
+    this.sanPhamRequest = {
+      ma: '',
+      ten: '',
+      thuongHieu: { id: '' },
+      xuatXu: { id: '' },
+      chatLieu: { id: '' },
+      coAo: { id: '' },
+      trangThai: 0,
+      ngayTao: '',
+      ngaySua: ''
+    };
     this.showModal = true;
+  }
+
+  openModalSanPhamChiTietThem(): void {
+    // Reset model cho sản phẩm chi tiết
+    this.sanPhamChiTietRequest = {
+      ma: '',             
+      gia: '',            
+      soLuong: '',         
+      sanPham: {          
+        id: '',         
+        ten: ''          
+      },
+      size: {            
+        id: ''           
+      },
+      mauSac: {            
+        id: ''           
+      },
+      trangThai: 1,        
+      ngayTao: '',         
+      ngaySua: ''          
+    };
+  
+    // Tự động điền tên sản phẩm từ sản phẩm đã chọn
+    if (this.selectedProduct) {
+      this.sanPhamRequest.ten = this.selectedProduct.ten;
+    }
+    
+    this.showModalSanPhamChiTietThem = true;
+  }
+
+  closeModalSanPhamChiTietThem(){
+    this.showModalSanPhamChiTietThem = false;
   }
 
   // Hàm đóng modal sản phẩm
@@ -117,15 +212,20 @@ export class SanphamComponent implements OnInit {
 
   // Hàm mở modal sản phẩm chi tiết
   openModalSanPhamChiTiet(idSanPham: number): void {
-    this.showModal = false;
+    // Tìm sản phẩm được chọn từ danh sách sanPhams
+    this.selectedProduct = this.sanPhams.find(product => product.id === idSanPham);
+    
+    // Lấy danh sách sản phẩm chi tiết của sản phẩm được chọn
     this.sanphamService.getSanPhamChiTiet().subscribe(dataSanPhamChiTiet => {
       this.sanPhamChiTiets = Array.isArray(dataSanPhamChiTiet.content)
         ? dataSanPhamChiTiet.content.filter(item => item.idSanPham === idSanPham)
         : [];
-      console.log("San phẩm chi tiết:", this.sanPhamChiTiets);
+      console.log("Sản phẩm chi tiết:", this.sanPhamChiTiets);
       this.showModalSanPhamChiTiet = true;
     });
-  }    
+  } 
+  
+  selectedProduct: any = {};
     
     // Hàm đóng modal sản phẩm chi tiết
     closeModalSanPhamChiTiet() {
@@ -168,6 +268,29 @@ export class SanphamComponent implements OnInit {
         error: (error) => {
           console.error("Lỗi khi cập nhật sản phẩm:", error);
           alert("Cập nhật sản phẩm thất bại");
+        }
+      });
+    }
+
+    addSanPhamChiTiet(): void {
+      // Gán ngày tạo, ngày sửa, trạng thái,...
+      this.sanPhamRequest.ngayTao = new Date().toISOString().split('T')[0];
+      this.sanPhamRequest.ngaySua = new Date().toISOString().split('T')[0];
+      this.sanPhamRequest.trangThai = 1;
+      
+      console.log("Sản phẩm chi tiết request:", this.sanPhamRequest);
+      
+      this.sanphamService.addSanPhamChiTiet(this.sanPhamRequest).subscribe({
+        next: (response) => {
+          console.log("Thêm sản phẩm chi tiết thành công:", response);
+          alert("Thêm sản phẩm chi tiết thành công");
+          this.closeModalSanPhamChiTietThem();
+          // Reload danh sách sản phẩm chi tiết nếu cần
+          this.listSanPhamChiTiet();
+        },
+        error: (error) => {
+          console.error("Lỗi khi thêm sản phẩm chi tiết:", error);
+          alert("Thêm sản phẩm chi tiết thất bại");
         }
       });
     }

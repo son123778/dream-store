@@ -6,6 +6,9 @@ import com.example.dreambackend.respones.SanPhamRespone;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
+
+import java.util.List;
 
 public interface ISanPhamService {
     Page<SanPhamRespone> getAllSanPham(Pageable pageable);
@@ -15,4 +18,6 @@ public interface ISanPhamService {
     SanPham updateSanPham(SanPhamRequest sanPhamRequest);
 
     SanPham getSanPhamById(Integer id);
+
+    ResponseEntity<byte[]> exportSanPhamToExcel(List<SanPhamRespone> sanPhams);
 }

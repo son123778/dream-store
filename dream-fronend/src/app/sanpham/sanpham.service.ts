@@ -32,6 +32,14 @@ export class SanphamService {
     return this.http.get<CoAo[]>(this.apiUrl + '/co-ao/hien-thi').pipe();
   }
   
+  getSize(): Observable<Size[]> {
+    return this.http.get<Size[]>(this.apiUrl + '/size/hien-thi').pipe();
+  }
+
+  getMauSac(): Observable<MauSac[]> {
+    return this.http.get<MauSac[]>(this.apiUrl + '/mau-sac/hien-thi').pipe();
+  }
+
   getXuatXu(): Observable<XuatXu[]> {
     return this.http.get<XuatXu[]>(this.apiUrl + '/xuat-xu/hien-thi').pipe();
   }
@@ -43,7 +51,10 @@ export class SanphamService {
   updateSanPham(sanPhamRequest: any): Observable<any> {
     return this.http.put(this.apiUrl + '/san-pham/update', sanPhamRequest);
   }
-  
+
+  addSanPhamChiTiet(sanPhamChiTietRequest: any): Observable<any> {
+    return this.http.post(this.apiUrl + '/san-pham-chi-tiet/add', sanPhamChiTietRequest);
+  }
   
 }
 export interface SanPham {
@@ -149,6 +160,18 @@ export interface CoAo {
 }
 
 export interface XuatXu {
+  id: number;
+  ma: string;
+  ten: string;
+}
+
+export interface Size {
+  id: number;
+  ma: string;
+  ten: string;
+}
+
+export interface MauSac {
   id: number;
   ma: string;
   ten: string;

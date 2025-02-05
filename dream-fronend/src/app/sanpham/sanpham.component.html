@@ -1,10 +1,10 @@
-<script>
+<!-- <script>
   document.getElementById("editButtonId").addEventListener("click", function(event) {
       event.preventDefault();
       // Hiển thị form sửa
       document.getElementById("editForm").style.display = "block";
   });
-</script>
+</script> -->
 
 
 <div>
@@ -15,45 +15,46 @@
   <div class="input-row">
     <!-- Combobox 1 -->
     <div class="input-field">
-      <select class="input" id="thuongHieu" name="thuongHieu">
-        <option value="" disabled selected>Chọn thương hiệu</option>
-        <option>ok</option>
+      <select class="input" id="thuongHieu" name="thuongHieu" [(ngModel)]="searchFilter.thuongHieu.id">
+        <option value="" selected>Chọn thương hiệu</option>
+        <option *ngFor="let thuongHieu of thuongHieus" [value]="thuongHieu.id">{{thuongHieu.ten}}</option>
       </select>
       <label for="thuongHieu">Thương hiệu</label>
     </div>
 
     <!-- Combobox 2 -->
     <div class="input-field">
-      <select class="input" id="xuatXu" name="xuatXu">
-        <option value="" disabled selected>Chọn xuất xứ</option>
-        <option>ok</option>
+      <select class="input" id="xuatXu" name="xuatXu" [(ngModel)]="searchFilter.xuatXu.id">
+        <option value="" selected>Chọn xuất xứ</option>
+        <option *ngFor="let xuatXu of xuatXus" [value]="xuatXu.id">{{xuatXu.ten}}</option>
       </select>
       <label for="xuatXu">Xuất xứ</label>
     </div>
 
     <!-- Combobox 3 -->
     <div class="input-field">
-      <select class="input" id="chatLieu" name="chatLieu">
-        <option value="" disabled selected>Chọn chất liệu</option>
-        <option>ok</option>
+      <select class="input" id="chatLieu" name="chatLieu" [(ngModel)]="searchFilter.chatLieu.id">
+        <option value="" selected>Chọn chất liệu</option>
+        <option *ngFor="let chatLieu of chatLieus" [value]="chatLieu.id">{{chatLieu.ten}}</option>
       </select>
       <label for="chatLieu">Chất liệu</label>
     </div>
 
     <!-- Combobox 4 -->
     <div class="input-field">
-      <select class="input" id="coAo" name="coAo">
-        <option value="" disabled selected>Chọn cổ áo</option>
-        <option>ok</option>
+      <select class="input" id="coAo" name="coAo" [(ngModel)]="searchFilter.coAo.id">
+        <option value="" selected>Chọn cổ áo</option>
+        <option *ngFor="let coAo of coAos" [value]="coAo.id">{{coAo.ten}}</option>
       </select>
       <label for="coAo">Cổ áo</label>
     </div>
 
     <!-- Combobox 5 -->
     <div class="input-field">
-      <select class="input" id="trangThai" name="trangThai">
-        <option value="" disabled selected>Chọn trạng thái</option>
-        <option>OK</option>
+      <select class="input" id="trangThai" name="trangThai" [(ngModel)]="searchFilter.trangThai">
+        <option value="" selected>Chọn trạng thái</option>
+        <option value="1">Hoạt động</option>
+        <option value="0">Không hoạt động</option>
       </select>
       <label for="trangThai">Trạng thái</label>
     </div>
@@ -160,7 +161,7 @@
           <td>{{ sanPham.trangThai === 1 ? "Hoạt động" : "Không hoạt động" }}</td>
           <td>
               <button (click)="openModalSanPhamChiTiet(sanPham.id)" class="button btn-primary">Chi tiết</button>
-              <a href="javascript:void(0);" (click)="editSanPham(sanPham); $event.preventDefault();" class="button btn-danger">Sửa</a>
+              <a href="javascript:void(0);" (click)="editSanPham(sanPham)" class="button btn-danger">Sửa</a>
           </td>          
         </tr>
       </tbody>
@@ -180,8 +181,65 @@
     <div class="detail-container">
       <div class="table-container">
         <div class="button-row">
-          <button (click)="openModalSanPham()" class="button btn-primary">Thêm sản phẩm chi tiết</button>
-          <button (click)="openModalSanPham()" class="button btn-primary">Xuất file excel</button>
+          <button (click)="openModalSanPhamChiTietThem()" class="button btn-primary">Thêm sản phẩm chi tiết</button>
+          <button class="button btn-primary">Xuất file excel</button>
+        </div>
+        <div class="modal-overlay" *ngIf="showModalSanPhamChiTietThem" (click)="closeModalSanPhamChiTietThem()">
+          <div class="modal-box" (click)="$event.stopPropagation()">
+            <button class="close-btn" (click)="closeModalSanPhamChiTietThem()">×</button>
+            <form>
+              <div class="input-row">
+                <div class="input-field">
+                  <input type="text" class="input" id="ma" name="ma" [(ngModel)]="sanPhamChiTietRequest.ma" autocomplete="off">
+                  <label for="ma">Mã sản phẩm chi tiết</label>
+                </div>
+                <div class="input-field">
+                  <input type="text" class="input" id="ten" name="ten" [(ngModel)]="sanPhamRequest.ten">
+                  <label for="ten">Tên sản phẩm</label>
+                </div>
+                <div class="input-field">
+                  <input type="text" class="input" id="gia" name="gia" [(ngModel)]="sanPhamChiTietRequest.gia">
+                  <label for="gia">Giá</label>
+                </div>
+              </div>
+              <div class="input-row">
+                <div class="input-field">
+                  <input type="text" class="input" id="soLuong" name="soLuong" [(ngModel)]="sanPhamChiTietRequest.soLuong">
+                  <label for="soLuong">Số lượng</label>
+                </div>
+                <div class="input-field">
+                  <select class="input" id="size" name="size" [(ngModel)]="sanPhamChiTietRequest.size.id">
+                    <option value="" disabled selected>Chọn size</option>
+                    <option *ngFor="let size of sizes" [value]="size.id">{{size.ten}}</option>
+                  </select>
+                  <label for="size">Size</label>
+                </div>
+                <div class="input-field">
+                  <select class="input" id="mauSac" name="mauSac" [(ngModel)]="sanPhamChiTietRequest.mauSac.id">
+                    <option value="" disabled selected>Chọn màu sắc</option>
+                    <option *ngFor="let mauSac of mauSacs" [value]="mauSac.id">{{mauSac.ten}}</option>
+                  </select>
+                  <label for="mauSac">Màu sắc</label>
+                </div>
+              </div>
+              <div class="input-row">
+                <div class="input-field">
+                  <select class="input" id="trangThai" name="trangThai" [(ngModel)]="sanPhamChiTietRequest.trangThai">
+                    <option value="" disabled selected>Chọn trạng thái</option>
+                    <option value="1">Hoạt động</option>
+                    <option value="0">Không hoạt động</option>
+                  </select>
+                  <label for="trangThai">Trạng thái</label>
+                </div>
+              </div>
+              <button type="button" class="btn-primary" 
+              *ngIf="!sanPhamChiTietRequest.id" 
+              (click)="addSanPhamChiTiet()">Thêm</button>
+            <button type="button" class="btn-primary" 
+              *ngIf="sanPhamChiTietRequest.id" 
+              (click)="updateSanPham()">Cập nhật</button>    
+            </form>
+          </div>
         </div>
         <div class="table-scrollable">
           <table class="product-table">
@@ -207,8 +265,8 @@
                 <td>{{ sanPham.soLuong }}</td>
                 <td>{{ sanPham.ngayTao }}</td>
                 <td>{{ sanPham.ngaySua }}</td>
-                <td>{{ sanPham.tenMauSac }}</td>
                 <td>{{ sanPham.tenSize }}</td>
+                <td>{{ sanPham.tenMauSac }}</td>
                 <td>{{ sanPham.trangThai === 1 ? "Hoạt động" : "Không hoạt động" }}</td>
                 <td>
                   <button class="button btn-primary">Chi tiết</button>
