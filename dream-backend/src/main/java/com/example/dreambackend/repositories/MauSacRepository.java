@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface MauSacRepository extends JpaRepository<MauSac, Integer> {
@@ -21,4 +22,6 @@ public interface MauSacRepository extends JpaRepository<MauSac, Integer> {
         )from MauSac ms
         """)
     List<MauSacRepone> getAllMauSacRepone();
+
+    Optional<MauSac> findByTen(String ten);
 }

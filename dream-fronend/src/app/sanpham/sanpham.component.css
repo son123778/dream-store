@@ -157,6 +157,11 @@ form:last-child {
   margin: 10px 0;/* Khoảng cách giữa các hàng */
 }
 
+.input-field .input[readonly] + label {
+  top: -10px;  /* Đưa label lên trên */
+}
+
+
 /* Label căn trái */
 .input-field label {
   position: absolute;
@@ -307,7 +312,41 @@ form:last-child {
 
 /* Dịch bảng xuống */
 .modal-box .table-container {
-  margin-top: 150px; /* Điều chỉnh khoảng cách phía trên bảng */
+  margin-top: 30px; /* Điều chỉnh khoảng cách phía trên bảng */
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.pagination button {
+  padding: 7px 7px; /* Tăng kích thước nút */
+  font-size: 12px; /* Tăng cỡ chữ */
+  min-width: 40px; /* Đảm bảo nút có kích thước tối thiểu */
+  border: none;
+  background-color: #294764;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  color: #294764; /* Màu đỏ */
+  font-size: 12px; /* Điều chỉnh kích thước chữ */
+}
+
+
+
+
+
 
 

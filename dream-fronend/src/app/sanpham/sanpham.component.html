@@ -68,7 +68,7 @@
     <form>
       <div class="input-row">
         <div class="input-field">
-          <input type="text" class="input" id="ma" name="ma" [(ngModel)]="sanPhamRequest.ma" autocomplete="off">
+          <input type="text" class="input" id="ma" name="ma" [(ngModel)]="sanPhamRequest.ma" autocomplete="off" readonly>
           <label for="ma">Mã sản phẩm</label>
         </div>
         <div class="input-field">
@@ -129,8 +129,8 @@
 <div class="table-container">
   <div class="button-row">
     <button (click)="openModalSanPham()" class="button btn-primary">Thêm sản phẩm</button>
-    <button (click)="openModalSanPham()" class="button btn-primary">Quản lý thuộc tính</button>
-    <button (click)="openModalSanPham()" class="button btn-primary">Xuất file excel</button>
+    <button class="button btn-primary">Quản lý thuộc tính</button>
+    <button (click)="xuatFileExcel()" class="button btn-primary">Xuất file excel</button>
   </div>
   <div class="table-scrollable">
     <table class="product-table">
@@ -166,7 +166,17 @@
         </tr>
       </tbody>
     </table>
+      
   </div>
+  <div class="pagination">
+    <button (click)="changeSanPhamPage(currentSanPhamPage - 1)" 
+            [disabled]="currentSanPhamPage === 0"><<</button>
+    
+    <span>{{ currentSanPhamPage + 1 }} / {{ totalSanPhamPages }}</span>
+    
+    <button (click)="changeSanPhamPage(currentSanPhamPage + 1)" 
+            [disabled]="currentSanPhamPage + 1 >= totalSanPhamPages">>></button>
+  </div>  
 </div>
 
 <!-- Modal Chi Tiết -->
@@ -178,11 +188,54 @@
       <p class="title">Danh sách sản phẩm chi tiết</p>
       <p class="filter">Tìm kiếm sản phẩm chi tiết</p>
     </div>
+    <div class="bordered-container">
+      <div class="input-row">
+        <!-- Combobox 1 -->
+          <div class="input-field">
+            <input type="text" class="input" id="gia" name="gia" [(ngModel)]="searchFilterSanPhamChiTiet.gia">
+            <label for="gia">Giá</label>
+          </div>
+    
+        <!-- Combobox 2 -->
+        <div class="input-field">
+          <input type="text" class="input" id="soLuong" name="soLuong" [(ngModel)]="searchFilterSanPhamChiTiet.soLuong">
+          <label for="soLuong">Số lượng</label>
+        </div>
+    
+        <!-- Combobox 3 -->
+        <div class="input-field">
+          <select class="input" id="size" name="size" [(ngModel)]="searchFilterSanPhamChiTiet.size.id">
+            <option value="" selected>Chọn size</option>
+            <option *ngFor="let size of sizes" [value]="size.id">{{size.ten}}</option>
+          </select>
+          <label for="size">Size</label>
+        </div>
+    
+        <!-- Combobox 4 -->
+        <div class="input-field">
+          <select class="input" id="mauSac" name="mauSac" [(ngModel)]="searchFilterSanPhamChiTiet.mauSac.id">
+            <option value="" selected>Chọn màu sắc</option>
+            <option *ngFor="let mauSac of mauSacs" [value]="mauSac.id">{{mauSac.ten}}</option>
+          </select>
+          <label for="mauSac">Màu sắc</label>
+        </div>
+    
+        <!-- Combobox 5 -->
+        <div class="input-field">
+          <select class="input" id="trangThai" name="trangThai" [(ngModel)]="searchFilterSanPhamChiTiet.trangThai">
+            <option value="" selected>Chọn trạng thái</option>
+            <option value="1">Hoạt động</option>
+            <option value="0">Không hoạt động</option>
+          </select>
+          <label for="trangThai">Trạng thái</label>
+        </div>
+      </div>
+    </div>
     <div class="detail-container">
       <div class="table-container">
         <div class="button-row">
           <button (click)="openModalSanPhamChiTietThem()" class="button btn-primary">Thêm sản phẩm chi tiết</button>
-          <button class="button btn-primary">Xuất file excel</button>
+          <button class="button btn-primary" (click)="xuatFileExcelSanPhamChiTiet(selectedProduct.id)">Xuất file excel</button>
         </div>
         <div class="modal-overlay" *ngIf="showModalSanPhamChiTietThem" (click)="closeModalSanPhamChiTietThem()">
           <div class="modal-box" (click)="$event.stopPropagation()">
@@ -190,11 +243,11 @@
             <form>
               <div class="input-row">
                 <div class="input-field">
-                  <input type="text" class="input" id="ma" name="ma" [(ngModel)]="sanPhamChiTietRequest.ma" autocomplete="off">
+                  <input type="text" class="input" id="ma" name="ma" [(ngModel)]="sanPhamChiTietRequest.ma" autocomplete="off" readonly>
                   <label for="ma">Mã sản phẩm chi tiết</label>
                 </div>
                 <div class="input-field">
-                  <input type="text" class="input" id="ten" name="ten" [(ngModel)]="sanPhamRequest.ten">
+                  <input type="text" class="input" id="ten" name="ten" [(ngModel)]="sanPhamChiTietRequest.sanPham.ten" readonly>
                   <label for="ten">Tên sản phẩm</label>
                 </div>
                 <div class="input-field">
@@ -212,14 +265,14 @@
                     <option value="" disabled selected>Chọn size</option>
                     <option *ngFor="let size of sizes" [value]="size.id">{{size.ten}}</option>
                   </select>
-                  <label for="size">Size</label>
+                  <label for="size">Size</label>                  
                 </div>
                 <div class="input-field">
                   <select class="input" id="mauSac" name="mauSac" [(ngModel)]="sanPhamChiTietRequest.mauSac.id">
                     <option value="" disabled selected>Chọn màu sắc</option>
                     <option *ngFor="let mauSac of mauSacs" [value]="mauSac.id">{{mauSac.ten}}</option>
                   </select>
-                  <label for="mauSac">Màu sắc</label>
+                  <label for="mauSac">Màu sắc</label>                  
                 </div>
               </div>
               <div class="input-row">
@@ -235,9 +288,10 @@
               <button type="button" class="btn-primary" 
               *ngIf="!sanPhamChiTietRequest.id" 
               (click)="addSanPhamChiTiet()">Thêm</button>
+            
             <button type="button" class="btn-primary" 
               *ngIf="sanPhamChiTietRequest.id" 
-              (click)="updateSanPham()">Cập nhật</button>    
+              (click)="updateSanPhamChiTiet()">Cập nhật</button>             
             </form>
           </div>
         </div>
@@ -270,11 +324,18 @@
                 <td>{{ sanPham.trangThai === 1 ? "Hoạt động" : "Không hoạt động" }}</td>
                 <td>
                   <button class="button btn-primary">Chi tiết</button>
-                  <a href="" class="button btn-danger">Sửa</a>
+                  <a href="javascript:void(0);"  (click)="editSanPhamChiTiet(sanPham)" class="button btn-danger">Sửa</a>
                 </td>
               </tr>
             </tbody>
-          </table>
+          </table> 
+          <div class="pagination">
+            <button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 0"><<</button>
+            
+            <span class="current-page">{{ currentPage + 1 }} / {{ totalPages }}</span>
+            
+            <button (click)="changePage(currentPage + 1)" [disabled]="currentPage >= totalPages - 1">>></button>
+          </div>                   
         </div>
       </div>
     </div>

@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface SizeRepository extends JpaRepository<Size, Integer> {
@@ -22,4 +23,6 @@ public interface SizeRepository extends JpaRepository<Size, Integer> {
         )from Size s
         """)
     List<SizeRespone> getAllSizeRespones();
+
+    Optional<Size> findByTen(String ten);
 }

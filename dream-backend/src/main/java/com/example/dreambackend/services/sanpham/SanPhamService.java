@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 
 @Service
 public class SanPhamService implements ISanPhamService {
@@ -47,11 +48,23 @@ public class SanPhamService implements ISanPhamService {
         SanPham sanPham = new SanPham();
         // Copy các thuộc tính cơ bản từ request sang entity
         BeanUtils.copyProperties(sanPhamRequest, sanPham);
+        sanPham.setMa(taoMaSanPham());
         // Set ngày tạo và ngày sửa
         sanPham.setNgayTao(LocalDate.now());
         sanPham.setNgaySua(LocalDate.now());
         // Lưu sản phẩm
         return sanPhamRepository.save(sanPham);
+    }
+
+    private String taoMaSanPham() {
+        Random random = new Random();
+        String maSanPham;
+        do {
+            int soNgauNhien = 1 + random.nextInt(9999); // Sinh số từ 1 đến 9999
+            String maSo = String.format("%04d", soNgauNhien); // Định dạng thành 4 chữ số
+            maSanPham = "SP" + maSo;
+        } while (sanPhamRepository.existsByMa(maSanPham)); // Kiểm tra xem mã đã tồn tại chưa
+        return maSanPham;
     }
 
 

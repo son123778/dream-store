@@ -12,13 +12,16 @@ export class SanphamService {
   constructor(private http: HttpClient) {}
   // Lấy danh sách sản phẩm từ backend
   // hàm sản phẩm
-  getSanPham(): Observable<ApiResponseSanPham> {
-    return this.http.get<ApiResponseSanPham>(this.apiUrl + '/san-pham/hien-thi');
+  getSanPham(page: number, size: number): Observable<ApiResponseSanPham> {
+    return this.http.get<ApiResponseSanPham>(`${this.apiUrl}/san-pham/hien-thi?page=${page}&size=${size}`);
+  }  
+  
+  getSanPhamChiTiet(idSanPham: number, page: number, size: number): Observable<ApiResponseSanPhamChiTiet> {
+    return this.http.get<ApiResponseSanPhamChiTiet>(
+      `${this.apiUrl}/san-pham-chi-tiet/hien-thi?idSanPham=${idSanPham}&page=${page}&size=${size}`
+    );
   }
   
-  getSanPhamChiTiet(): Observable<ApiResponseSanPhamChiTiet>{
-    return this.http.get<ApiResponseSanPhamChiTiet>(this.apiUrl + '/san-pham-chi-tiet/hien-thi');
-  }
 
   getThuongHieu(): Observable<ThuongHieu[]> {
     return this.http.get<ThuongHieu[]>(this.apiUrl + '/thuong-hieu/hien-thi').pipe();
@@ -54,6 +57,20 @@ export class SanphamService {
 
   addSanPhamChiTiet(sanPhamChiTietRequest: any): Observable<any> {
     return this.http.post(this.apiUrl + '/san-pham-chi-tiet/add', sanPhamChiTietRequest);
+  }
+
+  updateSanPhamChiTiet(sanPhamChiTietRequest: any): Observable<any> {
+    return this.http.put(this.apiUrl + '/san-pham-chi-tiet/update', sanPhamChiTietRequest);
+  }  
+
+  exportExcel(): Observable<Blob> {
+    return this.http.get(this.apiUrl + '/san-pham/xuat-excel', { responseType: 'blob' });
+  }
+
+  exportExcelSanPhamChiTiet(idSanPham: number): Observable<Blob> {
+    return this.http.get(`${this.apiUrl}/san-pham-chi-tiet/xuat-excel?idSanPham=${idSanPham}`, {
+      responseType: 'blob'
+    });
   }
   
 }

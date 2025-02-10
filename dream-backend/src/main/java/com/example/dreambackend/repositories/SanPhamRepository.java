@@ -26,7 +26,9 @@ public interface SanPhamRepository extends JpaRepository<SanPham, Integer> {
             sp.coAo.ten,
             sp.xuatXu.id,
             sp.xuatXu.ten
-        ) from SanPham sp
+        ) from SanPham sp ORDER BY sp.ngayTao DESC
         """)
     Page<SanPhamRespone> getAllSanPhamRepone(Pageable pageable);
+
+    boolean existsByMa(String ma);
 }

@@ -12,7 +12,7 @@ export class KhachHangService {
 
   // Lấy danh sách nhân viên
   getAllKhachHang(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+    return this.http.get<any[]>(this.apiUrl + '/hien-thi');
   }
 
   // Lấy thông tin chi tiết nhân viên theo ID

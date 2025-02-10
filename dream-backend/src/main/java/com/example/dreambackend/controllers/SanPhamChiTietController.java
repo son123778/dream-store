@@ -16,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -35,10 +36,14 @@ public class SanPhamChiTietController {
     SizeService sizeService;
 
     @GetMapping("/hien-thi")
-    public ResponseEntity<Page<SanPhamChiTietRespone>> hienThi(@RequestParam(value = "page", defaultValue = "0") Integer page) {
-        int pageSize = 5;
-        Pageable pageable = PageRequest.of(page, pageSize);
-        Page<SanPhamChiTietRespone> listSanPhamChiTiet = sanPhamChiTietService.getAllSanPhamChiTiet(pageable);
+    public ResponseEntity<Page<SanPhamChiTietRespone>> hienThi(
+            @RequestParam(value = "idSanPham") Integer idSanPham,
+            @RequestParam(value = "page", defaultValue = "0") Integer page,
+            @RequestParam(value = "size", defaultValue = "5") Integer size) {
+
+        Pageable pageable = PageRequest.of(page,size);
+        Page<SanPhamChiTietRespone> listSanPhamChiTiet = sanPhamChiTietService.getSanPhamChiTietBySanPhamId(idSanPham, pageable);
+
         return ResponseEntity.ok(listSanPhamChiTiet);
     }
 
@@ -52,9 +57,19 @@ public class SanPhamChiTietController {
 
     @PutMapping("/update")
     public ResponseEntity<?> update(@RequestBody SanPhamChiTietRequest sanPhamChiTietRequest) {
-        sanPhamChiTietService.addSanPhamChiTiet(sanPhamChiTietRequest);
+        sanPhamChiTietService.updateSanPhamChiTiet(sanPhamChiTietRequest);
         Map<String, String> response = new HashMap<>();
         response.put("message", "Thêm thành công");
         return ResponseEntity.ok(response);
     }
+
+    @GetMapping(value = "/xuat-excel", produces = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
+    public ResponseEntity<byte[]> exportSanPhamChiTietToExcel(@RequestParam("idSanPham") Integer idSanPham) {
+        // Lấy danh sách sản phẩm chi tiết từ service
+        List<SanPhamChiTietRespone> sanPhamChiTiets = sanPhamChiTietService
+                .getSanPhamChiTietBySanPhamId(idSanPham, Pageable.unpaged()).getContent();
+        // Gọi service để xuất file Excel
+        return sanPhamChiTietService.exportSanPhamChiTietToExcel(sanPhamChiTiets);
+    }
+
 }

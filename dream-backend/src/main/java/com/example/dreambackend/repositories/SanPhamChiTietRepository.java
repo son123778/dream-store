@@ -29,9 +29,9 @@ public interface SanPhamChiTietRepository extends JpaRepository<SanPhamChiTiet, 
         spct.size.ten,
         spct.mauSac.id,
         spct.mauSac.ten
-        ) from SanPhamChiTiet spct
+        ) from SanPhamChiTiet spct WHERE spct.sanPham.id = :idSanPham ORDER BY spct.ngayTao DESC
     """)
-    Page<SanPhamChiTietRespone> getAllSanPhamChiTietRespone(Pageable pageable);
+    Page<SanPhamChiTietRespone> getSanPhamChiTietBySanPhamId(@Param("idSanPham") Integer idSanPham, Pageable pageable);
     @Query("""
 SELECT new com.example.dreambackend.dtos.SanPhamChiTietDto(
     spct.id,
@@ -53,4 +53,6 @@ WHERE spct.trangThai = 1
     List<SanPhamChiTietDto> findAvailableProducts(@Param("khuyenMaiId") Integer khuyenMaiId);
     // Phương thức để tìm tất cả sản phẩm liên kết với một khuyến mãi cụ thể
     List<SanPhamChiTiet> findAllByKhuyenMaiId(Integer khuyenMaiId);
+
+    boolean existsByMa(String ma);
 }

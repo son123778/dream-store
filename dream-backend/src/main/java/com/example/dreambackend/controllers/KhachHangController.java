@@ -16,7 +16,6 @@ public class KhachHangController {
     @Autowired
     KhachHangService khachHangService;
 
-
     @GetMapping("/hien-thi")
     public ResponseEntity<List<KhachHang>> hienthi(){
         return ResponseEntity.ok(khachHangService.getAllKhachHang());
