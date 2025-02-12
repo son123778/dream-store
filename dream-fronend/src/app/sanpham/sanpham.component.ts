@@ -22,6 +22,7 @@ export class SanphamComponent implements OnInit {
   mauSacs: any[] = [];
   showModal: boolean = false;
   showModalSanPhamChiTiet: boolean = false;
+  showModalThuocTinh: boolean = false;
 
   sanPhamChiTietRequest: any = {
     id: '',              
@@ -296,8 +297,13 @@ editSanPhamChiTiet(sanPhamChiTiet: any): void {
   // Hàm mở modal sản phẩm chi tiết
   openModalSanPhamChiTiet(idSanPham: number, page: number = 0, size: number = 5): void {
     this.sanPhamChiTiets = [];
-    this.currentSanPhamId = idSanPham; // Đảm bảo gán ID sản phẩm hiện tại
-  
+    this.currentSanPhamId = idSanPham;
+    
+    // Gán selectedProduct
+    this.selectedProduct = this.sanPhams.find(sp => sp.id === idSanPham);
+    
+    console.log("Selected Product:", this.selectedProduct); // Kiểm tra xem sản phẩm có được gán hay không
+    
     this.sanphamService.getSanPhamChiTiet(idSanPham, page, size).subscribe(dataSanPhamChiTiet => {
       if (dataSanPhamChiTiet && Array.isArray(dataSanPhamChiTiet.content)) {
         this.sanPhamChiTiets = dataSanPhamChiTiet.content;
@@ -306,12 +312,19 @@ editSanPhamChiTiet(sanPhamChiTiet: any): void {
       } else {
         this.sanPhamChiTiets = [];
       }
-      console.log("Sản phẩm chi tiết:", this.sanPhamChiTiets);
       this.showModalSanPhamChiTiet = true;
     });
   }
   
   
+      // thuộc tính
+      openModalThuocTinh(){
+        this.showModalThuocTinh = true;
+      }
+  
+      closeModalThuocTinh(){
+        this.showModalThuocTinh = false;
+      }
   
   selectedProduct: any = {};
     
@@ -403,7 +416,7 @@ editSanPhamChiTiet(sanPhamChiTiet: any): void {
         const url = window.URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = `SanPhamChiTiet_${idSanPham}.xlsx`;
+        a.download = `sanphamchitiet${idSanPham}.xlsx`;
         a.click();
         window.URL.revokeObjectURL(url);
         alert("Xuất file thành công");
@@ -435,6 +448,6 @@ editSanPhamChiTiet(sanPhamChiTiet: any): void {
           alert("Cập nhật sản phẩm chi tiết thất bại");
         }
       });
-    }  
+    }
     
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -15,6 +15,11 @@ export class SanphamService {
   getSanPham(page: number, size: number): Observable<ApiResponseSanPham> {
     return this.http.get<ApiResponseSanPham>(`${this.apiUrl}/san-pham/hien-thi?page=${page}&size=${size}`);
   }  
+
+  searchSanPhamFiltered(params: HttpParams): Observable<ApiResponseSanPham> {
+    return this.http.get<ApiResponseSanPham>(`${this.apiUrl}/san-pham/tim-kiem`, { params });
+  }  
+  
   
   getSanPhamChiTiet(idSanPham: number, page: number, size: number): Observable<ApiResponseSanPhamChiTiet> {
     return this.http.get<ApiResponseSanPhamChiTiet>(

@@ -66,4 +66,19 @@ public class SanPhamController {
         List<SanPhamRespone> sanPhams = sanPhamService.getAllSanPham(Pageable.unpaged()).getContent();
         return sanPhamService.exportSanPhamToExcel(sanPhams);
     }
+
+    @GetMapping("/tim-kiem")
+    public ResponseEntity<Page<SanPhamRespone>> searchSanPham(
+            @RequestParam(value = "thuongHieuId", required = false) Integer thuongHieuId,
+            @RequestParam(value = "xuatXuId", required = false) Integer xuatXuId,
+            @RequestParam(value = "chatLieuId", required = false) Integer chatLieuId,
+            @RequestParam(value = "coAoId", required = false) Integer coAoId,
+            @RequestParam(value = "trangThai", required = false) Integer trangThai,
+            @RequestParam(value = "page", defaultValue = "0") Integer page,
+            @RequestParam(value = "size", defaultValue = "7") Integer size) {
+
+        Pageable pageable = PageRequest.of(page, size);
+        Page<SanPhamRespone> listSanPham = sanPhamService.searchSanPham(thuongHieuId, xuatXuId, chatLieuId, coAoId, trangThai, pageable);
+        return ResponseEntity.ok(listSanPham);
+    }
 }

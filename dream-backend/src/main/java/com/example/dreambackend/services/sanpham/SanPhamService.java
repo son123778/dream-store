@@ -83,6 +83,11 @@ public class SanPhamService implements ISanPhamService {
                 new RuntimeException("Không tìm thấy id sản phẩm"));
     }
 
+    public Page<SanPhamRespone> searchSanPham(
+            Integer thuongHieuId, Integer xuatXuId, Integer chatLieuId, Integer coAoId, Integer trangThai, Pageable pageable) {
+        return sanPhamRepository.searchSanPham(thuongHieuId, xuatXuId, chatLieuId, coAoId, trangThai, pageable);
+    }
+
     @Override
     public ResponseEntity<byte[]> exportSanPhamToExcel(List<SanPhamRespone> sanPhams) {
         try (Workbook workbook = new XSSFWorkbook()) {
