@@ -1,0 +1,9 @@
+<<<<<<<< HEAD:dream-backend/target/surefire-reports/2025-01-12T22-38-48_692.dumpstream
+# Created at 2025-01-12T22:38:49.027
+========
+# Created at 2025-01-19T22:29:53.190
+>>>>>>>> b0e479149fe90cec499ba701274f9fc54237ece9:dream-backend/target/surefire-reports/2025-01-19T22-29-52_855.dumpstream
+Boot Manifest-JAR contains absolute paths in classpath 'D:\dream-store\dream-backend\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+'other' has different root
+

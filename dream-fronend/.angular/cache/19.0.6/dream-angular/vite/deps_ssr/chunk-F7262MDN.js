@@ -1,3 +1,4 @@
+<<<<<<<< HEAD:dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chunk-F7262MDN.js
 import { createRequire } from 'module';const require = createRequire(import.meta.url);
 import {
   NoopAnimationsModule,
@@ -16985,3 +16986,5 @@ export {
    *)
 */
 //# sourceMappingURL=chunk-F7262MDN.js.map
+========
+>>>>>>>> 3307d9859741d2f81c4d6cbe6527eb0e82a9ef58:dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chunk-2IBB4QGM.js

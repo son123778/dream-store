@@ -3,50 +3,48 @@ package com.example.dreambackend.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDateTime;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
+@Builder
+@Data
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@NoArgsConstructor
 @Entity
 @Table(name = "voucher")
 public class Voucher {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "ma", nullable = false, unique = true)
+    @Column(name = "ma", nullable = false, unique = true, length = 50)
     private String ma;
 
-    @Column(name = "ten")
+    @Column(name = "ten", nullable = false, length = 100)
     private String ten;
 
-    @Column(name = "hinh_thuc_giam")
-    private Boolean hinhThucGiam; // True for percentage, false for fixed amount
+    @Column(name = "hinh_thuc_giam", nullable = false)
+    private boolean hinhThucGiam;
 
-    @Column(name = "gia_tri_giam")
-    private Float giaTriGiam;
+    @Column(name = "gia_tri_giam", nullable = false, precision = 10, scale = 2)
+    private BigDecimal giaTriGiam;
 
-    @Column(name = "don_toi_thieu")
-    private Float donToiThieu;
-
-    @Column(name = "giam_toi_da")
-    private Float giamToiDa;
-
-    @Column(name = "thoi_gian_bat_dau")
-    private LocalDateTime thoiGianBatDau;
-
-    @Column(name = "thoi_gian_ket_thuc")
-    private LocalDateTime thoiGianKetThuc;
+    @Column(name = "trang_thai", nullable = false)
+    private Integer trangThai;
 
     @Column(name = "ngay_tao")
-    private LocalDateTime ngayTao;
+    private LocalDate ngayTao;
 
     @Column(name = "ngay_sua")
-    private LocalDateTime ngaySua;
+    private LocalDate ngaySua;
 
-    @Column(name = "trang_thai")
-    private Integer trangThai;
+    @Column(name = "ngay_bat_dau", nullable = false)
+    private LocalDate ngayBatDau;
+
+    @Column(name = "ngay_ket_thuc", nullable = false)
+    private LocalDate ngayKetThuc;
+
 }
