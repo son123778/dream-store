@@ -1,6 +1,7 @@
 package com.example.dreambackend.repositories;
 
 import com.example.dreambackend.entities.NhanVien;
+import com.example.dreambackend.response.NhanVienResponse;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -8,14 +9,73 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-
 public interface NhanVienRepository extends JpaRepository<NhanVien, Integer> {
 
-    List<NhanVien> findByTrangThai(int trangThai);
+    // Trả về danh sách NhanVienResponse
+    @Query("""
+        SELECT new com.example.dreambackend.response.NhanVienResponse(
+            nv.id,
+            nv.ma,
+            nv.ten,
+            nv.gioiTinh,
+            nv.ngaySinh,
+            nv.email,
+            nv.soDienThoai,
+            nv.taiKhoan,
+            nv.matKhau,
+            nv.anh,
+            nv.ngayTao,
+            nv.ngaySua,
+            nv.trangThai,
+            nv.vaiTro.ten
+        )
+        FROM NhanVien nv
+    """)
+    List<NhanVienResponse> getAllNhanVienResponses();
 
-    @Query("SELECT n FROM NhanVien n WHERE n.ten LIKE %:keyword% OR n.email LIKE %:keyword% OR n.soDienThoai LIKE %:keyword%")
-    List<NhanVien> findByKeyword(String keyword);
+    // Tìm kiếm nhân viên theo tên
+    @Query("""
+        SELECT new com.example.dreambackend.response.NhanVienResponse(
+            nv.id,
+            nv.ma,
+            nv.ten,
+            nv.gioiTinh,
+            nv.ngaySinh,
+            nv.email,
+            nv.soDienThoai,
+            nv.taiKhoan,
+            nv.matKhau,
+            nv.anh,
+            nv.ngayTao,
+            nv.ngaySua,
+            nv.trangThai,
+            nv.vaiTro.ten
+        )
+        FROM NhanVien nv
+        WHERE LOWER(nv.ten) LIKE LOWER(CONCAT('%', :ten, '%'))
+    """)
+    List<NhanVienResponse> searchNhanVienByName(String ten);
 
-    @Query("SELECT n FROM NhanVien n WHERE n.trangThai = :trangThai AND (n.ten LIKE %:keyword% OR n.email LIKE %:keyword% OR n.soDienThoai LIKE %:keyword%)")
-    List<NhanVien> findByTrangThaiAndKeyword(int trangThai, String keyword);
+    // Lọc nhân viên theo trạng thái
+    @Query("""
+        SELECT new com.example.dreambackend.response.NhanVienResponse(
+            nv.id,
+            nv.ma,
+            nv.ten,
+            nv.gioiTinh,
+            nv.ngaySinh,
+            nv.email,
+            nv.soDienThoai,
+            nv.taiKhoan,
+            nv.matKhau,
+            nv.anh,
+            nv.ngayTao,
+            nv.ngaySua,
+            nv.trangThai,
+            nv.vaiTro.ten
+        )
+        FROM NhanVien nv
+        WHERE nv.trangThai = :trangThai
+    """)
+    List<NhanVienResponse> filterNhanVienByTrangThai(Integer trangThai);
 }

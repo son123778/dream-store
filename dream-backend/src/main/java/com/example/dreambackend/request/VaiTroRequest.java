@@ -1,4 +1,4 @@
-package com.example.dreambackend.response;
+package com.example.dreambackend.request;
 
 import lombok.*;
 
@@ -8,9 +8,8 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class VaiTroResponse {
-
-    private Integer id;               // ID vai trò
+public class VaiTroRequest {
+    private Integer id;               // ID vai trò (bắt buộc khi Update, không cần khi Create)
     private String ten;               // Tên vai trò
     private Integer trangThai;         // Trạng thái (Active/Inactive)
 }

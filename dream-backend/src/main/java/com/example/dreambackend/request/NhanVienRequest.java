@@ -1,36 +1,27 @@
-//package com.example.dreambackend.request;
-//
-//import jakarta.validation.constraints.*;
-//import lombok.Getter;
-//import lombok.Setter;
-//
-//@Getter
-//@Setter
-//public class NhanVienRequest {
-//
-//    @NotNull(message = "Vai trò không được để trống")
-//    private Integer idVaiTro;
-//
-//    @NotBlank(message = "Mã nhân viên không được để trống")
-//    @Size(max = 10, message = "Mã nhân viên tối đa 10 ký tự")
-//    private String ma;
-//
-//    @NotBlank(message = "Tên không được để trống")
-//    @Size(max = 50, message = "Tên tối đa 50 ký tự")
-//    private String ten;
-//
-//    private Boolean gioiTinh;
-//
-//    @NotNull(message = "Ngày sinh không được để trống")
-//    private String ngaySinh;
-//
-//    @Email(message = "Email không hợp lệ")
-//    private String email;
-//
-//    @Size(max = 15, message = "Số điện thoại tối đa 15 ký tự")
-//    private String soDienThoai;
-//
-//    private String taiKhoan;
-//    private String matKhau;
-//    private Integer trangThai;
-//}
+package com.example.dreambackend.request;
+
+import lombok.*;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class NhanVienRequest {
+
+    private Integer id;               // ID nhân viên (bắt buộc khi Update, không cần khi Create)
+    private String ma;                // Mã nhân viên
+    private String ten;               // Tên nhân viên
+    private Boolean gioiTinh;         // Giới tính (true: Nam, false: Nữ)
+    private LocalDate ngaySinh;       // Ngày sinh
+    private String email;             // Email
+    private String soDienThoai;       // Số điện thoại
+    private String taiKhoan;          // Tài khoản đăng nhập
+    private String matKhau;           // Mật khẩu
+    private String anh;               // Đường dẫn ảnh đại diện
+    private LocalDateTime ngayTao;        // Ngày tạo bản ghi
+    private LocalDateTime ngaySua;        // Ngày sửa bản ghi
+    private Integer trangThai;         // Trạng thái (Active/Inactive)
+    private Integer idVaiTro;         // Khóa ngoại tham chiếu đến VaiTro
+}
