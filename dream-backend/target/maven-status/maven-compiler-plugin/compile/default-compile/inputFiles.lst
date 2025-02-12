@@ -98,8 +98,8 @@ F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreamb
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\services\khuyenmai\KhuyenMaiService.java
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\services\mausac\IMauSacService.java
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\services\mausac\MauSacService.java
-F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\services\NhanVien\INhanVienService.java
-F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\services\NhanVien\NhanVienService.java
+F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\services\nhanvien\INhanVienService.java
+F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\services\nhanvien\NhanVienService.java
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\services\sanpham\ISanPhamService.java
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\services\sanpham\SanPhamService.java
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\services\sanphamchitiet\ISanPhamChiTietService.java
