@@ -1,53 +1,54 @@
 package com.example.dreambackend.entities;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
-@Getter
-@Setter
-@NoArgsConstructor
+@Data
 @AllArgsConstructor
-@Builder
+@NoArgsConstructor
 @Entity
 @Table(name = "san_pham_chi_tiet")
 public class SanPhamChiTiet {
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    @ManyToOne
-    @JoinColumn(name = "id_san_pham", referencedColumnName = "id")
-    private SanPham sanPham;
-
-    @ManyToOne
-    @JoinColumn(name = "id_khuyen_mai", referencedColumnName = "id")
-    private KhuyenMai khuyenMai;
-
-    @ManyToOne
-    @JoinColumn(name = "id_mau_sac", referencedColumnName = "id")
-    private MauSac mauSac;
-
-    @ManyToOne
-    @JoinColumn(name = "id_size", referencedColumnName = "id")
-    private Size size;
 
     @Column(name = "ma")
     private String ma;
 
     @Column(name = "gia")
-    private Float gia;
+    private Double gia;
 
     @Column(name = "so_luong")
-    private Integer soLuong;
+    private int soLuong;
 
     @Column(name = "ngay_tao")
-    private LocalDateTime ngayTao;
+    private LocalDate ngayTao;
 
     @Column(name = "ngay_sua")
-    private LocalDateTime ngaySua;
+    private LocalDate ngaySua;
 
     @Column(name = "trang_thai")
-    private Integer trangThai;
+    private int trangThai;
+
+    @ManyToOne
+    @JoinColumn(name = "id_san_pham",referencedColumnName = "id")
+    private SanPham sanPham;
+
+    @ManyToOne
+    @JoinColumn(name = "id_size",referencedColumnName = "id")
+    private Size size;
+
+    @ManyToOne
+    @JoinColumn(name = "id_mau_sac",referencedColumnName = "id")
+    private MauSac mauSac;
+
+    @ManyToOne
+    @JoinColumn(name = "id_khuyen_mai",referencedColumnName = "id")
+    private KhuyenMai khuyenMai;
 }
