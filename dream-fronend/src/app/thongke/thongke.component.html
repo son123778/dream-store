@@ -1,1 +1,38 @@
-<p>thongke works!</p>
+<div class="thongke-container">
+    <!-- Phần nút chọn -->
+    <div class="buttons">
+      <label
+        *ngFor="let type of ['hom-nay', 'thang-nay', 'nam-nay', 'tat-ca']"
+        class="radio-button"
+      >
+        <input
+          type="radio"
+          name="thongkeType"
+          [value]="type"
+          [checked]="selectedType === type"
+          (change)="loadThongKe(type)"
+        />
+        <span>{{ type | titlecase }}</span>
+      </label>
+    </div>
+  
+    <!-- Phần hiển thị dữ liệu tổng quan -->
+    <div class="thongke-summary" *ngIf="thongKeData">
+      <div class="summary-card">
+        <h3>Hóa đơn</h3>
+        <p>{{ thongKeData.soHoaDon }}</p>
+      </div>
+      <div class="summary-card">
+        <h3>Doanh thu</h3>
+        <p>{{ thongKeData.tongDoanhThu | currency: 'VND' }}</p>
+      </div>
+      <div class="summary-card">
+        <h3>Khách hàng</h3>
+        <p>{{ thongKeData.soKhachHang }}</p>
+      </div>
+    </div>
+  
+    <!-- Biểu đồ -->
+    <canvas id="chart"></canvas>
+  </div>
+  

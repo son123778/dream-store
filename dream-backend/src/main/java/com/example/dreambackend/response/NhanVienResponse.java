@@ -1,24 +1,27 @@
-//package com.example.dreambackend.response;
-//
-//import lombok.Getter;
-//import lombok.Setter;
-//
-//import java.time.LocalDate;
-//
-//@Getter
-//@Setter
-//public class NhanVienResponse {
-//    private int id;
-//    private String ma;
-//    private String ten;
-//    private boolean gioiTinh;
-//    private LocalDate ngaySinh;
-//    private String email;
-//    private String soDienThoai;
-//    private String taiKhoan;
-//    private String anh;
-//    private int trangThai;
-//    private LocalDate ngayTao;
-//    private LocalDate ngaySua;
-//    private VaiTroResponse vaiTro;
-//}
+package com.example.dreambackend.response;
+
+import lombok.*;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class NhanVienResponse {
+
+    private Integer id;               // ID nhân viên
+    private String ma;                // Mã nhân viên
+    private String ten;               // Tên nhân viên
+    private Boolean gioiTinh;         // Giới tính (true: Nam, false: Nữ)
+    private LocalDate ngaySinh;       // Ngày sinh
+    private String email;             // Email
+    private String soDienThoai;       // Số điện thoại
+    private String taiKhoan;          // Tài khoản đăng nhập
+    private String matKhau;           // Mật khẩu
+    private String anh;               // Đường dẫn ảnh đại diện
+    private LocalDateTime ngayTao;        // Ngày tạo bản ghi
+    private LocalDateTime ngaySua;        // Ngày sửa bản ghi
+    private Integer trangThai;         // Trạng thái (Active/Inactive)
+    private String tenVaiTro;         // Tên vai trò (lấy từ bảng VaiTro)
+}
