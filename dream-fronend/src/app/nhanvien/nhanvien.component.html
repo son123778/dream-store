@@ -1,26 +1,28 @@
+<!-- Danh sách Nhân Viên -->
 <div class="container" *ngIf="state === 'list'">
   <h2>Quản lý Nhân Viên</h2>
 
-  <!-- Tìm kiếm và lọc -->
+  <!-- Tìm kiếm và Lọc -->
   <div class="search-filter">
-    <input type="text" placeholder="Tìm kiếm..." [(ngModel)]="searchQuery" (input)="applyFilter()" />
+    <input type="text" placeholder="Tìm kiếm nhân viên..." [(ngModel)]="searchTen" (input)="searchNhanVien()" />
     <div class="filter">
       <label>
-        <input type="radio" name="status" value="" [(ngModel)]="statusFilter" (change)="applyFilter()" />
+        <input type="radio" name="status" value="" [(ngModel)]="filterTrangThai" (change)="filterNhanVien()" />
         Tất cả
       </label>
       <label>
-        <input type="radio" name="status" value="1" [(ngModel)]="statusFilter" (change)="applyFilter()" />
+        <input type="radio" name="status" value="1" [(ngModel)]="filterTrangThai" (change)="filterNhanVien()" />
         Đang làm
       </label>
       <label>
-        <input type="radio" name="status" value="0" [(ngModel)]="statusFilter" (change)="applyFilter()" />
+        <input type="radio" name="status" value="0" [(ngModel)]="filterTrangThai" (change)="filterNhanVien()" />
         Nghỉ việc
       </label>
     </div>
+    
   </div>
 
-  <!-- Nút thêm mới -->
+  <!-- Nút Thêm Nhân Viên -->
   <button (click)="showCreateForm()">Thêm Nhân Viên</button>
 
   <!-- Bảng danh sách nhân viên -->
@@ -45,25 +47,25 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let nv of filteredNhanViens">
-        <td>{{ nv.id }}</td>
-        <td>{{ nv.idVaiTro }}</td>
-        <td>{{ nv.ma }}</td>
-        <td>{{ nv.ten }}</td>
-        <td>{{ nv.gioiTinh ? 'Nam' : 'Nữ' }}</td>
-        <td>{{ nv.ngaySinh }}</td>
-        <td>{{ nv.email }}</td>
-        <td>{{ nv.soDienThoai }}</td>
-        <td>{{ nv.taiKhoan }}</td>
-        <td>{{ nv.matKhau ? '******' : '' }}</td>
+      <tr *ngFor="let nhanVien of nhanViens">
+        <td>{{ nhanVien.id }}</td>
+        <td>{{ nhanVien.tenVaiTro }}</td>
+        <td>{{ nhanVien.ma }}</td>
+        <td>{{ nhanVien.ten }}</td>
+        <td>{{ nhanVien.gioiTinh ? 'Nam' : 'Nữ' }}</td>
+        <td>{{ nhanVien.ngaySinh }}</td>
+        <td>{{ nhanVien.email }}</td>
+        <td>{{ nhanVien.soDienThoai }}</td>
+        <td>{{ nhanVien.taiKhoan }}</td>
+        <td>{{ nhanVien.matKhau ? '******' : '' }}</td>
         <td>
-          <img [src]="nv.anh ? '/uploads/' + nv.anh : 'assets/default-avatar.png'" alt="Ảnh nhân viên" width="50" />
+          <img [src]="nhanVien.anh ? nhanVien.anh : 'assets/default-avatar.png'" alt="Ảnh nhân viên" width="50" />
         </td>
-        <td>{{ nv.trangThai === 1 ? 'Đang làm' : 'Nghỉ việc' }}</td>
-        <td>{{ nv.ngayTao }}</td>
-        <td>{{ nv.ngaySua }}</td>
+        <td>{{ nhanVien.trangThai === 1 ? 'Đang làm' : 'Nghỉ việc' }}</td>
+        <td>{{ nhanVien.ngayTao }}</td>
+        <td>{{ nhanVien.ngaySua }}</td>
         <td>
-          <button (click)="showEditForm(nv)">Sửa</button>
+          <button (click)="showEditForm(nhanVien)">Sửa</button>
         </td>
       </tr>
     </tbody>
@@ -76,26 +78,22 @@
   <form (ngSubmit)="saveNhanVien()">
     <div>
       <label>Vai Trò:</label>
-      <input type="number" [(ngModel)]="currentNhanVien.idVaiTro" name="idVaiTro" required />
+      <select [(ngModel)]="currentNhanVien.idVaiTro" name="idVaiTro" required>
+        <option *ngFor="let vaiTro of vaiTros" [value]="vaiTro.id">{{ vaiTro.ten }}</option>
+      </select>
     </div>
     <div>
       <label>Mã NV:</label>
       <input type="text" [(ngModel)]="currentNhanVien.ma" name="ma" required />
     </div>
     <div>
-      <label>Tên:</label>
+      <label>Họ và Tên:</label>
       <input type="text" [(ngModel)]="currentNhanVien.ten" name="ten" required />
     </div>
     <div>
       <label>Giới Tính:</label>
-      <label>
-        <input type="radio" [(ngModel)]="currentNhanVien.gioiTinh" [value]="true" name="gioiTinh" />
-        Nam
-      </label>
-      <label>
-        <input type="radio" [(ngModel)]="currentNhanVien.gioiTinh" [value]="false" name="gioiTinh" />
-        Nữ
-      </label>
+      <label><input type="radio" [(ngModel)]="currentNhanVien.gioiTinh" [value]="true" name="gioiTinh" /> Nam</label>
+      <label><input type="radio" [(ngModel)]="currentNhanVien.gioiTinh" [value]="false" name="gioiTinh" /> Nữ</label>
     </div>
     <div>
       <label>Ngày Sinh:</label>
@@ -106,7 +104,7 @@
       <input type="email" [(ngModel)]="currentNhanVien.email" name="email" required />
     </div>
     <div>
-      <label>SĐT:</label>
+      <label>Số Điện Thoại:</label>
       <input type="text" [(ngModel)]="currentNhanVien.soDienThoai" name="soDienThoai" required />
     </div>
     <div>
@@ -116,7 +114,7 @@
     <div>
       <label>Mật Khẩu:</label>
       <input type="password" [(ngModel)]="currentNhanVien.matKhau" name="matKhau" required />
-    </div>    
+    </div>
     <div>
       <label>Ảnh:</label>
       <input type="file" (change)="onFileSelected($event)" />
@@ -124,18 +122,20 @@
     <div>
       <label>Trạng Thái:</label>
       <select [(ngModel)]="currentNhanVien.trangThai" name="trangThai">
-        <option [value]="1">Đang làm</option>
-        <option [value]="0">Nghỉ việc</option>
+        <option value="1">Đang làm</option>
+        <option value="0">Nghỉ việc</option>
       </select>
     </div>
     <div>
       <label>Ngày Tạo:</label>
-      <input type="datetime-local" [(ngModel)]="currentNhanVien.ngayTao" name="ngayTao" [readonly]="isEditing" />
+      <input type="datetime-local" [(ngModel)]="currentNhanVien.ngayTao" name="ngayTao" [disabled]="isEditing" />
     </div>
+    
     <div>
       <label>Ngày Sửa:</label>
-      <input type="datetime-local" [(ngModel)]="currentNhanVien.ngaySua" name="ngaySua" [readonly]="!isEditing" />
+      <input type="datetime-local" [(ngModel)]="currentNhanVien.ngaySua" name="ngaySua" readonly />
     </div>
+    
     <button type="submit">{{ isEditing ? 'Lưu Thay Đổi' : 'Thêm' }}</button>
     <button type="button" (click)="backToList()">Hủy</button>
   </form>
