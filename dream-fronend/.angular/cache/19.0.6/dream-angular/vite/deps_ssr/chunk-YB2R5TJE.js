@@ -1,4 +1,3 @@
-<<<<<<<< HEAD:dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chunk-YB2R5TJE.js
 import { createRequire } from 'module';const require = createRequire(import.meta.url);
 import {
   AUTO_STYLE,
@@ -4190,5 +4189,3 @@ export {
    *)
 */
 //# sourceMappingURL=chunk-YB2R5TJE.js.map
-========
->>>>>>>> 3307d9859741d2f81c4d6cbe6527eb0e82a9ef58:dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chunk-PQUNTQ7K.js
