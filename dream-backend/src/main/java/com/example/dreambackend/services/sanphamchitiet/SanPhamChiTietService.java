@@ -84,6 +84,15 @@ public class SanPhamChiTietService implements ISanPhamChiTietService {
     }
 
     @Override
+    public Page<SanPhamChiTietRespone> timKiemSanPhamChiTiet(
+            Double gia, Integer soLuong, Integer idMauSac, Integer idSize, Integer trangThai, Pageable pageable) {
+
+        return sanPhamChiTietRepository.timKiemSanPhamChiTiet(
+                gia, soLuong, idMauSac, idSize, trangThai, pageable);
+    }
+
+
+    @Override
     public ResponseEntity<byte[]> exportSanPhamChiTietToExcel(List<SanPhamChiTietRespone> sanPhamChiTiets) {
         try (Workbook workbook = new XSSFWorkbook()) {
             Sheet sheet = workbook.createSheet("Sản Phẩm Chi Tiết");

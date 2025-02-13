@@ -63,6 +63,23 @@ public class SanPhamChiTietController {
         return ResponseEntity.ok(response);
     }
 
+    @GetMapping("/tim-kiem")
+    public ResponseEntity<Page<SanPhamChiTietRespone>> timKiemSanPhamChiTiet(
+            @RequestParam(value = "gia", required = false) Double gia,
+            @RequestParam(value = "soLuong", required = false) Integer soLuong,
+            @RequestParam(value = "idMauSac", required = false) Integer idMauSac,
+            @RequestParam(value = "idSize", required = false) Integer idSize,
+            @RequestParam(value = "trangThai", required = false) Integer trangThai,
+            @RequestParam(value = "page", defaultValue = "0") int page,
+            @RequestParam(value = "size", defaultValue = "5") int size) {
+
+        Pageable pageable = PageRequest.of(page, size);
+        Page<SanPhamChiTietRespone> result = sanPhamChiTietService.timKiemSanPhamChiTiet(
+                gia, soLuong, idMauSac, idSize, trangThai, pageable);
+
+        return ResponseEntity.ok(result);
+    }
+
     @GetMapping(value = "/xuat-excel", produces = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
     public ResponseEntity<byte[]> exportSanPhamChiTietToExcel(@RequestParam("idSanPham") Integer idSanPham) {
         // Lấy danh sách sản phẩm chi tiết từ service

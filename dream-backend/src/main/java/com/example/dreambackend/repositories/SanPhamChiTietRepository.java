@@ -32,24 +32,58 @@ public interface SanPhamChiTietRepository extends JpaRepository<SanPhamChiTiet, 
         ) from SanPhamChiTiet spct WHERE spct.sanPham.id = :idSanPham ORDER BY spct.ngayTao DESC
     """)
     Page<SanPhamChiTietRespone> getSanPhamChiTietBySanPhamId(@Param("idSanPham") Integer idSanPham, Pageable pageable);
+
     @Query("""
-SELECT new com.example.dreambackend.dtos.SanPhamChiTietDto(
-    spct.id,
-    spct.ma,
-    sp.ten,
-    ms.ten,
-    sz.ten,
-    spct.gia,
-    spct.soLuong,
-    CASE WHEN spct.khuyenMai.id = :khuyenMaiId THEN true ELSE false END,
-    CASE WHEN spct.khuyenMai.id IS NOT NULL AND spct.khuyenMai.id <> :khuyenMaiId THEN true ELSE false END
-)
-FROM SanPhamChiTiet spct
-JOIN spct.sanPham sp
-JOIN spct.mauSac ms
-JOIN spct.size sz
-WHERE spct.trangThai = 1
-""")
+    SELECT new com.example.dreambackend.respones.SanPhamChiTietRespone(
+        spct.id,
+        spct.ma,
+        spct.gia,
+        spct.soLuong,
+        spct.ngayTao,
+        spct.ngaySua,
+        spct.trangThai,
+        spct.sanPham.id,
+        spct.sanPham.ten,
+        spct.size.id,
+        spct.size.ten,
+        spct.mauSac.id,
+        spct.mauSac.ten
+    )
+    FROM SanPhamChiTiet spct
+    WHERE (:gia IS NULL OR spct.gia = :gia)
+      AND (:soLuong IS NULL OR spct.soLuong = :soLuong)
+      AND (:idMauSac IS NULL OR spct.mauSac.id = :idMauSac)
+      AND (:idSize IS NULL OR spct.size.id = :idSize)
+      AND (:trangThai IS NULL OR spct.trangThai = :trangThai)
+    ORDER BY spct.ngayTao DESC
+    """)
+    Page<SanPhamChiTietRespone> timKiemSanPhamChiTiet(
+            @Param("gia") Double gia,
+            @Param("soLuong") Integer soLuong,
+            @Param("idMauSac") Integer idMauSac,
+            @Param("idSize") Integer idSize,
+            @Param("trangThai") Integer trangThai,
+            Pageable pageable);
+
+
+    @Query("""
+    SELECT new com.example.dreambackend.dtos.SanPhamChiTietDto(
+        spct.id,
+        spct.ma,
+        sp.ten,
+        ms.ten,
+        sz.ten,
+        spct.gia,
+        spct.soLuong,
+        CASE WHEN spct.khuyenMai.id = :khuyenMaiId THEN true ELSE false END,
+        CASE WHEN spct.khuyenMai.id IS NOT NULL AND spct.khuyenMai.id <> :khuyenMaiId THEN true ELSE false END
+    )
+    FROM SanPhamChiTiet spct
+    JOIN spct.sanPham sp
+    JOIN spct.mauSac ms
+    JOIN spct.size sz
+    WHERE spct.trangThai = 1
+    """)
     List<SanPhamChiTietDto> findAvailableProducts(@Param("khuyenMaiId") Integer khuyenMaiId);
     // Phương thức để tìm tất cả sản phẩm liên kết với một khuyến mãi cụ thể
     List<SanPhamChiTiet> findAllByKhuyenMaiId(Integer khuyenMaiId);
