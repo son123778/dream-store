@@ -97,7 +97,7 @@ import {
 } from "./chunk-CUIEDR4A.js";
 import {
   IMAGE_CONFIG
-} from "./chunk-7WEFQ6UK.js";
+} from "./chunk-KB6DLHMF.js";
 export {
   APP_BASE_HREF,
   AsyncPipe,
