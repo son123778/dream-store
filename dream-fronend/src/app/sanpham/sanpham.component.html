@@ -1,11 +1,3 @@
-<!-- <script>
-  document.getElementById("editButtonId").addEventListener("click", function(event) {
-      event.preventDefault();
-      // Hiển thị form sửa
-      document.getElementById("editForm").style.display = "block";
-  });
-</script> -->
-
 
 <div>
   <p class="title">Danh sách sản phẩm</p>
@@ -15,7 +7,7 @@
   <div class="input-row">
     <!-- Combobox 1 -->
     <div class="input-field">
-      <select class="input" id="thuongHieu" name="thuongHieu" [(ngModel)]="searchFilter.thuongHieu.id">
+      <select class="input" id="thuongHieu" name="thuongHieu" [(ngModel)]="searchFilter.thuongHieu.id" (change)="onSearchFilterChange()">
         <option value="" selected>Chọn thương hiệu</option>
         <option *ngFor="let thuongHieu of thuongHieus" [value]="thuongHieu.id">{{thuongHieu.ten}}</option>
       </select>
@@ -24,7 +16,7 @@
 
     <!-- Combobox 2 -->
     <div class="input-field">
-      <select class="input" id="xuatXu" name="xuatXu" [(ngModel)]="searchFilter.xuatXu.id">
+      <select class="input" id="xuatXu" name="xuatXu" [(ngModel)]="searchFilter.xuatXu.id" (change)="onSearchFilterChange()">
         <option value="" selected>Chọn xuất xứ</option>
         <option *ngFor="let xuatXu of xuatXus" [value]="xuatXu.id">{{xuatXu.ten}}</option>
       </select>
@@ -33,7 +25,7 @@
 
     <!-- Combobox 3 -->
     <div class="input-field">
-      <select class="input" id="chatLieu" name="chatLieu" [(ngModel)]="searchFilter.chatLieu.id">
+      <select class="input" id="chatLieu" name="chatLieu" [(ngModel)]="searchFilter.chatLieu.id" (change)="onSearchFilterChange()">
         <option value="" selected>Chọn chất liệu</option>
         <option *ngFor="let chatLieu of chatLieus" [value]="chatLieu.id">{{chatLieu.ten}}</option>
       </select>
@@ -42,7 +34,7 @@
 
     <!-- Combobox 4 -->
     <div class="input-field">
-      <select class="input" id="coAo" name="coAo" [(ngModel)]="searchFilter.coAo.id">
+      <select class="input" id="coAo" name="coAo" [(ngModel)]="searchFilter.coAo.id" (change)="onSearchFilterChange()">
         <option value="" selected>Chọn cổ áo</option>
         <option *ngFor="let coAo of coAos" [value]="coAo.id">{{coAo.ten}}</option>
       </select>
@@ -51,7 +43,7 @@
 
     <!-- Combobox 5 -->
     <div class="input-field">
-      <select class="input" id="trangThai" name="trangThai" [(ngModel)]="searchFilter.trangThai">
+      <select class="input" id="trangThai" name="trangThai" [(ngModel)]="searchFilter.trangThai" (change)="onSearchFilterChange()">
         <option value="" selected>Chọn trạng thái</option>
         <option value="1">Hoạt động</option>
         <option value="0">Không hoạt động</option>
@@ -139,7 +131,7 @@
               <label for="ma">Mã thuộc tính</label>
             </div>
             <div class="input-field">
-              <input type="text" class="input" id="ten" name="ten" [(ngModel)]="sanPhamChiTietRequest.sanPham.ten" readonly>
+              <input type="text" class="input" id="ten" name="ten" [(ngModel)]="sanPhamChiTietRequest.ten" readonly>
               <label for="ten">Tên thuộc tính</label>
             </div>
             <div class="input-field">

@@ -16,9 +16,17 @@ export class SanphamService {
     return this.http.get<ApiResponseSanPham>(`${this.apiUrl}/san-pham/hien-thi?page=${page}&size=${size}`);
   }  
 
-  searchSanPhamFiltered(params: HttpParams): Observable<ApiResponseSanPham> {
-    return this.http.get<ApiResponseSanPham>(`${this.apiUrl}/san-pham/tim-kiem`, { params });
-  }  
+  searchSanPham(thuongHieuId: number, xuatXuId: number, chatLieuId: number, coAoId: number, trangThai: any, page: number, size: number) {
+    let params: any = { page, size };
+    if (thuongHieuId) params.thuongHieuId = thuongHieuId;
+    if (xuatXuId) params.xuatXuId = xuatXuId;
+    if (chatLieuId) params.chatLieuId = chatLieuId;
+    if (coAoId) params.coAoId = coAoId;
+    if (trangThai != null && trangThai !== '') params.trangThai = trangThai;
+  
+    return this.http.get<any>(this.apiUrl + '/san-pham/tim-kiem', { params });
+  }
+   
   
   
   getSanPhamChiTiet(idSanPham: number, page: number, size: number): Observable<ApiResponseSanPhamChiTiet> {

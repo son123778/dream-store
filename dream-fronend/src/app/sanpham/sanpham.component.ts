@@ -167,8 +167,29 @@ editSanPhamChiTiet(sanPhamChiTiet: any): void {
         this.totalSanPhamPages = data.totalPages;
       });
   }
-  
 
+  searchSanPham(): void {
+    this.sanphamService.searchSanPham(
+      this.searchFilter.thuongHieu.id,
+      this.searchFilter.xuatXu.id,
+      this.searchFilter.chatLieu.id,
+      this.searchFilter.coAo.id,
+      this.searchFilter.trangThai,
+      this.currentSanPhamPage,
+      this.sanPhamPageSize
+    ).subscribe(data => {
+      console.log("Kết quả tìm kiếm:", data);
+      this.sanPhams = data.content;
+      this.totalSanPhamPages = data.totalPages;
+    });
+  }
+
+  
+  onSearchFilterChange(): void {
+    this.searchSanPham();
+  }
+
+  
   currentSanPhamId: number = 0; // ID sản phẩm đang xem chi tiết
   currentPage: number = 0; // Trang hiện tại
   pageSize: number = 5; // Số sản phẩm chi tiết mỗi trang
