@@ -12,10 +12,10 @@ public class WebConfig {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**") // Áp dụng cho tất cả các endpoint
-                        .allowedOrigins("http://localhost:4200") // Cho phép Angular truy cập
-                        .allowedMethods("GET", "POST", "PUT", "DELETE") // Các phương thức HTTP cho phép
-                        .allowedHeaders("*"); // Cho phép tất cả các header
+                registry.addMapping("/**")
+                        .allowedOrigins("http://localhost:4200")
+                        .allowedMethods("GET", "POST", "PUT", "DELETE")
+                        .allowedHeaders("*");
             }
         };
     }
