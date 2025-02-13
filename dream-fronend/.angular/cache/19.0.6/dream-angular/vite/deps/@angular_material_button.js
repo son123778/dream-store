@@ -1,4 +1,3 @@
-import { createRequire } from 'module';const require = createRequire(import.meta.url);
 import {
   FocusMonitor,
   MatCommonModule,
@@ -7,8 +6,8 @@ import {
   Platform,
   _CdkPrivateStyleLoader,
   _StructuralStylesLoader
-} from "./chunk-RBHKBWSQ.js";
-import "./chunk-DSBQXEXU.js";
+} from "./chunk-J3GLKE7D.js";
+import "./chunk-5GRCLG6X.js";
 import {
   ANIMATION_MODULE_TYPE,
   ChangeDetectionStrategy,
@@ -40,11 +39,11 @@ import {
   ɵɵgetInheritedFactory,
   ɵɵprojection,
   ɵɵprojectionDef
-} from "./chunk-MFL6BTOL.js";
+} from "./chunk-VELHHY3C.js";
 import {
   __spreadProps,
   __spreadValues
-} from "./chunk-YHCV7DAQ.js";
+} from "./chunk-WDMUDEB6.js";
 
 // node_modules/@angular/material/fesm2022/button.mjs
 var _c0 = ["mat-button", ""];

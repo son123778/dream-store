@@ -5,230 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d7dcb88-d015-40bd-b1c2-e4c2578857ff" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/controllers/ThongKeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/controllers/VaiTroController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/entities/DiaChiKhachHang.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/entities/GioHang.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/entities/HoaDon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/entities/HoaDonChiTiet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/entities/PhuongThucThanhToan.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/entities/TrangThaiHoaDon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/entities/VaiTro.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/repositories/HoaDonChiTietRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/repositories/HoaDonRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/repositories/ThongKeRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/repositories/VaiTroRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/request/NhanVienRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/request/ThongKeRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/request/VaiTroRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/response/NhanVienResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/response/ThongKeResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/response/ThongKeThangResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/response/TopSanPhamResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/response/VaiTroResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/services/nhanvien/INhanVienService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/services/nhanvien/NhanVienService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/services/thongke/ThongKeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/services/vaitro/IVaiTroService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/services/vaitro/VaiTroService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/controllers/ThongKeController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/controllers/VaiTroController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/entities/DiaChiKhachHang.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/entities/GioHang$GioHangBuilder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/entities/GioHang.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/entities/HoaDon$HoaDonBuilder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/entities/HoaDon.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/entities/HoaDonChiTiet$HoaDonChiTietBuilder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/entities/HoaDonChiTiet.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/entities/NhanVien$NhanVienBuilder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/entities/PhuongThucThanhToan$PhuongThucThanhToanBuilder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/entities/PhuongThucThanhToan.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/entities/TrangThaiHoaDon.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/entities/VaiTro$VaiTroBuilder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/entities/VaiTro.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/repositories/HoaDonChiTietRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/repositories/HoaDonRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/repositories/ThongKeRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/repositories/VaiTroRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/request/NhanVienRequest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/request/ThongKeRequest$ThongKeRequestBuilder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/request/ThongKeRequest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/request/VaiTroRequest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/response/NhanVienResponse.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/response/ThongKeResponse$ThongKeResponseBuilder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/response/ThongKeResponse.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/response/ThongKeThangResponse$ThongKeThangResponseBuilder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/response/ThongKeThangResponse.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/response/TopSanPhamResponse.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/response/VaiTroResponse.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/services/thongke/ThongKeService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/services/vaitro/IVaiTroService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/services/vaitro/VaiTroService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/00d36b6c-b3e2-4223-b618-a3841d5214a0_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/022f02d2-dad1-4b1e-9af1-a723456ca4cc_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/03823ef3-3778-4d2f-891c-220141219512_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/0395a609-9579-42d5-805d-ab47221f664b_Screenshot 2024-12-23 202014.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/06bdd0af-205c-47f2-b43e-e66bebe956c6_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/07162a63-314a-4fb1-a9b9-a6cd5c28496d_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/07acda9d-2bc3-4a42-b00f-92a13e630e14_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/08efd5cb-b20d-4754-98d4-f0e739a509c8_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/0a59a38a-e381-408a-a4b2-ed42b0ccd012_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/0f0ab0c1-b843-48f8-b068-276c3f778253_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/1d057f2d-d20b-4c79-8b98-943121f5e605_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/23923060-57df-4667-9127-fbbf14f57b74_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/242ea2ab-9503-435a-8929-038655824ad6_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/2473935e-e498-4668-b271-a399bb9a416f_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/25cd4dcd-8f92-4a33-8668-13754032f79d_Screenshot 2024-12-23 202014.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/362f0d3d-3196-4f61-87e7-8f947f53d0f3_84d5e449-3f91-406d-b9e4-129fd53215b1_Screenshot 2024-12-24 114320.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/381af948-79ee-434f-9345-4362daa08e6a_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/3a9c759c-bb48-463f-8c73-a56e1522f279_Screenshot 2024-12-23 202014.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/3b1f37dd-3821-4934-98b5-1583f61aade6_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/3c5b4def-3adf-4d57-b370-f712e344b283_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/3e5982ed-4337-4488-84cc-14c8aae4d9db_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/40c61198-c2f0-486b-8c04-a96522a25cf4_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/4ab909b5-9039-43cc-bb8b-83657e15a6b0_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/4dc5261d-e6d2-4bbd-b604-a0df72c4d541_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/504690c5-7dca-4a28-94f3-aeda9077bb55_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/5302318f-35b0-41dd-9000-a475dd1e4ba0_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/557795b3-2a2c-438d-8196-9714c89dc49e_84d5e449-3f91-406d-b9e4-129fd53215b1_Screenshot 2024-12-24 114320.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/5590ae7a-ce9a-4db4-bcf6-26d3f3e842e4_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/58c81dd5-4ff1-4aaa-9eee-6f5f17fdb55e_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/5c63355a-86d2-4930-a361-eeb5bd7a0247_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/62d5514a-1894-4475-a21b-9e5931efcbc0_Screenshot 2024-12-23 202014.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/65227c52-7993-4cd4-81a5-fc9320b2ac02_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/687d246a-0e48-48b7-9013-d1a5c070c7e7_Screenshot 2024-12-23 202014.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/6cb27526-d6e4-4849-a3fc-ba34f03d4dd0_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/6dbdd2c0-80d0-4516-ae55-ec9511b76297_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/7bab1715-aea5-4bc6-b014-e2b91fe35de7_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/7bec8f92-82bf-40ba-bbb9-05c132c27b4c_3c87b259-4c72-4bd0-80d2-58d9e455d2bb_a85bb183-0335-496b-841a-17663891acfe_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/7c6e2583-543d-4853-ad49-971742b19356_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/84fbdcbf-8959-4313-b861-81e3ff1a8ce1_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/8acda86b-0b94-4fee-803b-7f65db04458e_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/94db25e3-8684-4c51-bffd-632864020b44_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/960384b1-a3b2-45f2-a32a-786bc6121c63_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/967f2139-65aa-4f43-97b8-73a35524a75a_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/97076dbf-0d08-4d27-a272-a8a074c85758_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/9d18d173-6e3c-4c69-9a20-f3e685b4d2b6_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/Screenshot 2024-12-23 202014.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/a1d8cf81-be40-45bc-95a4-341392fbfcaa_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/a529ff53-da4d-45ed-a85a-d98897188f08_7c698f2f-4570-4cb9-a000-0d1e8e9e2a69_7efefcdb-cb87-433a-a13f-ff45c238cd78_Screenshot 2024-12-24 114320.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/a5c878ee-538e-43e6-8b08-febc78b315c2_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/adebf7e5-e7c4-4374-a49d-db854619b662_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/af36c5e0-cd5c-487b-8952-964b9ddf21a7_7c698f2f-4570-4cb9-a000-0d1e8e9e2a69_7efefcdb-cb87-433a-a13f-ff45c238cd78_Screenshot 2024-12-24 114320.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/b0aeb1b6-e821-4ef3-b354-0d345cb9ffe9_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/b10df8ff-4443-4d3f-a980-84216c944d73_Screenshot 2024-12-23 202014.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/b70956b7-ddca-49b4-ab46-6fdf83ddff55_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/b97fef54-2882-4827-8703-cec5487fa3a8_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/b9a24df6-1beb-49df-b934-c4b5a0e105f6_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/ba29083f-ca05-44de-aa87-86414ff58a79_84d5e449-3f91-406d-b9e4-129fd53215b1_Screenshot 2024-12-24 114320.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/bb05269b-dad1-48df-8d0a-2d0339b609ae_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/bcf43275-c868-49ed-a0be-0d295b61427a_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/c9d07874-564f-4425-b34e-88f9e746d116_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/cc61c2a8-5012-4ef6-abd3-66d706295cd7_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/cfcd5b95-30e8-4f67-851a-40bbdc35aaa4_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/d0b51890-72c7-4ec8-9425-8f2d5a876d08_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/d6c55127-b947-4772-9949-2603a4eeea32_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/dc4f3e28-4746-41c8-8234-4052938e2822_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/dc55d92d-7fc0-4207-bd70-8efe4e8edbf9_63c535b1-fddb-4ef6-b92b-0c27fd5a25d0_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/e1b3f881-ce4b-4c44-91bf-e3b8d50e347a_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/e2f86052-4b92-4fcf-aaf4-c0dd62845fdb_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/e914d2cd-0c38-4555-a7a3-3fc32f29532b_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/eb29bdf6-fa7d-4ab9-86ab-e0c806d512f2_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/f0e5789e-8d88-4002-95ce-8521b1283b80_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/f505fda0-7cf5-484f-9344-4b1437b6d83f_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/fbf961c0-576e-4b61-b338-47fb7fba71ce_Screenshot 2024-12-23 202532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/z5950111621584_78bffc732545cfaeaa3029c7ec921c3e-removebg-preview.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chart__js_auto.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chart__js_auto.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chunk-KTZL7TXB.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dream-fronend/src/app/thongke/thongke-request.model.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dream-fronend/src/app/thongke/thongke-response.model.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dream-fronend/src/app/thongke/thongke.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/configs/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/configs/WebConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/controllers/NhanVienController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/controllers/NhanVienController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/entities/NhanVien.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/entities/NhanVien.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/entities/SanPhamChiTiet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/entities/SanPhamChiTiet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/entities/Voucher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/entities/Voucher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/repositories/NhanVienRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/repositories/NhanVienRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/services/NhanVien/INhanVienService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/services/NhanVien/NhanVienService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/controllers/NhanVienController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/controllers/NhanVienController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/entities/NhanVien.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/entities/NhanVien.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/repositories/NhanVienRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/repositories/NhanVienRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/services/NhanVien/INhanVienService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/services/NhanVien/INhanVienService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/services/NhanVien/NhanVienService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/services/NhanVien/NhanVienService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/.tsbuildinfo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_common.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_common.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_common_http.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_common_http.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_common_http.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_core.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_core.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_core.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_forms.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_forms.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_forms.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_forms.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_material_button.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_material_button.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_material_button.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_material_button.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_material_icon.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_material_icon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_material_icon.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_material_icon.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_material_sidenav.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_material_sidenav.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_material_sidenav.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_material_sidenav.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_material_toolbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_material_toolbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_material_toolbar.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_material_toolbar.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_platform-browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_platform-browser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_platform-browser.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_platform-browser_animations.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_platform-browser_animations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_platform-browser_animations.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_platform-browser_animations.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_router.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_router.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/@angular_router.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/_metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/_metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/chunk-7LQI3YMA.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/chunk-7LQI3YMA.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/chunk-7LQI3YMA.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/chunk-CUIEDR4A.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/chunk-CUIEDR4A.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/chunk-EG2MLVRF.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/chunk-EG2MLVRF.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/chunk-HLDBBLS3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/chunk-HLDBBLS3.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/chunk-J3GLKE7D.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/chunk-J3GLKE7D.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/chunk-J3GLKE7D.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/chunk-J3GLKE7D.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/chunk-KB6DLHMF.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/chunk-KB6DLHMF.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/chunk-P4SHBGLB.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/chunk-P4SHBGLB.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/chunk-TLFV6ORO.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/chunk-TLFV6ORO.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/chunk-XMQD67JC.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/chunk-XMQD67JC.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/chunk-Z2VI332K.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/chunk-Z2VI332K.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps/package.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_material_button.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_material_button.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_material_icon.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_material_icon.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_material_sidenav.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_material_sidenav.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_material_toolbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/@angular_material_toolbar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/_metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/_metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chunk-RBHKBWSQ.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chunk-KTZL7TXB.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chunk-RBHKBWSQ.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.vscode/extensions.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.vscode/launch.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/.vscode/tasks.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/src/app/app.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/src/app/nhanvien/nhanvien.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/src/app/nhanvien/nhanvien.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/src/app/nhanvien/nhanvien.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/src/app/nhanvien/nhanvien.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/src/app/nhanvien/nhanvien.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/src/app/nhanvien/nhanvien.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/src/app/nhanvien/nhanvien.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/src/app/nhanvien/nhanvien.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/src/app/nhanvien/nhanvien.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/src/app/nhanvien/nhanvien.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/src/app/thongke/thongke.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/src/app/thongke/thongke.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/src/app/thongke/thongke.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/src/app/thongke/thongke.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/src/app/thongke/thongke.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/src/app/thongke/thongke.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/src/app/thongke/thongke.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chart__js_auto.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chart__js_auto.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chart__js_auto.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chart__js_auto.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chunk-KTZL7TXB.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend/.angular/cache/19.0.6/dream-angular/vite/deps_ssr/chunk-KTZL7TXB.js.map" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -267,31 +57,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Maven.dream-backend [clean,install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.dream-backend [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.dream-backend [spring-boot:debug].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.dream-backend [spring-boot:run].executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;Spring Boot.DreamBackendApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Merging le-hoang&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/angular_springboot/shopapp_backend&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Maven.dream-backend [clean,install].executor": "Run",
+    "Maven.dream-backend [clean].executor": "Run",
+    "Maven.dream-backend [spring-boot:debug].executor": "Run",
+    "Maven.dream-backend [spring-boot:run].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.DreamBackendApplication.executor": "Debug",
+    "git-widget-placeholder": "le-hoang",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/angular_springboot/shopapp_backend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\controllers" />
