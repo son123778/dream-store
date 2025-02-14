@@ -8,7 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 @RestController
 @RequestMapping("/api/xuat-xu")
 // cho phép các request Angular truy cập vào các API
@@ -26,7 +29,9 @@ public class XuatXuController {
     @PostMapping("/add")
     public ResponseEntity<?> add(@RequestBody XuatXuRequest xuatXuRequest) {
         xuatXuService.addXuatXu(xuatXuRequest);
-        return ResponseEntity.ok("Thêm thành công");
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "Thêm thành công");
+        return ResponseEntity.ok(response);
     }
 
     @PutMapping("/update")

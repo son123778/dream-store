@@ -34,7 +34,16 @@ export class SanphamService {
       `${this.apiUrl}/san-pham-chi-tiet/hien-thi?idSanPham=${idSanPham}&page=${page}&size=${size}`
     );
   }
-  
+
+  searchSanPhamChiTiet(idSanPham: number, gia?: number, soLuong?: number, idSize?: number, idMauSac?: number, trangThai?: number, page: number = 0, size: number = 5) {
+    let params: any = { idSanPham, page, size };
+    if (gia !== undefined) params.gia = gia;
+    if (soLuong !== undefined) params.soLuong = soLuong;
+    if (idSize !== undefined) params.idSize = idSize;
+    if (idMauSac !== undefined) params.idMauSac = idMauSac;
+    if (trangThai !== undefined) params.trangThai = trangThai;
+    return this.http.get<any>(this.apiUrl + '/san-pham-chi-tiet/tim-kiem', { params });
+  }
 
   getThuongHieu(): Observable<ThuongHieu[]> {
     return this.http.get<ThuongHieu[]>(this.apiUrl + '/thuong-hieu/hien-thi').pipe();
@@ -85,6 +94,31 @@ export class SanphamService {
       responseType: 'blob'
     });
   }
+
+  addThuongHieu(thuongHieu: ThuongHieu): Observable<any> {
+    return this.http.post<any>(this.apiUrl + '/thuong-hieu/add', thuongHieu);
+  }
+  
+  addChatLieu(chatLieu: ChatLieu): Observable<any> {
+    return this.http.post<any>(this.apiUrl + '/chat-lieu/add', chatLieu);
+  }
+  
+  addXuatXu(xuatXu: XuatXu): Observable<any> {
+    return this.http.post<any>(this.apiUrl + '/xuat-xu/add', xuatXu);
+  }
+  
+  addCoAo(coAo: CoAo): Observable<any> {
+    return this.http.post<any>(this.apiUrl + '/co-ao/add', coAo);
+  }
+  
+  addSize(size: Size): Observable<any> {
+    return this.http.post<any>(this.apiUrl + '/size/add', size);
+  }
+  
+  addMauSac(mauSac: MauSac): Observable<any> {
+    return this.http.post<any>(this.apiUrl + '/mau-sac/add', mauSac);
+  }
+  
   
 }
 export interface SanPham {

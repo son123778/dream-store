@@ -21,4 +21,6 @@ public interface ChatLieuRepository extends JpaRepository<ChatLieu, Integer> {
         ) from ChatLieu cl
         """)
     List<ChatLieuRespone> getAllChatLieuRepone();
+
+    boolean existsByMa(String ma);
 }

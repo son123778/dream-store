@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Random;
 
 @Service
 public class XuatXuService implements IXuatXuService {
@@ -34,9 +35,21 @@ public class XuatXuService implements IXuatXuService {
     public XuatXu addXuatXu(XuatXuRequest xuatXuRequest) {
         XuatXu xuatXu = new XuatXu();
         BeanUtils.copyProperties(xuatXuRequest, xuatXu);
+        xuatXu.setMa(taoMaXuatXu());
         xuatXu.setNgayTao(LocalDate.now());
         xuatXu.setNgaySua(LocalDate.now());
         return xuatXuRepository.save(xuatXu);
+    }
+
+    private String taoMaXuatXu() {
+        Random random = new Random();
+        String maXuatXu;
+        do {
+            int soNgauNhien = 1 + random.nextInt(9999); // Sinh số từ 1 đến 9999
+            String maSo = String.format("%04d", soNgauNhien); // Định dạng thành 4 chữ số
+            maXuatXu = "XX" + maSo;
+        } while (xuatXuRepository.existsByMa(maXuatXu)); // Kiểm tra xem mã đã tồn tại chưa
+        return maXuatXu;
     }
 
     @Override

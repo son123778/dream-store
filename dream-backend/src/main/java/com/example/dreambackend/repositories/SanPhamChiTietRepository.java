@@ -50,7 +50,8 @@ public interface SanPhamChiTietRepository extends JpaRepository<SanPhamChiTiet, 
         spct.mauSac.ten
     )
     FROM SanPhamChiTiet spct
-    WHERE (:gia IS NULL OR spct.gia = :gia)
+    WHERE spct.sanPham.id = :idSanPham
+      AND (:gia IS NULL OR spct.gia = :gia)
       AND (:soLuong IS NULL OR spct.soLuong = :soLuong)
       AND (:idMauSac IS NULL OR spct.mauSac.id = :idMauSac)
       AND (:idSize IS NULL OR spct.size.id = :idSize)
@@ -58,12 +59,14 @@ public interface SanPhamChiTietRepository extends JpaRepository<SanPhamChiTiet, 
     ORDER BY spct.ngayTao DESC
     """)
     Page<SanPhamChiTietRespone> timKiemSanPhamChiTiet(
+            @Param("idSanPham") Integer idSanPham,
             @Param("gia") Double gia,
             @Param("soLuong") Integer soLuong,
             @Param("idMauSac") Integer idMauSac,
             @Param("idSize") Integer idSize,
             @Param("trangThai") Integer trangThai,
             Pageable pageable);
+
 
 
     @Query("""

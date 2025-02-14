@@ -85,10 +85,10 @@ public class SanPhamChiTietService implements ISanPhamChiTietService {
 
     @Override
     public Page<SanPhamChiTietRespone> timKiemSanPhamChiTiet(
-            Double gia, Integer soLuong, Integer idMauSac, Integer idSize, Integer trangThai, Pageable pageable) {
+            Integer idSanPham, Double gia, Integer soLuong, Integer idMauSac, Integer idSize, Integer trangThai, Pageable pageable) {
 
         return sanPhamChiTietRepository.timKiemSanPhamChiTiet(
-                gia, soLuong, idMauSac, idSize, trangThai, pageable);
+                idSanPham, gia, soLuong, idMauSac, idSize, trangThai, pageable);
     }
 
 

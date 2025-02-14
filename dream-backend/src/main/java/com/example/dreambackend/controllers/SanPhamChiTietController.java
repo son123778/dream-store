@@ -65,6 +65,7 @@ public class SanPhamChiTietController {
 
     @GetMapping("/tim-kiem")
     public ResponseEntity<Page<SanPhamChiTietRespone>> timKiemSanPhamChiTiet(
+            @RequestParam(value = "idSanPham") Integer idSanPham,
             @RequestParam(value = "gia", required = false) Double gia,
             @RequestParam(value = "soLuong", required = false) Integer soLuong,
             @RequestParam(value = "idMauSac", required = false) Integer idMauSac,
@@ -75,7 +76,7 @@ public class SanPhamChiTietController {
 
         Pageable pageable = PageRequest.of(page, size);
         Page<SanPhamChiTietRespone> result = sanPhamChiTietService.timKiemSanPhamChiTiet(
-                gia, soLuong, idMauSac, idSize, trangThai, pageable);
+                idSanPham, gia, soLuong, idMauSac, idSize, trangThai, pageable);
 
         return ResponseEntity.ok(result);
     }

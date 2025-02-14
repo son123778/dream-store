@@ -21,4 +21,6 @@ public interface XuatXuRepository extends JpaRepository<XuatXu, Integer> {
         ) from XuatXu xx
         """)
     List<XuatXuRespone> getAllXuatXuRespone();
+
+    boolean existsByMa(String ma);
 }

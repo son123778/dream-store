@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("api/size")
@@ -25,7 +27,9 @@ public class SizeController {
     @PostMapping("/add")
     public ResponseEntity<?> add(@RequestBody SizeRequest sizeRequest) {
         sizeService.addSize(sizeRequest);
-        return ResponseEntity.ok("Thêm thành công");
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "Thêm thành công");
+        return ResponseEntity.ok(response);
     }
 
     @PutMapping("/update")

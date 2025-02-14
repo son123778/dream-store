@@ -10,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/chat-lieu")
@@ -29,7 +31,9 @@ public class ChatLieuController {
     @PostMapping("/add")
     public ResponseEntity<?> add(@RequestBody ChatLieuRequest chatLieuRequest){
         chatLieuService.addChatLieu(chatLieuRequest);
-        return ResponseEntity.ok("Thêm thành công");
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "Thêm thành công");
+        return ResponseEntity.ok(response);
     }
 
     @PutMapping("/update")

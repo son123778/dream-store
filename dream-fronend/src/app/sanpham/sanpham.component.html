@@ -127,28 +127,22 @@
         <button class="close-btn" (click)="closeModalThuocTinh()">×</button>
         <form>
             <div class="input-field">
-              <input type="text" class="input" id="ma" name="ma" [(ngModel)]="sanPhamChiTietRequest.ma" autocomplete="off" readonly>
+              <input type="text" class="input" id="ma" name="ma" [(ngModel)]="thuongHieuRequest.ma" autocomplete="off" readonly>
               <label for="ma">Mã thuộc tính</label>
             </div>
             <div class="input-field">
-              <input type="text" class="input" id="ten" name="ten" [(ngModel)]="sanPhamChiTietRequest.ten" readonly>
+              <input type="text" class="input" id="ten" name="ten" [(ngModel)]="thuongHieuRequest.ten">
               <label for="ten">Tên thuộc tính</label>
             </div>
             <div class="input-field">
-              <select class="input" id="trangThai" name="trangThai" [(ngModel)]="sanPhamChiTietRequest.trangThai">
+              <select class="input" id="trangThai" name="trangThai" [(ngModel)]="thuongHieuRequest.trangThai">
                 <option value="" disabled selected>Chọn trạng thái</option>
                 <option value="1">Hoạt động</option>
                 <option value="0">Không hoạt động</option>
               </select>
               <label for="trangThai">Trạng thái</label>
             </div>
-          <button type="button" class="btn-primary" 
-          *ngIf="!sanPhamChiTietRequest.id" 
-          (click)="addSanPhamChiTiet()">Thêm</button>
-        
-        <button type="button" class="btn-primary" 
-          *ngIf="sanPhamChiTietRequest.id" 
-          (click)="updateSanPhamChiTiet()">Cập nhật</button>             
+          <button type="button" class="btn-primary" (click)="addThuongHieu()">Thêm</button>
         </form>
       </div>
     </div>
@@ -184,6 +178,7 @@
           <td>
               <button (click)="openModalSanPhamChiTiet(sanPham.id)" class="button btn-primary">Chi tiết</button>
               <a href="javascript:void(0);" (click)="editSanPham(sanPham)" class="button btn-danger">Sửa</a>
+              <button class="button btn-primary">Quản lý ảnh</button>
           </td>          
         </tr>
       </tbody>
@@ -214,19 +209,19 @@
       <div class="input-row">
         <!-- Combobox 1 -->
           <div class="input-field">
-            <input type="text" class="input" id="gia" name="gia" [(ngModel)]="searchFilterSanPhamChiTiet.gia">
+            <input type="text" class="input" id="gia" name="gia" [(ngModel)]="searchFilterSanPhamChiTiet.gia" (ngModelChange)="onSearchSanPhamChiTiet()">
             <label for="gia">Giá</label>
           </div>
     
         <!-- Combobox 2 -->
         <div class="input-field">
-          <input type="text" class="input" id="soLuong" name="soLuong" [(ngModel)]="searchFilterSanPhamChiTiet.soLuong">
+          <input type="text" class="input" id="soLuong" name="soLuong" [(ngModel)]="searchFilterSanPhamChiTiet.soLuong" (ngModelChange)="onSearchSanPhamChiTiet()">
           <label for="soLuong">Số lượng</label>
         </div>
     
         <!-- Combobox 3 -->
         <div class="input-field">
-          <select class="input" id="size" name="size" [(ngModel)]="searchFilterSanPhamChiTiet.size.id">
+          <select class="input" id="size" name="size" [(ngModel)]="searchFilterSanPhamChiTiet.size.id" (ngModelChange)="onSearchSanPhamChiTiet()">
             <option value="" selected>Chọn size</option>
             <option *ngFor="let size of sizes" [value]="size.id">{{size.ten}}</option>
           </select>
@@ -235,7 +230,7 @@
     
         <!-- Combobox 4 -->
         <div class="input-field">
-          <select class="input" id="mauSac" name="mauSac" [(ngModel)]="searchFilterSanPhamChiTiet.mauSac.id">
+          <select class="input" id="mauSac" name="mauSac" [(ngModel)]="searchFilterSanPhamChiTiet.mauSac.id" (ngModelChange)="onSearchSanPhamChiTiet()">
             <option value="" selected>Chọn màu sắc</option>
             <option *ngFor="let mauSac of mauSacs" [value]="mauSac.id">{{mauSac.ten}}</option>
           </select>
@@ -244,7 +239,7 @@
     
         <!-- Combobox 5 -->
         <div class="input-field">
-          <select class="input" id="trangThai" name="trangThai" [(ngModel)]="searchFilterSanPhamChiTiet.trangThai">
+          <select class="input" id="trangThai" name="trangThai" [(ngModel)]="searchFilterSanPhamChiTiet.trangThai" (ngModelChange)="onSearchSanPhamChiTiet()">
             <option value="" selected>Chọn trạng thái</option>
             <option value="1">Hoạt động</option>
             <option value="0">Không hoạt động</option>

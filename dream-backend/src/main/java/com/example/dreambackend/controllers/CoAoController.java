@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/co-ao")
@@ -28,7 +30,9 @@ public class CoAoController {
     @PostMapping("/add")
     public ResponseEntity<?> add(@RequestBody CoAoRequest coAoRequest) {
         coAoService.addCoAo(coAoRequest);
-        return ResponseEntity.ok("Thêm thành công");
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "Thêm thành công");
+        return ResponseEntity.ok(response);
     }
 
     @PutMapping("/update")

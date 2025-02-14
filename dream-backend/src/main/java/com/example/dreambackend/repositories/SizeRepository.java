@@ -24,5 +24,5 @@ public interface SizeRepository extends JpaRepository<Size, Integer> {
         """)
     List<SizeRespone> getAllSizeRespones();
 
-    Optional<Size> findByTen(String ten);
+    boolean existsByMa(String ma);
 }

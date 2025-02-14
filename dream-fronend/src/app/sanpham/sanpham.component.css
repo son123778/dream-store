@@ -20,6 +20,16 @@
 .table-container {
   margin-left: 20px; /* Điều chỉnh bảng sát nút Thêm sản phẩm */
 }
+
+/* Tạo màu nền xen kẽ giống bảng sản phẩm chi tiết */
+.product-table tr:nth-child(even) {
+  background-color: #f9f9f9; /* Màu xám nhạt */
+}
+
+.product-table tr:nth-child(odd) {
+  background-color: white; /* Màu trắng */
+}
+
 .filter {
   margin-top: -20px; /* Giảm khoảng cách trên để sát hơn */
   font-size: 14px; /* Thay đổi kích thước phông chữ nếu cần */
@@ -56,6 +66,7 @@
   width: 100%;
   border-collapse: collapse;
   font-family: Arial, sans-serif;
+  border: 1px solid #ccc; /* Viền cho cả bảng */
 }
 
 .product-table th, .product-table td {
