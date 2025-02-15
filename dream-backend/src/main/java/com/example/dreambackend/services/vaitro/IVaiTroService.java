@@ -1,7 +1,7 @@
 package com.example.dreambackend.services.vaitro;
 
 import com.example.dreambackend.entities.VaiTro;
-import com.example.dreambackend.request.VaiTroRequest;
+import com.example.dreambackend.requests.VaiTroRequest;
 import com.example.dreambackend.responses.VaiTroResponse;
 
 import java.util.List;

@@ -1,5 +1,5 @@
 // Request DTO for ThongKe
-package com.example.dreambackend.request;
+package com.example.dreambackend.requests;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
