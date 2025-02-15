@@ -1,11 +1,14 @@
 package com.example.dreambackend.repositories;
 
+import com.example.dreambackend.entities.HoaDon;
 import com.example.dreambackend.entities.HoaDonChiTiet;
 
+import com.example.dreambackend.entities.SanPhamChiTiet;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface HoaDonChiTietRepository extends JpaRepository<HoaDonChiTiet, Integer> {
@@ -19,4 +22,9 @@ public interface HoaDonChiTietRepository extends JpaRepository<HoaDonChiTiet, In
 //    List<TopSanPhamResponse> getTopSanPhamBanChay(Pageable pageable);
 //
 
+    List<HoaDonChiTiet> findByHoaDonId(int id);
+
+    Optional<HoaDonChiTiet> findByHoaDonAndSanPhamChiTiet(HoaDon hoaDon, SanPhamChiTiet sanPhamChiTiet);
+
+    List<HoaDonChiTiet> findByHoaDon(HoaDon hoaDon);
 }

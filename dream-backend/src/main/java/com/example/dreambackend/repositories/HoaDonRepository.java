@@ -29,4 +29,8 @@ public interface HoaDonRepository extends JpaRepository<HoaDon, Integer> {
             "GROUP BY YEAR(h.ngayNhanDuKien) " +
             "ORDER BY YEAR(h.ngayNhanDuKien)")
     List<Object[]> getDoanhThuTungNam();
+
+    List<HoaDon> findByKhachHang_Id(int khachHangId);
+
+    List<HoaDon> findAllByTrangThai(int i);
 }
