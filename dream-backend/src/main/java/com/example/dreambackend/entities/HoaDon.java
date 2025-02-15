@@ -37,7 +37,7 @@ public class HoaDon {
     private Double phiVanChuyen;
 
     @Column(name = "tong_tien_truoc_voucher")
-    private Double tongTientTruocVocher;
+    private Double tongTienTruocVoucher;
 
     @Column(name = "tong_tien_thanh_toan")
     private Double tongTienThanhToan;

@@ -25,6 +25,6 @@ public class HoaDonRequest {
     private String ngayNhanDuKien;
     private String ngayTao;
     private String ngaySua;
-    private String trangThai;
+    private Integer trangThai;
     private String ghiChu;
 }

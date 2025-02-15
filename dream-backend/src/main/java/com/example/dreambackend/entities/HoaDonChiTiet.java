@@ -26,7 +26,7 @@ public class HoaDonChiTiet {
     private Integer soLuong;
 
     @Column(name = "don_gia")
-    private Float donGia;
+    private Double donGia;
 
     @Column(name = "ngay_sua")
     private LocalDate ngaySua;

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface HoaDonRepository extends JpaRepository<HoaDon, Integer> {
@@ -30,7 +31,9 @@ public interface HoaDonRepository extends JpaRepository<HoaDon, Integer> {
             "ORDER BY YEAR(h.ngayNhanDuKien)")
     List<Object[]> getDoanhThuTungNam();
 
-    List<HoaDon> findByKhachHang_Id(int khachHangId);
+//    List<HoaDon> findByKhachHang_Id(int khachHangId);
 
     List<HoaDon> findAllByTrangThai(int i);
+
+    Optional<HoaDon> findByMa(String ma);
 }

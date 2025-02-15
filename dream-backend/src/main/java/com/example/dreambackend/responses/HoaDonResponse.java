@@ -1,5 +1,6 @@
 package com.example.dreambackend.responses;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,12 +22,15 @@ public class HoaDonResponse {
     private String sdtNguoiNhan;
     private String diaChiNhanHang;
     private String hinhThucThanhToan;
-    private Float phiVanChuyen;
-    private Float tongTienTruocVoucher;
-    private Float tongTienThanhToan;
+    private Double phiVanChuyen;
+    private Double tongTienTruocVoucher;
+    private Double tongTienThanhToan;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate ngayNhanDuKien;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate ngayTao;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate ngaySua;
-    private String trangThai;
+    private Integer trangThai;
     private String ghiChu;
 }

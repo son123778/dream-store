@@ -25,7 +25,7 @@ public class GioHangChiTiet {
     @Column(name = "don_gia")
     private Double donGia;
 
-    @Column(name = "ngayTao")
+    @Column(name = "ngay_tao")
     private LocalDate ngayTao;
 
     @Column(name = "ngay_sua")

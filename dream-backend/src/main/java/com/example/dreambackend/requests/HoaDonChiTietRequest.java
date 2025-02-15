@@ -11,8 +11,8 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Builder
 public class HoaDonChiTietRequest {
-    private Integer IdHoaDon;
-    private Integer sanPhamChiTietId;
+    private Integer idHoaDon;
+    private Integer idSanPhamChiTiet;
     private String ma;
     private Integer soLuong;
     private Double donGia;
