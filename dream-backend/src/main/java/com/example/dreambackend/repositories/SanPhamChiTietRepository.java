@@ -2,7 +2,7 @@ package com.example.dreambackend.repositories;
 
 import com.example.dreambackend.dtos.SanPhamChiTietDto;
 import com.example.dreambackend.entities.SanPhamChiTiet;
-import com.example.dreambackend.respones.SanPhamChiTietRespone;
+import com.example.dreambackend.responses.SanPhamChiTietRespone;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -15,7 +15,7 @@ import java.util.List;
 @Repository
 public interface SanPhamChiTietRepository extends JpaRepository<SanPhamChiTiet, Integer> {
     @Query("""
-    select new com.example.dreambackend.respones.SanPhamChiTietRespone(
+    select new com.example.dreambackend.responses.SanPhamChiTietRespone(
         spct.id,
         spct.ma,
         spct.gia,

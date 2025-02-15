@@ -3,7 +3,7 @@ package com.example.dreambackend.services.sanphamchitiet;
 import com.example.dreambackend.entities.SanPhamChiTiet;
 import com.example.dreambackend.repositories.SanPhamChiTietRepository;
 import com.example.dreambackend.requests.SanPhamChiTietRequest;
-import com.example.dreambackend.respones.SanPhamChiTietRespone;
+import com.example.dreambackend.responses.SanPhamChiTietRespone;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

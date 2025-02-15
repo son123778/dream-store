@@ -1,4 +1,4 @@
-package com.example.dreambackend.response;
+package com.example.dreambackend.responses;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ThongKeThangResponse {
-    private int thang;
+public class ThongKeResponse {
+    private long soHoaDon;
     private double tongDoanhThu;
+    private long soKhachHang;
 }

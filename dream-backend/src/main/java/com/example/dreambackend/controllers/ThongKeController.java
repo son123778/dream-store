@@ -1,7 +1,7 @@
 package com.example.dreambackend.controllers;
 
-import com.example.dreambackend.response.ThongKeResponse;
-import com.example.dreambackend.response.ThongKeThangResponse;
+import com.example.dreambackend.responses.ThongKeResponse;
+import com.example.dreambackend.responses.ThongKeThangResponse;
 import com.example.dreambackend.services.thongke.ThongKeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

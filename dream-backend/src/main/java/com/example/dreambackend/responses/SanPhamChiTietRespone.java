@@ -1,9 +1,5 @@
-package com.example.dreambackend.respones;
+package com.example.dreambackend.responses;
 
-import com.example.dreambackend.entities.KhuyenMai;
-import com.example.dreambackend.entities.MauSac;
-import com.example.dreambackend.entities.SanPham;
-import com.example.dreambackend.entities.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
