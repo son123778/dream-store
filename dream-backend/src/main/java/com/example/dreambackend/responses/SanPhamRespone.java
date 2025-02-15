@@ -1,4 +1,4 @@
-package com.example.dreambackend.respones;
+package com.example.dreambackend.responses;
 
 import lombok.*;
 

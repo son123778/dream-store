@@ -1,14 +1,12 @@
 package com.example.dreambackend.services.coao;
 
-import com.example.dreambackend.dtos.CoAoDto;
 import com.example.dreambackend.entities.CoAo;
 import com.example.dreambackend.repositories.CoAoRepository;
 import com.example.dreambackend.requests.CoAoRequest;
-import com.example.dreambackend.respones.CoAoRespone;
+import com.example.dreambackend.responses.CoAoRespone;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.time.LocalDate;
 import java.util.List;

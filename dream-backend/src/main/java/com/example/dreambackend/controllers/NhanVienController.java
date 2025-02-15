@@ -2,7 +2,7 @@ package com.example.dreambackend.controllers;
 
 import com.example.dreambackend.entities.NhanVien;
 import com.example.dreambackend.request.NhanVienRequest;
-import com.example.dreambackend.response.NhanVienResponse;
+import com.example.dreambackend.responses.NhanVienResponse;
 import com.example.dreambackend.services.nhanvien.NhanVienService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

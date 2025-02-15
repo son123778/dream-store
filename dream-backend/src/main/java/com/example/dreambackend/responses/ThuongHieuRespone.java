@@ -1,4 +1,4 @@
-package com.example.dreambackend.respones;
+package com.example.dreambackend.responses;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,7 +8,7 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CoAoRespone {
+public class ThuongHieuRespone {
     private Integer id;
 
     private String ma;

@@ -5,7 +5,7 @@ import com.example.dreambackend.entities.VaiTro;
 import com.example.dreambackend.repositories.NhanVienRepository;
 import com.example.dreambackend.repositories.VaiTroRepository;
 import com.example.dreambackend.request.NhanVienRequest;
-import com.example.dreambackend.response.NhanVienResponse;
+import com.example.dreambackend.responses.NhanVienResponse;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

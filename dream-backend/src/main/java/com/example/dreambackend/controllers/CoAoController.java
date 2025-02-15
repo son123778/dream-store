@@ -1,9 +1,7 @@
 package com.example.dreambackend.controllers;
 
-import com.example.dreambackend.dtos.CoAoDto;
-import com.example.dreambackend.entities.CoAo;
 import com.example.dreambackend.requests.CoAoRequest;
-import com.example.dreambackend.respones.CoAoRespone;
+import com.example.dreambackend.responses.CoAoRespone;
 import com.example.dreambackend.services.coao.CoAoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

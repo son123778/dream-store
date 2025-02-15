@@ -1,7 +1,7 @@
 package com.example.dreambackend.controllers;
 
 import com.example.dreambackend.requests.SizeRequest;
-import com.example.dreambackend.respones.SizeRespone;
+import com.example.dreambackend.responses.SizeRespone;
 import com.example.dreambackend.services.size.SizeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

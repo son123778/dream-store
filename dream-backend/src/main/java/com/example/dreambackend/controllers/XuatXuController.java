@@ -1,8 +1,6 @@
 package com.example.dreambackend.controllers;
-import com.example.dreambackend.dtos.XuatXuDto;
-import com.example.dreambackend.entities.XuatXu;
 import com.example.dreambackend.requests.XuatXuRequest;
-import com.example.dreambackend.respones.XuatXuRespone;
+import com.example.dreambackend.responses.XuatXuRespone;
 import com.example.dreambackend.services.xuatxu.XuatXuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
