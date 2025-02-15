@@ -13,14 +13,11 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name = "hoa_don_chi_tiet")
-public class HoaDonChiTiet {
+@Table(name = "gio_hang_chi_tiet")
+public class GioHangChiTiet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    @Column(name = "ma")
-    private String ma;
 
     @Column(name = "so_luong")
     private Integer soLuong;
@@ -28,20 +25,20 @@ public class HoaDonChiTiet {
     @Column(name = "don_gia")
     private Double donGia;
 
-    @Column(name = "ngay_sua")
-    private LocalDate ngaySua;
-
     @Column(name = "ngay_tao")
     private LocalDate ngayTao;
+
+    @Column(name = "ngay_sua")
+    private LocalDate ngaySua;
 
     @Column(name = "trang_thai")
     private Integer trangThai;
 
     @ManyToOne
-    @JoinColumn(name = "id_hoa_don",referencedColumnName = "id")
-    private HoaDon hoaDon;
+    @JoinColumn(name = "id_khach_hang", referencedColumnName = "id")
+    private KhachHang khachHang;
 
     @ManyToOne
-    @JoinColumn(name = "id_san_pham_chi_tiet",referencedColumnName = "id")
+    @JoinColumn(name = "id_san_pham_chi_tiet", referencedColumnName = "id")
     private SanPhamChiTiet sanPhamChiTiet;
 }
