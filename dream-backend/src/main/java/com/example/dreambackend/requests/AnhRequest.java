@@ -1,7 +1,6 @@
 package com.example.dreambackend.requests;
 
 import com.example.dreambackend.entities.SanPham;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

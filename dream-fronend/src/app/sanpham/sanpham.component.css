@@ -1,4 +1,36 @@
 /* Container styling */
+.filter-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Căn về bên trái */
+  margin-top: -20px;
+  position: relative;
+}
+
+/* Văn bản "Tìm kiếm sản phẩm" */
+.filter {
+  font-size: 14px;
+  color: #294764;
+  font-weight: bold;
+  margin: 0;
+  padding-left: 15px;
+}
+
+/* Ô tìm kiếm */
+.search-input {
+  padding: 5px 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  width: 300px;
+  border: 2px solid #294764; /* Thay đổi màu viền thành xanh dương */
+  position: relative; /* Thêm position để top và left hoạt động */
+  top: -5px;  /* Dịch lên trên */
+  left: 815px; /* Dịch sang trái */
+}
+
+
 .title {
   padding-left: 15px;
   font-size: 18px;
@@ -30,13 +62,6 @@
   background-color: white; /* Màu trắng */
 }
 
-.filter {
-  margin-top: -20px; /* Giảm khoảng cách trên để sát hơn */
-  font-size: 14px; /* Thay đổi kích thước phông chữ nếu cần */
-  color: #294764; /* Để giữ màu sắc nhất quán */
-  font-weight: bold; /* Để làm nổi bật chữ "Lọc" */
-  padding-left: 15px;
-}
 .button.btn-primary {
   margin-bottom: 10px; /* Giảm khoảng cách dưới của nút */
 }
@@ -161,6 +186,10 @@ form:last-child {
 }
 #trangThai{
   width: 140px;
+}
+
+#trangThai1{
+  width: 247px;
 }
 .input-row {
   display: flex; /* Sử dụng flexbox để sắp xếp các trường trên một hàng */
@@ -354,6 +383,50 @@ form:last-child {
   color: #294764; /* Màu đỏ */
   font-size: 12px; /* Điều chỉnh kích thước chữ */
 }
+.radio-group {
+  position: absolute;
+  flex-wrap: wrap; /* Cho phép xuống hàng nếu không đủ chỗ */
+  gap: 30px; /* Tăng khoảng cách giữa các radio */
+  top: 40%; /* Kéo lên trên */
+  right: 150px; /* Dịch sang trái một chút */
+  transform: translateY(-65%); /* Giữ nó căn giữa tốt hơn */
+  display: flex;
+  flex-direction: column;
+  background: white;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.radio-group label {
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #294764;
+}
+
+.radio-group input {
+  margin-right: 5px;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px; /* Khoảng cách giữa input và thông báo lỗi */
+  position: absolute; /* Đặt vị trí tuyệt đối */
+  top: 55px;
+  left: 0; /* Đặt thông báo lỗi ở bên trái */
+  display: none; /* Ẩn thông báo lỗi khi không có lỗi */
+}
+
+/* Hiển thị thông báo lỗi khi có lỗi */
+.input-field.error .error-message {
+  display: block; /* Hiển thị thông báo lỗi khi có class 'error' */
+}
+
+
+
+
+
+
 
 
 

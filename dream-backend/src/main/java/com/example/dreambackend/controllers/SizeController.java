@@ -3,8 +3,11 @@ package com.example.dreambackend.controllers;
 import com.example.dreambackend.requests.SizeRequest;
 import com.example.dreambackend.respones.SizeRespone;
 import com.example.dreambackend.services.size.SizeService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -25,7 +28,14 @@ public class SizeController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<?> add(@RequestBody SizeRequest sizeRequest) {
+    public ResponseEntity<?> add(@Valid @RequestBody SizeRequest sizeRequest, BindingResult result) {
+        if (result.hasErrors()) {
+            Map<String, String> errors = new HashMap<>();
+            for (FieldError error : result.getFieldErrors()) {
+                errors.put(error.getField(), error.getDefaultMessage());
+            }
+            return ResponseEntity.badRequest().body(errors);
+        }
         sizeService.addSize(sizeRequest);
         Map<String, String> response = new HashMap<>();
         response.put("message", "Thêm thành công");

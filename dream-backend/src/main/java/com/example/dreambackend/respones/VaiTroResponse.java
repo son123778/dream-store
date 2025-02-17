@@ -1,9 +1,6 @@
-package com.example.dreambackend.response;
+package com.example.dreambackend.respones;
 
 import lombok.*;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor

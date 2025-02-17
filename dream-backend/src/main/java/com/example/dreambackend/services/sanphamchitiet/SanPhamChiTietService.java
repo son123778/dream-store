@@ -1,14 +1,11 @@
 package com.example.dreambackend.services.sanphamchitiet;
 
-import com.example.dreambackend.entities.MauSac;
 import com.example.dreambackend.entities.SanPhamChiTiet;
-import com.example.dreambackend.entities.Size;
 import com.example.dreambackend.repositories.MauSacRepository;
 import com.example.dreambackend.repositories.SanPhamChiTietRepository;
 import com.example.dreambackend.repositories.SizeRepository;
 import com.example.dreambackend.requests.SanPhamChiTietRequest;
 import com.example.dreambackend.respones.SanPhamChiTietRespone;
-import com.example.dreambackend.respones.SanPhamRespone;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -26,7 +23,6 @@ import org.springframework.stereotype.Service;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 

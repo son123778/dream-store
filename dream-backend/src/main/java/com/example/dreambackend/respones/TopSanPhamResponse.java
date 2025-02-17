@@ -1,4 +1,4 @@
-package com.example.dreambackend.response;
+package com.example.dreambackend.respones;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

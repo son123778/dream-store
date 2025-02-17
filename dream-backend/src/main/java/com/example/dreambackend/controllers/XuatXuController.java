@@ -1,11 +1,12 @@
 package com.example.dreambackend.controllers;
-import com.example.dreambackend.dtos.XuatXuDto;
-import com.example.dreambackend.entities.XuatXu;
 import com.example.dreambackend.requests.XuatXuRequest;
 import com.example.dreambackend.respones.XuatXuRespone;
 import com.example.dreambackend.services.xuatxu.XuatXuService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -27,7 +28,14 @@ public class XuatXuController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<?> add(@RequestBody XuatXuRequest xuatXuRequest) {
+    public ResponseEntity<?> add(@Valid @RequestBody XuatXuRequest xuatXuRequest, BindingResult result) {
+        if (result.hasErrors()) {
+            Map<String, String> errors = new HashMap<>();
+            for (FieldError error : result.getFieldErrors()) {
+                errors.put(error.getField(), error.getDefaultMessage());
+            }
+            return ResponseEntity.badRequest().body(errors);
+        }
         xuatXuService.addXuatXu(xuatXuRequest);
         Map<String, String> response = new HashMap<>();
         response.put("message", "Thêm thành công");

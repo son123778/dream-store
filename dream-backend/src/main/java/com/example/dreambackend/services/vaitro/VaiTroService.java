@@ -2,8 +2,8 @@ package com.example.dreambackend.services.vaitro;
 
 import com.example.dreambackend.entities.VaiTro;
 import com.example.dreambackend.repositories.VaiTroRepository;
-import com.example.dreambackend.request.VaiTroRequest;
-import com.example.dreambackend.response.VaiTroResponse;
+import com.example.dreambackend.requests.VaiTroRequest;
+import com.example.dreambackend.respones.VaiTroResponse;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

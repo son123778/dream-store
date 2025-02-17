@@ -23,6 +23,7 @@ export class SanphamComponent implements OnInit {
   showModal: boolean = false;
   showModalSanPhamChiTiet: boolean = false;
   showModalThuocTinh: boolean = false;
+  validationErrors: { [key: string]: string } = {};
 
   sanPhamChiTietRequest: any = {
     id: '',              
@@ -129,6 +130,8 @@ editSanPhamChiTiet(sanPhamChiTiet: any): void {
 
   this.showModalSanPhamChiTietThem = true; // Mở modal sửa
   }
+
+  selectedThuocTinh: string = 'thuongHieu';
   // thuộc tính
   thuongHieuRequest: any = {
     ma: '',
@@ -223,6 +226,7 @@ editSanPhamChiTiet(sanPhamChiTiet: any): void {
       this.searchFilter.chatLieu.id,
       this.searchFilter.coAo.id,
       this.searchFilter.trangThai,
+      this.searchFilter.ten,
       this.currentSanPhamPage,
       this.sanPhamPageSize
     ).subscribe(data => {
@@ -389,6 +393,7 @@ editSanPhamChiTiet(sanPhamChiTiet: any): void {
   // Hàm đóng modal sản phẩm
   closeModalSanPham() {
     this.showModal = false;
+    this.validationErrors = {}; 
   }
 
   // Hàm mở modal sản phẩm chi tiết
@@ -430,8 +435,40 @@ editSanPhamChiTiet(sanPhamChiTiet: any): void {
       this.showModalSanPhamChiTiet = false;
     }
 
+    validateSanPham(): boolean {
+      this.validationErrors = {}; // Reset lỗi trước khi kiểm tra
+
+      if (!this.sanPhamRequest.ten.trim()) {
+        this.validationErrors["ten"] = "Tên sản phẩm không được để trống";
+      } else if (this.sanPhamRequest.ten.length > 100) {
+        this.validationErrors["ten"] = "Tên quá dài";
+      }
+
+      if (!this.sanPhamRequest.thuongHieu.id) {
+        this.validationErrors["thuongHieu"] = "Hãy chọn thương hiệu";
+      }
+      if (!this.sanPhamRequest.xuatXu.id) {
+        this.validationErrors["xuatXu"] = "Hãy chọn xuất xứ";
+      }
+      if (!this.sanPhamRequest.chatLieu.id) {
+        this.validationErrors["chatLieu"] = "Hãy chọn chất liệu";
+      }
+      if (!this.sanPhamRequest.coAo.id) {
+        this.validationErrors["coAo"] = "Hãy chọn cổ áo";
+      }
+      if (this.sanPhamRequest.trangThai === '') {
+        this.validationErrors["trangThai"] = "Hãy chọn trạng thái";
+      }
+
+      return Object.keys(this.validationErrors).length === 0;
+    }
+
     // thêm sản phẩm
     addSanPham(): void {
+      if (!this.validateSanPham()) {
+        let errorMessages = Object.values(this.validationErrors).join('\n');
+        return;
+      }
       this.sanPhamRequest.ngayTao = new Date().toISOString().split('T')[0];
       this.sanPhamRequest.ngaySua = new Date().toISOString().split('T')[0]; 
       console.log("SanPham Request:", this.sanPhamRequest);
@@ -451,6 +488,10 @@ editSanPhamChiTiet(sanPhamChiTiet: any): void {
     }
     // sửa sản phẩm
     updateSanPham(): void {
+      if (!this.validateSanPham()) {
+      let errorMessages = Object.values(this.validationErrors).join('\n');
+      return;
+      }
       this.sanPhamRequest.ngaySua = new Date().toISOString().split('T')[0]; // Ngày sửa hiện tại
     
       console.log("Update SanPham Request:", this.sanPhamRequest);
@@ -547,71 +588,80 @@ editSanPhamChiTiet(sanPhamChiTiet: any): void {
       });
     }
 
-    addThuongHieu() {
-      this.thuongHieuRequest.ngayTao = new Date().toISOString().split('T')[0];
-      this.thuongHieuRequest.ngaySua = new Date().toISOString().split('T')[0];
+    getSelectedRequest() {
+      switch (this.selectedThuocTinh) {
+        case 'thuongHieu': return this.thuongHieuRequest;
+        case 'chatLieu': return this.chatLieuRequest;
+        case 'coAo': return this.coAoRequest;
+        case 'mauSac': return this.mauSacRequest;
+        case 'size': return this.sizeRequest;
+        case 'xuatXu': return this.xuatXuRequest;
+        default: return {};
+      }
+    }    
+
+    addThuocTinh() {
+      const ngayTao = new Date().toISOString().split('T')[0];
+      const ngaySua = ngayTao;
     
-      this.sanphamService.addThuongHieu(this.thuongHieuRequest).subscribe(response => {
-        console.log(response.message);
-        alert('Thêm thương hiệu thành công!');
-        this.listThuongHieu();
+      let request;
+      let apiCall;
+    
+      switch (this.selectedThuocTinh) {
+        case 'thuongHieu':
+          this.thuongHieuRequest.ngayTao = ngayTao;
+          this.thuongHieuRequest.ngaySua = ngaySua;
+          request = this.thuongHieuRequest;
+          apiCall = this.sanphamService.addThuongHieu(request);
+          break;
+    
+        case 'chatLieu':
+          this.chatLieuRequest.ngayTao = ngayTao;
+          this.chatLieuRequest.ngaySua = ngaySua;
+          request = this.chatLieuRequest;
+          apiCall = this.sanphamService.addChatLieu(request);
+          break;
+    
+        case 'coAo':
+          this.coAoRequest.ngayTao = ngayTao;
+          this.coAoRequest.ngaySua = ngaySua;
+          request = this.coAoRequest;
+          apiCall = this.sanphamService.addCoAo(request);
+          break;
+    
+        case 'mauSac':
+          this.mauSacRequest.ngayTao = ngayTao;
+          this.mauSacRequest.ngaySua = ngaySua;
+          request = this.mauSacRequest;
+          apiCall = this.sanphamService.addMauSac(request);
+          break;
+    
+        case 'size':
+          this.sizeRequest.ngayTao = ngayTao;
+          this.sizeRequest.ngaySua = ngaySua;
+          request = this.sizeRequest;
+          apiCall = this.sanphamService.addSize(request);
+          break;
+    
+        case 'xuatXu':
+          this.xuatXuRequest.ngayTao = ngayTao;
+          this.xuatXuRequest.ngaySua = ngaySua;
+          request = this.xuatXuRequest;
+          apiCall = this.sanphamService.addXuatXu(request);
+          break;
+    
+        default:
+          alert('Vui lòng chọn thuộc tính cần thêm!');
+          return;
+      }
+    
+      apiCall.subscribe(response => {
+        alert('Thêm thành công!');
+        this.loadData(); // Load lại danh sách
+        this.showModalThuocTinh = false; // Đóng modal sau khi thêm
+      }, error => {
+        alert('Thêm thất bại! Vui lòng thử lại.');
       });
     }
-    
-    addChatLieu() {
-      this.chatLieuRequest.ngayTao = new Date().toISOString().split('T')[0];
-      this.chatLieuRequest.ngaySua = new Date().toISOString().split('T')[0];
-    
-      this.sanphamService.addChatLieu(this.chatLieuRequest).subscribe(response => {
-        console.log(response.message);
-        alert('Thêm chất liệu thành công!');
-        this.listChatLieu();
-      });
-    }
-    
-    addCoAo() {
-      this.coAoRequest.ngayTao = new Date().toISOString().split('T')[0];
-      this.coAoRequest.ngaySua = new Date().toISOString().split('T')[0];
-    
-      this.sanphamService.addCoAo(this.coAoRequest).subscribe(response => {
-        console.log(response.message);
-        alert('Thêm cổ áo thành công!');
-        this.listCoAo();
-      });
-    }
-    
-    addMauSac() {
-      this.mauSacRequest.ngayTao = new Date().toISOString().split('T')[0];
-      this.mauSacRequest.ngaySua = new Date().toISOString().split('T')[0];
-    
-      this.sanphamService.addMauSac(this.mauSacRequest).subscribe(response => {
-        console.log(response.message);
-        alert('Thêm màu sắc thành công!');
-        this.listMauSac();
-      });
-    }
-    
-    addSize() {
-      this.sizeRequest.ngayTao = new Date().toISOString().split('T')[0];
-      this.sizeRequest.ngaySua = new Date().toISOString().split('T')[0];
-    
-      this.sanphamService.addSize(this.sizeRequest).subscribe(response => {
-        console.log(response.message);
-        alert('Thêm size thành công!');
-        this.listSize();
-      });
-    }
-    
-    addXuatXu() {
-      this.xuatXuRequest.ngayTao = new Date().toISOString().split('T')[0];
-      this.xuatXuRequest.ngaySua = new Date().toISOString().split('T')[0];
-    
-      this.sanphamService.addXuatXu(this.xuatXuRequest).subscribe(response => {
-        console.log(response.message);
-        alert('Thêm xuất xứ thành công!');
-        this.listXuatXu();
-      });
-    }
-    
     
 }

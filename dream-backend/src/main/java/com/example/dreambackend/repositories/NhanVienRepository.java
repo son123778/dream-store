@@ -1,7 +1,7 @@
 package com.example.dreambackend.repositories;
 
 import com.example.dreambackend.entities.NhanVien;
-import com.example.dreambackend.response.NhanVienResponse;
+import com.example.dreambackend.respones.NhanVienResponse;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -13,7 +13,7 @@ public interface NhanVienRepository extends JpaRepository<NhanVien, Integer> {
 
     // Trả về danh sách NhanVienResponse
     @Query("""
-        SELECT new com.example.dreambackend.response.NhanVienResponse(
+        SELECT new com.example.dreambackend.respones.NhanVienResponse(
             nv.id,
             nv.ma,
             nv.ten,
@@ -35,7 +35,7 @@ public interface NhanVienRepository extends JpaRepository<NhanVien, Integer> {
 
     // Tìm kiếm nhân viên theo tên
     @Query("""
-        SELECT new com.example.dreambackend.response.NhanVienResponse(
+        SELECT new com.example.dreambackend.respones.NhanVienResponse(
             nv.id,
             nv.ma,
             nv.ten,
@@ -58,7 +58,7 @@ public interface NhanVienRepository extends JpaRepository<NhanVien, Integer> {
 
     // Lọc nhân viên theo trạng thái
     @Query("""
-        SELECT new com.example.dreambackend.response.NhanVienResponse(
+        SELECT new com.example.dreambackend.respones.NhanVienResponse(
             nv.id,
             nv.ma,
             nv.ten,

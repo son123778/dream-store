@@ -1,15 +1,12 @@
 package com.example.dreambackend.services.chatlieu;
 
-import com.example.dreambackend.dtos.ChatLieuDto;
 import com.example.dreambackend.entities.ChatLieu;
 import com.example.dreambackend.repositories.ChatLieuRepository;
 import com.example.dreambackend.requests.ChatLieuRequest;
 import com.example.dreambackend.respones.ChatLieuRespone;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.time.LocalDate;
 import java.util.List;

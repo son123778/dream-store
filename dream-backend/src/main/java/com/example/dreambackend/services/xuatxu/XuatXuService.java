@@ -1,8 +1,6 @@
 package com.example.dreambackend.services.xuatxu;
 
 
-import com.example.dreambackend.dtos.XuatXuDto;
-
 import com.example.dreambackend.entities.XuatXu;
 import com.example.dreambackend.repositories.XuatXuRepository;
 import com.example.dreambackend.requests.XuatXuRequest;

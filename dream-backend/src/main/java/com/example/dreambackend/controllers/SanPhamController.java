@@ -1,6 +1,5 @@
 package com.example.dreambackend.controllers;
 
-import com.example.dreambackend.entities.SanPham;
 import com.example.dreambackend.requests.SanPhamRequest;
 import com.example.dreambackend.respones.SanPhamRespone;
 import com.example.dreambackend.services.chatlieu.ChatLieuService;
@@ -8,11 +7,14 @@ import com.example.dreambackend.services.coao.CoAoService;
 import com.example.dreambackend.services.sanpham.SanPhamService;
 import com.example.dreambackend.services.thuonghieu.ThuongHieuService;
 import com.example.dreambackend.services.xuatxu.XuatXuService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -46,7 +48,14 @@ public class SanPhamController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<Map<String, String>> addSanPham(@RequestBody SanPhamRequest sanPhamRequest) {
+    public ResponseEntity<Map<String, String>> addSanPham(@Valid @RequestBody SanPhamRequest sanPhamRequest, BindingResult result) {
+        if (result.hasErrors()) {
+            Map<String, String> errors = new HashMap<>();
+            for (FieldError error : result.getFieldErrors()) {
+                errors.put(error.getField(), error.getDefaultMessage());
+            }
+            return ResponseEntity.badRequest().body(errors);
+        }
         sanPhamService.addSanPham(sanPhamRequest);
         Map<String, String> response = new HashMap<>();
         response.put("message", "Thêm thành công");
@@ -54,7 +63,14 @@ public class SanPhamController {
     }
 
     @PutMapping("/update")
-    public ResponseEntity<Map<String, String>> updateSanPham(@RequestBody SanPhamRequest sanPhamRequest) {
+    public ResponseEntity<Map<String, String>> updateSanPham(@Valid @RequestBody SanPhamRequest sanPhamRequest, BindingResult result) {
+        if (result.hasErrors()) {
+            Map<String, String> errors = new HashMap<>();
+            for (FieldError error : result.getFieldErrors()) {
+                errors.put(error.getField(), error.getDefaultMessage());
+            }
+            return ResponseEntity.badRequest().body(errors);
+        }
         sanPhamService.updateSanPham(sanPhamRequest);
         Map<String, String> response = new HashMap<>();
         response.put("message", "Sửa thành công");
@@ -74,11 +90,12 @@ public class SanPhamController {
             @RequestParam(value = "chatLieuId", required = false) Integer chatLieuId,
             @RequestParam(value = "coAoId", required = false) Integer coAoId,
             @RequestParam(value = "trangThai", required = false) Integer trangThai,
+            @RequestParam(value = "ten", required = false) String ten,
             @RequestParam(value = "page", defaultValue = "0") Integer page,
             @RequestParam(value = "size", defaultValue = "7") Integer size) {
 
         Pageable pageable = PageRequest.of(page, size);
-        Page<SanPhamRespone> listSanPham = sanPhamService.searchSanPham(thuongHieuId, xuatXuId, chatLieuId, coAoId, trangThai, pageable);
+        Page<SanPhamRespone> listSanPham = sanPhamService.searchSanPham(thuongHieuId, xuatXuId, chatLieuId, coAoId, trangThai, ten, pageable);
         return ResponseEntity.ok(listSanPham);
     }
 }

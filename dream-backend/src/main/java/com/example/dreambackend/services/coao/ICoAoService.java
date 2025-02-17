@@ -1,6 +1,5 @@
 package com.example.dreambackend.services.coao;
 
-import com.example.dreambackend.dtos.CoAoDto;
 import com.example.dreambackend.entities.CoAo;
 import com.example.dreambackend.requests.CoAoRequest;
 import com.example.dreambackend.respones.CoAoRespone;

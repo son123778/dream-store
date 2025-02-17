@@ -53,6 +53,7 @@ public interface SanPhamRepository extends JpaRepository<SanPham, Integer> {
         and (:chatLieuId is null or sp.chatLieu.id = :chatLieuId)
         and (:coAoId is null or sp.coAo.id = :coAoId)
         and (:trangThai is null or sp.trangThai = :trangThai)
+        and (:ten is null or sp.ten like %:ten%) 
         ORDER BY sp.ngayTao DESC
     """)
     Page<SanPhamRespone> searchSanPham(
@@ -61,6 +62,7 @@ public interface SanPhamRepository extends JpaRepository<SanPham, Integer> {
             @Param("chatLieuId") Integer chatLieuId,
             @Param("coAoId") Integer coAoId,
             @Param("trangThai") Integer trangThai,
+            @Param("ten") String ten,
             Pageable pageable
     );
 

@@ -1,6 +1,5 @@
 package com.example.dreambackend.services.chatlieu;
 
-import com.example.dreambackend.dtos.ChatLieuDto;
 import com.example.dreambackend.entities.ChatLieu;
 import com.example.dreambackend.requests.ChatLieuRequest;
 import com.example.dreambackend.respones.ChatLieuRespone;

@@ -1,18 +1,19 @@
 package com.example.dreambackend.controllers;
 
-import com.example.dreambackend.entities.SanPhamChiTiet;
 import com.example.dreambackend.requests.SanPhamChiTietRequest;
 import com.example.dreambackend.respones.SanPhamChiTietRespone;
-import com.example.dreambackend.respones.SanPhamRespone;
 import com.example.dreambackend.services.mausac.MauSacService;
 import com.example.dreambackend.services.sanpham.SanPhamService;
 import com.example.dreambackend.services.sanphamchitiet.SanPhamChiTietService;
 import com.example.dreambackend.services.size.SizeService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -48,7 +49,14 @@ public class SanPhamChiTietController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<?> add(@RequestBody SanPhamChiTietRequest sanPhamChiTietRequest) {
+    public ResponseEntity<?> add(@Valid @RequestBody SanPhamChiTietRequest sanPhamChiTietRequest, BindingResult result) {
+        if (result.hasErrors()) {
+            Map<String, String> errors = new HashMap<>();
+            for (FieldError error : result.getFieldErrors()) {
+                errors.put(error.getField(), error.getDefaultMessage());
+            }
+            return ResponseEntity.badRequest().body(errors);
+        }
         sanPhamChiTietService.addSanPhamChiTiet(sanPhamChiTietRequest);
         Map<String, String> response = new HashMap<>();
         response.put("message", "Thêm thành công");
@@ -56,7 +64,14 @@ public class SanPhamChiTietController {
     }
 
     @PutMapping("/update")
-    public ResponseEntity<?> update(@RequestBody SanPhamChiTietRequest sanPhamChiTietRequest) {
+    public ResponseEntity<?> update(@Valid @RequestBody SanPhamChiTietRequest sanPhamChiTietRequest, BindingResult result) {
+        if (result.hasErrors()) {
+            Map<String, String> errors = new HashMap<>();
+            for (FieldError error : result.getFieldErrors()) {
+                errors.put(error.getField(), error.getDefaultMessage());
+            }
+            return ResponseEntity.badRequest().body(errors);
+        }
         sanPhamChiTietService.updateSanPhamChiTiet(sanPhamChiTietRequest);
         Map<String, String> response = new HashMap<>();
         response.put("message", "Thêm thành công");

@@ -1,7 +1,6 @@
 package com.example.dreambackend.controllers;
 
 import com.example.dreambackend.entities.Anh;
-import com.example.dreambackend.requests.AnhRequest;
 import com.example.dreambackend.respones.AnhRespone;
 import com.example.dreambackend.services.anh.AnhService;
 import com.example.dreambackend.services.sanpham.SanPhamService;

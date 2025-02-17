@@ -16,16 +16,18 @@ export class SanphamService {
     return this.http.get<ApiResponseSanPham>(`${this.apiUrl}/san-pham/hien-thi?page=${page}&size=${size}`);
   }  
 
-  searchSanPham(thuongHieuId: number, xuatXuId: number, chatLieuId: number, coAoId: number, trangThai: any, page: number, size: number) {
+  searchSanPham(thuongHieuId: number, xuatXuId: number, chatLieuId: number, coAoId: number, trangThai: any, ten: string, page: number, size: number) {
     let params: any = { page, size };
     if (thuongHieuId) params.thuongHieuId = thuongHieuId;
     if (xuatXuId) params.xuatXuId = xuatXuId;
     if (chatLieuId) params.chatLieuId = chatLieuId;
     if (coAoId) params.coAoId = coAoId;
     if (trangThai != null && trangThai !== '') params.trangThai = trangThai;
+    if (ten && ten.trim() !== '') params.ten = ten;  // Thêm tìm kiếm theo tên
   
     return this.http.get<any>(this.apiUrl + '/san-pham/tim-kiem', { params });
-  }
+}
+
    
   
   

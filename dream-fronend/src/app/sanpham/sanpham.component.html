@@ -1,7 +1,11 @@
 
 <div>
   <p class="title">Danh sách sản phẩm</p>
-  <p class="filter">Tìm kiếm sản phẩm</p>
+  <div class="filter-container">
+    <p class="filter">Tìm kiếm sản phẩm</p>
+    <input type="text" class="search-input" name="ten" placeholder="Nhập tên sản phẩm..." 
+    [(ngModel)]="searchFilter.ten" (input)="onSearchFilterChange()">
+  </div>
 </div>
 <div class="bordered-container">
   <div class="input-row">
@@ -53,7 +57,6 @@
   </div>
 </div>
 
-<!-- Modal -->
 <div class="modal-overlay" *ngIf="showModal" (click)="closeModalSanPham()">
   <div class="modal-box" (click)="$event.stopPropagation()">
     <button class="close-btn" (click)="closeModalSanPham()">×</button>
@@ -63,60 +66,67 @@
           <input type="text" class="input" id="ma" name="ma" [(ngModel)]="sanPhamRequest.ma" autocomplete="off" readonly>
           <label for="ma">Mã sản phẩm</label>
         </div>
-        <div class="input-field">
+        <div class="input-field error">
           <input type="text" class="input" id="ten" name="ten" [(ngModel)]="sanPhamRequest.ten">
           <label for="ten">Tên sản phẩm</label>
+          <div *ngIf="validationErrors['ten']" class="error-message">{{ validationErrors['ten'] }}</div>
         </div>
-        <div class="input-field">
+        <div class="input-field error">
           <select class="input" id="thuongHieu" name="thuongHieu" [(ngModel)]="sanPhamRequest.thuongHieu.id">
-            <option value="" disabled selected>Chọn thương hiệu</option>
+            <option value="" selected>Chọn thương hiệu</option>
             <option *ngFor="let thuongHieu of thuongHieus" [value]="thuongHieu.id">{{thuongHieu.ten}}</option>
           </select>
           <label for="thuongHieu">Thương hiệu</label>
+          <div *ngIf="validationErrors['thuongHieu']" class="error-message">{{ validationErrors['thuongHieu'] }}</div>
         </div>
       </div>
       <div class="input-row">
-        <div class="input-field">
+        <div class="input-field error">
           <select class="input" id="xuatXu" name="xuatXu" [(ngModel)]="sanPhamRequest.xuatXu.id">
-            <option value="" disabled selected>Chọn xuất xứ</option>
+            <option value="" selected>Chọn xuất xứ</option>
             <option *ngFor="let xuatXu of xuatXus" [value]="xuatXu.id">{{xuatXu.ten}}</option>
           </select>
           <label for="xuatXu">Xuất xứ</label>
+          <div *ngIf="validationErrors['xuatXu']" class="error-message">{{ validationErrors['xuatXu'] }}</div>
         </div>
-        <div class="input-field">
+        <div class="input-field error">
           <select class="input" id="chatLieu" name="chatLieu" [(ngModel)]="sanPhamRequest.chatLieu.id">
-            <option value="" disabled selected>Chọn chất liệu</option>
+            <option value="" selected>Chọn chất liệu</option>
             <option *ngFor="let chatLieu of chatLieus" [value]="chatLieu.id">{{chatLieu.ten}}</option>
           </select>
           <label for="chatLieu">Chất liệu</label>
+          <div *ngIf="validationErrors['chatLieu']" class="error-message">{{ validationErrors['chatLieu'] }}</div>
         </div>
-        <div class="input-field">
+        <div class="input-field error">
           <select class="input" id="coAo" name="coAo" [(ngModel)]="sanPhamRequest.coAo.id">
-            <option value="" disabled selected>Chọn cổ áo</option>
+            <option value="" selected>Chọn cổ áo</option>
             <option *ngFor="let coAo of coAos" [value]="coAo.id">{{coAo.ten}}</option>
           </select>
           <label for="coAo">Cổ áo</label>
+          <div *ngIf="validationErrors['coAo']" class="error-message">{{ validationErrors['coAo'] }}</div>
         </div>
       </div>
       <div class="input-row">
-        <div class="input-field">
+        <div class="input-field error">
           <select class="input" id="trangThai" name="trangThai" [(ngModel)]="sanPhamRequest.trangThai">
-            <option value="" disabled selected>Chọn trạng thái</option>
+            <option value="" selected>Chọn trạng thái</option>
             <option value="1">Hoạt động</option>
             <option value="0">Không hoạt động</option>
           </select>
           <label for="trangThai">Trạng thái</label>
+          <div *ngIf="validationErrors['trangThai']" class="error-message">{{ validationErrors['trangThai'] }}</div>
         </div>
       </div>
       <button type="button" class="btn-primary" 
-      *ngIf="!sanPhamRequest.id" 
-      (click)="addSanPham()">Thêm</button>
-    <button type="button" class="btn-primary" 
-      *ngIf="sanPhamRequest.id" 
-      (click)="updateSanPham()">Cập nhật</button>    
+        *ngIf="!sanPhamRequest.id" 
+        (click)="addSanPham()">Thêm</button>
+      <button type="button" class="btn-primary" 
+        *ngIf="sanPhamRequest.id" 
+        (click)="updateSanPham()">Cập nhật</button>    
     </form>
   </div>
 </div>
+
 
 <div class="table-container">
   <div class="button-row">
@@ -126,23 +136,34 @@
       <div class="modal-box" (click)="$event.stopPropagation()">
         <button class="close-btn" (click)="closeModalThuocTinh()">×</button>
         <form>
+          <div class="thuoc-tinh">
             <div class="input-field">
-              <input type="text" class="input" id="ma" name="ma" [(ngModel)]="thuongHieuRequest.ma" autocomplete="off" readonly>
+              <input type="text" class="input" id="ma" name="ma" [(ngModel)]="getSelectedRequest().ma" autocomplete="off" readonly>
               <label for="ma">Mã thuộc tính</label>
             </div>
             <div class="input-field">
-              <input type="text" class="input" id="ten" name="ten" [(ngModel)]="thuongHieuRequest.ten">
+              <input type="text" class="input" id="ten" name="ten" [(ngModel)]="getSelectedRequest().ten">
               <label for="ten">Tên thuộc tính</label>
             </div>
             <div class="input-field">
-              <select class="input" id="trangThai" name="trangThai" [(ngModel)]="thuongHieuRequest.trangThai">
+              <select class="input" id="trangThai1" name="trangThai" [(ngModel)]="getSelectedRequest().trangThai">
                 <option value="" disabled selected>Chọn trạng thái</option>
                 <option value="1">Hoạt động</option>
                 <option value="0">Không hoạt động</option>
               </select>
               <label for="trangThai">Trạng thái</label>
             </div>
-          <button type="button" class="btn-primary" (click)="addThuongHieu()">Thêm</button>
+          </div>
+            
+            <div class="radio-group">
+              <label><input type="radio" name="thuocTinh" value="thuongHieu" [(ngModel)]="selectedThuocTinh"> Thương hiệu</label>
+              <label><input type="radio" name="thuocTinh" value="chatLieu" [(ngModel)]="selectedThuocTinh"> Chất liệu</label>
+              <label><input type="radio" name="thuocTinh" value="coAo" [(ngModel)]="selectedThuocTinh"> Cổ áo</label>
+              <label><input type="radio" name="thuocTinh" value="mauSac" [(ngModel)]="selectedThuocTinh"> Màu sắc</label>
+              <label><input type="radio" name="thuocTinh" value="size" [(ngModel)]="selectedThuocTinh"> Size</label>
+              <label><input type="radio" name="thuocTinh" value="xuatXu" [(ngModel)]="selectedThuocTinh"> Xuất xứ</label>
+            </div>            
+          <button type="button" class="btn-primary" (click)="addThuocTinh()">Thêm</button>
         </form>
       </div>
     </div>

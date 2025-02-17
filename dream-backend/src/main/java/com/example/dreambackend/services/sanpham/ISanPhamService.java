@@ -4,7 +4,6 @@ import com.example.dreambackend.entities.SanPham;
 import com.example.dreambackend.requests.SanPhamRequest;
 import com.example.dreambackend.respones.SanPhamRespone;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 
@@ -20,4 +19,7 @@ public interface ISanPhamService {
     SanPham getSanPhamById(Integer id);
 
     ResponseEntity<byte[]> exportSanPhamToExcel(List<SanPhamRespone> sanPhams);
+
+    public Page<SanPhamRespone> searchSanPham(
+            Integer thuongHieuId, Integer xuatXuId, Integer chatLieuId, Integer coAoId, Integer trangThai, String ten, Pageable pageable);
 }

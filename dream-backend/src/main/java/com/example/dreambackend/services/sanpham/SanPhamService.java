@@ -12,7 +12,6 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -23,7 +22,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 import java.util.Random;
 
 @Service
@@ -84,8 +82,8 @@ public class SanPhamService implements ISanPhamService {
     }
 
     public Page<SanPhamRespone> searchSanPham(
-            Integer thuongHieuId, Integer xuatXuId, Integer chatLieuId, Integer coAoId, Integer trangThai, Pageable pageable) {
-        return sanPhamRepository.searchSanPham(thuongHieuId, xuatXuId, chatLieuId, coAoId, trangThai, pageable);
+            Integer thuongHieuId, Integer xuatXuId, Integer chatLieuId, Integer coAoId, Integer trangThai, String ten, Pageable pageable) {
+        return sanPhamRepository.searchSanPham(thuongHieuId, xuatXuId, chatLieuId, coAoId, trangThai, ten, pageable);
     }
 
     @Override
