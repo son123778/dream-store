@@ -15,7 +15,7 @@ public class CoAoRequest {
 
     private String ma;
 
-    @NotBlank(message = "Tên thuộc tính không được để trống")
+    @NotBlank(message = "Cổ áo không được để trống")
     private String ten;
 
     private LocalDate ngayTao;

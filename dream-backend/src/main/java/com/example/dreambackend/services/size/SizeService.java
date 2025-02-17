@@ -31,6 +31,10 @@ public class SizeService implements ISizeService {
         return sizeRepository.save(size);
     }
 
+    public boolean existsSize(String ten) {
+        return sizeRepository.existsByTen(ten);
+    }
+
     private String taoMaSize() {
         Random random = new Random();
         String maSize;

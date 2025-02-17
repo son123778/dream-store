@@ -15,7 +15,7 @@ public class MauSacRequest {
 
     private String ma;
 
-    @NotBlank(message = "Tên thuộc tính không được để trống")
+    @NotBlank(message = "Màu sắc không được để trống")
     private String ten;
 
     private LocalDate ngayTao;

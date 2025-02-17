@@ -16,7 +16,7 @@ public class ChatLieuRequest {
 
     private String ma;
 
-    @NotBlank(message = "Tên thuộc tính không được để trống")
+    @NotBlank(message = "Chất liệu không được để trống")
     private String ten;
 
     private LocalDate ngayTao;

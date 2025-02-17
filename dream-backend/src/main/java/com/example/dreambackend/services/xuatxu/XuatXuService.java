@@ -39,6 +39,10 @@ public class XuatXuService implements IXuatXuService {
         return xuatXuRepository.save(xuatXu);
     }
 
+    public boolean existsXuatXu(String ten) {
+        return xuatXuRepository.existsByTen(ten);
+    }
+
     private String taoMaXuatXu() {
         Random random = new Random();
         String maXuatXu;

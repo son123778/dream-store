@@ -62,6 +62,11 @@ public class SanPhamController {
         return ResponseEntity.ok(response);
     }
 
+    @GetMapping("/exists-by-ten")
+    public ResponseEntity<Boolean> existsByTen(@RequestParam String ten) {
+        return ResponseEntity.ok(sanPhamService.existsTenSanPham(ten));
+    }
+
     @PutMapping("/update")
     public ResponseEntity<Map<String, String>> updateSanPham(@Valid @RequestBody SanPhamRequest sanPhamRequest, BindingResult result) {
         if (result.hasErrors()) {

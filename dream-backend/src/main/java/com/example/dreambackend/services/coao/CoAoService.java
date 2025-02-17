@@ -38,6 +38,10 @@ public class CoAoService implements ICoAoService {
         return coAoRepository.save(coAo);
     }
 
+    public boolean existsCoAo(String ten) {
+        return coAoRepository.existsByTen(ten);
+    }
+
     private String taoMaCoAo() {
         Random random = new Random();
         String maCoAo;

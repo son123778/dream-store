@@ -26,11 +26,8 @@ export class SanphamService {
     if (ten && ten.trim() !== '') params.ten = ten;  // Thêm tìm kiếm theo tên
   
     return this.http.get<any>(this.apiUrl + '/san-pham/tim-kiem', { params });
-}
+  }
 
-   
-  
-  
   getSanPhamChiTiet(idSanPham: number, page: number, size: number): Observable<ApiResponseSanPhamChiTiet> {
     return this.http.get<ApiResponseSanPhamChiTiet>(
       `${this.apiUrl}/san-pham-chi-tiet/hien-thi?idSanPham=${idSanPham}&page=${page}&size=${size}`
@@ -47,6 +44,14 @@ export class SanphamService {
     return this.http.get<any>(this.apiUrl + '/san-pham-chi-tiet/tim-kiem', { params });
   }
 
+  checkTenExists(ten: string, loai: string): Observable<boolean> {
+    return this.http.get<boolean>(`${this.apiUrl}/size/check-ten-exists?ten=${ten}&loai=${loai}`);
+  }
+
+  existsTenSanPham(ten: string): Observable<boolean> {
+    return this.http.get<boolean>(`${this.apiUrl}/san-pham/exists-by-ten`, { params: { ten } });
+  }
+  
   getThuongHieu(): Observable<ThuongHieu[]> {
     return this.http.get<ThuongHieu[]>(this.apiUrl + '/thuong-hieu/hien-thi').pipe();
   }

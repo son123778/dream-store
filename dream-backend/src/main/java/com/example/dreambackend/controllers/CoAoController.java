@@ -37,6 +37,7 @@ public class CoAoController {
             }
             return ResponseEntity.badRequest().body(errors);
         }
+
         coAoService.addCoAo(coAoRequest);
         Map<String, String> response = new HashMap<>();
         response.put("message", "Thêm thành công");

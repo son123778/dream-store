@@ -1,6 +1,7 @@
 package com.example.dreambackend.requests;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,7 +16,8 @@ public class SizeRequest {
 
     private String ma;
 
-    @NotBlank(message = "Tên thuộc tính không được để trống")
+    @NotBlank(message = "Size không được để trống")
+    @Pattern(regexp = "XS|S|M|L|XL|XXL|XXXL", message = "Size phải là XS, S, M, L, XL, XXL, XXXL")
     private String ten;
 
     private LocalDate ngayTao;

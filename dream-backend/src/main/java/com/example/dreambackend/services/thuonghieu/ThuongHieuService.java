@@ -39,6 +39,10 @@ public class ThuongHieuService implements IThuongHieuService{
         return thuongHieuRepository.save(thuongHieu);
     }
 
+    public boolean existsThuongHieu(String ten) {
+        return thuongHieuRepository.existsByTen(ten);
+    }
+
     private String taoMaThuongHieu() {
         Random random = new Random();
         String maThuongHieu;

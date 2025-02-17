@@ -20,6 +20,6 @@ public interface ISanPhamService {
 
     ResponseEntity<byte[]> exportSanPhamToExcel(List<SanPhamRespone> sanPhams);
 
-    public Page<SanPhamRespone> searchSanPham(
+    Page<SanPhamRespone> searchSanPham(
             Integer thuongHieuId, Integer xuatXuId, Integer chatLieuId, Integer coAoId, Integer trangThai, String ten, Pageable pageable);
 }

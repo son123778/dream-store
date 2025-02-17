@@ -24,4 +24,6 @@ public interface MauSacRepository extends JpaRepository<MauSac, Integer> {
     List<MauSacRepone> getAllMauSacRepone();
 
     boolean existsByMa(String ma);
+
+    boolean existsByTen(String ten);
 }

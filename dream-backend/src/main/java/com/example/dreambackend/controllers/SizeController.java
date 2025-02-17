@@ -2,7 +2,12 @@ package com.example.dreambackend.controllers;
 
 import com.example.dreambackend.requests.SizeRequest;
 import com.example.dreambackend.respones.SizeRespone;
+import com.example.dreambackend.services.chatlieu.ChatLieuService;
+import com.example.dreambackend.services.coao.CoAoService;
+import com.example.dreambackend.services.mausac.MauSacService;
 import com.example.dreambackend.services.size.SizeService;
+import com.example.dreambackend.services.thuonghieu.ThuongHieuService;
+import com.example.dreambackend.services.xuatxu.XuatXuService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +26,16 @@ import java.util.Map;
 public class SizeController {
     @Autowired
     SizeService sizeService;
+    @Autowired
+    ThuongHieuService thuongHieuService;
+    @Autowired
+    MauSacService mauSacService;
+    @Autowired
+    CoAoService coAoService;
+    @Autowired
+    ChatLieuService chatLieuService;
+    @Autowired
+    XuatXuService xuatXuService;
     @GetMapping("/hien-thi")
     public ResponseEntity<List<SizeRespone>> hienThi() {
         List<SizeRespone> listSize = sizeService.getAllSize();
@@ -29,6 +44,7 @@ public class SizeController {
 
     @PostMapping("/add")
     public ResponseEntity<?> add(@Valid @RequestBody SizeRequest sizeRequest, BindingResult result) {
+        // Kiểm tra lỗi validation
         if (result.hasErrors()) {
             Map<String, String> errors = new HashMap<>();
             for (FieldError error : result.getFieldErrors()) {
@@ -37,14 +53,43 @@ public class SizeController {
             return ResponseEntity.badRequest().body(errors);
         }
         sizeService.addSize(sizeRequest);
+
         Map<String, String> response = new HashMap<>();
         response.put("message", "Thêm thành công");
         return ResponseEntity.ok(response);
     }
+
 
     @PutMapping("/update")
     public ResponseEntity<?> update(@RequestBody SizeRequest sizeRequest) {
         sizeService.updateSize(sizeRequest);
         return ResponseEntity.ok("Sửa thành công");
     }
+
+    @GetMapping("/check-ten-exists")
+    public ResponseEntity<Boolean> checkTenExists(@RequestParam String ten, @RequestParam String loai) {
+        boolean exists = false;
+        switch (loai) {
+            case "thuongHieu":
+                exists = thuongHieuService.existsThuongHieu(ten);
+                break;
+            case "chatLieu":
+                exists = chatLieuService.existsChatLieu(ten);
+                break;
+            case "coAo":
+                exists = coAoService.existsCoAo(ten);
+                break;
+            case "mauSac":
+                exists = mauSacService.existsMau(ten);
+                break;
+            case "size":
+                exists = sizeService.existsSize(ten);
+                break;
+            case "xuatXu":
+                exists = xuatXuService.existsXuatXu(ten);
+                break;
+        }
+        return ResponseEntity.ok(exists);
+    }
+
 }

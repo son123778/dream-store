@@ -32,6 +32,10 @@ public class ChatLieuService implements IChatLieuService {
         return chatLieuRepository.save(chatLieu);
     }
 
+    public boolean existsChatLieu(String ten) {
+        return chatLieuRepository.existsByTen(ten);
+    }
+
     private String taoMaChatLieu() {
         Random random = new Random();
         String maChatLieu;

@@ -15,7 +15,7 @@ public class ThuongHieuRequest {
 
     private String ma;
 
-    @NotBlank(message = "Tên thuộc tính không được để trống")
+    @NotBlank(message = "Thương hiệu không được để trống")
     private String ten;
 
     private LocalDate ngayTao;

@@ -37,6 +37,10 @@ public class MauSacService implements IMauSacService{
         return mauSacRepository.save(mauSac);
     }
 
+    public boolean existsMau(String ten) {
+        return mauSacRepository.existsByTen(ten);
+    }
+
     private String taoMaMauSac() {
         Random random = new Random();
         String maMauSac;

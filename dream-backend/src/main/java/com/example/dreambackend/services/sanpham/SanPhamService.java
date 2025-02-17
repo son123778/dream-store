@@ -54,6 +54,10 @@ public class SanPhamService implements ISanPhamService {
         return sanPhamRepository.save(sanPham);
     }
 
+    public boolean existsTenSanPham(String ten){
+        return sanPhamRepository.existsByTen(ten);
+    }
+
     private String taoMaSanPham() {
         Random random = new Random();
         String maSanPham;

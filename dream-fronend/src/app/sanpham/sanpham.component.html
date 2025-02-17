@@ -137,21 +137,23 @@
         <button class="close-btn" (click)="closeModalThuocTinh()">×</button>
         <form>
           <div class="thuoc-tinh">
-            <div class="input-field">
+            <div class="input-field error">
               <input type="text" class="input" id="ma" name="ma" [(ngModel)]="getSelectedRequest().ma" autocomplete="off" readonly>
               <label for="ma">Mã thuộc tính</label>
             </div>
-            <div class="input-field">
+            <div class="input-field error">
               <input type="text" class="input" id="ten" name="ten" [(ngModel)]="getSelectedRequest().ten">
               <label for="ten">Tên thuộc tính</label>
+              <div *ngIf="validationErrors['ten']" class="error-message">{{ validationErrors['ten'] }}</div>
             </div>
-            <div class="input-field">
+            <div class="input-field error">
               <select class="input" id="trangThai1" name="trangThai" [(ngModel)]="getSelectedRequest().trangThai">
                 <option value="" disabled selected>Chọn trạng thái</option>
                 <option value="1">Hoạt động</option>
                 <option value="0">Không hoạt động</option>
               </select>
               <label for="trangThai">Trạng thái</label>
+              <div *ngIf="validationErrors['trangThai']" class="error-message">{{ validationErrors['trangThai'] }}</div>
             </div>
           </div>
             
