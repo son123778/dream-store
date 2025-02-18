@@ -201,11 +201,22 @@
           <td>
               <button (click)="openModalSanPhamChiTiet(sanPham.id)" class="button btn-primary">Chi tiết</button>
               <a href="javascript:void(0);" (click)="editSanPham(sanPham)" class="button btn-danger">Sửa</a>
-              <button class="button btn-primary">Quản lý ảnh</button>
+              <button (click)="openModalQuanLyAnh()" class="button btn-primary">Quản lý ảnh</button>
           </td>          
         </tr>
       </tbody>
     </table>
+
+   <!-- quản lý ảnh -->
+    <div class="modal-overlay" *ngIf="showModalQuanLyAnh" (click)="closeQuanLyAnh()">
+      <div class="modal-box" (click)="$event.stopPropagation()">
+        <button class="close-btn" (click)="closeQuanLyAnh()">×</button>
+        <form>
+                     
+          <button type="button" class="btn-primary">Lưu</button>
+        </form>
+      </div>
+    </div>
       
   </div>
   <div class="pagination">
@@ -290,39 +301,44 @@
                   <input type="text" class="input" id="ten" name="ten" [(ngModel)]="sanPhamChiTietRequest.sanPham.ten" readonly>
                   <label for="ten">Tên sản phẩm</label>
                 </div>
-                <div class="input-field">
+                <div class="input-field error">
                   <input type="text" class="input" id="gia" name="gia" [(ngModel)]="sanPhamChiTietRequest.gia">
                   <label for="gia">Giá</label>
+                  <div *ngIf="validationErrors['gia']" class="error-message">{{ validationErrors['gia'] }}</div>
                 </div>
               </div>
               <div class="input-row">
-                <div class="input-field">
+                <div class="input-field error">
                   <input type="text" class="input" id="soLuong" name="soLuong" [(ngModel)]="sanPhamChiTietRequest.soLuong">
                   <label for="soLuong">Số lượng</label>
+                  <div *ngIf="validationErrors['soLuong']" class="error-message">{{ validationErrors['soLuong'] }}</div>
                 </div>
-                <div class="input-field">
+                <div class="input-field error">
                   <select class="input" id="size" name="size" [(ngModel)]="sanPhamChiTietRequest.size.id">
                     <option value="" disabled selected>Chọn size</option>
                     <option *ngFor="let size of sizes" [value]="size.id">{{size.ten}}</option>
                   </select>
-                  <label for="size">Size</label>                  
+                  <label for="size">Size</label>
+                  <div *ngIf="validationErrors['size']" class="error-message">{{ validationErrors['size'] }}</div>                  
                 </div>
-                <div class="input-field">
+                <div class="input-field error">
                   <select class="input" id="mauSac" name="mauSac" [(ngModel)]="sanPhamChiTietRequest.mauSac.id">
                     <option value="" disabled selected>Chọn màu sắc</option>
                     <option *ngFor="let mauSac of mauSacs" [value]="mauSac.id">{{mauSac.ten}}</option>
                   </select>
-                  <label for="mauSac">Màu sắc</label>                  
+                  <label for="mauSac">Màu sắc</label>
+                  <div *ngIf="validationErrors['mauSac']" class="error-message">{{ validationErrors['mauSac'] }}</div>                  
                 </div>
               </div>
               <div class="input-row">
-                <div class="input-field">
+                <div class="input-field error">
                   <select class="input" id="trangThai" name="trangThai" [(ngModel)]="sanPhamChiTietRequest.trangThai">
                     <option value="" disabled selected>Chọn trạng thái</option>
                     <option value="1">Hoạt động</option>
                     <option value="0">Không hoạt động</option>
                   </select>
                   <label for="trangThai">Trạng thái</label>
+                  <div *ngIf="validationErrors['trangThai']" class="error-message">{{ validationErrors['trangThai'] }}</div>
                 </div>
               </div>
               <button type="button" class="btn-primary" 

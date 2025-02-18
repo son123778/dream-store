@@ -17,7 +17,6 @@ import java.time.LocalDate;
 public class SanPhamChiTietRequest {
     private Integer id;
 
-    @NotBlank(message = "Mã sản phẩm không được để trống")
     private String ma;
 
     @NotNull(message = "Giá không được để trống")
@@ -37,7 +36,6 @@ public class SanPhamChiTietRequest {
     @Range(min = 0, max = 1, message = "Vui lòng chọn trạng thái")
     private int trangThai;
 
-    @NotNull(message = "Vui lòng chọn sản phẩm")
     private SanPham sanPham;
 
     @NotNull(message = "Vui lòng chọn size")

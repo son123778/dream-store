@@ -29,7 +29,7 @@ public interface SanPhamChiTietRepository extends JpaRepository<SanPhamChiTiet, 
         spct.size.ten,
         spct.mauSac.id,
         spct.mauSac.ten
-        ) from SanPhamChiTiet spct WHERE spct.sanPham.id = :idSanPham ORDER BY spct.ngayTao DESC
+        ) from SanPhamChiTiet spct WHERE spct.sanPham.id = :idSanPham ORDER BY spct.id DESC
     """)
     Page<SanPhamChiTietRespone> getSanPhamChiTietBySanPhamId(@Param("idSanPham") Integer idSanPham, Pageable pageable);
 
@@ -56,7 +56,7 @@ public interface SanPhamChiTietRepository extends JpaRepository<SanPhamChiTiet, 
       AND (:idMauSac IS NULL OR spct.mauSac.id = :idMauSac)
       AND (:idSize IS NULL OR spct.size.id = :idSize)
       AND (:trangThai IS NULL OR spct.trangThai = :trangThai)
-    ORDER BY spct.ngayTao DESC
+    ORDER BY spct.id DESC
     """)
     Page<SanPhamChiTietRespone> timKiemSanPhamChiTiet(
             @Param("idSanPham") Integer idSanPham,

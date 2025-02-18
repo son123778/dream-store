@@ -27,7 +27,7 @@ public interface SanPhamRepository extends JpaRepository<SanPham, Integer> {
             sp.coAo.ten,
             sp.xuatXu.id,
             sp.xuatXu.ten
-        ) from SanPham sp ORDER BY sp.ngayTao DESC
+        ) from SanPham sp ORDER BY sp.id DESC
         """)
     Page<SanPhamRespone> getAllSanPhamRepone(Pageable pageable);
 
@@ -54,7 +54,7 @@ public interface SanPhamRepository extends JpaRepository<SanPham, Integer> {
         and (:coAoId is null or sp.coAo.id = :coAoId)
         and (:trangThai is null or sp.trangThai = :trangThai)
         and (:ten is null or sp.ten like %:ten%) 
-        ORDER BY sp.ngayTao DESC
+        ORDER BY sp.id DESC
     """)
     Page<SanPhamRespone> searchSanPham(
             @Param("thuongHieuId") Integer thuongHieuId,
