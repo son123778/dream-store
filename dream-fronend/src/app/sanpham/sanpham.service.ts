@@ -125,6 +125,22 @@ export class SanphamService {
   addMauSac(mauSac: MauSac): Observable<any> {
     return this.http.post<any>(this.apiUrl + '/mau-sac/add', mauSac);
   }
+
+  getAllAnh(idSanPham: number): Observable<Anh[]> {
+    return this.http.get<Anh[]>(`${this.apiUrl}/anh/hien-thi?idSanPham=${idSanPham}`);
+  }  
+  
+  uploadAnh(idSanPham: number, files: File[]): Observable<any> {
+    const formData = new FormData();
+    files.forEach(file => formData.append('anhUrl', file));
+    formData.append('idSanPham', idSanPham.toString());
+  
+    return this.http.post(`${this.apiUrl}/anh/add`, formData);
+  }
+  
+  xoaAnh(idAnh: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/anh/delete/${idAnh}`);
+  }
   
   
 }
@@ -246,6 +262,12 @@ export interface MauSac {
   id: number;
   ma: string;
   ten: string;
+}
+
+export interface Anh {
+  id: number;
+  anhUrl: string;
+  idSanPham: number;
 }
 
 export interface ApiResponse<T> {

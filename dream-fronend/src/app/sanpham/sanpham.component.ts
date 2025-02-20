@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SanphamService } from './sanpham.service';
 import { FormsModule } from '@angular/forms';
+import { Anh } from './sanpham.service';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-sanpham',
@@ -25,6 +27,9 @@ export class SanphamComponent implements OnInit {
   showModalThuocTinh: boolean = false;
   showModalQuanLyAnh: boolean = false;
   validationErrors: { [key: string]: string } = {};
+  idSanPham: number = 0;
+  anhHienCo: Anh[] = [];
+  selectedFiles: File[] = [];
 
   sanPhamChiTietRequest: any = {
     id: '',              
@@ -182,7 +187,8 @@ editSanPhamChiTiet(sanPhamChiTiet: any): void {
     trangThai: 1
   }
 
-  constructor(private sanphamService: SanphamService) {}
+  constructor(private sanphamService: SanphamService, private cdRef: ChangeDetectorRef) {}
+  
 
   ngOnInit(): void {
     this.loadData()
@@ -385,14 +391,97 @@ editSanPhamChiTiet(sanPhamChiTiet: any): void {
     this.showModalSanPhamChiTietThem = true;
   }
 
-  openModalQuanLyAnh() {
-    this.showModalQuanLyAnh = true;
-  }
+    /** Mở modal và tải ảnh theo ID sản phẩm */
+    openModalQuanLyAnh(idSanPham: number) {
+      this.idSanPham = idSanPham;
+      this.showModalQuanLyAnh = true;
+      this.loadAnhCuaSanPham();
+    }
 
-  closeQuanLyAnh() {
-    this.showModalQuanLyAnh = false;
-  }
-   
+    /** Đóng modal */
+    closeQuanLyAnh() {
+      this.showModalQuanLyAnh = false;
+      this.selectedFiles = [];
+    }
+
+    /** Gọi API lấy ảnh theo sản phẩm */
+    loadAnhCuaSanPham() {
+      if (!this.idSanPham) return;
+
+      this.sanphamService.getAllAnh(this.idSanPham).subscribe(response => {
+        if (Array.isArray(response)) {
+          this.anhHienCo = response.map(anh => ({
+            ...anh,
+            anhUrl: `http://localhost:8080${anh.anhUrl}`
+          }));      
+          this.cdRef.detectChanges(); 
+        } else {
+          this.anhHienCo = [];
+        }
+      });
+    }
+
+    /** Khi người dùng chọn file */
+    onFileSelected(event: any, fileInput: HTMLInputElement) {
+      if (!event.target.files) return; // Kiểm tra nếu không có file nào được chọn
+      let selectedFiles: File[] = Array.from(event.target.files); // Chuyển FileList thành mảng File[]
+      // Kiểm tra tổng số ảnh không vượt quá 5
+      if (this.anhHienCo.length + selectedFiles.length > 5) {
+        alert('Mỗi sản phẩm chỉ có thể có tối đa 5 ảnh.');
+        // Reset input file về trạng thái ban đầu (No file chosen)
+        fileInput.value = '';
+        return;
+      }
+
+      this.selectedFiles = selectedFiles; // Gán danh sách file đã chọn
+    }
+    /** Hiển thị preview ảnh mới */
+    getImagePreview(file: File): string {
+      return URL.createObjectURL(file);
+    }
+
+    /** Upload ảnh lên server */
+    uploadAnh() {
+      if (this.selectedFiles.length === 0) {
+        alert('Vui lòng chọn ảnh trước khi lưu.');
+        return;
+      }
+    // Kiểm tra lại tổng số ảnh trên frontend trước khi gửi lên server
+    if (this.anhHienCo.length + this.selectedFiles.length > 5) {
+      alert('Mỗi sản phẩm chỉ có thể có tối đa 5 ảnh.');
+      return;
+    }
+    this.sanphamService.uploadAnh(this.idSanPham, this.selectedFiles)
+      .subscribe(response => {
+        alert(typeof response === 'string' ? response : response.message);
+        this.loadAnhCuaSanPham(); // Tải lại danh sách ảnh
+        this.selectedFiles = []; // Reset danh sách ảnh mới
+      }, error => {
+        console.error('Lỗi khi tải lên ảnh:', error);
+      });
+    }
+
+
+    xoaAnh(idAnh: number) {
+      if (confirm('Bạn có chắc muốn xóa ảnh này không?')) {
+        this.sanphamService.xoaAnh(idAnh).subscribe(response => {
+          alert(response.message);
+          this.loadAnhCuaSanPham(); // Cập nhật lại danh sách ảnh
+        }, error => {
+          console.error('Lỗi khi xoá ảnh:', error);
+        });
+      }
+    }
+
+    /** Xóa ảnh đã chọn */
+    xoaAnhDaChon(index: number, fileInput: any) {
+      this.selectedFiles.splice(index, 1);
+    
+      // Nếu không còn file nào được chọn, reset input file
+      if (this.selectedFiles.length === 0 && fileInput) {
+        fileInput.value = "";
+      }
+    }
 
   closeModalSanPhamChiTietThem(){
     this.showModalSanPhamChiTietThem = false;

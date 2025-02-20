@@ -23,5 +23,4 @@ public class AnhRespone {
 
     private Integer idSanPham;
 
-    private String tenSanPham;
 }

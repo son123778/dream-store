@@ -422,6 +422,112 @@ form:last-child {
   display: block; /* Hiển thị thông báo lỗi khi có class 'error' */
 }
 
+.image-list {
+  max-height: 150px; /* Giữ chiều cao cố định */
+  overflow-y: auto; /* Cho phép cuộn dọc nếu ảnh quá nhiều */
+}
+
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.image-item {
+  position: relative;
+  display: inline-block;
+}
+
+.image-preview {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: none; /* Xóa nền */
+  color: #294764; /* Màu chữ đỏ */
+  border: none; /* Xóa viền */
+  font-size: 20px; /* Kích thước dấu 'X' */
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.delete-btn:hover {
+  color: #10202e; /* Màu đậm hơn khi hover */
+}
+
+
+/* Cập nhật modal để có vị trí tương đối */
+.modal-boxanh {
+  position: relative; /* Đảm bảo phần tử con có thể căn theo */
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 700px;
+  height: 550px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+}
+
+
+.close-btn1 {
+  position: absolute;
+  top: 10px; /* Cách mép trên */
+  right: 15px; /* Cách mép phải */
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #294764;
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 10; /* Đảm bảo hiển thị trên cùng */
+  transition: color 0.3s ease;
+}
+
+.close-btn1:hover {
+  color: #10202e;
+}
+.modal-footer {
+  display: flex;
+  justify-content: flex-start; /* Căn trái */
+  padding-top: 10px; /* Tạo khoảng cách với nội dung trên */
+}
+
+.upload-section input[type="file"] {
+  color: #294764;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: white;
+}
+
+.upload-section input[type="file"]::-webkit-file-upload-button {
+  background-color: #294764;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.upload-section input[type="file"]::-webkit-file-upload-button:hover {
+  background-color: #1f3b5c;
+}
+
+
+
+
+
+
+
+
 
 
 

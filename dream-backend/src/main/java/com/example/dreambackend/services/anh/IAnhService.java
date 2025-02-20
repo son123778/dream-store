@@ -7,11 +7,10 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 public interface IAnhService {
-    List<AnhRespone> getAllAnh();
+    List<AnhRespone> getAllAnh(Integer idSanPham);
 
-    Anh getAnhById(Integer id);
+    void deleteAnh(Integer id);
 
-    List<Anh> addAnhs(List<MultipartFile> anhUrls, Integer trangThai, Integer idSanPham);
+    List<Anh> addAnhs(List<MultipartFile> anhUrls, Integer idSanPham);
 
-    List<Anh> updateAnhs(List<MultipartFile> anhUrls, List<Integer> trangThais, List<Integer> ids, Integer idSanPham);
 }

@@ -201,7 +201,7 @@
           <td>
               <button (click)="openModalSanPhamChiTiet(sanPham.id)" class="button btn-primary">Chi tiết</button>
               <a href="javascript:void(0);" (click)="editSanPham(sanPham)" class="button btn-danger">Sửa</a>
-              <button (click)="openModalQuanLyAnh()" class="button btn-primary">Quản lý ảnh</button>
+              <button (click)="openModalQuanLyAnh(sanPham.id)" class="button btn-primary">Quản lý ảnh</button>
           </td>          
         </tr>
       </tbody>
@@ -209,11 +209,37 @@
 
    <!-- quản lý ảnh -->
     <div class="modal-overlay" *ngIf="showModalQuanLyAnh" (click)="closeQuanLyAnh()">
-      <div class="modal-box" (click)="$event.stopPropagation()">
-        <button class="close-btn" (click)="closeQuanLyAnh()">×</button>
+      <div class="modal-boxanh" (click)="$event.stopPropagation()">
+        <button class="close-btn1" (click)="closeQuanLyAnh()">×</button>
         <form>
-                     
-          <button type="button" class="btn-primary">Lưu</button>
+          <div class="image-list">
+            <h5 style="color: #294764;">Ảnh hiện có</h5>
+            <div class="image-container">
+              <div class="image-item" *ngFor="let anh of anhHienCo">
+                <img [src]="anh.anhUrl" class="image-preview">
+                <button class="delete-btn" (click)="xoaAnh(anh.id)">×</button>
+              </div>
+            </div>
+          </div>
+          <!-- Input chọn file -->
+          <div class="upload-section">
+            <h5 style="color: #294764; padding-top: 10px;">Chọn ảnh</h5>
+            <input type="file" #fileInput multiple (change)="onFileSelected($event,fileInput)">
+          </div>
+
+          <!-- Ảnh đã chọn -->
+          <div class="selected-images">
+            <h5 style="color: #294764; padding-top: 10px;">Ảnh đã chọn</h5>
+            <div class="image-container">
+              <div class="image-item" *ngFor="let file of selectedFiles; let i = index">
+                <img [src]="getImagePreview(file)" alt="Ảnh mới" class="image-preview">
+                <button class="delete-btn" (click)="xoaAnhDaChon(i, fileInput)">×</button>
+              </div>
+            </div>
+          </div>      
+          <div class="modal-footer">
+            <button type="button" class="btn-primary" (click)="uploadAnh()">Lưu</button>
+          </div>
         </form>
       </div>
     </div>
