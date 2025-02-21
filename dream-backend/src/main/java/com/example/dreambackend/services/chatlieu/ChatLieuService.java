@@ -3,7 +3,7 @@ package com.example.dreambackend.services.chatlieu;
 import com.example.dreambackend.entities.ChatLieu;
 import com.example.dreambackend.repositories.ChatLieuRepository;
 import com.example.dreambackend.requests.ChatLieuRequest;
-import com.example.dreambackend.respones.ChatLieuRespone;
+import com.example.dreambackend.responses.ChatLieuRespone;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

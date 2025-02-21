@@ -1,7 +1,7 @@
 package com.example.dreambackend.controllers;
 
 import com.example.dreambackend.requests.SanPhamRequest;
-import com.example.dreambackend.respones.SanPhamRespone;
+import com.example.dreambackend.responses.SanPhamRespone;
 import com.example.dreambackend.services.chatlieu.ChatLieuService;
 import com.example.dreambackend.services.coao.CoAoService;
 import com.example.dreambackend.services.sanpham.SanPhamService;

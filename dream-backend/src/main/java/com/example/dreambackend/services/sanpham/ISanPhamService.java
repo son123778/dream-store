@@ -2,7 +2,7 @@ package com.example.dreambackend.services.sanpham;
 
 import com.example.dreambackend.entities.SanPham;
 import com.example.dreambackend.requests.SanPhamRequest;
-import com.example.dreambackend.respones.SanPhamRespone;
+import com.example.dreambackend.responses.SanPhamRespone;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;

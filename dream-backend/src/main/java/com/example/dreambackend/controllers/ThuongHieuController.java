@@ -1,6 +1,6 @@
 package com.example.dreambackend.controllers;
 import com.example.dreambackend.requests.ThuongHieuRequest;
-import com.example.dreambackend.respones.ThuongHieuRespone;
+import com.example.dreambackend.responses.ThuongHieuRespone;
 import com.example.dreambackend.services.thuonghieu.ThuongHieuService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

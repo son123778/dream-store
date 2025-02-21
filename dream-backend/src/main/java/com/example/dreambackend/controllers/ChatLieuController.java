@@ -1,7 +1,7 @@
 package com.example.dreambackend.controllers;
 
 import com.example.dreambackend.requests.ChatLieuRequest;
-import com.example.dreambackend.respones.ChatLieuRespone;
+import com.example.dreambackend.responses.ChatLieuRespone;
 import com.example.dreambackend.services.chatlieu.ChatLieuService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

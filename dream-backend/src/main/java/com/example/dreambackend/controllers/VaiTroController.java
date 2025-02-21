@@ -2,7 +2,7 @@ package com.example.dreambackend.controllers;
 
 import com.example.dreambackend.entities.VaiTro;
 import com.example.dreambackend.requests.VaiTroRequest;
-import com.example.dreambackend.respones.VaiTroResponse;
+import com.example.dreambackend.responses.VaiTroResponse;
 import com.example.dreambackend.services.vaitro.VaiTroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

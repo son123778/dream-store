@@ -3,7 +3,7 @@ package com.example.dreambackend.services.thuonghieu;
 
 import com.example.dreambackend.entities.ThuongHieu;
 import com.example.dreambackend.requests.ThuongHieuRequest;
-import com.example.dreambackend.respones.ThuongHieuRespone;
+import com.example.dreambackend.responses.ThuongHieuRespone;
 
 import java.util.List;
 

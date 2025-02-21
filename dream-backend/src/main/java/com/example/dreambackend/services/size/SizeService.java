@@ -3,7 +3,7 @@ package com.example.dreambackend.services.size;
 import com.example.dreambackend.entities.Size;
 import com.example.dreambackend.repositories.SizeRepository;
 import com.example.dreambackend.requests.SizeRequest;
-import com.example.dreambackend.respones.SizeRespone;
+import com.example.dreambackend.responses.SizeRespone;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,7 +1,7 @@
 package com.example.dreambackend.controllers;
 
 import com.example.dreambackend.entities.Anh;
-import com.example.dreambackend.respones.AnhRespone;
+import com.example.dreambackend.responses.AnhRespone;
 import com.example.dreambackend.services.anh.AnhService;
 import com.example.dreambackend.services.sanpham.SanPhamService;
 import org.springframework.beans.factory.annotation.Autowired;

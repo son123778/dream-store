@@ -1,6 +1,6 @@
 package com.example.dreambackend.controllers;
 import com.example.dreambackend.requests.XuatXuRequest;
-import com.example.dreambackend.respones.XuatXuRespone;
+import com.example.dreambackend.responses.XuatXuRespone;
 import com.example.dreambackend.services.xuatxu.XuatXuService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

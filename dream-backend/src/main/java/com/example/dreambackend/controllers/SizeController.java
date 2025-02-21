@@ -1,7 +1,7 @@
 package com.example.dreambackend.controllers;
 
 import com.example.dreambackend.requests.SizeRequest;
-import com.example.dreambackend.respones.SizeRespone;
+import com.example.dreambackend.responses.SizeRespone;
 import com.example.dreambackend.services.chatlieu.ChatLieuService;
 import com.example.dreambackend.services.coao.CoAoService;
 import com.example.dreambackend.services.mausac.MauSacService;

@@ -1,7 +1,7 @@
 package com.example.dreambackend.controllers;
 
 import com.example.dreambackend.requests.MauSacRequest;
-import com.example.dreambackend.respones.MauSacRepone;
+import com.example.dreambackend.responses.MauSacRepone;
 import com.example.dreambackend.services.mausac.MauSacService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

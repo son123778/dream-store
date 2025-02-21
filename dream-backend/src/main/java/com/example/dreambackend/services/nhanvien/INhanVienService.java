@@ -2,7 +2,7 @@ package com.example.dreambackend.services.nhanvien;
 
 import com.example.dreambackend.entities.NhanVien;
 import com.example.dreambackend.requests.NhanVienRequest;
-import com.example.dreambackend.respones.NhanVienResponse;
+import com.example.dreambackend.responses.NhanVienResponse;
 
 import java.util.List;
 

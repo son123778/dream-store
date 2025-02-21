@@ -4,7 +4,7 @@ package com.example.dreambackend.services.xuatxu;
 import com.example.dreambackend.entities.XuatXu;
 import com.example.dreambackend.repositories.XuatXuRepository;
 import com.example.dreambackend.requests.XuatXuRequest;
-import com.example.dreambackend.respones.XuatXuRespone;
+import com.example.dreambackend.responses.XuatXuRespone;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -5,7 +5,7 @@ import com.example.dreambackend.repositories.MauSacRepository;
 import com.example.dreambackend.repositories.SanPhamChiTietRepository;
 import com.example.dreambackend.repositories.SizeRepository;
 import com.example.dreambackend.requests.SanPhamChiTietRequest;
-import com.example.dreambackend.respones.SanPhamChiTietRespone;
+import com.example.dreambackend.responses.SanPhamChiTietRespone;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;

@@ -4,7 +4,7 @@ package com.example.dreambackend.services.thuonghieu;
 import com.example.dreambackend.entities.ThuongHieu;
 import com.example.dreambackend.repositories.ThuongHieuRepository;
 import com.example.dreambackend.requests.ThuongHieuRequest;
-import com.example.dreambackend.respones.ThuongHieuRespone;
+import com.example.dreambackend.responses.ThuongHieuRespone;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
