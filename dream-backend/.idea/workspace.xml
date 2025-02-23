@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< Updated upstream
-    <list default="true" id="06a4a424-872f-46d5-a024-e571f98b390c" name="Changes" comment="" />
-=======
+<<<<<<< HEAD
     <list default="true" id="5d7dcb88-d015-40bd-b1c2-e4c2578857ff" name="Default Changelist" comment="" />
->>>>>>> Stashed changes
+=======
+    <list default="true" id="06a4a424-872f-46d5-a024-e571f98b390c" name="Changes" comment="" />
+>>>>>>> 8f58cd00460ad6c202d30a0a4c70763d5386163b
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,9 +39,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-<<<<<<< Updated upstream
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+<<<<<<< HEAD
+    &quot;Maven.dream-backend [clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.dream-backend [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.dream-backend [spring-boot:debug].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.dream-backend [spring-boot:run].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.DreamBackendApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;le-hoang&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/dream-store/dream-backend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+=======
     &quot;Application.DreamBackendApplication.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.All in dream-backend.executor&quot;: &quot;Run&quot;,
     &quot;Maven.dream-backend [clean].executor&quot;: &quot;Run&quot;,
@@ -53,37 +71,28 @@
     &quot;git-widget-placeholder&quot;: &quot;huy-hung&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+>>>>>>> 8f58cd00460ad6c202d30a0a4c70763d5386163b
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-=======
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Maven.dream-backend [clean,install].executor": "Run",
-    "Maven.dream-backend [clean].executor": "Run",
-    "Maven.dream-backend [spring-boot:debug].executor": "Run",
-    "Maven.dream-backend [spring-boot:run].executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.DreamBackendApplication.executor": "Debug",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/dream-store - Copy/dream-backend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
->>>>>>> Stashed changes
   }
 }</component>
+<<<<<<< HEAD
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\controllers" />
+      <recent name="D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\repositories" />
+      <recent name="D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\dtos" />
+      <recent name="D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.dreambackend.entities" />
+      <recent name="org.example.dreambackend.entity" />
+    </key>
+  </component>
+=======
+>>>>>>> 8f58cd00460ad6c202d30a0a4c70763d5386163b
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="spring-boot run" />
@@ -122,6 +131,43 @@
       <created>1739465110101</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
+<<<<<<< HEAD
+      <updated>1735393073097</updated>
+      <workItem from="1735393074478" duration="1908000" />
+      <workItem from="1735488542796" duration="1221000" />
+      <workItem from="1735490334317" duration="748000" />
+      <workItem from="1735492341305" duration="78000" />
+      <workItem from="1735567049467" duration="13079000" />
+      <workItem from="1735621551541" duration="1148000" />
+      <workItem from="1735652505084" duration="4511000" />
+      <workItem from="1735658759808" duration="1657000" />
+      <workItem from="1736517941958" duration="10825000" />
+      <workItem from="1736600629383" duration="8464000" />
+      <workItem from="1736687388879" duration="1357000" />
+      <workItem from="1736688781438" duration="1421000" />
+      <workItem from="1736690241290" duration="1556000" />
+      <workItem from="1736691995880" duration="3639000" />
+      <workItem from="1736696227265" duration="2892000" />
+      <workItem from="1736774105795" duration="6918000" />
+      <workItem from="1736862375702" duration="5815000" />
+      <workItem from="1736951614206" duration="2179000" />
+      <workItem from="1737040472222" duration="2466000" />
+      <workItem from="1737210894349" duration="1535000" />
+      <workItem from="1737292049909" duration="5285000" />
+      <workItem from="1737468374657" duration="4513000" />
+      <workItem from="1737549856865" duration="3218000" />
+      <workItem from="1737456884593" duration="263000" />
+      <workItem from="1737461756792" duration="811000" />
+      <workItem from="1737529140412" duration="973000" />
+      <workItem from="1739588481769" duration="508000" />
+      <workItem from="1739632811650" duration="613000" />
+      <workItem from="1739672364953" duration="2067000" />
+      <workItem from="1739694014397" duration="1716000" />
+      <workItem from="1739879488491" duration="1659000" />
+      <workItem from="1739887797562" duration="14000" />
+      <workItem from="1739887869009" duration="142000" />
+      <workItem from="1740300947474" duration="544000" />
+=======
       <updated>1739465110101</updated>
       <workItem from="1739465112894" duration="191000" />
       <workItem from="1739509840252" duration="652000" />
@@ -133,6 +179,7 @@
       <workItem from="1739865638208" duration="5244000" />
       <workItem from="1739971791545" duration="8852000" />
       <workItem from="1740059956685" duration="4797000" />
+>>>>>>> 8f58cd00460ad6c202d30a0a4c70763d5386163b
     </task>
     <servers />
   </component>
