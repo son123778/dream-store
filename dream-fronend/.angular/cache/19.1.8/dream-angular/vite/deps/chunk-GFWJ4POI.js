@@ -1,10 +1,6 @@
 import {
   withHttpTransferCache
-<<<<<<<< HEAD:dream-fronend/.angular/cache/19.1.7/dream-angular/vite/deps/chunk-2W7C5QGF.js
-} from "./chunk-TKCUMTO3.js";
-========
 } from "./chunk-SZVIQA3D.js";
->>>>>>>> le-hoang:dream-fronend/.angular/cache/19.1.8/dream-angular/vite/deps/chunk-GFWJ4POI.js
 import {
   CommonModule,
   DOCUMENT,
@@ -15,11 +11,7 @@ import {
   isPlatformServer,
   parseCookieValue,
   setRootDomAdapter
-<<<<<<<< HEAD:dream-fronend/.angular/cache/19.1.7/dream-angular/vite/deps/chunk-2W7C5QGF.js
-} from "./chunk-AH3VKKO2.js";
-========
 } from "./chunk-VBRGN5QX.js";
->>>>>>>> le-hoang:dream-fronend/.angular/cache/19.1.8/dream-angular/vite/deps/chunk-GFWJ4POI.js
 import {
   APP_ID,
   ApplicationModule,
@@ -78,11 +70,7 @@ import {
   ɵɵdefineInjector,
   ɵɵdefineNgModule,
   ɵɵinject
-<<<<<<<< HEAD:dream-fronend/.angular/cache/19.1.7/dream-angular/vite/deps/chunk-2W7C5QGF.js
-} from "./chunk-VEBQND3C.js";
-========
 } from "./chunk-7B7CU6D7.js";
->>>>>>>> le-hoang:dream-fronend/.angular/cache/19.1.8/dream-angular/vite/deps/chunk-GFWJ4POI.js
 import {
   __spreadProps,
   __spreadValues
@@ -1979,11 +1967,7 @@ function provideClientHydration(...features) {
   }
   return makeEnvironmentProviders([typeof ngDevMode !== "undefined" && ngDevMode ? provideZoneJsCompatibilityDetector() : [], withDomHydration(), featuresKind.has(HydrationFeatureKind.NoHttpTransferCache) || hasHttpTransferCacheOptions ? [] : withHttpTransferCache({}), providers]);
 }
-<<<<<<<< HEAD:dream-fronend/.angular/cache/19.1.7/dream-angular/vite/deps/chunk-2W7C5QGF.js
-var VERSION = new Version("19.1.6");
-========
 var VERSION = new Version("19.1.7");
->>>>>>>> le-hoang:dream-fronend/.angular/cache/19.1.8/dream-angular/vite/deps/chunk-GFWJ4POI.js
 
 export {
   BrowserDomAdapter,
@@ -2028,17 +2012,9 @@ export {
 
 @angular/platform-browser/fesm2022/platform-browser.mjs:
   (**
-<<<<<<<< HEAD:dream-fronend/.angular/cache/19.1.7/dream-angular/vite/deps/chunk-2W7C5QGF.js
-   * @license Angular v19.1.6
-========
    * @license Angular v19.1.7
->>>>>>>> le-hoang:dream-fronend/.angular/cache/19.1.8/dream-angular/vite/deps/chunk-GFWJ4POI.js
    * (c) 2010-2024 Google LLC. https://angular.io/
    * License: MIT
    *)
 */
-<<<<<<<< HEAD:dream-fronend/.angular/cache/19.1.7/dream-angular/vite/deps/chunk-2W7C5QGF.js
-//# sourceMappingURL=chunk-2W7C5QGF.js.map
-========
 //# sourceMappingURL=chunk-GFWJ4POI.js.map
->>>>>>>> le-hoang:dream-fronend/.angular/cache/19.1.8/dream-angular/vite/deps/chunk-GFWJ4POI.js

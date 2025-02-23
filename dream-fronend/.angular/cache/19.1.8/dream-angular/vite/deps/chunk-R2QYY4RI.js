@@ -1,10 +1,6 @@
 import {
   DOCUMENT
-<<<<<<<< HEAD:dream-fronend/.angular/cache/19.1.7/dream-angular/vite/deps/chunk-UJC4JMCM.js
-} from "./chunk-AH3VKKO2.js";
-========
 } from "./chunk-VBRGN5QX.js";
->>>>>>>> le-hoang:dream-fronend/.angular/cache/19.1.8/dream-angular/vite/deps/chunk-R2QYY4RI.js
 import {
   ANIMATION_MODULE_TYPE,
   Inject,
@@ -16,11 +12,7 @@ import {
   setClassMetadata,
   ɵɵdefineInjectable,
   ɵɵinject
-<<<<<<<< HEAD:dream-fronend/.angular/cache/19.1.7/dream-angular/vite/deps/chunk-UJC4JMCM.js
-} from "./chunk-VEBQND3C.js";
-========
 } from "./chunk-7B7CU6D7.js";
->>>>>>>> le-hoang:dream-fronend/.angular/cache/19.1.8/dream-angular/vite/deps/chunk-R2QYY4RI.js
 
 // node_modules/@angular/animations/fesm2022/animations.mjs
 var AnimationMetadataType;
@@ -488,17 +480,9 @@ export {
 
 @angular/animations/fesm2022/animations.mjs:
   (**
-<<<<<<<< HEAD:dream-fronend/.angular/cache/19.1.7/dream-angular/vite/deps/chunk-UJC4JMCM.js
-   * @license Angular v19.1.6
-========
    * @license Angular v19.1.7
->>>>>>>> le-hoang:dream-fronend/.angular/cache/19.1.8/dream-angular/vite/deps/chunk-R2QYY4RI.js
    * (c) 2010-2024 Google LLC. https://angular.io/
    * License: MIT
    *)
 */
-<<<<<<<< HEAD:dream-fronend/.angular/cache/19.1.7/dream-angular/vite/deps/chunk-UJC4JMCM.js
-//# sourceMappingURL=chunk-UJC4JMCM.js.map
-========
 //# sourceMappingURL=chunk-R2QYY4RI.js.map
->>>>>>>> le-hoang:dream-fronend/.angular/cache/19.1.8/dream-angular/vite/deps/chunk-R2QYY4RI.js

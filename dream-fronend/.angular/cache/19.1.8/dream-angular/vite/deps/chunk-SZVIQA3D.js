@@ -3,11 +3,7 @@ import {
   XhrFactory,
   isPlatformServer,
   parseCookieValue
-<<<<<<<< HEAD:dream-fronend/.angular/cache/19.1.7/dream-angular/vite/deps/chunk-TKCUMTO3.js
-} from "./chunk-AH3VKKO2.js";
-========
 } from "./chunk-VBRGN5QX.js";
->>>>>>>> le-hoang:dream-fronend/.angular/cache/19.1.8/dream-angular/vite/deps/chunk-SZVIQA3D.js
 import {
   APP_BOOTSTRAP_LISTENER,
   ApplicationRef,
@@ -43,11 +39,7 @@ import {
   ɵɵdefineInjector,
   ɵɵdefineNgModule,
   ɵɵinject
-<<<<<<<< HEAD:dream-fronend/.angular/cache/19.1.7/dream-angular/vite/deps/chunk-TKCUMTO3.js
-} from "./chunk-VEBQND3C.js";
-========
 } from "./chunk-7B7CU6D7.js";
->>>>>>>> le-hoang:dream-fronend/.angular/cache/19.1.8/dream-angular/vite/deps/chunk-SZVIQA3D.js
 import {
   __async,
   __objRest,
@@ -2435,17 +2427,9 @@ export {
 
 @angular/common/fesm2022/http.mjs:
   (**
-<<<<<<<< HEAD:dream-fronend/.angular/cache/19.1.7/dream-angular/vite/deps/chunk-TKCUMTO3.js
-   * @license Angular v19.1.6
-========
    * @license Angular v19.1.7
->>>>>>>> le-hoang:dream-fronend/.angular/cache/19.1.8/dream-angular/vite/deps/chunk-SZVIQA3D.js
    * (c) 2010-2024 Google LLC. https://angular.io/
    * License: MIT
    *)
 */
-<<<<<<<< HEAD:dream-fronend/.angular/cache/19.1.7/dream-angular/vite/deps/chunk-TKCUMTO3.js
-//# sourceMappingURL=chunk-TKCUMTO3.js.map
-========
 //# sourceMappingURL=chunk-SZVIQA3D.js.map
->>>>>>>> le-hoang:dream-fronend/.angular/cache/19.1.8/dream-angular/vite/deps/chunk-SZVIQA3D.js

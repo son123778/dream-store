@@ -57,11 +57,7 @@ import {
   ɵɵinject,
   ɵɵinjectAttribute,
   ɵɵstyleProp
-<<<<<<<< HEAD:dream-fronend/.angular/cache/19.1.7/dream-angular/vite/deps/chunk-AH3VKKO2.js
-} from "./chunk-VEBQND3C.js";
-========
 } from "./chunk-7B7CU6D7.js";
->>>>>>>> le-hoang:dream-fronend/.angular/cache/19.1.8/dream-angular/vite/deps/chunk-VBRGN5QX.js
 import {
   __async,
   __spreadProps,
@@ -3689,11 +3685,7 @@ function isPlatformBrowser(platformId) {
 function isPlatformServer(platformId) {
   return platformId === PLATFORM_SERVER_ID;
 }
-<<<<<<<< HEAD:dream-fronend/.angular/cache/19.1.7/dream-angular/vite/deps/chunk-AH3VKKO2.js
-var VERSION = new Version("19.1.6");
-========
 var VERSION = new Version("19.1.7");
->>>>>>>> le-hoang:dream-fronend/.angular/cache/19.1.8/dream-angular/vite/deps/chunk-VBRGN5QX.js
 var ViewportScroller = class _ViewportScroller {
   // De-sugared tree-shakable injection
   // See #23917
@@ -5131,17 +5123,9 @@ export {
 
 @angular/common/fesm2022/common.mjs:
   (**
-<<<<<<<< HEAD:dream-fronend/.angular/cache/19.1.7/dream-angular/vite/deps/chunk-AH3VKKO2.js
-   * @license Angular v19.1.6
-========
    * @license Angular v19.1.7
->>>>>>>> le-hoang:dream-fronend/.angular/cache/19.1.8/dream-angular/vite/deps/chunk-VBRGN5QX.js
    * (c) 2010-2024 Google LLC. https://angular.io/
    * License: MIT
    *)
 */
-<<<<<<<< HEAD:dream-fronend/.angular/cache/19.1.7/dream-angular/vite/deps/chunk-AH3VKKO2.js
-//# sourceMappingURL=chunk-AH3VKKO2.js.map
-========
 //# sourceMappingURL=chunk-VBRGN5QX.js.map
->>>>>>>> le-hoang:dream-fronend/.angular/cache/19.1.8/dream-angular/vite/deps/chunk-VBRGN5QX.js
