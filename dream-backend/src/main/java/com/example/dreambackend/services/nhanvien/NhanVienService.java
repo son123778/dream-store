@@ -4,13 +4,13 @@ import com.example.dreambackend.entities.NhanVien;
 import com.example.dreambackend.entities.VaiTro;
 import com.example.dreambackend.repositories.NhanVienRepository;
 import com.example.dreambackend.repositories.VaiTroRepository;
-import com.example.dreambackend.request.NhanVienRequest;
-import com.example.dreambackend.response.NhanVienResponse;
-import org.springframework.beans.BeanUtils;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -18,57 +18,65 @@ public class NhanVienService implements INhanVienService {
 
     @Autowired
     private NhanVienRepository nhanVienRepository;
-
     @Autowired
     private VaiTroRepository vaiTroRepository;
 
+    @Transactional
     @Override
-    public List<NhanVienResponse> getAllNhanVien() {
-        return nhanVienRepository.getAllNhanVienResponses();
+    public Page<NhanVien> getAllNhanVienPaged(int page, int size) {
+        return nhanVienRepository.findAll(PageRequest.of(page, size));
     }
 
     @Override
-    public List<NhanVienResponse> searchNhanVienByName(String ten) {
-        return nhanVienRepository.searchNhanVienByName(ten);
-    }
+    @Transactional
+    public NhanVien addNhanVien(NhanVien nhanVien) {
+        VaiTro vaiTro = vaiTroRepository.findById(nhanVien.getVaiTro().getId())
+                .orElseThrow(() -> new IllegalArgumentException("Vai trò không tồn tại!"));
 
-    @Override
-    public List<NhanVienResponse> filterNhanVienByTrangThai(Integer trangThai) {
-        return nhanVienRepository.filterNhanVienByTrangThai(trangThai);
-    }
-
-    @Override
-    public NhanVien addNhanVien(NhanVienRequest nhanVienRequest) {
-        NhanVien nhanVien = new NhanVien();
-        BeanUtils.copyProperties(nhanVienRequest, nhanVien);
-
-        VaiTro vaiTro = vaiTroRepository.findById(nhanVienRequest.getIdVaiTro())
-                .orElseThrow(() -> new RuntimeException("Không tìm thấy vai trò với id: " + nhanVienRequest.getIdVaiTro()));
+        // 🔹 Gán vai trò cho nhân viên
         nhanVien.setVaiTro(vaiTro);
-
-        // Nếu frontend gửi ngayTao, sử dụng nó, nếu không thì lấy LocalDateTime.now()
-        nhanVien.setNgayTao(nhanVienRequest.getNgayTao() != null ? nhanVienRequest.getNgayTao() : LocalDateTime.now());
-        nhanVien.setNgaySua(nhanVien.getNgayTao()); // Khi thêm mới, ngaySua = ngayTao
-
+        // Gán ngày tạo hiện tại
+        nhanVien.setNgayTao(LocalDate.now());
         return nhanVienRepository.save(nhanVien);
     }
 
     @Override
-    public NhanVien updateNhanVien(NhanVienRequest nhanVienRequest) {
-        NhanVien nhanVien = nhanVienRepository.findById(nhanVienRequest.getId())
-                .orElseThrow(() -> new RuntimeException("Không tìm thấy nhân viên với id: " + nhanVienRequest.getId()));
+    @Transactional
+    public NhanVien updateNhanVien(NhanVien nhanVien) {
+        // 🔹 Kiểm tra nhân viên có tồn tại không
+        NhanVien existingNhanVien = nhanVienRepository.findById(nhanVien.getId())
+                .orElseThrow(() -> new IllegalArgumentException("Nhân viên không tồn tại!"));
 
-        VaiTro vaiTro = vaiTroRepository.findById(nhanVienRequest.getIdVaiTro())
-                .orElseThrow(() -> new RuntimeException("Không tìm thấy vai trò với id: " + nhanVienRequest.getIdVaiTro()));
+        // 🔹 Kiểm tra vai trò có tồn tại không
+        VaiTro vaiTro = vaiTroRepository.findById(nhanVien.getVaiTro().getId())
+                .orElseThrow(() -> new IllegalArgumentException("Vai trò không tồn tại!"));
 
-        // Lưu ngày tạo cũ
-        LocalDateTime ngayTaoGoc = nhanVien.getNgayTao();
+        // 🔹 Cập nhật thông tin nhân viên
+        existingNhanVien.setTen(nhanVien.getTen());
+        existingNhanVien.setGioiTinh(nhanVien.getGioiTinh());
+        existingNhanVien.setNgaySinh(nhanVien.getNgaySinh());
+        existingNhanVien.setEmail(nhanVien.getEmail());
+        existingNhanVien.setSoDienThoai(nhanVien.getSoDienThoai());
+        existingNhanVien.setTaiKhoan(nhanVien.getTaiKhoan());
+        existingNhanVien.setMatKhau(nhanVien.getMatKhau());
+        existingNhanVien.setTrangThai(nhanVien.getTrangThai());
+        existingNhanVien.setNgaySua(LocalDate.now());
 
-        BeanUtils.copyProperties(nhanVienRequest, nhanVien, "id", "ngayTao");
-        nhanVien.setVaiTro(vaiTro);
-        nhanVien.setNgayTao(ngayTaoGoc); // Giữ nguyên ngày tạo
-        nhanVien.setNgaySua(LocalDateTime.now()); // Cập nhật ngày sửa
+        // 🔹 Gán vai trò mới
+        existingNhanVien.setVaiTro(vaiTro);
 
-        return nhanVienRepository.save(nhanVien);
+        return nhanVienRepository.save(existingNhanVien);
+    }
+
+
+    @Override
+    public NhanVien getNhanVienById(Integer id) {
+        return nhanVienRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Nhân viên không tồn tại với id: " + id));
+    }
+
+    @Override
+    public List<NhanVien> searchNhanVienByName(String ten) {
+        return nhanVienRepository.findByTenContainingIgnoreCase(ten);
     }
 }

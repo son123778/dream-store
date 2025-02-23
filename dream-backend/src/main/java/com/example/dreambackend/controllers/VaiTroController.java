@@ -1,43 +1,40 @@
 package com.example.dreambackend.controllers;
 
 import com.example.dreambackend.entities.VaiTro;
-import com.example.dreambackend.request.VaiTroRequest;
-import com.example.dreambackend.response.VaiTroResponse;
+import com.example.dreambackend.services.vaitro.IVaiTroService;
 import com.example.dreambackend.services.vaitro.VaiTroService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/vai-tro")
-@CrossOrigin(origins = "http://localhost:4200") // Đảm bảo kết nối với Angular
+@CrossOrigin(origins = "http://localhost:4200")
 public class VaiTroController {
 
     @Autowired
     private VaiTroService vaiTroService;
 
-    /**
-     * Lấy danh sách vai trò
-     */
+    // API lấy danh sách vai trò
     @GetMapping("/hien-thi")
-    public List<VaiTroResponse> getAllVaiTro() {
-        return vaiTroService.getAllVaiTro();
+    public ResponseEntity<List<VaiTro>> getAllVaiTros() {
+        List<VaiTro> vaiTros = vaiTroService.getAllVaiTros();
+        return ResponseEntity.ok(vaiTros);
     }
 
-    /**
-     * Thêm mới vai trò
-     */
+    // Thêm vai trò mới
     @PostMapping("/add")
-    public VaiTro addVaiTro(@RequestBody VaiTroRequest vaiTroRequest) {
-        return vaiTroService.addVaiTro(vaiTroRequest);
+    public ResponseEntity<VaiTro> addVaiTro(@RequestBody VaiTro vaiTro) {
+        VaiTro savedVaiTro = vaiTroService.addVaiTro(vaiTro);
+        return ResponseEntity.ok(savedVaiTro);
     }
 
-    /**
-     * Cập nhật vai trò
-     */
-    @PutMapping("/update")
-    public VaiTro updateVaiTro(@RequestBody VaiTroRequest vaiTroRequest) {
-        return vaiTroService.updateVaiTro(vaiTroRequest);
+    // Cập nhật vai trò
+    @PostMapping("/update")
+    public ResponseEntity<VaiTro> updateVaiTro(@RequestBody VaiTro vaiTro) {
+        VaiTro updatedVaiTro = vaiTroService.updateVaiTro(vaiTro);
+        return ResponseEntity.ok(updatedVaiTro);
     }
 }

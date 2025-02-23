@@ -2,9 +2,7 @@ package com.example.dreambackend.services.vaitro;
 
 import com.example.dreambackend.entities.VaiTro;
 import com.example.dreambackend.repositories.VaiTroRepository;
-import com.example.dreambackend.request.VaiTroRequest;
-import com.example.dreambackend.response.VaiTroResponse;
-import org.springframework.beans.BeanUtils;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,24 +14,21 @@ public class VaiTroService implements IVaiTroService {
     @Autowired
     private VaiTroRepository vaiTroRepository;
 
+    @Transactional
     @Override
-    public List<VaiTroResponse> getAllVaiTro() {
-        return vaiTroRepository.getAllVaiTroResponses();
+    public List<VaiTro> getAllVaiTros() {
+        return vaiTroRepository.findAll();
     }
 
+    @Transactional
     @Override
-    public VaiTro addVaiTro(VaiTroRequest vaiTroRequest) {
-        VaiTro vaiTro = new VaiTro();
-        BeanUtils.copyProperties(vaiTroRequest, vaiTro);
+    public VaiTro addVaiTro(VaiTro vaiTro) {
         return vaiTroRepository.save(vaiTro);
     }
 
+    @Transactional
     @Override
-    public VaiTro updateVaiTro(VaiTroRequest vaiTroRequest) {
-        VaiTro vaiTro = vaiTroRepository.findById(vaiTroRequest.getId())
-                .orElseThrow(() -> new RuntimeException("Không tìm thấy vai trò với id: " + vaiTroRequest.getId()));
-
-        BeanUtils.copyProperties(vaiTroRequest, vaiTro, "id");
+    public VaiTro updateVaiTro(VaiTro vaiTro) {
         return vaiTroRepository.save(vaiTro);
     }
 }

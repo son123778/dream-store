@@ -36,6 +36,7 @@ com\example\dreambackend\entities\Size.class
 com\example\dreambackend\configs\WebConfig$1.class
 com\example\dreambackend\entities\ChatLieu$ChatLieuBuilder.class
 com\example\dreambackend\requests\SanPhamRequest.class
+com\example\dreambackend\response\ThongKeHomNayResponse.class
 com\example\dreambackend\repositories\SanPhamChiTietRepository.class
 com\example\dreambackend\repositories\SanPhamRepository.class
 com\example\dreambackend\services\vaitro\IVaiTroService.class
@@ -110,6 +111,7 @@ com\example\dreambackend\request\VaiTroRequest.class
 com\example\dreambackend\services\sanpham\SanPhamService.class
 com\example\dreambackend\dtos\SanPhamChiTietDto.class
 com\example\dreambackend\controllers\AnhController.class
+com\example\dreambackend\response\ThongKeThangNayResponse.class
 com\example\dreambackend\services\anh\IAnhService.class
 com\example\dreambackend\repositories\ThongKeRepository.class
 com\example\dreambackend\response\VaiTroResponse.class
