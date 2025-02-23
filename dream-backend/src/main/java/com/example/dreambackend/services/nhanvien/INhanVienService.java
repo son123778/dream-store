@@ -14,4 +14,5 @@ public interface INhanVienService {
     List<NhanVienResponse> filterNhanVienByTrangThai(Integer trangThai);
     NhanVien addNhanVien(NhanVienRequest nhanVienRequest);
     NhanVien updateNhanVien(NhanVienRequest nhanVienRequest);
+    NhanVien getNhanVienByTaiKhoan(String taiKhoan);
 }

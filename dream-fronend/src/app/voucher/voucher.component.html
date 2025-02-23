@@ -74,8 +74,8 @@
 
 
 
-  <!-- Modal hiển thị chi tiết voucher -->
-  <div class="modal-overlay" *ngIf="showModalDetail" (click)="closeModalDetail()">
+   <!-- Modal hiển thị chi tiết voucher -->
+   <div class="modal-overlay" *ngIf="showModalDetail" (click)="closeModalDetail()">
     <div class="modal-box" (click)="$event.stopPropagation()">
       <button class="close-btn" (click)="closeModalDetail()">×</button>
       <p class="titleadd">Chi tiết Voucher</p> <br> <br>
@@ -221,6 +221,10 @@
       </form>
     </div>
   </div>
+
+
+
+  
 
   <div class="modal-overlay" *ngIf="showModal" (click)="closeModal()">
     <div class="modal-box" (click)="$event.stopPropagation()">

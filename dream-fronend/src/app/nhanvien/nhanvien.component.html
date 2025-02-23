@@ -1,4 +1,4 @@
-<!-- Danh sách Nhân Viên -->
+Danh sách Nhân Viên
 <div class="container" *ngIf="state === 'list'">
   <h2>Quản lý Nhân Viên</h2>
 
@@ -140,3 +140,91 @@
     <button type="button" (click)="backToList()">Hủy</button>
   </form>
 </div>
+
+
+
+
+<p class="title">Danh sách voucher</p>
+
+<div class="header-container">
+  
+  <div class="search-filter">
+    <input type="text" placeholder="Tìm kiếm nhân viên..." [(ngModel)]="searchTen" (input)="searchNhanVien()" />
+    <div class="filter">
+      <label>
+        <input type="radio" name="status" value="" [(ngModel)]="filterTrangThai" (change)="filterNhanVien()" />
+        Tất cả
+      </label>
+      <label>
+        <input type="radio" name="status" value="1" [(ngModel)]="filterTrangThai" (change)="filterNhanVien()" />
+        Đang làm
+      </label>
+      <label>
+        <input type="radio" name="status" value="0" [(ngModel)]="filterTrangThai" (change)="filterNhanVien()" />
+        Nghỉ việc
+      </label>
+    </div>
+    
+  </div>
+
+  <!-- Nút Thêm Nhân Viên -->
+  <button (click)="showCreateForm()">Thêm Nhân Viên</button>
+
+
+</div>
+
+<div class="table-container">
+  <div class="table-scrollable">
+    <table class="product-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+        <th>Vai Trò</th>
+        <th>Mã NV</th>
+        <th>Tên</th>
+        <th>Giới Tính</th>
+        <th>Ngày Sinh</th>
+        <th>Email</th>
+        <th>SĐT</th>
+        <th>Tài Khoản</th>
+        <th>Mật Khẩu</th>
+        <th>Ảnh</th>
+        <th>Trạng Thái</th>
+        <th>Ngày Tạo</th>
+        <th>Ngày Sửa</th>
+        <th>Hành Động</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let nhanVien of nhanViens">
+          <td>{{ nhanVien.id }}</td>
+        <td>{{ nhanVien.tenVaiTro }}</td>
+        <td>{{ nhanVien.ma }}</td>
+        <td>{{ nhanVien.ten }}</td>
+        <td>{{ nhanVien.gioiTinh ? 'Nam' : 'Nữ' }}</td>
+        <td>{{ nhanVien.ngaySinh }}</td>
+        <td>{{ nhanVien.email }}</td>
+        <td>{{ nhanVien.soDienThoai }}</td>
+        <td>{{ nhanVien.taiKhoan }}</td>
+        <td>{{ nhanVien.matKhau ? '******' : '' }}</td>
+        <td>
+          <img [src]="nhanVien.anh ? nhanVien.anh : 'assets/default-avatar.png'" alt="Ảnh nhân viên" width="50" />
+        </td>
+        <td>{{ nhanVien.trangThai === 1 ? 'Đang làm' : 'Nghỉ việc' }}</td>
+        <td>{{ nhanVien.ngayTao }}</td>
+        <td>{{ nhanVien.ngaySua }}</td>
+          <td>
+            <!-- <button (click)="showDetail(voucher.id)" class="button btn-primary">Chi tiết</button> -->
+            <button (click)="showEditForm(nhanVien)" class="button btn-primary">Sửa</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+
+
+
+
+  

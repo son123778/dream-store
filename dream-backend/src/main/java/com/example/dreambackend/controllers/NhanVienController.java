@@ -1,5 +1,6 @@
 package com.example.dreambackend.controllers;
 
+import com.example.dreambackend.entities.KhachHang;
 import com.example.dreambackend.entities.NhanVien;
 import com.example.dreambackend.request.NhanVienRequest;
 import com.example.dreambackend.response.NhanVienResponse;
@@ -55,5 +56,9 @@ public class NhanVienController {
     @PutMapping("/update")
     public NhanVien updateNhanVien(@RequestBody NhanVienRequest nhanVienRequest) {
         return nhanVienService.updateNhanVien(nhanVienRequest);
+    }
+    @GetMapping("/tk")
+    public NhanVien getNhanVienByTK(@RequestParam("taiKhoan") String taiKhoan) {
+        return nhanVienService.getNhanVienByTaiKhoan(taiKhoan);
     }
 }

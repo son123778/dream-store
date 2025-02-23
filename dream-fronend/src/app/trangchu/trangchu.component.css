@@ -1,0 +1,469 @@
+/* Reset các kiểu mặc định */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .row{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  
+  /* Cấu trúc chung của body */
+  body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    background-color: #f9f9f9;
+    line-height: 1.6;
+  }
+  
+  /* Navbar */
+  .header {
+    background-color: #3333337e;
+    padding: 1rem 0;
+  }
+  
+  .navbar {
+    background-color: transparent;
+  }
+  
+  .navbar .navbar-brand {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .navbar .navbar-nav .nav-link {
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+  
+  .navbar .navbar-nav .nav-link:hover {
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+  }
+  
+  .navbar-toggler-icon {
+    background-color: #fff;
+  }
+  
+  /* Hero Section */
+  .page-header {
+    position: relative;
+    background-image: url('https://images.unsplash.com/photo-1603791446755-b6c12b00c6c8');
+    background-size: cover;
+    background-position: center;
+    height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .page-header .mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  
+  .page-header h1 {
+    color: #fff;
+    font-size: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .page-header h3 {
+    color: #fff;
+    font-size: 24px;
+    margin-top: 10px;
+  }
+  
+  .page-header .btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 25px;
+    font-size: 16px;
+    border-radius: 25px;
+    text-transform: uppercase;
+  }
+  
+  .page-header .btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Categories Section */
+  .categories {
+    text-align: center;
+    margin: 40px 0;
+  }
+  
+  .categories h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+  
+  .category-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .category {
+    background-color: #007bff;
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .category:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Product Section */
+  .container .title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 30px;
+  }
+  
+  .card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    object-fit: cover;
+    height: 300px;
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  .card-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .card-text {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #555;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Footer */
+  .footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 0;
+  }
+  
+  .footer h6 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .footer p {
+    font-size: 16px;
+  }
+  
+  .footer .list-unstyled {
+    list-style: none;
+  }
+  
+  .footer .list-unstyled li a {
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+  }
+  
+  .footer .list-unstyled li a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer .text-center {
+    font-size: 14px;
+    color: #ddd;
+    margin-top: 30px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .navbar-nav {
+      text-align: center;
+    }
+  
+    .page-header h1 {
+      font-size: 36px;
+    }
+  
+    .page-header h3 {
+      font-size: 18px;
+    }
+  
+    .container .row {
+      flex-direction: column;
+    }
+  
+    .col-md-4 {
+      margin-bottom: 20px;
+    }
+  
+    .card-body {
+      padding: 15px;
+    }
+  
+    .category-list {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .category {
+      margin-bottom: 15px;
+      padding: 10px 20px;
+    }
+  }
+  
+  
+  
+  /* Slider */
+  .test {
+    position: relative;
+  }
+  
+  .slider {
+    position: relative;
+    width: 100%;
+    max-height: 500px;
+    overflow: hidden;
+  }
+  
+  .slides {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+  
+  .slide {
+    min-width: 100%;
+    transition: opacity 0.5s ease;
+  }
+  
+  .fade {
+    opacity: 0;
+    animation: fadein 5s infinite;
+  }
+  
+  @keyframes fadein {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+  
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  .prev, .next {
+    position: absolute;
+    top: 50%;
+    font-size: 30px;
+    color: white;
+    padding: 16px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    cursor: pointer;
+    transform: translateY(-50%);
+  }
+  .prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .prev {
+    left: 0;
+  }
+  
+  .next {
+    right: 0;
+  }
+  
+  .banner {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .banner img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+  }
+  
+  
+  
+  
+  /* General Body Styling */
+  
+  
+  /* Toolbar Styling */
+  .toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #000; /* Set background to black */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Logo */
+  .logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff; /* White text color */
+  }
+  
+  .logo-link {
+    text-decoration: none;
+    color: #fff; /* White text color */
+  }
+  
+  .logo-link:hover {
+    color: #ff5722; /* Accent color for hover */
+  }
+  
+  /* Search Bar Container */
+  .search-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 40%;
+  }
+  
+  /* Search Bar */
+  .search-bar {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 25px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    outline: none;
+    background-color: #333; /* Dark background for the search bar */
+    color: #fff; /* White text inside the search bar */
+  }
+  
+  .search-bar::placeholder {
+    color: #bbb; /* Lighter placeholder color */
+  }
+  
+  .search-bar:focus {
+    border-color: #ff5722; /* Highlight color when focused */
+  }
+  
+  /* Search Button */
+  .search-btn {
+    position: absolute;
+    right: 0;
+    background-color: #ff5722; /* Accent color */
+    border: none;
+    padding: 10px 15px;
+    border-radius: 25px;
+    cursor: pointer;
+  }
+  
+  .search-btn img {
+    width: 20px;
+    height: 20px;
+  }
+  
+  /* Icons Section */
+  .icons {
+    display: flex;
+    gap: 20px;
+  }
+  
+  /* Icon Styling */
+  .icon {
+    font-size: 18px;
+    color: #fff; /* White color for icons */
+    cursor: pointer;
+  }
+  
+  .icon:hover {
+    color: #ff5722; /* Accent color when hovered */
+  }
+  
+  .icon a {
+    text-decoration: none;
+    color: #ff5722; /* Accent color for links */
+  }
+  
+  .icon a:hover {
+    text-decoration: underline;
+  }
+  
+  
+  
+  /* Dropdown Styling */
+  .category-dropdown {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #333; /* Dark background for dropdown */
+    color: #fff; /* White text in dropdown */
+  }
+  
+  .category-dropdown:focus {
+    border-color: #ff5722; /* Highlight color when focused */
+    outline: none;
+  }
+  
+  /* Styling for the Signup link */
+  .signup-link {
+    text-decoration: none;
+    color: #ff5722; /* Accent color */
+  }
+  
+  .signup-link:hover {
+    text-decoration: underline;
+  }
+  

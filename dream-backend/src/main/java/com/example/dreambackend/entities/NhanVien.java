@@ -57,6 +57,6 @@ public class NhanVien {
     private Integer trangThai;
 
     @ManyToOne
-    @JoinColumn(name = "id_vai_tro", referencedColumnName = "id", nullable = false) // Tham chiếu đến cột id của VaiTro
+    @JoinColumn(name = "id_vai_tro", referencedColumnName = "id", nullable = false)
     private VaiTro vaiTro;
 }

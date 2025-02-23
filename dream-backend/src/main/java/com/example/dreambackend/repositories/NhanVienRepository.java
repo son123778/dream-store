@@ -78,4 +78,5 @@ public interface NhanVienRepository extends JpaRepository<NhanVien, Integer> {
         WHERE nv.trangThai = :trangThai
     """)
     List<NhanVienResponse> filterNhanVienByTrangThai(Integer trangThai);
+    NhanVien findNhanVienByTaiKhoan(String taiKhoan);
 }

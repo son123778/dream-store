@@ -12,4 +12,3 @@ public interface VoucherRepository extends JpaRepository<Voucher,Integer> {
     List<Voucher> findByTenContainingIgnoreCase(String ten);
 
 }
-

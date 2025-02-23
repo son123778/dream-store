@@ -71,4 +71,8 @@ public class NhanVienService implements INhanVienService {
 
         return nhanVienRepository.save(nhanVien);
     }
+    @Override
+    public NhanVien getNhanVienByTaiKhoan(String taiKhoan){
+        return nhanVienRepository.findNhanVienByTaiKhoan(taiKhoan);
+    }
 }
