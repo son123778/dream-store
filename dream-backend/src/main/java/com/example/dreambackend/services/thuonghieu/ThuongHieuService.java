@@ -1,18 +1,18 @@
 package com.example.dreambackend.services.thuonghieu;
 
 
-import com.example.dreambackend.dtos.ThuongHieuDto;
-
 import com.example.dreambackend.entities.ThuongHieu;
 import com.example.dreambackend.repositories.ThuongHieuRepository;
 import com.example.dreambackend.requests.ThuongHieuRequest;
-import com.example.dreambackend.respones.ThuongHieuRespone;
+import com.example.dreambackend.responses.ThuongHieuRespone;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Random;
+
 @Service
 public class ThuongHieuService implements IThuongHieuService{
     @Autowired
@@ -33,9 +33,25 @@ public class ThuongHieuService implements IThuongHieuService{
     public ThuongHieu addThuongHieu(ThuongHieuRequest thuongHieuRequest) {
         ThuongHieu thuongHieu = new ThuongHieu();
         BeanUtils.copyProperties(thuongHieuRequest, thuongHieu);
+        thuongHieu.setMa(taoMaThuongHieu());
         thuongHieu.setNgayTao(LocalDate.now());
         thuongHieu.setNgaySua(LocalDate.now());
         return thuongHieuRepository.save(thuongHieu);
+    }
+
+    public boolean existsThuongHieu(String ten) {
+        return thuongHieuRepository.existsByTen(ten);
+    }
+
+    private String taoMaThuongHieu() {
+        Random random = new Random();
+        String maThuongHieu;
+        do {
+            int soNgauNhien = 1 + random.nextInt(9999); // Sinh số từ 1 đến 9999
+            String maSo = String.format("%04d", soNgauNhien); // Định dạng thành 4 chữ số
+            maThuongHieu = "TH" + maSo;
+        } while (thuongHieuRepository.existsByMa(maThuongHieu)); // Kiểm tra xem mã đã tồn tại chưa
+        return maThuongHieu;
     }
 
     @Override

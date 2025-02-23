@@ -1,10 +1,8 @@
 package com.example.dreambackend.services.nhanvien;
 
 import com.example.dreambackend.entities.NhanVien;
-import com.example.dreambackend.request.NhanVienRequest;
-import com.example.dreambackend.response.NhanVienResponse;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import com.example.dreambackend.requests.NhanVienRequest;
+import com.example.dreambackend.responses.NhanVienResponse;
 
 import java.util.List;
 

@@ -4,19 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="5d7dcb88-d015-40bd-b1c2-e4c2578857ff" name="Default Changelist" comment="" />
+=======
+    <list default="true" id="06a4a424-872f-46d5-a024-e571f98b390c" name="Changes" comment="" />
+>>>>>>> 8f58cd00460ad6c202d30a0a4c70763d5386163b
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Interface" />
-        <option value="Class" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -34,9 +30,10 @@
   }
 }</component>
   <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 7
 }</component>
-  <component name="ProjectId" id="2qqbUzDU5XvmcZejEDkX9i744r8" />
+  <component name="ProjectId" id="2szj47W1qDqpDOBRuOSuqxhiyDI" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -44,6 +41,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+<<<<<<< HEAD
     &quot;Maven.dream-backend [clean,install].executor&quot;: &quot;Run&quot;,
     &quot;Maven.dream-backend [clean].executor&quot;: &quot;Run&quot;,
     &quot;Maven.dream-backend [spring-boot:debug].executor&quot;: &quot;Run&quot;,
@@ -61,12 +59,26 @@
     &quot;last_opened_file_path&quot;: &quot;D:/dream-store/dream-backend&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+=======
+    &quot;Application.DreamBackendApplication.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in dream-backend.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.dream-backend [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.dream-backend [spring-boot:run].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.DreamBackendApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;huy-hung&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+>>>>>>> 8f58cd00460ad6c202d30a0a4c70763d5386163b
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+<<<<<<< HEAD
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\controllers" />
@@ -79,34 +91,16 @@
       <recent name="org.example.dreambackend.entity" />
     </key>
   </component>
+=======
+>>>>>>> 8f58cd00460ad6c202d30a0a4c70763d5386163b
   <component name="RunAnythingCache">
     <option name="myCommands">
+      <command value="spring-boot run" />
       <command value="mvn clean" />
-      <command value="mvn clean install" />
-      <command value="mvn spring-boot:debug" />
       <command value="mvn spring-boot:run" />
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.DreamBackendApplication">
-    <configuration default="true" type="JetRunConfigurationType">
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DreamBackendApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
-      <module name="dream-backend" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.dreambackend.DreamBackendApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager">
     <configuration name="DreamBackendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="dream-backend" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.dreambackend.DreamBackendApplication" />
@@ -114,10 +108,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <list>
-      <item itemvalue="Spring Boot.DreamBackendApplication" />
-      <item itemvalue="Spring Boot.DreamBackendApplication (1)" />
-    </list>
+    <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="dream-backend" />
+      <option name="SPRING_BOOT_MAIN_CLASS" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -128,15 +125,13 @@
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-  <component name="StructureViewState">
-    <option name="selectedTab" value="Logical" />
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="5d7dcb88-d015-40bd-b1c2-e4c2578857ff" name="Default Changelist" comment="" />
-      <created>1735393073097</created>
+      <changelist id="06a4a424-872f-46d5-a024-e571f98b390c" name="Changes" comment="" />
+      <created>1739465110101</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
+<<<<<<< HEAD
       <updated>1735393073097</updated>
       <workItem from="1735393074478" duration="1908000" />
       <workItem from="1735488542796" duration="1221000" />
@@ -172,6 +167,19 @@
       <workItem from="1739887797562" duration="14000" />
       <workItem from="1739887869009" duration="142000" />
       <workItem from="1740300947474" duration="544000" />
+=======
+      <updated>1739465110101</updated>
+      <workItem from="1739465112894" duration="191000" />
+      <workItem from="1739509840252" duration="652000" />
+      <workItem from="1739540040948" duration="5532000" />
+      <workItem from="1739628393834" duration="2612000" />
+      <workItem from="1739712730462" duration="7148000" />
+      <workItem from="1739783644506" duration="1278000" />
+      <workItem from="1739800776181" duration="5711000" />
+      <workItem from="1739865638208" duration="5244000" />
+      <workItem from="1739971791545" duration="8852000" />
+      <workItem from="1740059956685" duration="4797000" />
+>>>>>>> 8f58cd00460ad6c202d30a0a4c70763d5386163b
     </task>
     <servers />
   </component>
@@ -188,8 +196,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
 </project>
