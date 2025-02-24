@@ -1,6 +1,7 @@
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\configs\SwaggerConfig.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\configs\WebConfig.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\controllers\AnhController.java
+D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\controllers\BanHangOnlineController.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\controllers\ChatLieuController.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\controllers\CoAoController.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\controllers\GioHangChiTietController.java
@@ -58,6 +59,7 @@ D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\repositories
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\repositories\NhanVienRepository.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\repositories\PhuongThucThanhToanRepository.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\repositories\SanPhamChiTietRepository.java
+D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\repositories\SanPhamOnlineRepository.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\repositories\SanPhamRepository.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\repositories\SizeRepository.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\repositories\ThongKeRepository.java
@@ -121,6 +123,8 @@ D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\san
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\sanpham\SanPhamService.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\sanphamchitiet\ISanPhamChiTietService.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\sanphamchitiet\SanPhamChiTietService.java
+D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\sanphamonline\ISanPhamOnlineService.java
+D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\sanphamonline\SanPhamOnlineService.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\size\ISizeService.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\size\SizeService.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\thongke\ThongKeService.java

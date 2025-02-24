@@ -1,0 +1,35 @@
+<nav>
+  <ul>
+    <li><a href="#">Trang chủ</a></li>
+    <li><a href="#">Sản phẩm</a></li>
+    <li><a href="#">Liên hệ</a></li>
+    <li class="auth"><a href="#">Đăng nhập</a></li>
+    <li class="auth"><a href="#">Đăng xuất</a></li>
+  </ul>
+</nav>
+
+<!-- Slide Show -->
+ <div>
+  <img src="https://static.vecteezy.com/system/resources/previews/014/438/677/non_2x/dream-cartoon-web-banner-with-child-open-door-free-vector.jpg" alt="">
+ </div>
+
+<!-- Danh sách sản phẩm -->
+<div class="container">
+  <h2 class="text-center my-4">Danh sách sản phẩm</h2>
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let sanPham of sanPhamOnlines">
+      <div class="card">
+        <!-- Ảnh sản phẩm -->
+        <img [src]="sanPham.anhUrl ? sanPham.anhUrl : 'https://via.placeholder.com/200'" 
+             class="card-img-top" 
+             alt="Ảnh sản phẩm">
+             
+        <div class="card-body">
+          <h5 class="card-title">{{ sanPham.ten }}</h5>
+          <p class="card-text"><strong>Giá:</strong> {{ sanPham.gia | currency:'VND' }}</p>
+          <button class="btn btn-primary">Mua ngay</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
