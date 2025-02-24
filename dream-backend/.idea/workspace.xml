@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06a4a424-872f-46d5-a024-e571f98b390c" name="Changes" comment="" />
+    <list default="true" id="06a4a424-872f-46d5-a024-e571f98b390c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,7 +47,7 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;Spring Boot.DreamBackendApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;huy-hung&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -103,6 +105,13 @@
       <workItem from="1739865638208" duration="5244000" />
       <workItem from="1739971791545" duration="8852000" />
       <workItem from="1740059956685" duration="4797000" />
+      <workItem from="1740310290767" duration="556000" />
+      <workItem from="1740316065590" duration="667000" />
+      <workItem from="1740316832802" duration="1125000" />
+      <workItem from="1740318369676" duration="1093000" />
+      <workItem from="1740320827914" duration="140000" />
+      <workItem from="1740321296432" duration="976000" />
+      <workItem from="1740322606918" duration="165000" />
     </task>
     <servers />
   </component>
