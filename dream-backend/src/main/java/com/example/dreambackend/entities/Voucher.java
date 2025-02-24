@@ -32,12 +32,6 @@ public class Voucher {
     @Column(name = "gia_tri_giam", nullable = false, precision = 10, scale = 2)
     private BigDecimal giaTriGiam;
 
-    @Column(name = "don_toi_thieu", nullable = false, precision = 10, scale = 2)
-    private BigDecimal donToiThieu;
-
-    @Column(name = "giam_toi_da", nullable = false, precision = 10, scale = 2)
-    private BigDecimal giamToiDa;
-
     @Column(name = "trang_thai", nullable = false)
     private Integer trangThai;
 

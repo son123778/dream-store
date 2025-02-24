@@ -1,16 +1,18 @@
 package com.example.dreambackend.services.anh;
 
 import com.example.dreambackend.entities.Anh;
-import com.example.dreambackend.responses.AnhRespone;
+import com.example.dreambackend.requests.AnhRequest;
+import com.example.dreambackend.respones.AnhRespone;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
 public interface IAnhService {
-    List<AnhRespone> getAllAnh(Integer idSanPham);
+    List<AnhRespone> getAllAnh();
 
-    void deleteAnh(Integer id);
+    Anh getAnhById(Integer id);
 
-    List<Anh> addAnhs(List<MultipartFile> anhUrls, Integer idSanPham);
+    List<Anh> addAnhs(List<MultipartFile> anhUrls, Integer trangThai, Integer idSanPham);
 
+    List<Anh> updateAnhs(List<MultipartFile> anhUrls, List<Integer> trangThais, List<Integer> ids, Integer idSanPham);
 }

@@ -2,7 +2,7 @@ package com.example.dreambackend.services.mausac;
 
 import com.example.dreambackend.entities.MauSac;
 import com.example.dreambackend.requests.MauSacRequest;
-import com.example.dreambackend.responses.MauSacRepone;
+import com.example.dreambackend.respones.MauSacRepone;
 
 import java.util.List;
 

@@ -18,6 +18,22 @@ public class HoaDon {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @ManyToOne
+    @JoinColumn(name = "id_khach_hang", referencedColumnName = "id")
+    private KhachHang khachHang;
+
+    @ManyToOne
+    @JoinColumn(name = "id_nhan_vien", referencedColumnName = "id")
+    private NhanVien nhanVien;
+
+    @ManyToOne
+    @JoinColumn(name = "id_voucher", referencedColumnName = "id")
+    private Voucher voucher;
+
+    @ManyToOne
+    @JoinColumn(name = "id_phuong_thuc_thanh_toan", referencedColumnName = "id")
+    private PhuongThucThanhToan phuongThucThanhToan;
+
     @Column(name = "ma")
     private String ma;
 
@@ -33,43 +49,27 @@ public class HoaDon {
     @Column(name = "hinh_thuc_thanh_toan")
     private String hinhThucThanhToan;
 
-    @Column(name= "phi_van_chuyen")
-    private Double phiVanChuyen;
+    @Column(name = "phi_van_chuyen")
+    private Float phiVanChuyen;
 
     @Column(name = "tong_tien_truoc_voucher")
-    private Double tongTienTruocVoucher;
+    private Float tongTienTruocVoucher;
 
     @Column(name = "tong_tien_thanh_toan")
-    private Double tongTienThanhToan;
+    private Float tongTienThanhToan;
 
     @Column(name = "ngay_nhan_du_kien")
     private LocalDate ngayNhanDuKien;
 
     @Column(name = "ngay_tao")
-    private LocalDate ngayTao;
+    private LocalDateTime ngayTao;
 
     @Column(name = "ngay_sua")
-    private LocalDate ngaySua;
+    private LocalDateTime ngaySua;
 
     @Column(name = "trang_thai")
     private Integer trangThai;
 
     @Column(name = "ghi_chu")
     private String ghiChu;
-
-    @ManyToOne
-    @JoinColumn(name = "id_khach_hang", referencedColumnName = "id")
-    private KhachHang khachHang;
-
-    @ManyToOne
-    @JoinColumn(name = "id_nhan_vien", referencedColumnName = "id")
-    private NhanVien nhanVien;
-
-    @ManyToOne
-    @JoinColumn(name = "id_voucher",referencedColumnName = "id")
-    private Voucher voucher;
-
-    @ManyToOne
-    @JoinColumn(name = "id_phuong_thuc_thanh_toan", referencedColumnName = "id")
-    private PhuongThucThanhToan phuongThucThanhToan;
 }
