@@ -37,7 +37,6 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-<<<<<<< HEAD
     &quot;Maven.dream-backend [clean,install].executor&quot;: &quot;Run&quot;,
     &quot;Maven.dream-backend [clean].executor&quot;: &quot;Run&quot;,
     &quot;Maven.dream-backend [spring-boot:debug].executor&quot;: &quot;Run&quot;,
@@ -55,7 +54,6 @@
     &quot;last_opened_file_path&quot;: &quot;D:/dream-store/dream-backend&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-=======
     &quot;Application.DreamBackendApplication.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.All in dream-backend.executor&quot;: &quot;Run&quot;,
     &quot;Maven.dream-backend [clean].executor&quot;: &quot;Run&quot;,
@@ -67,14 +65,12 @@
     &quot;git-widget-placeholder&quot;: &quot;huy-hung&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
->>>>>>> 8f58cd00460ad6c202d30a0a4c70763d5386163b
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-<<<<<<< HEAD
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\controllers" />
@@ -87,8 +83,6 @@
       <recent name="org.example.dreambackend.entity" />
     </key>
   </component>
-=======
->>>>>>> 8f58cd00460ad6c202d30a0a4c70763d5386163b
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="spring-boot run" />
@@ -127,7 +121,6 @@
       <created>1739465110101</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-<<<<<<< HEAD
       <updated>1735393073097</updated>
       <workItem from="1735393074478" duration="1908000" />
       <workItem from="1735488542796" duration="1221000" />
@@ -163,7 +156,6 @@
       <workItem from="1739887797562" duration="14000" />
       <workItem from="1739887869009" duration="142000" />
       <workItem from="1740300947474" duration="544000" />
-=======
       <updated>1739465110101</updated>
       <workItem from="1739465112894" duration="191000" />
       <workItem from="1739509840252" duration="652000" />
@@ -175,7 +167,6 @@
       <workItem from="1739865638208" duration="5244000" />
       <workItem from="1739971791545" duration="8852000" />
       <workItem from="1740059956685" duration="4797000" />
->>>>>>> 8f58cd00460ad6c202d30a0a4c70763d5386163b
     </task>
     <servers />
   </component>
