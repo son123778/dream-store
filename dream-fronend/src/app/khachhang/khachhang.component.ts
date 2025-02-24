@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common'; // Import CommonModule
 import { KhachHangService } from './khachhang.service'; // Import service
 
 @Component({
   selector: 'app-khachhang',
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './khachhang.component.html',
   styleUrl: './khachhang.component.css'
 })

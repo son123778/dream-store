@@ -92,20 +92,6 @@ export class KhuyenmaiComponent implements OnInit {
   }
 
   openProductSelectionModal(khuyenMaiId: number): void {
-    // Tìm khuyến mãi theo ID
-  const selectedKhuyenMai = this.khuyenmais.find(km => km.id === khuyenMaiId);
-
-  if (!selectedKhuyenMai) {
-    alert('Không tìm thấy khuyến mãi!');
-    return;
-  }
-
-  // Kiểm tra nếu khuyến mãi không hoạt động
-  if (!selectedKhuyenMai.trangThai) {
-    alert('Khuyến mãi không hoạt động, không thể chọn sản phẩm!');
-    return;
-  }
-
     this.selectedKhuyenMaiId = khuyenMaiId;
     this.khuyenmaiService.getAvailableProducts(khuyenMaiId).subscribe(
       (products) => {

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { VoucherService } from './voucher.service';
 import { FormsModule } from '@angular/forms';
-
 @Component({
   selector: 'app-voucher',
   imports: [CommonModule, FormsModule],
@@ -31,8 +30,6 @@ export class VoucherComponent implements OnInit {
     ten: '',
     hinhThucGiam: null,
     giaTriGiam: null,
-    donToiThieu: null,
-    giamToiDa: null,
     ngayBatDau: '',
     ngayTao: '',
     ngaySua: '',
@@ -127,30 +124,6 @@ export class VoucherComponent implements OnInit {
       }
     }
 
-    if (this.voucher.donToiThieu === null || this.voucher.donToiThieu === undefined || this.voucher.donToiThieu === '') {
-      this.errors.donToiThieu = 'Giảm tối đa không được để trống!';
-    } else {
-      // Ép về kiểu number để check
-      const numericValue = Number(this.voucher.donToiThieu);
-      if (isNaN(numericValue)) {
-        this.errors.donToiThieu = 'Giảm tối đa phải là số!';
-      } else if (numericValue < 0) {
-        this.errors.donToiThieu = 'Giảm tối đa không được âm!';
-      }
-    }
-
-    if (this.voucher.giamToiDa === null || this.voucher.giamToiDa === undefined || this.voucher.giamToiDa === '') {
-      this.errors.giamToiDa = 'Giảm tối đa không được để trống!';
-    } else {
-      // Ép về kiểu number để check
-      const numericValue = Number(this.voucher.giamToiDa);
-      if (isNaN(numericValue)) {
-        this.errors.giamToiDa = 'Đơn tối thiểu phải là số!';
-      } else if (numericValue < 0) {
-        this.errors.giamToiDa = 'Đơn tối thiểu không được âm!';
-      }
-    }
-
     if (!this.voucher.ngayBatDau) {
       this.errors.ngayBatDau = 'Ngày bắt đầu không được để trống!';
     }
@@ -226,30 +199,6 @@ export class VoucherComponent implements OnInit {
         this.errors.giaTriGiam = 'Giá trị giảm phải là số!';
       } else if (numericValue < 0) {
         this.errors.giaTriGiam = 'Giá trị giảm không được âm!';
-      }
-    }
-
-    if (this.voucherEdit.donToiThieu === null || this.voucherEdit.donToiThieu === undefined || this.voucherEdit.donToiThieu === '') {
-      this.errors.donToiThieu = 'Đơn tối thiểu không được để trống!';
-    } else {
-      // Ép về kiểu number để check
-      const numericValue = Number(this.voucherEdit.donToiThieu);
-      if (isNaN(numericValue)) {
-        this.errors.donToiThieu = 'Đơn tối thiểu phải là số!';
-      } else if (numericValue < 0) {
-        this.errors.donToiThieu = 'Đơn tối thiểu không được âm!';
-      }
-    }
-
-    if (this.voucherEdit.giamToiDa === null || this.voucherEdit.giamToiDa === undefined || this.voucherEdit.giamToiDa === '') {
-      this.errors.giamToiDa = 'Giảm tối đa không được để trống!';
-    } else { 
-      // Ép về kiểu number để check
-      const numericValue = Number(this.voucherEdit.giamToiDa);
-      if (isNaN(numericValue)) {
-        this.errors.giamToiDa = 'Giảm tối đa phải là số!';
-      } else if (numericValue < 0) {
-        this.errors.giamToiDa = 'Giảm tối đa không được âm!';
       }
     }
 

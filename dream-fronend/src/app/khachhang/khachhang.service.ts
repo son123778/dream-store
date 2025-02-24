@@ -6,13 +6,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class KhachHangService {
-  private apiUrl = 'http://localhost:8080/api/khach-hang'; // URL backend
+  private apiUrl = 'http://localhost:8080/api/khachhang'; // URL backend
 
   constructor(private http: HttpClient) {}
 
   // Lấy danh sách nhân viên
   getAllKhachHang(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl + '/hien-thi');
+    return this.http.get<any[]>(this.apiUrl);
   }
 
   // Lấy thông tin chi tiết nhân viên theo ID
