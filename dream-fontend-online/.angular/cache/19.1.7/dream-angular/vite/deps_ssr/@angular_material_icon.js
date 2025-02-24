@@ -1,16 +1,16 @@
 import { createRequire } from 'module';const require = createRequire(import.meta.url);
 import {
-  MatCommonModule
-} from "./chunk-K5FPHJII.js";
-import {
   DomSanitizer
-} from "./chunk-ZNZJ3U3L.js";
+} from "./chunk-3NDS3SH7.js";
 import {
   HttpClient
-} from "./chunk-2CQP5LD3.js";
+} from "./chunk-UCR4SLQB.js";
+import {
+  MatCommonModule
+} from "./chunk-OQVLG36D.js";
 import {
   DOCUMENT
-} from "./chunk-ZSCYCNUI.js";
+} from "./chunk-YP53VXWL.js";
 import {
   ChangeDetectionStrategy,
   Component,
@@ -42,7 +42,7 @@ import {
   ɵɵinject,
   ɵɵprojection,
   ɵɵprojectionDef
-} from "./chunk-GJQPQF2B.js";
+} from "./chunk-2UP2VUQ5.js";
 import {
   __toESM
 } from "./chunk-YHCV7DAQ.js";

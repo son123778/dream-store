@@ -48,13 +48,11 @@ export class BanhangComponent implements AfterViewInit {
   /** Cập nhật kích thước tab khi số lượng thay đổi */
   updateTabSize(): void {
     if (!this.tabContainer) return;
-
-    const containerWidth = window.innerWidth * 0.5; // Giới hạn 50% màn hình
+    // const containerWidth = window.innerWidth * 0.5; // Giới hạn 50% màn hình
     const totalTabs = this.invoices.length + 1; // Tổng số tab + nút thêm
-
-    this.tabWidth = totalTabs * this.maxTabWidth > containerWidth
-      ? Math.max(containerWidth / totalTabs, this.minTabWidth)
-      : this.maxTabWidth;
+    // // this.tabWidth = totalTabs * this.maxTabWidth > containerWidth
+    // //   ? Math.max(containerWidth / totalTabs, this.minTabWidth)
+    //   : this.maxTabWidth;
   }
 
   /** Lắng nghe thay đổi kích thước màn hình */
