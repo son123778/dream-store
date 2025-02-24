@@ -49,11 +49,14 @@ public class KhuyenMaiService implements IKhuyenMaiService{
 
     @Override
     public List<SanPhamChiTietDto> findAvailableProducts(Integer khuyenMaiId) {
+        // Đảm bảo các sản phẩm của khuyến mãi hết hạn có idKhuyenMai = null trước khi chọn sản phẩm mới
+        resetExpiredKhuyenMaiProducts();
         return sanPhamChiTietRepository.findAvailableProducts(khuyenMaiId);
     }
 
     @Override
     public void updateKhuyenMaiProducts(Integer khuyenMaiId, List<Integer> productIds) {
+
         // Lấy khuyến mãi hiện tại
         KhuyenMai khuyenMai = khuyenMaiRepository.findById(khuyenMaiId)
                 .orElseThrow(() -> new RuntimeException("Không tìm thấy khuyến mãi với ID: " + khuyenMaiId));
@@ -70,6 +73,28 @@ public class KhuyenMaiService implements IKhuyenMaiService{
         }
         sanPhamChiTietRepository.saveAll(newProducts);
     }
+
+    private void resetExpiredKhuyenMaiProducts() {
+        LocalDate today = LocalDate.now();
+
+        // Lấy danh sách khuyến mãi đã hết hạn
+        List<Integer> expiredKhuyenMaiIds = khuyenMaiRepository.findAll().stream()
+                .filter(km -> km.getNgayKetThuc() != null && km.getNgayKetThuc().isBefore(today))
+                .map(KhuyenMai::getId)
+                .toList();
+
+        if (!expiredKhuyenMaiIds.isEmpty()) {
+            // Lấy danh sách sản phẩm có khuyến mãi hết hạn
+            List<SanPhamChiTiet> affectedProducts = sanPhamChiTietRepository.findAllByKhuyenMaiIdIn(expiredKhuyenMaiIds);
+
+            // Đặt idKhuyenMai của sản phẩm về null
+            affectedProducts.forEach(spct -> spct.setKhuyenMai(null));
+
+            // Cập nhật danh sách sản phẩm trong database
+            sanPhamChiTietRepository.saveAll(affectedProducts);
+        }
+    }
+
     private void checkAndUpdateStatus(KhuyenMai khuyenMai) {
         if (khuyenMai.getNgayKetThuc() != null && khuyenMai.getNgayKetThuc().isBefore(LocalDate.now())) {
             if (khuyenMai.getTrangThai() != 0) { // Tránh cập nhật không cần thiết

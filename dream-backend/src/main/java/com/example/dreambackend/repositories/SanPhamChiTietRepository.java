@@ -91,5 +91,11 @@ public interface SanPhamChiTietRepository extends JpaRepository<SanPhamChiTiet, 
     // Phương thức để tìm tất cả sản phẩm liên kết với một khuyến mãi cụ thể
     List<SanPhamChiTiet> findAllByKhuyenMaiId(Integer khuyenMaiId);
 
+
+    @Query("SELECT spct FROM SanPhamChiTiet spct WHERE spct.khuyenMai.id IN :khuyenMaiIds")
+    List<SanPhamChiTiet> findAllByKhuyenMaiIdIn(@Param("khuyenMaiIds") List<Integer> khuyenMaiIds);
+
+
     boolean existsByMa(String ma);
+
 }
