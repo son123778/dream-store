@@ -8,4 +8,5 @@ import java.util.List;
 @Repository
 public interface NhanVienRepository extends JpaRepository<NhanVien, Integer> {
     List<NhanVien> findByTenContainingIgnoreCase(String ten);
+
 }

@@ -1,14 +1,9 @@
 package com.example.dreambackend.services.voucher;
 
-import com.example.dreambackend.entities.KhuyenMai;
-import com.example.dreambackend.entities.ThuongHieu;
 import com.example.dreambackend.entities.Voucher;
-import com.example.dreambackend.repositories.ThuongHieuRepository;
+
 import com.example.dreambackend.repositories.VoucherRepository;
 
-import jakarta.transaction.Transactional;
-
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

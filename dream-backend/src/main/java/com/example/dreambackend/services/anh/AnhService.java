@@ -27,24 +27,40 @@ public class AnhService implements IAnhService {
     AnhRepository anhRepository;
 
     @Override
-    public List<AnhRespone> getAllAnh() {
-        return anhRepository.getAllAnhRespones();
+    public List<AnhRespone> getAllAnh(Integer idSanPham) {
+        return anhRepository.getAllAnhRespones(idSanPham);
     }
 
     @Override
-    public Anh getAnhById(Integer id) {
-        return anhRepository.findById(id).orElseThrow(()->
-                new RuntimeException("Không tìm thấy id ảnh"));
+    public void deleteAnh(Integer id) {
+        Anh anh = anhRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Không tìm thấy ảnh với ID: " + id));
+        // Xóa file ảnh khỏi thư mục
+        Path filePath = Paths.get("uploads/images/", anh.getAnhUrl().replaceFirst("/", ""));
+        try {
+            Files.deleteIfExists(filePath);
+        } catch (IOException e) {
+            throw new RuntimeException("Lỗi khi xóa file ảnh: " + e.getMessage());
+        }
+        anhRepository.deleteById(id);
     }
 
     @Override
-    public List<Anh> addAnhs(List<MultipartFile> anhUrls, Integer trangThai, Integer idSanPham) {
+    public List<Anh> addAnhs(List<MultipartFile> anhUrls, Integer idSanPham) {
         List<Anh> anhs = new ArrayList<>();
+
         try {
             // Kiểm tra sản phẩm tồn tại
             SanPham sanPham = sanPhamRepository.findById(idSanPham)
                     .orElseThrow(() -> new RuntimeException("Không tìm thấy sản phẩm với ID: " + idSanPham));
 
+            // Lấy danh sách ảnh hiện có của sản phẩm
+            List<Anh> existingAnhs = anhRepository.findBySanPhamId(idSanPham);
+
+            // Kiểm tra số lượng ảnh không vượt quá 5
+            if (existingAnhs.size() + anhUrls.size() > 5) {
+                throw new RuntimeException("Mỗi sản phẩm chỉ được có tối đa 5 ảnh.");
+            }
             for (MultipartFile anhUrl : anhUrls) {
                 // Lưu file ảnh vào thư mục
                 String uploadDir = "uploads/images/";
@@ -56,10 +72,10 @@ public class AnhService implements IAnhService {
                 // Tạo đối tượng Anh
                 Anh anh = new Anh();
                 anh.setAnhUrl("/" + uploadDir + fileName); // URL lưu file
-                anh.setTrangThai(trangThai);
                 anh.setSanPham(sanPham);
                 anh.setNgayTao(LocalDate.now());
                 anh.setNgaySua(LocalDate.now());
+                anh.setTrangThai(1);
 
                 // Lưu vào cơ sở dữ liệu
                 anhs.add(anhRepository.save(anh));
@@ -71,59 +87,6 @@ public class AnhService implements IAnhService {
             throw new RuntimeException("Lỗi khi lưu file ảnh: " + e.getMessage());
         }
     }
-
-
-    @Override
-    public List<Anh> updateAnhs(List<MultipartFile> anhUrls, List<Integer> trangThais, List<Integer> ids, Integer idSanPham) {
-        // Kiểm tra kích thước của các danh sách
-        if (anhUrls.size() != trangThais.size() || anhUrls.size() != ids.size()) {
-            throw new RuntimeException("Số lượng file, trạng thái và ID không khớp");
-        }
-
-        List<Anh> updatedAnhs = new ArrayList<>();
-        try {
-            // Tìm sản phẩm tương ứng
-            SanPham sanPham = sanPhamRepository.findById(idSanPham)
-                    .orElseThrow(() -> new RuntimeException("Không tìm thấy sản phẩm với id: " + idSanPham));
-
-            for (int i = 0; i < ids.size(); i++) {
-                Integer id = ids.get(i);
-                if (id == null) {
-                    throw new RuntimeException("ID không được null tại chỉ số: " + i);
-                }
-
-                Anh anhUpdate = anhRepository.findById(id)
-                        .orElseThrow(() -> new RuntimeException("Không tìm thấy ảnh với id: " + id));
-
-                if (!anhUrls.get(i).isEmpty()) {
-                    String uploadDir = "uploads/images/";
-                    String fileName = System.currentTimeMillis() + "_" + anhUrls.get(i).getOriginalFilename();
-                    Path filePath = Paths.get(uploadDir, fileName);
-                    Files.createDirectories(filePath.getParent());
-                    Files.write(filePath, anhUrls.get(i).getBytes());
-
-                    anhUpdate.setAnhUrl("/" + uploadDir + fileName);
-                }
-
-                Integer trangThai = trangThais.get(i);
-                if (trangThai == null) {
-                    throw new RuntimeException("Trạng thái không được null tại chỉ số: " + i);
-                }
-                anhUpdate.setTrangThai(trangThai);
-                anhUpdate.setNgaySua(LocalDate.now());
-
-                // Thiết lập sản phẩm
-                anhUpdate.setSanPham(sanPham); // Thiết lập đối tượng SanPham
-
-                updatedAnhs.add(anhRepository.save(anhUpdate));
-            }
-        } catch (IOException e) {
-            throw new RuntimeException("Lỗi khi lưu file ảnh: " + e.getMessage());
-        }
-        return updatedAnhs;
-    }
-
-
 
 
 }

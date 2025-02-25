@@ -3,6 +3,9 @@ F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreamb
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\controllers\AnhController.java
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\controllers\ChatLieuController.java
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\controllers\CoAoController.java
+F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\controllers\GioHangChiTietController.java
+F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\controllers\HoaDonChiTietController.java
+F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\controllers\HoaDonController.java
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\controllers\KhachHangController.java
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\controllers\KhuyenMaiController.java
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\controllers\MauSacController.java
@@ -27,7 +30,7 @@ F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreamb
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\entities\ChatLieu.java
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\entities\CoAo.java
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\entities\DiaChiKhachHang.java
-F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\entities\GioHang.java
+F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\entities\GioHangChiTiet.java
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\entities\HoaDon.java
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\entities\HoaDonChiTiet.java
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\entities\KhachHang.java
@@ -46,12 +49,14 @@ F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreamb
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\repositories\AnhRepository.java
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\repositories\ChatLieuRepository.java
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\repositories\CoAoRepository.java
+F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\repositories\GioHangChiTietRepository.java
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\repositories\HoaDonChiTietRepository.java
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\repositories\HoaDonRepository.java
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\repositories\KhachHangRepository.java
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\repositories\KhuyenMaiRepository.java
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\repositories\MauSacRepository.java
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\repositories\NhanVienRepository.java
+F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\repositories\PhuongThucThanhToanRepository.java
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\repositories\SanPhamChiTietRepository.java
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\repositories\SanPhamRepository.java
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\repositories\SizeRepository.java
@@ -63,6 +68,9 @@ F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreamb
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\requests\AnhRequest.java
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\requests\ChatLieuRequest.java
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\requests\CoAoRequest.java
+F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\requests\GioHangChiTietRequest.java
+F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\requests\HoaDonChiTietRequest.java
+F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\requests\HoaDonRequest.java
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\requests\MauSacRequest.java
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\requests\NhanVienRequest.java
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\requests\SanPhamChiTietRequest.java
@@ -75,6 +83,9 @@ F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreamb
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\responses\AnhRespone.java
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\responses\ChatLieuRespone.java
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\responses\CoAoRespone.java
+F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\responses\GioHangChiTietResponse.java
+F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\responses\HoaDonChiTietResponse.java
+F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\responses\HoaDonResponse.java
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\responses\MauSacRepone.java
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\responses\NhanVienResponse.java
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\responses\SanPhamChiTietRespone.java
@@ -94,6 +105,12 @@ F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreamb
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\services\chatlieu\IChatLieuService.java
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\services\coao\CoAoService.java
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\services\coao\ICoAoService.java
+F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\services\giohangchitiet\GioHangChiTietService.java
+F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\services\giohangchitiet\IGioHangChiTietService.java
+F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\services\hoadon\HoaDonService.java
+F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\services\hoadon\IHoaDonService.java
+F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\services\hoadonchitiet\HoaDonChiTietService.java
+F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\services\hoadonchitiet\IHoaDonChiTietService.java
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\services\khachhang\IKhachHangService.java
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\services\khachhang\KhachHangService.java
 F:\DuAnTotNghiep\dream-store-main\dream-backend\src\main\java\com\example\dreambackend\services\khuyenmai\IKhuyenMaiService.java

@@ -1,19 +1,206 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5d7dcb88-d015-40bd-b1c2-e4c2578857ff" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
   <component name="CompilerConfiguration">
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
-      <profile name="Maven default annotation processors profile" enabled="true">
+      <profile name="Annotation profile for dream-backend" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
+        </processorPath>
         <module name="dream-backend" />
       </profile>
     </annotationProcessing>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+    &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;HuyHung-04&quot;
+    }
+    }</component>
+  <component name="GithubPullRequestsUISettings">{
+    &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/HuyHung-04/dream-store.git&quot;,
+    &quot;accountId&quot;: &quot;add14f03-1032-4f59-855a-6b1a22e7c834&quot;
+    }
+    }</component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="dream-backend" options="-parameters" />
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+    &quot;customColor&quot;: &quot;&quot;,
+    &quot;associatedIndex&quot;: 7
+    }</component>
+  <component name="ProjectId" id="2szj47W1qDqpDOBRuOSuqxhiyDI" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+    &quot;keyToString&quot;: {
+    &quot;Maven.dream-backend [clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.dream-backend [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.dream-backend [spring-boot:debug].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.dream-backend [spring-boot:run].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.DreamBackendApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;le-hoang&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/dream-store/dream-backend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;Application.DreamBackendApplication.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in dream-backend.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.dream-backend [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.dream-backend [spring-boot:run].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.DreamBackendApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;huy-hung&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+    }
+    }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\controllers" />
+      <recent name="D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\repositories" />
+      <recent name="D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\dtos" />
+      <recent name="D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.dreambackend.entities" />
+      <recent name="org.example.dreambackend.entity" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="spring-boot run" />
+      <command value="mvn clean" />
+      <command value="mvn spring-boot:run" />
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="DreamBackendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="dream-backend" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.dreambackend.DreamBackendApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="dream-backend" />
+      <option name="SPRING_BOOT_MAIN_CLASS" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.218" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.218" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="06a4a424-872f-46d5-a024-e571f98b390c" name="Changes" comment="" />
+      <created>1739465110101</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1735393073097</updated>
+      <workItem from="1735393074478" duration="1908000" />
+      <workItem from="1735488542796" duration="1221000" />
+      <workItem from="1735490334317" duration="748000" />
+      <workItem from="1735492341305" duration="78000" />
+      <workItem from="1735567049467" duration="13079000" />
+      <workItem from="1735621551541" duration="1148000" />
+      <workItem from="1735652505084" duration="4511000" />
+      <workItem from="1735658759808" duration="1657000" />
+      <workItem from="1736517941958" duration="10825000" />
+      <workItem from="1736600629383" duration="8464000" />
+      <workItem from="1736687388879" duration="1357000" />
+      <workItem from="1736688781438" duration="1421000" />
+      <workItem from="1736690241290" duration="1556000" />
+      <workItem from="1736691995880" duration="3639000" />
+      <workItem from="1736696227265" duration="2892000" />
+      <workItem from="1736774105795" duration="6918000" />
+      <workItem from="1736862375702" duration="5815000" />
+      <workItem from="1736951614206" duration="2179000" />
+      <workItem from="1737040472222" duration="2466000" />
+      <workItem from="1737210894349" duration="1535000" />
+      <workItem from="1737292049909" duration="5285000" />
+      <workItem from="1737468374657" duration="4513000" />
+      <workItem from="1737549856865" duration="3218000" />
+      <workItem from="1737456884593" duration="263000" />
+      <workItem from="1737461756792" duration="811000" />
+      <workItem from="1737529140412" duration="973000" />
+      <workItem from="1739588481769" duration="508000" />
+      <workItem from="1739632811650" duration="613000" />
+      <workItem from="1739672364953" duration="2067000" />
+      <workItem from="1739694014397" duration="1716000" />
+      <workItem from="1739879488491" duration="1659000" />
+      <workItem from="1739887797562" duration="14000" />
+      <workItem from="1739887869009" duration="142000" />
+      <workItem from="1740300947474" duration="544000" />
+      <updated>1739465110101</updated>
+      <workItem from="1739465112894" duration="191000" />
+      <workItem from="1739509840252" duration="652000" />
+      <workItem from="1739540040948" duration="5532000" />
+      <workItem from="1739628393834" duration="2612000" />
+      <workItem from="1739712730462" duration="7148000" />
+      <workItem from="1739783644506" duration="1278000" />
+      <workItem from="1739800776181" duration="5711000" />
+      <workItem from="1739865638208" duration="5244000" />
+      <workItem from="1739971791545" duration="8852000" />
+      <workItem from="1740059956685" duration="4797000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
     </option>
   </component>
 </project>
