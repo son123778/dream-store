@@ -1,4 +1,36 @@
 /* Container styling */
+.filter-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Căn về bên trái */
+  margin-top: -20px;
+  position: relative;
+}
+
+/* Văn bản "Tìm kiếm sản phẩm" */
+.filter {
+  font-size: 14px;
+  color: #294764;
+  font-weight: bold;
+  margin: 0;
+  padding-left: 15px;
+}
+
+/* Ô tìm kiếm */
+.search-input {
+  padding: 5px 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  width: 300px;
+  border: 2px solid #294764; /* Thay đổi màu viền thành xanh dương */
+  position: relative; /* Thêm position để top và left hoạt động */
+  top: -5px;  /* Dịch lên trên */
+  left: 815px; /* Dịch sang trái */
+}
+
+
 .title {
   padding-left: 15px;
   font-size: 18px;
@@ -20,13 +52,16 @@
 .table-container {
   margin-left: 20px; /* Điều chỉnh bảng sát nút Thêm sản phẩm */
 }
-.filter {
-  margin-top: -20px; /* Giảm khoảng cách trên để sát hơn */
-  font-size: 14px; /* Thay đổi kích thước phông chữ nếu cần */
-  color: #294764; /* Để giữ màu sắc nhất quán */
-  font-weight: bold; /* Để làm nổi bật chữ "Lọc" */
-  padding-left: 15px;
+
+/* Tạo màu nền xen kẽ giống bảng sản phẩm chi tiết */
+.product-table tr:nth-child(even) {
+  background-color: #f9f9f9; /* Màu xám nhạt */
 }
+
+.product-table tr:nth-child(odd) {
+  background-color: white; /* Màu trắng */
+}
+
 .button.btn-primary {
   margin-bottom: 10px; /* Giảm khoảng cách dưới của nút */
 }
@@ -56,6 +91,7 @@
   width: 100%;
   border-collapse: collapse;
   font-family: Arial, sans-serif;
+  border: 1px solid #ccc; /* Viền cho cả bảng */
 }
 
 .product-table th, .product-table td {
@@ -151,11 +187,20 @@ form:last-child {
 #trangThai{
   width: 140px;
 }
+
+#trangThai1{
+  width: 247px;
+}
 .input-row {
   display: flex; /* Sử dụng flexbox để sắp xếp các trường trên một hàng */
   justify-content: space-between; /* Phân bổ khoảng cách đều giữa các trường */
   margin: 10px 0;/* Khoảng cách giữa các hàng */
 }
+
+.input-field .input[readonly] + label {
+  top: -10px;  /* Đưa label lên trên */
+}
+
 
 /* Label căn trái */
 .input-field label {
@@ -307,7 +352,171 @@ form:last-child {
 
 /* Dịch bảng xuống */
 .modal-box .table-container {
-  margin-top: 150px; /* Điều chỉnh khoảng cách phía trên bảng */
+  margin-top: 30px; /* Điều chỉnh khoảng cách phía trên bảng */
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.pagination button {
+  padding: 7px 7px; /* Tăng kích thước nút */
+  font-size: 12px; /* Tăng cỡ chữ */
+  min-width: 40px; /* Đảm bảo nút có kích thước tối thiểu */
+  border: none;
+  background-color: #294764;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  color: #294764; /* Màu đỏ */
+  font-size: 12px; /* Điều chỉnh kích thước chữ */
+}
+.radio-group {
+  position: absolute;
+  flex-wrap: wrap; /* Cho phép xuống hàng nếu không đủ chỗ */
+  gap: 30px; /* Tăng khoảng cách giữa các radio */
+  top: 40%; /* Kéo lên trên */
+  right: 150px; /* Dịch sang trái một chút */
+  transform: translateY(-65%); /* Giữ nó căn giữa tốt hơn */
+  display: flex;
+  flex-direction: column;
+  background: white;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.radio-group label {
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #294764;
+}
+
+.radio-group input {
+  margin-right: 5px;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px; /* Khoảng cách giữa input và thông báo lỗi */
+  position: absolute; /* Đặt vị trí tuyệt đối */
+  top: 55px;
+  left: 0; /* Đặt thông báo lỗi ở bên trái */
+  display: none; /* Ẩn thông báo lỗi khi không có lỗi */
+}
+
+/* Hiển thị thông báo lỗi khi có lỗi */
+.input-field.error .error-message {
+  display: block; /* Hiển thị thông báo lỗi khi có class 'error' */
+}
+
+.image-list {
+  max-height: 150px; /* Giữ chiều cao cố định */
+  overflow-y: auto; /* Cho phép cuộn dọc nếu ảnh quá nhiều */
+}
+
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.image-item {
+  position: relative;
+  display: inline-block;
+}
+
+.image-preview {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: none; /* Xóa nền */
+  color: #294764; /* Màu chữ đỏ */
+  border: none; /* Xóa viền */
+  font-size: 20px; /* Kích thước dấu 'X' */
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.delete-btn:hover {
+  color: #10202e; /* Màu đậm hơn khi hover */
 }
 
 
+/* Cập nhật modal để có vị trí tương đối */
+.modal-boxanh {
+  position: relative; /* Đảm bảo phần tử con có thể căn theo */
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 700px;
+  height: 550px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+}
+
+
+.close-btn1 {
+  position: absolute;
+  top: 10px; /* Cách mép trên */
+  right: 15px; /* Cách mép phải */
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #294764;
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 10; /* Đảm bảo hiển thị trên cùng */
+  transition: color 0.3s ease;
+}
+
+.close-btn1:hover {
+  color: #10202e;
+}
+.modal-footer {
+  display: flex;
+  justify-content: flex-start; /* Căn trái */
+  padding-top: 10px; /* Tạo khoảng cách với nội dung trên */
+}
+
+.upload-section input[type="file"] {
+  color: #294764;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: white;
+}
+
+.upload-section input[type="file"]::-webkit-file-upload-button {
+  background-color: #294764;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.upload-section input[type="file"]::-webkit-file-upload-button:hover {
+  background-color: #1f3b5c;
+}
