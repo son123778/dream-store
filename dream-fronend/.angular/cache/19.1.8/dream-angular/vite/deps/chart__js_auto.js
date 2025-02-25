@@ -835,8 +835,11 @@ function _factorize(value) {
   result.sort((a, b) => a - b).pop();
   return result;
 }
+function isNonPrimitive(n) {
+  return typeof n === "symbol" || typeof n === "object" && n !== null && !(Symbol.toPrimitive in n || "toString" in n || "valueOf" in n);
+}
 function isNumber(n) {
-  return !isNaN(parseFloat(n)) && isFinite(n);
+  return !isNonPrimitive(n) && !isNaN(parseFloat(n)) && isFinite(n);
 }
 function almostWhole(x, epsilon) {
   const rounded = Math.round(x);
@@ -1048,8 +1051,10 @@ function _getStartAndCountOfVisiblePoints(meta, points, animationsDisabled) {
   if (meta._sorted) {
     const {
       iScale,
+      vScale,
       _parsed
     } = meta;
+    const spanGaps = meta.dataset ? meta.dataset.options ? meta.dataset.options.spanGaps : null : null;
     const axis = iScale.axis;
     const {
       min,
@@ -1058,20 +1063,30 @@ function _getStartAndCountOfVisiblePoints(meta, points, animationsDisabled) {
       maxDefined
     } = iScale.getUserBounds();
     if (minDefined) {
-      start = _limitValue(Math.min(
+      start = Math.min(
         // @ts-expect-error Need to type _parsed
         _lookupByKey(_parsed, axis, min).lo,
         // @ts-expect-error Need to fix types on _lookupByKey
         animationsDisabled ? pointCount : _lookupByKey(points, axis, iScale.getPixelForValue(min)).lo
-      ), 0, pointCount - 1);
+      );
+      if (spanGaps) {
+        const distanceToDefinedLo = _parsed.slice(0, start + 1).reverse().findIndex((point) => !isNullOrUndef(point[vScale.axis]));
+        start -= Math.max(0, distanceToDefinedLo);
+      }
+      start = _limitValue(start, 0, pointCount - 1);
     }
     if (maxDefined) {
-      count = _limitValue(Math.max(
+      let end = Math.max(
         // @ts-expect-error Need to type _parsed
         _lookupByKey(_parsed, iScale.axis, max, true).hi + 1,
         // @ts-expect-error Need to fix types on _lookupByKey
         animationsDisabled ? 0 : _lookupByKey(points, axis, iScale.getPixelForValue(max), true).hi + 1
-      ), start, pointCount) - start;
+      );
+      if (spanGaps) {
+        const distanceToDefinedHi = _parsed.slice(end - 1).findIndex((point) => !isNullOrUndef(point[vScale.axis]));
+        end += Math.max(0, distanceToDefinedHi);
+      }
+      count = _limitValue(end, start, pointCount) - start;
     } else {
       count = pointCount - start;
     }
@@ -5673,10 +5688,24 @@ function binarySearch(metaset, axis, value, intersect) {
     _sorted
   } = metaset;
   const iScale = controller._cachedMeta.iScale;
+  const spanGaps = metaset.dataset ? metaset.dataset.options ? metaset.dataset.options.spanGaps : null : null;
   if (iScale && axis === iScale.axis && axis !== "r" && _sorted && data.length) {
     const lookupMethod = iScale._reversePixels ? _rlookupByKey : _lookupByKey;
     if (!intersect) {
-      return lookupMethod(data, axis, value);
+      const result = lookupMethod(data, axis, value);
+      if (spanGaps) {
+        const {
+          vScale
+        } = controller._cachedMeta;
+        const {
+          _parsed
+        } = metaset;
+        const distanceToDefinedLo = _parsed.slice(0, result.lo + 1).reverse().findIndex((point) => !isNullOrUndef(point[vScale.axis]));
+        result.lo -= Math.max(0, distanceToDefinedLo);
+        const distanceToDefinedHi = _parsed.slice(result.hi).findIndex((point) => !isNullOrUndef(point[vScale.axis]));
+        result.hi += Math.max(0, distanceToDefinedHi);
+      }
+      return result;
     } else if (controller._sharedOptions) {
       const el = data[0];
       const range = typeof el.getRange === "function" && el.getRange(axis);
@@ -8588,7 +8617,7 @@ function needContext(proxy, names2) {
   }
   return false;
 }
-var version = "4.4.7";
+var version = "4.4.8";
 var KNOWN_POSITIONS = ["top", "bottom", "left", "right", "chartArea"];
 function positionIsHorizontal(position, axis) {
   return position === "top" || position === "bottom" || KNOWN_POSITIONS.indexOf(position) === -1 && axis === "x";
@@ -14974,17 +15003,17 @@ export {
 
 chart.js/dist/chunks/helpers.segment.js:
   (*!
-   * Chart.js v4.4.7
+   * Chart.js v4.4.8
    * https://www.chartjs.org
-   * (c) 2024 Chart.js Contributors
+   * (c) 2025 Chart.js Contributors
    * Released under the MIT License
    *)
 
 chart.js/dist/chart.js:
   (*!
-   * Chart.js v4.4.7
+   * Chart.js v4.4.8
    * https://www.chartjs.org
-   * (c) 2024 Chart.js Contributors
+   * (c) 2025 Chart.js Contributors
    * Released under the MIT License
    *)
 */
