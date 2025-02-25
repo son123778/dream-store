@@ -18,6 +18,7 @@ public class HoaDonResponse {
     private Integer idNhanVien;
     private Integer idVoucher;
     private Integer idPhuongThucThanhToan;
+    private String ma;
     private String tenNguoiNhan;
     private String sdtNguoiNhan;
     private String diaChiNhanHang;

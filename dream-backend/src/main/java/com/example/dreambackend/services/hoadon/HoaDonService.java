@@ -117,6 +117,7 @@ public class HoaDonService implements IHoaDonService {
                 .idNhanVien(hoaDon.getNhanVien().getId())
                 .idVoucher(hoaDon.getVoucher() != null ? hoaDon.getVoucher().getId() : null)
                 .idPhuongThucThanhToan(hoaDon.getPhuongThucThanhToan().getId())
+                .ma(hoaDon.getMa())
                 .tenNguoiNhan(hoaDon.getTenNguoiNhan())
                 .sdtNguoiNhan(hoaDon.getSdtNguoiNhan())
                 .diaChiNhanHang(hoaDon.getDiaChiNhanHang())
@@ -139,7 +140,7 @@ public class HoaDonService implements IHoaDonService {
     private String generateMaHoaDon() {
             String ma;
             do {
-                ma = "HD" + LocalDate.now().format(DateTimeFormatter.ofPattern("yyMMddHHmmss"));
+                ma = "HD" + LocalDate.now().format(DateTimeFormatter.ofPattern("yyMMdd"));
             } while (hoaDonRepository.findByMa(ma).isPresent());
             return ma;
     }
