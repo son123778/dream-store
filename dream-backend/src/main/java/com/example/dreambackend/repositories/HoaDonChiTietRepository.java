@@ -1,11 +1,17 @@
 package com.example.dreambackend.repositories;
 
-
 import com.example.dreambackend.responses.TopSanPhamResponse;
 import com.example.dreambackend.entities.HoaDonChiTiet;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
+
+
+import com.example.dreambackend.entities.HoaDon;
+import com.example.dreambackend.entities.HoaDonChiTiet;
+
+import com.example.dreambackend.entities.SanPhamChiTiet;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import org.springframework.stereotype.Repository;
 

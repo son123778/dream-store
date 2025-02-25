@@ -3,6 +3,10 @@ package com.example.dreambackend.services.thongke;
 import com.example.dreambackend.repositories.HoaDonChiTietRepository;
 import com.example.dreambackend.repositories.HoaDonRepository;
 import com.example.dreambackend.responses.*;
+
+import com.example.dreambackend.responses.ThongKeResponse;
+import com.example.dreambackend.responses.ThongKeThangResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;

@@ -9,6 +9,7 @@ import com.example.dreambackend.responses.ThongKeThangNayResponse;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
+
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
@@ -35,6 +36,7 @@ public interface HoaDonRepository extends JpaRepository<HoaDon, Integer> {
             "ORDER BY YEAR(h.ngayNhanDuKien)")
     List<Object[]> getDoanhThuTungNam();
 
+
     @Query("SELECT new com.example.dreambackend.responses.ThongKeThangNayResponse(" +
             "DAY(h.ngayNhanDuKien), SUM(h.tongTienThanhToan)) " +
             "FROM HoaDon h " +
@@ -51,7 +53,8 @@ public interface HoaDonRepository extends JpaRepository<HoaDon, Integer> {
     ThongKeHomNayResponse getDoanhThuHomNay();
 
 
-//    List<HoaDon> findByKhachHang_Id(int khachHangId);
+
+
 
     List<HoaDon> findAllByTrangThai(int i);
 
