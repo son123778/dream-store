@@ -63,7 +63,6 @@ export class ThongKeService {
     return this.http.get<ThongKeHomNayResponse>(`${this.apiUrl}/hom-nay`);
   }
 
-
    // Lấy top sản phẩm bán chạy trong ngày hôm nay
    topSanPhamHomNay(page: number, size: number): Observable<TopSanPhamResponse[]> {
     return this.http.get<TopSanPhamResponse[]>(`${this.apiUrl}/hom-nay/top-san-pham?page=${page}&size=${size}`);

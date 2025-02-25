@@ -2,7 +2,7 @@ package com.example.dreambackend.services.thongke;
 
 import com.example.dreambackend.repositories.HoaDonChiTietRepository;
 import com.example.dreambackend.repositories.HoaDonRepository;
-import com.example.dreambackend.response.*;
+import com.example.dreambackend.responses.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -69,23 +69,23 @@ public class ThongKeService {
     }
     // Thống kê sản phẩm bán chạy nhất trong ngày hôm nay
     public List<TopSanPhamResponse> topSanPhamHomNay() {
-        return hoaDonChiTietRepository.getTopSanPhamHomNay(PageRequest.of(0, 3)).getContent();
+        return hoaDonChiTietRepository.getTopSanPhamHomNay(PageRequest.of(0, 10)).getContent();
     }
 
     // Thống kê sản phẩm bán chạy nhất trong tháng này
     public List<TopSanPhamResponse> topSanPhamThangNay() {
         LocalDate startDate = LocalDate.now().withDayOfMonth(1); // Ngày đầu tháng
         LocalDate endDate = LocalDate.now().withDayOfMonth(LocalDate.now().lengthOfMonth()); // Ngày cuối tháng
-        return hoaDonChiTietRepository.getTopSanPhamThangNay(PageRequest.of(0, 3), startDate, endDate).getContent();
+        return hoaDonChiTietRepository.getTopSanPhamThangNay(PageRequest.of(0, 10), startDate, endDate).getContent();
     }
 
     // Thống kê sản phẩm bán chạy nhất trong năm nay
     public List<TopSanPhamResponse> topSanPhamNamNay() {
-        return hoaDonChiTietRepository.getTopSanPhamNamNay(PageRequest.of(0, 3)).getContent();
+        return hoaDonChiTietRepository.getTopSanPhamNamNay(PageRequest.of(0, 10)).getContent();
     }
 
     // Thống kê sản phẩm bán chạy nhất tất cả thời gian
     public List<TopSanPhamResponse> topSanPhamTatCa() {
-        return hoaDonChiTietRepository.getTopSanPhamTatCa(PageRequest.of(0, 3)).getContent();
+        return hoaDonChiTietRepository.getTopSanPhamTatCa(PageRequest.of(0, 10)).getContent();
     }
 }

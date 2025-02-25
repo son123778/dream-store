@@ -31,21 +31,23 @@ export class ThongkeComponent implements OnInit {
   loadThongKe(type: string): void {
     this.selectedType = type;
     this.thongKeData = null;
+    
+    // Xóa biểu đồ cũ trước khi tải dữ liệu mới
+    this.destroyChart();
   
-    // Gọi API lấy dữ liệu tổng quan
     this.thongKeService.thongKeTongQuan(type).subscribe(
       (data) => {
         this.thongKeData = data || { soHoaDon: 0, tongDoanhThu: 0, soKhachHang: 0 };
   
-        // Hiển thị biểu đồ
+        // Hiển thị biểu đồ phù hợp với loại thống kê
         if (type === 'tat-ca') {
-          this.loadBieuDoNam(); // Biểu đồ theo năm
+          this.loadBieuDoNam();
         } else if (type === 'nam-nay') {
-          this.loadBieuDoThang(); // Biểu đồ theo năm
+          this.loadBieuDoThang();
         } else if (type === 'thang-nay') {
-          this.loadBieuDoNgayTrongThang(); // Biểu đồ doanh thu từng ngày trong tháng
+          this.loadBieuDoNgayTrongThang();
         } else {
-          this.loadBieuDoHomNay(); // Biểu đồ theo tháng
+          this.loadBieuDoHomNay();
         }
       },
       (error) => {
@@ -55,10 +57,23 @@ export class ThongkeComponent implements OnInit {
     );
   }
   
-  // Biểu đồ doanh thu từng ngày trong tháng
+// Biểu đồ doanh thu từng ngày trong tháng
 loadBieuDoNgayTrongThang(): void {
+  // Kiểm tra nếu đang ở chế độ "Hôm nay" thì không vẽ biểu đồ tháng
+  if (this.selectedType === 'hom-nay') {
+    console.log('Đang ở chế độ Hôm nay, không hiển thị dữ liệu tháng.');
+    this.destroyChart();
+    return;
+  }
+
   this.thongKeService.thongKeTungNgayTrongThang().subscribe(
     (data: ThongKeThangNayResponse[]) => {
+      if (!data || data.length === 0 || !data.some(item => item.tongDoanhThu > 0)) {
+        console.log('Không có dữ liệu doanh thu theo ngày trong tháng.');
+        this.destroyChart();
+        return;
+      }
+
       const labels = data.map((item) => `Ngày ${item.ngay}`);
       const values = data.map((item) => item.tongDoanhThu);
 
@@ -69,11 +84,18 @@ loadBieuDoNgayTrongThang(): void {
     }
   );
 }
-  
+
 // Biểu đồ doanh thu hôm nay
 loadBieuDoHomNay(): void {
   this.thongKeService.thongKeHomNay().subscribe(
     (data: ThongKeHomNayResponse) => {
+      // Kiểm tra nếu dữ liệu rỗng hoặc doanh thu là 0 thì ẩn biểu đồ
+      if (!data || data.tongDoanhThu === 0) {
+        console.log('Không có doanh thu hôm nay, xóa biểu đồ.');
+        this.destroyChart();
+        return;
+      }
+
       const labels = ['Ngày hôm nay'];
       const values = [data.tongDoanhThu];
 
@@ -84,83 +106,103 @@ loadBieuDoHomNay(): void {
     }
   );
 }
-  // Biểu đồ từng tháng
-  loadBieuDoThang(): void {
-    this.thongKeService.thongKeTungThangNam().subscribe(
-      (data: ThongKeThangResponse[]) => {
-        const labels: string[] = [];
-        const values: number[] = new Array(12).fill(0); // Mặc định 12 tháng có giá trị 0
 
-        data.forEach((item) => {
-          values[item.thang - 1] = item.tongDoanhThu; // Gán doanh thu vào đúng tháng
-        });
 
-        for (let i = 1; i <= 12; i++) {
-          labels.push(`Tháng ${i}`);
-        }
-
-        this.renderChart(labels, values, 'Doanh thu từng tháng');
-      },
-      (error) => {
-        console.error('Lỗi khi lấy dữ liệu từng tháng:', error);
+// Biểu đồ doanh thu từng tháng
+loadBieuDoThang(): void {
+  this.thongKeService.thongKeTungThangNam().subscribe(
+    (data: ThongKeThangResponse[]) => {
+      if (!data || data.length === 0 || !data.some(item => item.tongDoanhThu > 0)) {
+        console.log('Không có dữ liệu doanh thu theo tháng.');
+        this.destroyChart();
+        return;
       }
-    );
-  }
 
-  // Biểu đồ theo năm
-  loadBieuDoNam(): void {
-    this.thongKeService.thongKeTungNam().subscribe(
-      (data: ThongKeThangResponse[]) => {
-        const labels = data.map((item) => `Năm ${item.thang}`);
-        const values = data.map((item) => item.tongDoanhThu);
+      const labels: string[] = [];
+      const values: number[] = new Array(12).fill(0); // Mặc định 12 tháng có giá trị 0
 
-        this.renderChart(labels, values, 'Doanh thu từng năm');
-      },
-      (error) => {
-        console.error('Lỗi khi lấy dữ liệu từng năm:', error);
+      data.forEach((item) => {
+        values[item.thang - 1] = item.tongDoanhThu; // Gán doanh thu vào đúng tháng
+      });
+
+      for (let i = 1; i <= 12; i++) {
+        labels.push(`Tháng ${i}`);
       }
-    );
-  }
+
+      this.renderChart(labels, values, 'Doanh thu từng tháng');
+    },
+    (error) => {
+      console.error('Lỗi khi lấy dữ liệu từng tháng:', error);
+    }
+  );
+}
+
+// Biểu đồ doanh thu theo năm
+loadBieuDoNam(): void {
+  this.thongKeService.thongKeTungNam().subscribe(
+    (data: ThongKeThangResponse[]) => {
+      if (!data || data.length === 0 || !data.some(item => item.tongDoanhThu > 0)) {
+        console.log('Không có dữ liệu doanh thu theo năm.');
+        this.destroyChart();
+        return;
+      }
+
+      const labels = data.map((item) => `Năm ${item.thang}`);
+      const values = data.map((item) => item.tongDoanhThu);
+
+      this.renderChart(labels, values, 'Doanh thu từng năm');
+    },
+    (error) => {
+      console.error('Lỗi khi lấy dữ liệu từng năm:', error);
+    }
+  );
+}
 
   // Vẽ biểu đồ cột
-  renderChart(labels: string[], data: number[], label: string): void {
-    this.destroyChart();
+renderChart(labels: string[], data: number[], label: string): void {
+  this.destroyChart();
 
-    const ctx = document.getElementById('chart') as HTMLCanvasElement;
-    if (!ctx) {
-      console.warn('Không tìm thấy phần tử canvas cho biểu đồ.');
-      return;
-    }
-
-    this.chart = new Chart(ctx, {
-      type: 'bar', // Thay đổi từ 'line' thành 'bar' để vẽ biểu đồ cột
-      data: {
-        labels: labels,
-        datasets: [
-          {
-            label: label,
-            data: data,
-            backgroundColor: 'rgba(54, 162, 235, 0.6)', // Màu xanh dương
-            borderColor: 'rgba(54, 162, 235, 1)',
-            borderWidth: 1,
-          },
-        ],
-      },
-      options: {
-        responsive: true,
-        scales: {
-          y: {
-            beginAtZero: true, // Luôn bắt đầu từ 0
-          },
-        },
-        plugins: {
-          legend: {
-            display: true,
-          },
-        },
-      },
-    });
+  // Kiểm tra nếu tất cả giá trị trong `data` đều là 0 thì không vẽ biểu đồ
+  if (!data.some(value => value > 0)) {
+    console.log('Không có dữ liệu hợp lệ để hiển thị biểu đồ.');
+    return;
   }
+
+  const ctx = document.getElementById('chart') as HTMLCanvasElement;
+  if (!ctx) {
+    console.warn('Không tìm thấy phần tử canvas cho biểu đồ.');
+    return;
+  }
+
+  this.chart = new Chart(ctx, {
+    type: 'bar', // Biểu đồ cột
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: label,
+          data: data,
+          backgroundColor: 'rgba(54, 162, 235, 0.6)', // Màu xanh dương
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true, // Luôn bắt đầu từ 0
+        },
+      },
+      plugins: {
+        legend: {
+          display: true,
+        },
+      },
+    },
+  });
+}
 
   // Xóa biểu đồ cũ trước khi vẽ mới
   destroyChart(): void {
@@ -181,7 +223,6 @@ loadBieuDoHomNay(): void {
       }
     );
   }
-
   // Tải danh sách top sản phẩm bán chạy trong tháng này
   loadTopSanPhamThangNay(): void {
     this.thongKeService.topSanPhamThangNay(this.page, this.size).subscribe(

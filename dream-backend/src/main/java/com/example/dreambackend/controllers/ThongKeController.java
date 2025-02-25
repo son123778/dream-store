@@ -1,6 +1,6 @@
 package com.example.dreambackend.controllers;
 
-import com.example.dreambackend.response.*;
+import com.example.dreambackend.responses.*;
 import com.example.dreambackend.services.thongke.ThongKeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

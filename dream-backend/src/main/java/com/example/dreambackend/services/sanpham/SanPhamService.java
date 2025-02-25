@@ -3,17 +3,14 @@ package com.example.dreambackend.services.sanpham;
 import com.example.dreambackend.entities.*;
 import com.example.dreambackend.repositories.*;
 import com.example.dreambackend.requests.SanPhamRequest;
-import com.example.dreambackend.respones.SanPhamRespone;
+import com.example.dreambackend.responses.SanPhamRespone;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.List;
-import java.util.Optional;
 
 @Service
 public class SanPhamService implements ISanPhamService {

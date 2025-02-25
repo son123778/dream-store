@@ -109,12 +109,14 @@
 }
 
 /* Nút lựa chọn top sản phẩm bán chạy */
+/* Bố cục nút */
 .top-san-pham-buttons {
   display: flex;
   justify-content: space-around;
   margin-bottom: 20px;
 }
 
+/* Kiểu dáng mặc định của nút */
 .top-san-pham-buttons button {
   padding: 10px 20px;
   border: 1px solid #294764;
@@ -126,10 +128,20 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Hover đổi màu */
 .top-san-pham-buttons button:hover {
   background-color: #294764;
   color: white;
 }
+
+/* Khi nút được chọn, giữ màu */
+.top-san-pham-buttons button:focus {
+  background-color: #294764;
+  color: white;
+  border-color: #294764;
+  outline: none; /* Bỏ viền focus mặc định */
+}
+
 
 /* Lớp khi nút được chọn */
 .selected {

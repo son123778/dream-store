@@ -1,7 +1,7 @@
 package com.example.dreambackend.repositories;
 
 import com.example.dreambackend.entities.SanPham;
-import com.example.dreambackend.respones.SanPhamRespone;
+import com.example.dreambackend.responses.SanPhamRespone;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface SanPhamRepository extends JpaRepository<SanPham, Integer> {
     @Query("""
-    select new com.example.dreambackend.respones.SanPhamRespone(
+    select new com.example.dreambackend.responses.SanPhamRespone(
             sp.id,
             sp.ma,
             sp.ten,
