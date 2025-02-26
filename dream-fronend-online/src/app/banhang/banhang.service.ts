@@ -10,7 +10,7 @@ export class BanhangService {
 
   constructor(private http: HttpClient) {}
 
-  getSanPhamOnline(): Observable<any> {
-    return this.http.get<any>(this.apiUrl + "/hien-thi");
+  getSanPhamOnline(page: number, size: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/hien-thi?page=${page}&size=${size}`);
   }
 }

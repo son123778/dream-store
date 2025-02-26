@@ -4,12 +4,12 @@ import com.example.dreambackend.dtos.SanPhamDto;
 import com.example.dreambackend.services.sanphamonline.SanPhamOnlineService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/ban-hang-online")
@@ -18,8 +18,11 @@ public class BanHangOnlineController {
     @Autowired
     SanPhamOnlineService sanPhamOnlineService;
     @GetMapping("/hien-thi")
-    public ResponseEntity<List<SanPhamDto>> hienThi() {
-        List<SanPhamDto> sanPhamDtos = sanPhamOnlineService.getSanPhamOnline();
+    public ResponseEntity<Page<SanPhamDto>> hienThi(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "16") int size) {
+        Pageable pageable = PageRequest.of(page, size, Sort.by("id").descending());
+        Page<SanPhamDto> sanPhamDtos = sanPhamOnlineService.getSanPhamOnline(pageable);
         return ResponseEntity.ok(sanPhamDtos);
     }
 }

@@ -1,42 +1,68 @@
-<nav>
-  <ul>
-    <li class="auth">
-      <a href="#"><i class="bi bi-person-circle"></i> Đăng nhập</a>
-    </li>
-  </ul>
-</nav>
+<div class="text-slide">
+
+</div>
 
 <!-- Slide Show -->
- <div class="logo">
-  <img src="https://media.licdn.com/dms/image/v2/D4D0BAQG4-oyhJObyeQ/company-logo_200_200/company-logo_200_200/0/1692049150669/dream_store_brinquedos_logo?e=2147483647&v=beta&t=tMKRIMyWlenH5Iv1wIijIfCBTSAuiZ6FAW9vWR5M0Cs" alt="">
- </div>
+<div class="header">
+  <div class="logo">
+    <img src="https://media.licdn.com/dms/image/v2/D4D0BAQG4-oyhJObyeQ/company-logo_200_200/company-logo_200_200/0/1692049150669/dream_store_brinquedos_logo?e=2147483647&v=beta&t=tMKRIMyWlenH5Iv1wIijIfCBTSAuiZ6FAW9vWR5M0Cs" alt="Logo">
+  </div>
+  <nav class="nav-icons">
+    <a href="#"><i class="bi bi-search"></i></a>
+    <a href="#" (click)="cardModal()"><i class="bi bi-bag"></i></a>
+    <a href="#"><i class="bi bi-person-circle"></i></a>
+  </nav>
+</div>
+<!-- Modal giỏ hàng -->
+<div class="cart-modal" [class.show]="modalCard">
+  <div class="cart-content">
+    <button class="close-btn" (click)="cardModal()">x</button>
+    <h2>Giỏ hàng</h2>
+    <p>Danh sách sản phẩm trong giỏ hàng...</p>
+  </div>
+</div>
  <div class="text">
   <h1>Enjoy Your Youth!</h1>
     <p>Không chỉ là thời trang, DREAM còn là “phòng thí nghiệm” của tuổi trẻ - nơi nghiên cứu và <br> cho ra đời nguồn năng lượng mang tên “Youth”. Chúng mình luôn muốn tạo nên những trải <br> nghiệm vui vẻ, năng động và trẻ trung.</p>
  </div>
 
 <!-- Danh sách sản phẩm -->
-<div class="container">
-  <h2 class="text-center my-4">Danh sách sản phẩm</h2>
-  <div class="row">
-    <div class="col-md-3 mb-4" *ngFor="let sanPham of sanPhamOnlines">
-      <div class="card">
-        <!-- Ảnh sản phẩm -->
-        <img [src]="'http://localhost:8080' + sanPham.anhUrl"
-        class="card-img-top"
-        alt="">   
-        <div class="card-body">
-          <h5 class="card-title">{{ sanPham.ten }}</h5>
-          <p class="card-text"><strong>Giá:</strong> {{ sanPham.gia | currency:'VND' }}</p>
-          <button class="btn btn-primary">Mua ngay</button>
+<div class="scroll-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2_4 mb-4" *ngFor="let sanPham of sanPhamOnlines">
+        <div class="card">
+          <!-- Icon giỏ hàng -->
+          <div class="cart-icon">
+            <i class="fas fa-shopping-cart"></i>
+          </div>
+          <img [src]="'http://localhost:8080' + sanPham.anhUrl" class="card-img-top" alt="Sản phẩm">
+          <div class="card-body">
+            <h5 class="card-title">{{ sanPham.ten }}</h5>
+            <p class="card-text"><strong>Giá:</strong> {{ sanPham.gia }} VND</p>
+            <button class="btn">Mua ngay</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="image-banner">
+<div class="pagination">
+  <button (click)="prevPage()" [disabled]="currentPage === 0"><<</button>
+  <span>Xem thêm</span>
+  <button (click)="nextPage()" [disabled]="currentPage >= totalPages - 1">>></button>
+</div>
+
+<!-- <div class="image-banner">
   <img src="https://bizweb.dktcdn.net/100/415/697/products/trang-kem.jpg?v=1730884512857" alt="">
   <img src="https://bizweb.dktcdn.net/100/415/697/products/img-1706-1.jpg?v=1730800585823" alt="">
   <img src="https://bizweb.dktcdn.net/100/415/697/products/img-7825-1.jpg?v=1721183882410" alt="">
+  <img src="https://bizweb.dktcdn.net/100/415/697/products/img-2073-1.jpg?v=1724383053567" alt="">
  </div>
+ <div class="image-banner">
+  <img src="https://bizweb.dktcdn.net/100/415/697/products/trang-kem.jpg?v=1730884512857" alt="">
+  <img src="https://bizweb.dktcdn.net/100/415/697/products/img-1706-1.jpg?v=1730800585823" alt="">
+  <img src="https://bizweb.dktcdn.net/100/415/697/products/img-7825-1.jpg?v=1721183882410" alt="">
+  <img src="https://bizweb.dktcdn.net/100/415/697/products/img-2073-1.jpg?v=1724383053567" alt="">
+ </div> -->

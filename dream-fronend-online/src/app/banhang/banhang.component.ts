@@ -10,7 +10,11 @@ import { BanhangService } from './banhang.service';
   styleUrl: './banhang.component.css'
 })
 export class BanhangComponent{
-  sanPhamOnlines: any[] = []; // Biến lưu danh sách sản phẩm
+  sanPhamOnlines: any[] = [];
+  totalPages: number = 0;
+  currentPage: number = 0;
+  size: number = 16;
+  modalCard: boolean = false;
   constructor(private banHangService : BanhangService) {}
 
   ngOnInit(): void {
@@ -18,17 +22,35 @@ export class BanhangComponent{
   }
 
   loadData(): void {
-    this.loadSanPhamOnline();
+    this.loadSanPhamOnline(0);
   }
 
-  loadSanPhamOnline(): void {
-    this.banHangService.getSanPhamOnline().subscribe(
+  cardModal(): void {
+    this.modalCard = !this.modalCard;
+  }
+
+  loadSanPhamOnline(page: number): void {
+    this.banHangService.getSanPhamOnline(page, this.size).subscribe(
       (data) => {
-        this.sanPhamOnlines = data;
+        this.sanPhamOnlines = data.content; // Dữ liệu sản phẩm
+        this.totalPages = data.totalPages; // Tổng số trang
+        this.currentPage = page;
       },
       (error) => {
         console.error('Lỗi khi gọi API:', error);
       }
     );
+  }
+
+  nextPage(): void {
+    if (this.currentPage < this.totalPages - 1) {
+      this.loadSanPhamOnline(this.currentPage + 1);
+    }
+  }
+
+  prevPage(): void {
+    if (this.currentPage > 0) {
+      this.loadSanPhamOnline(this.currentPage - 1);
+    }
   }
 }

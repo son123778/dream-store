@@ -7,38 +7,10 @@
     <list default="true" id="5d7dcb88-d015-40bd-b1c2-e4c2578857ff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/controllers/BanHangOnlineController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/controllers/BanHangOnlineController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/dtos/SanPhamDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/dtos/SanPhamDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/repositories/SanPhamOnlineRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/repositories/SanPhamOnlineRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/controllers/BanHangOnlineController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/controllers/BanHangOnlineController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/dtos/SanPhamDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/dtos/SanPhamDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/repositories/SanPhamOnlineRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/repositories/SanPhamOnlineRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/.tsbuildinfo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/@angular_material_sidenav.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/@angular_material_sidenav.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/@angular_platform-browser_animations.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/@angular_platform-browser_animations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/_metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/_metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_material_button.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_material_button.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_material_icon.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_material_icon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_material_sidenav.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_material_sidenav.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_material_toolbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_material_toolbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_platform-browser_animations.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_platform-browser_animations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_platform-server.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_platform-server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_ssr.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_ssr.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_ssr_node.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_ssr_node.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/_metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/_metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-434KYFM3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-434KYFM3.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-5SVZCHU5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-5SVZCHU5.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-VNSL4DOA.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-VNSL4DOA.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-YFS7DMHS.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-YFS7DMHS.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/src/app/banhang/banhang.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/src/app/banhang/banhang.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/services/sanphamonline/ISanPhamOnlineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/services/sanphamonline/ISanPhamOnlineService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/services/sanphamonline/SanPhamOnlineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/services/sanphamonline/SanPhamOnlineService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,42 +50,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Maven.dream-backend [clean,install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.dream-backend [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.dream-backend [spring-boot:debug].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.dream-backend [spring-boot:run].executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;Spring Boot.DreamBackendApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;le-hoang&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/dream-store/dream-backend&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;Application.DreamBackendApplication.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.All in dream-backend.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.dream-backend [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.dream-backend [spring-boot:run].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;Spring Boot.DreamBackendApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;huy-hung&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.DreamBackendApplication.executor": "Run",
+    "JUnit.All in dream-backend.executor": "Run",
+    "Maven.dream-backend [clean,install].executor": "Run",
+    "Maven.dream-backend [clean].executor": "Run",
+    "Maven.dream-backend [spring-boot:debug].executor": "Run",
+    "Maven.dream-backend [spring-boot:run].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.DreamBackendApplication.executor": "Run",
+    "Spring Boot.Unnamed.executor": "Run",
+    "git-widget-placeholder": "huy-hung",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/dream-store/dream-backend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\controllers" />
