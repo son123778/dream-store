@@ -25,7 +25,7 @@ export const appConfig: ApplicationConfig = {
       MatButtonModule,
       MatIconModule,
       HttpClientModule,
-      FormsModule
+      FormsModule,
     )
   ]
 };

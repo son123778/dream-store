@@ -1,45 +1,63 @@
 nav ul {
   display: flex;
+  justify-content: flex-end; /* Đẩy nội dung về góc phải */
   list-style: none;
-  background: #333;
+  background: #294764;
   padding: 10px;
 }
+
 nav ul li {
   margin-right: 20px;
 }
+
 nav ul li a {
   color: white;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Khoảng cách giữa icon và chữ */
 }
-.slideshow-container {
-  position: relative;
-  max-width: 100%;
-  text-align: center;
+
+nav ul li a i {
+  color: white !important; /* Đặt màu trắng cho icon */
+  font-size: 16px;
 }
-.slide {
-  display: none;
+
+.text {
+  display: flex;
+  flex-direction: column; /* Sắp xếp theo chiều dọc */
+  justify-content: center; /* Căn giữa theo chiều dọc */
+  align-items: center; /* Căn giữa theo chiều ngang */
+  text-align: center; /* Căn giữa chữ */
 }
-.slide.active {
-  display: block;
+
+.image-banner {
+  display: flex;
+  justify-content: space-around; /* Cách đều các ảnh */
+  align-items: center;
+  gap: 20px; /* Khoảng cách giữa các ảnh */
+  padding: 20px;
 }
-.slideshow-container img {
-  width: 100%;
+
+.image-banner img {
+  width: 400px; /* Thu nhỏ ảnh */
   height: auto;
+  transition: transform 0.3s ease-in-out; /* Hiệu ứng mượt */
+  border-radius: 50px; /* Bo góc nhẹ */
 }
-.prev, .next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  padding: 10px;
+
+.image-banner img:hover {
+  transform: scale(1.2) rotate(10deg); /* Zoom 1.2 lần & xoay 10 độ */
   cursor: pointer;
 }
-.prev { left: 10px; }
-.next { right: 10px; }
+
+.logo {
+  display: flex;
+  justify-content: center; /* Căn giữa theo chiều ngang */
+  align-items: center; /* Căn giữa theo chiều dọc */
+}
 .container {
-  max-width: 1200px;
+  width: 1200px;
   margin: auto;
 }
 
