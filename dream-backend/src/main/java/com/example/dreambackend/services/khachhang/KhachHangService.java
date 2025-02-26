@@ -2,8 +2,12 @@ package com.example.dreambackend.services.khachhang;
 
 import com.example.dreambackend.dtos.KhachHangDto;
 import com.example.dreambackend.entities.KhachHang;
+import com.example.dreambackend.entities.Voucher;
 import com.example.dreambackend.repositories.KhachHangRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -15,8 +19,11 @@ public class KhachHangService implements IKhachHangService{
     private KhachHangRepository khachHangRepository;
 
     @Override
-    public List<KhachHang> getAllKhachHang() {
-        return khachHangRepository.findAll();
+    public Page<KhachHang> getAllKhachHangPaged(int page, int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        Page<KhachHang> khachhangs = khachHangRepository.findAll(pageable);
+
+        return khachhangs;
     }
 
     @Override
@@ -24,35 +31,38 @@ public class KhachHangService implements IKhachHangService{
         return khachHangRepository.findById(id).orElseThrow(()
                 -> new RuntimeException("Không tim được id cua khach hang"));
     }
-
     @Override
-    public KhachHang newKhachHang(KhachHangDto khachHangDto) {
+    public KhachHang addKhachHang(KhachHangDto khachHangDto) {
         KhachHang newKhachHang = KhachHang.builder()
-                .ma(khachHangDto.getMa())
+                .ma("test")
                 .ten(khachHangDto.getTen())
                 .gioiTinh(khachHangDto.isGioiTinh())
                 .soDienThoai(khachHangDto.getSoDienThoai())
                 .matKhau(khachHangDto.getMatKhau())
                 .ngayTao(LocalDate.now())
-                .trangThai(khachHangDto.getTrangThai())
+                .trangThai(1)
                 .build();
         return  khachHangRepository.save(newKhachHang);
 
 
     }
 
+
+
+
     @Override
-    public KhachHang updateKhachHang(Integer id,KhachHangDto updateKhachHangDto) {
-        KhachHang updatedkh = getKhachHangById(id);
-        updatedkh.setTen(updateKhachHangDto.getTen());
-        updatedkh.setGioiTinh(updateKhachHangDto.isGioiTinh());
-        updatedkh.setMatKhau(updateKhachHangDto.getMatKhau());
-        updatedkh.setSoDienThoai(updateKhachHangDto.getSoDienThoai());
-        updatedkh.setNgaySua(LocalDate.now());
-        updatedkh.setTrangThai(updateKhachHangDto.getTrangThai());
-        khachHangRepository.save(updatedkh);
-        return updatedkh;
+    public KhachHang updateKhachHang(KhachHang khachHang) {
+        khachHang.setNgaySua(LocalDate.now());
+        return khachHangRepository.save(khachHang);
     }
 
+    @Override
+    public List<KhachHang> searchKhachHangByName(String ten) {
+        return khachHangRepository.findByTenContainingIgnoreCase(ten);
+    }
 
+    @Override
+    public KhachHang getKhachHangBySoDienThoai(String soDienThoai) {
+        return khachHangRepository.findKhachHangBySoDienThoai(soDienThoai);
+    }
 }

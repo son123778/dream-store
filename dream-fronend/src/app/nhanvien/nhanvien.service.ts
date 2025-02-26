@@ -6,103 +6,50 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class NhanVienService {
-  private apiUrl = 'http://localhost:8080/api/nhan-vien';
+  private apiUrl = 'http://localhost:8080/api'; // URL backend
 
   constructor(private http: HttpClient) {}
 
-  // Lấy danh sách nhân viên
-  getNhanVien(): Observable<NhanVien[]> {
-    return this.http.get<NhanVien[]>(`${this.apiUrl}/hien-thi`);
+  // 🟢 Nhân viên API
+
+  // Lấy danh sách nhân viên có phân trang
+  getNhanVien(page: number, size: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/nhan-vien/hien-thi?page=${page}&size=${size}`);
   }
 
-  // Tìm kiếm nhân viên theo tên
-  searchNhanVienByName(ten: string): Observable<NhanVien[]> {
-    return this.http.get<NhanVien[]>(`${this.apiUrl}/tim-kiem?ten=${ten}`);
+  // Thêm nhân viên mới
+  addNhanVien(nhanVien: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/nhan-vien/add`, nhanVien);
   }
 
-  // Lọc nhân viên theo trạng thái
-  filterNhanVienByTrangThai(trangThai: number | ''): Observable<NhanVien[]> {
-    if (trangThai === '') {
-      return this.getNhanVien(); // Nếu chọn "Tất cả", gọi API lấy toàn bộ danh sách
-    }
-    return this.http.get<NhanVien[]>(`${this.apiUrl}/loc-trang-thai?trangThai=${trangThai}`);
-  }
-  
-
-  // Thêm nhân viên
-  addNhanVien(nhanVienRequest: NhanVienRequest): Observable<any> {
-    return this.http.post(`${this.apiUrl}/add`, nhanVienRequest);
+  // Lấy chi tiết nhân viên theo ID
+  getNhanVienDetail(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/nhan-vien/${id}`);
   }
 
-  // Sửa nhân viên
-  updateNhanVien(nhanVienRequest: NhanVienRequest): Observable<any> {
-    return this.http.put(`${this.apiUrl}/update`, nhanVienRequest);
+  // Cập nhật thông tin nhân viên
+  updateNhanVien(nhanVien: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/nhan-vien/update`, nhanVien);
   }
 
-  // Lấy danh sách vai trò (liên quan đến nhân viên)
-  getVaiTro(): Observable<VaiTro[]> {
-    const vaiTroApi = 'http://localhost:8080/api/vai-tro/hien-thi';
-    return this.http.get<VaiTro[]>(vaiTroApi);
+  // 🔎 Tìm kiếm nhân viên theo tên
+  searchNhanVienByName(name: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/nhan-vien/search?ten=${name}`);
   }
 
-  // Thêm vai trò (liên quan đến nhân viên)
-  addVaiTro(vaiTroRequest: VaiTroRequest): Observable<any> {
-    const vaiTroApi = 'http://localhost:8080/api/vai-tro/add';
-    return this.http.post(vaiTroApi, vaiTroRequest);
+  // 🟢 Vai trò API
+
+  // Lấy danh sách tất cả vai trò
+  getVaiTros(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/vai-tro/hien-thi`);
+  }
+  // ✅ Thêm vai trò
+  addVaiTro(vaiTro: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/vai-tro/add`, vaiTro);
   }
 
-  // Sửa vai trò (liên quan đến nhân viên)
-  updateVaiTro(vaiTroRequest: VaiTroRequest): Observable<any> {
-    const vaiTroApi = 'http://localhost:8080/api/vai-tro/update';
-    return this.http.put(vaiTroApi, vaiTroRequest);
+  // ✅ Cập nhật vai trò
+  updateVaiTro(vaiTro: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/vai-tro/update`, vaiTro);
   }
-}
-
-export interface NhanVien {
-  id: number;
-  ma: string;
-  ten: string;
-  gioiTinh: boolean;
-  ngaySinh: string;
-  email: string;
-  soDienThoai: string;
-  taiKhoan: string;
-  matKhau: string;
-  anh: string;
-  ngayTao: string | null;  // Hỗ trợ null khi thêm mới
-  ngaySua: string | null;  // Hỗ trợ null khi thêm mới
-  trangThai: number;
-  idVaiTro: number;
-  tenVaiTro: string;
-}
-
-export interface NhanVienRequest {
-  id?: number;
-  ma: string;
-  ten: string;
-  gioiTinh: boolean;
-  ngaySinh: string;
-  email: string;
-  soDienThoai: string;
-  taiKhoan: string;
-  matKhau: string;
-  anh: string;
-  ngayTao: string | null;
-  ngaySua: string | null;
-  trangThai: number;
-  idVaiTro: number;
-}
-
-// Interface cho VaiTro
-export interface VaiTro {
-  id: number;
-  ten: string;
-  trangThai: number;
-}
-
-// Interface cho VaiTroRequest
-export interface VaiTroRequest {
-  id?: number;
-  ten: string;
-  trangThai: number;
 }

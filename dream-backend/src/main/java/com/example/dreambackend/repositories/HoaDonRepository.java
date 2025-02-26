@@ -5,8 +5,10 @@ import com.example.dreambackend.responses.ThongKeHomNayResponse;
 import com.example.dreambackend.responses.ThongKeResponse;
 import com.example.dreambackend.responses.ThongKeThangNayResponse;
 import com.example.dreambackend.responses.ThongKeThangResponse;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.example.dreambackend.responses.ThongKeThangNayResponse;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
@@ -14,7 +16,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface HoaDonRepository extends JpaRepository<HoaDon, Integer> {
+public interface HoaDonRepository extends CrudRepository<HoaDon, Integer> {
 
     @Query("SELECT new com.example.dreambackend.responses.ThongKeResponse(COUNT(h.id), SUM(h.tongTienThanhToan), COUNT(DISTINCT h.khachHang.id)) " +
             "FROM HoaDon h " +
@@ -49,4 +51,5 @@ public interface HoaDonRepository extends JpaRepository<HoaDon, Integer> {
     List<HoaDon> findAllByTrangThai(int i);
 
     Optional<HoaDon> findByMa(String ma);
+
 }
