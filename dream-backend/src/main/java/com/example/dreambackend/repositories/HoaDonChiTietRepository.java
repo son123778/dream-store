@@ -1,5 +1,7 @@
 package com.example.dreambackend.repositories;
 
+import com.example.dreambackend.entities.HoaDon;
+import com.example.dreambackend.entities.SanPhamChiTiet;
 import com.example.dreambackend.responses.TopSanPhamResponse;
 import com.example.dreambackend.entities.HoaDonChiTiet;
 import org.springframework.data.domain.Page;
@@ -9,6 +11,8 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
+import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface HoaDonChiTietRepository extends CrudRepository<HoaDonChiTiet, Integer> {
@@ -51,4 +55,9 @@ public interface HoaDonChiTietRepository extends CrudRepository<HoaDonChiTiet, I
             "GROUP BY sp.ten " +
             "ORDER BY SUM(hdct.soLuong) DESC")
     Page<TopSanPhamResponse> getTopSanPhamTatCa(Pageable pageable);
+    List<HoaDonChiTiet> findByHoaDonId(int id);
+
+    Optional<HoaDonChiTiet> findByHoaDonAndSanPhamChiTiet(HoaDon hoaDon, SanPhamChiTiet sanPhamChiTiet);
+
+    List<HoaDonChiTiet> findByHoaDon(HoaDon hoaDon);
 }

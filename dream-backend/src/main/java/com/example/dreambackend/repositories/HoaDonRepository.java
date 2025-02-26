@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface HoaDonRepository extends CrudRepository<HoaDon, Integer> {
@@ -46,4 +47,8 @@ public interface HoaDonRepository extends CrudRepository<HoaDon, Integer> {
             "FROM HoaDon h " +
             "WHERE h.ngayNhanDuKien = CURRENT_DATE")
     ThongKeHomNayResponse getDoanhThuHomNay();
+    List<HoaDon> findAllByTrangThai(int i);
+
+    Optional<HoaDon> findByMa(String ma);
+
 }
