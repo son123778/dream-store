@@ -16,10 +16,10 @@ public class KhachHang {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "ma", nullable = false, unique = true, length = 50)
+    @Column(name = "ma", nullable = false,length = 10)
     private String ma;
 
-    @Column(name = "ten", nullable = false, length = 100)
+    @Column(name = "ten", length = 30)
     private String ten;
 
     @Column(name = "gioi_tinh")

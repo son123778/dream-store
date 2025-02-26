@@ -21,10 +21,4 @@ public interface CoAoRepository extends JpaRepository<CoAo, Integer> {
         )from CoAo ca
     """)
     List<CoAoRespone> getAllCoAoRespones();
-
-    boolean existsByMa(String ma);
-
-    String ma(String ma);
-
-    boolean existsByTen(String ten);
 }

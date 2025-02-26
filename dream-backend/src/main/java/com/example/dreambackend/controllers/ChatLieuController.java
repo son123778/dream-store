@@ -3,16 +3,11 @@ package com.example.dreambackend.controllers;
 import com.example.dreambackend.requests.ChatLieuRequest;
 import com.example.dreambackend.responses.ChatLieuRespone;
 import com.example.dreambackend.services.chatlieu.ChatLieuService;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/api/chat-lieu")
@@ -29,18 +24,9 @@ public class ChatLieuController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<?> add(@Valid @RequestBody ChatLieuRequest chatLieuRequest, BindingResult result){
-        if (result.hasErrors()) {
-            Map<String, String> errors = new HashMap<>();
-            for (FieldError error : result.getFieldErrors()) {
-                errors.put(error.getField(), error.getDefaultMessage());
-            }
-            return ResponseEntity.badRequest().body(errors);
-        }
+    public ResponseEntity<?> add(@RequestBody ChatLieuRequest chatLieuRequest){
         chatLieuService.addChatLieu(chatLieuRequest);
-        Map<String, String> response = new HashMap<>();
-        response.put("message", "Thêm thành công");
-        return ResponseEntity.ok(response);
+        return ResponseEntity.ok("Thêm thành công");
     }
 
     @PutMapping("/update")

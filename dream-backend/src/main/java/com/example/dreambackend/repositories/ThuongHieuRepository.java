@@ -21,8 +21,4 @@ public interface ThuongHieuRepository extends JpaRepository<ThuongHieu, Integer>
         )from ThuongHieu th
         """)
     List<ThuongHieuRespone> getAllThuongHieuRespones();
-
-    boolean existsByMa(String ma);
-
-    boolean existsByTen(String ten);
 }
