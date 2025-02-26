@@ -1,7 +1,9 @@
 package com.example.dreambackend.repositories;
 
 import com.example.dreambackend.entities.HoaDon;
+import com.example.dreambackend.responses.ThongKeHomNayResponse;
 import com.example.dreambackend.responses.ThongKeResponse;
+import com.example.dreambackend.responses.ThongKeThangNayResponse;
 import com.example.dreambackend.responses.ThongKeThangResponse;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -30,9 +32,20 @@ public interface HoaDonRepository extends JpaRepository<HoaDon, Integer> {
             "GROUP BY YEAR(h.ngayNhanDuKien) " +
             "ORDER BY YEAR(h.ngayNhanDuKien)")
     List<Object[]> getDoanhThuTungNam();
-
-//    List<HoaDon> findByKhachHang_Id(int khachHangId);
-
+    @Query("SELECT new com.example.dreambackend.responses.ThongKeThangNayResponse(" +
+            "DAY(h.ngayNhanDuKien), SUM(h.tongTienThanhToan)) " +
+            "FROM HoaDon h " +
+            "WHERE MONTH(h.ngayNhanDuKien) = MONTH(CURRENT_DATE) " +
+            "AND YEAR(h.ngayNhanDuKien) = YEAR(CURRENT_DATE) " +
+            "GROUP BY DAY(h.ngayNhanDuKien) " +
+            "ORDER BY DAY(h.ngayNhanDuKien)")
+    List<ThongKeThangNayResponse> getDoanhThuTungNgayTrongThang();
+    // Truy vấn doanh thu hôm nay
+    @Query("SELECT new com.example.dreambackend.responses.ThongKeHomNayResponse(" +
+            "COUNT(DISTINCT h.khachHang.id), SUM(h.tongTienThanhToan), COUNT(DISTINCT h.khachHang.id)) " +
+            "FROM HoaDon h " +
+            "WHERE h.ngayNhanDuKien = CURRENT_DATE")
+    ThongKeHomNayResponse getDoanhThuHomNay();
     List<HoaDon> findAllByTrangThai(int i);
 
     Optional<HoaDon> findByMa(String ma);

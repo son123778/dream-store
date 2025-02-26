@@ -36,7 +36,7 @@ public class KhachHangService implements IKhachHangService{
                 .ngayTao(LocalDate.now())
                 .trangThai(khachHangDto.getTrangThai())
                 .build();
-                return  khachHangRepository.save(newKhachHang);
+        return  khachHangRepository.save(newKhachHang);
 
 
     }
