@@ -1,11 +1,8 @@
 package com.example.dreambackend.controllers;
 
-import com.example.dreambackend.dtos.ChatLieuDto;
-import com.example.dreambackend.entities.ChatLieu;
 import com.example.dreambackend.requests.ChatLieuRequest;
-import com.example.dreambackend.respones.ChatLieuRespone;
+import com.example.dreambackend.responses.ChatLieuRespone;
 import com.example.dreambackend.services.chatlieu.ChatLieuService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

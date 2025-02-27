@@ -11,11 +11,12 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { routes } from './app.routes';
 import { FormsModule } from '@angular/forms';
-
+import {provideHttpClient, withFetch} from '@angular/common/http';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
+    provideHttpClient(withFetch()),
     importProvidersFrom(
       CommonModule,
       BrowserAnimationsModule,
@@ -25,7 +26,8 @@ export const appConfig: ApplicationConfig = {
       MatButtonModule,
       MatIconModule,
       HttpClientModule,
-      FormsModule
+      FormsModule,
+      
     )
   ]
 };

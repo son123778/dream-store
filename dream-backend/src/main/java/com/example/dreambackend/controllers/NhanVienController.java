@@ -1,10 +1,7 @@
 package com.example.dreambackend.controllers;
 
 import com.example.dreambackend.entities.NhanVien;
-import com.example.dreambackend.request.NhanVienRequest;
-import com.example.dreambackend.services.nhanvien.INhanVienService;
 import com.example.dreambackend.services.nhanvien.NhanVienService;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.Page;

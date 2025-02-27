@@ -5,7 +5,7 @@ import {
   platformServer,
   renderApplication,
   renderModule
-} from "./chunk-O722O4FA.js";
+} from "./chunk-5SVZCHU5.js";
 import {
   ROUTES,
   Router,
@@ -11534,8 +11534,4 @@ export {
   AngularAppEngine,
   createRequestHandler
 };
-<<<<<<<< HEAD:dream-fronend/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-WK4I7FNG.js
-//# sourceMappingURL=chunk-WK4I7FNG.js.map
-========
 //# sourceMappingURL=chunk-IM2O66SX.js.map
->>>>>>>> 29facade2c7af82bd4c17ed13919c26a6285feae:dream-fronend/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-IM2O66SX.js
