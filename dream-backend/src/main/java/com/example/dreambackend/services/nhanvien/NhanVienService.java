@@ -4,12 +4,19 @@ import com.example.dreambackend.entities.NhanVien;
 import com.example.dreambackend.entities.VaiTro;
 import com.example.dreambackend.repositories.NhanVienRepository;
 import com.example.dreambackend.repositories.VaiTroRepository;
+import com.example.dreambackend.request.NhanVienRequest;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -27,17 +34,47 @@ public class NhanVienService implements INhanVienService {
         return nhanVienRepository.findAll(PageRequest.of(page, size));
     }
 
-    @Override
+
+
     @Transactional
+    @Override
     public NhanVien addNhanVien(NhanVien nhanVien) {
         VaiTro vaiTro = vaiTroRepository.findById(nhanVien.getVaiTro().getId())
                 .orElseThrow(() -> new IllegalArgumentException("Vai trò không tồn tại!"));
 
-        // 🔹 Gán vai trò cho nhân viên
+        // Gán vai trò cho nhân viên
         nhanVien.setVaiTro(vaiTro);
         // Gán ngày tạo hiện tại
         nhanVien.setNgayTao(LocalDate.now());
+
         return nhanVienRepository.save(nhanVien);
+    }
+
+    // Đường dẫn thư mục lưu trữ ảnh
+    private static final String UPLOAD_DIR = "uploads/images/";
+
+    // Cập nhật hoặc thêm ảnh cho nhân viên
+    @Transactional
+    @Override
+    public NhanVien addImageForNhanVien(Integer nhanVienId, MultipartFile file) throws IOException {
+        NhanVien existingNhanVien = nhanVienRepository.findById(nhanVienId)
+                .orElseThrow(() -> new IllegalArgumentException("Nhân viên không tồn tại!"));
+
+        if (file != null && !file.isEmpty()) {
+            // Lấy tên file ảnh
+            String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
+            Path path = Paths.get(UPLOAD_DIR + fileName);
+
+            // Tạo thư mục nếu chưa tồn tại
+            Files.createDirectories(path.getParent());
+
+            // Lưu ảnh vào thư mục
+            Files.write(path, file.getBytes());
+
+            existingNhanVien.setAnh("/" + UPLOAD_DIR + fileName); // Cập nhật đường dẫn ảnh
+        }
+
+        return nhanVienRepository.save(existingNhanVien);
     }
 
     @Override

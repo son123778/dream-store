@@ -30,6 +30,7 @@ com\example\dreambackend\controllers\XuatXuController.class
 com\example\dreambackend\requests\AnhRequest.class
 com\example\dreambackend\entities\HoaDon$HoaDonBuilder.class
 com\example\dreambackend\services\xuatxu\XuatXuService.class
+com\example\dreambackend\controllers\NhanVienController$WebMvcConfig.class
 com\example\dreambackend\services\mausac\MauSacService.class
 com\example\dreambackend\services\vaitro\VaiTroService.class
 com\example\dreambackend\dtos\ThuongHieuDto.class

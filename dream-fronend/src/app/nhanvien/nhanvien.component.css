@@ -580,3 +580,11 @@
     /* Đảm bảo các phần tử giãn đều chiều ngang */
   }
 }
+
+/* Image preview styles */
+.image-preview {
+  max-width: 200px; /* Adjust the size as needed */
+  max-height: 200px;
+  object-fit: cover; /* Ensure the image fits nicely */
+  margin-top: 10px;
+}

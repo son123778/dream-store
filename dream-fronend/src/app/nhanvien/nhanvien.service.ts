@@ -17,9 +17,18 @@ export class NhanVienService {
     return this.http.get<any>(`${this.apiUrl}/nhan-vien/hien-thi?page=${page}&size=${size}`);
   }
 
-  // Thêm nhân viên mới
+  // Thêm nhân viên mà không có ảnh
   addNhanVien(nhanVien: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/nhan-vien/add`, nhanVien);
+    return this.http.post<any>(`${this.apiUrl}/nhan-vien/add`, nhanVien); // Thêm /nhan-vien/ vào URL
+  }
+
+  // Thêm ảnh cho nhân viên
+  addImageForNhanVien(id: number, file: File): Observable<any> {
+    const formData = new FormData();
+    formData.append('file', file, file.name);
+
+    // Gửi yêu cầu POST đến API để cập nhật ảnh
+    return this.http.post<any>(`${this.apiUrl}/nhan-vien/add-image/${id}`, formData); // Đảm bảo API chính xác
   }
 
   // Lấy chi tiết nhân viên theo ID

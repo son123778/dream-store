@@ -39,6 +39,9 @@ public class NhanVien {
     @Column(name = "so_dien_thoai")
     private String soDienThoai;
 
+    @Column(name = "anh")
+    private String anh;
+
     @Column(name = "tai_khoan")
     private String taiKhoan;
 

@@ -285,6 +285,28 @@
         </div>
       </div>
 
+<!-- Hiển thị ảnh hiện tại của nhân viên khi sửa -->
+<div class="input-row">
+  <div *ngIf="nhanVienEdit.anh && !imagePreview" class="image-preview-container">
+    <p><strong>Ảnh hiện tại:</strong></p>
+    <img [src]="nhanVienEdit.anh" alt="Ảnh nhân viên" class="image-preview" />
+  </div>
+  
+  <!-- Nếu có ảnh mới được chọn, sẽ thay thế ảnh cũ -->
+  <div *ngIf="imagePreview" class="image-preview-container">
+    <p><strong>Ảnh đã chọn:</strong></p>
+    <img [src]="imagePreview" alt="Ảnh mới" class="image-preview" />
+  </div>
+
+  <!-- Chọn ảnh mới -->
+  <div class="input-field">
+    <input type="file" class="input" (change)="onFileSelected($event)" />
+    <label for="file">Chọn ảnh nhân viên</label>
+  </div>
+</div>
+
+
+
       <div class="button-container">
         <button type="submit" class="button btn-primary">Lưu thay đổi</button>
       </div>
@@ -404,6 +426,19 @@
         </div>
       </div>
 
+      <div class="input-row">
+        <div class="input-field">
+          <input type="file" class="input" (change)="onFileSelected($event)" />
+          <label for="file">Chọn ảnh nhân viên</label>
+          <div *ngIf="selectedFile">
+            <p><strong>Ảnh đã chọn:</strong></p>
+            <img [src]="imagePreview" alt="Ảnh nhân viên" class="image-preview" />
+          </div>
+          <div class="tooltip-error" *ngIf="errors.file">
+            {{ errors.file }}
+          </div>
+        </div>
+      </div>
       <div class="button-container">
         <button type="submit" class="button btn-primary">Thêm Nhân Viên</button>
       </div>

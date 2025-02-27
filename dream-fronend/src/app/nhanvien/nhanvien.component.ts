@@ -30,11 +30,13 @@ export class NhanvienComponent implements OnInit {
   visiblePages: number[] = [];
   filteredNhanViens: any[] = [];
   errors: any = {};
-  
+  selectedFile: File | null = null; // To store the selected file
+  imagePreview: string | ArrayBuffer | null = null; // To store the image preview URL
   nhanVien: any = {
     id: '',
     ma: '',
     ten: '',
+    anh:null,
     gioiTinh: null,
     ngaySinh: '',
     email: '',
@@ -87,28 +89,75 @@ export class NhanvienComponent implements OnInit {
   //     this.visiblePages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
   //   });
   // }
-  editNhanVien(nhanVienId: number) {
-    this.nhanVienService.getNhanVienDetail(nhanVienId).subscribe((nhanVien) => {
-      this.nhanVienEdit = { ...nhanVien };  // Gán dữ liệu vào đối tượng nhanVienEdit
-      // Đảm bảo rằng vai trò được gán chính xác
-      if (this.nhanVienEdit.vaiTro) {
-        this.nhanVienEdit.vaiTro.id = this.nhanVienEdit.vaiTro.id || null;
-      }
-      this.showModalEdit = true;  // Hiển thị modal chỉnh sửa
-    });
+ // Khi mở form sửa nhân viên, nếu đã có ảnh cũ thì gán vào imagePreview
+ editNhanVien(nhanVienId: number) {
+  this.nhanVienService.getNhanVienDetail(nhanVienId).subscribe((nhanVien) => {
+    this.nhanVienEdit = { ...nhanVien };  // Gán dữ liệu vào đối tượng nhanVienEdit
+    console.log("Dữ liệu nhân viên:", this.nhanVienEdit);
+    
+    // Kiểm tra đường dẫn ảnh
+    if (this.nhanVienEdit.anh) {
+      this.imagePreview = `http://localhost:8080${this.nhanVienEdit.anh}`;
+      console.log("Đường dẫn ảnh:", this.imagePreview);
+    } else {
+      this.imagePreview = null;
+    }
+    this.showModalEdit = true;  // Hiển thị modal chỉnh sửa
+  });
+}
+
+
+  
+  // Method to handle file selection and preview the image
+  onFileSelected(event: any): void {
+    const file = event.target.files[0];
+    if (file) {
+      this.selectedFile = file;
+
+      // Create a FileReader to preview the image
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.imagePreview = e.target.result; // Store the preview URL
+      };
+      reader.readAsDataURL(file); // Read the selected file as a Data URL
+    }
+  }
+
+  onFileSelectedForEdit(event: any): void {
+    const file = event.target.files[0];
+    if (file) {
+      this.selectedFile = file;
+  
+      // Tạo một FileReader để xem trước ảnh
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.imagePreview = e.target.result; // Lưu URL của ảnh để hiển thị xem trước
+      };
+      reader.readAsDataURL(file); // Đọc tệp đã chọn dưới dạng Data URL
+    }
   }
   
+
   addNhanVien() {
     if (!this.validateForm()) {
-      return; 
+      return; // Prevent submission if form is not valid
     }
   
-    this.nhanVienService.addNhanVien(this.nhanVien).subscribe(
+    // Gửi dữ liệu nhân viên mà không có ảnh
+    const nhanVienData = { ...this.nhanVien }; // Tạo bản sao dữ liệu nhân viên
+  
+    // Gọi API để thêm nhân viên
+    this.nhanVienService.addNhanVien(nhanVienData).subscribe(
       (response) => {
         alert('Thêm nhân viên thành công!');
-        this.loadData();  // Tải lại danh sách nhân viên
-        this.closeModal();  // Đóng modal
-        this.resetForm();  // Reset form sau khi thêm
+        this.loadData(); // Load lại dữ liệu nhân viên
+        this.closeModal(); // Đóng modal
+        this.resetForm(); // Reset form
+  
+        // Sau khi thêm nhân viên thành công, gọi API để thêm ảnh
+        if (this.selectedFile) {
+          this.addImageForNhanVien(response.id);
+        }
       },
       (error) => {
         console.error('Error:', error);
@@ -116,6 +165,28 @@ export class NhanvienComponent implements OnInit {
       }
     );
   }
+  
+  
+  addImageForNhanVien(nhanVienId: number) {
+    if (!this.selectedFile) {
+      console.error('No file selected.');
+      return;
+    }
+  
+    // Gọi API để gửi file ảnh (File) trực tiếp
+    this.nhanVienService.addImageForNhanVien(nhanVienId, this.selectedFile).subscribe(
+      (response) => {
+       
+        this.loadData(); // Tải lại dữ liệu nhân viên
+      },
+      (error) => {
+        console.error('Error:', error);
+        alert('Có lỗi xảy ra khi thêm ảnh.');
+      }
+    );
+  }
+  
+  
    // 🟢 Xóa lỗi của form khi nhập lại
   clearError(field: string): void {
     if (this.errors[field]) {
@@ -308,6 +379,11 @@ export class NhanvienComponent implements OnInit {
           this.loadData();  // Tải lại danh sách nhân viên
           console.log('Updated NhanVien:', this.nhanVienEdit.ngaySua);  // In thông tin cập nhật
           this.closeModalEdit();  // Đóng modal chỉnh sửa
+  
+          // Sau khi chỉnh sửa thông tin nhân viên, cập nhật ảnh nếu có file ảnh mới
+          if (this.selectedFile) {
+            this.addImageForNhanVien(this.nhanVienEdit.id);
+          }
         },
         (error) => {
           console.error('Error:', error);
@@ -318,6 +394,7 @@ export class NhanvienComponent implements OnInit {
       alert('ID nhân viên không hợp lệ!');
     }
   }
+  
 showDetail(nhanVienId: number) {
   this.selectedNhanVien = this.nhanViens.find(nhanVien => nhanVien.id === nhanVienId);
   this.showModalDetail = true; // Hiển thị modal chi tiết
