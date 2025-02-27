@@ -1,8 +1,8 @@
+import { createRequire } from 'module';const require = createRequire(import.meta.url);
 import {
   BrowserModule,
   DomRendererFactory2
-} from "./chunk-GFWJ4POI.js";
-import "./chunk-SZVIQA3D.js";
+} from "./chunk-GI7NWXHH.js";
 import {
   AUTO_STYLE,
   AnimationGroupPlayer,
@@ -11,10 +11,17 @@ import {
   sequence,
   style,
   ɵPRE_STYLE
-} from "./chunk-R2QYY4RI.js";
+} from "./chunk-S3KOMQG5.js";
 import {
+<<<<<<<< HEAD:dream-fontend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-IISYMBQT.js
+========
+  BrowserModule,
+  DomRendererFactory2
+} from "./chunk-TES4JXVL.js";
+import {
+>>>>>>>> 0c4d48b1d655473c268ca72d57168fc447ad771e:dream-fontend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-ZE2ZKY6Y.js
   DOCUMENT
-} from "./chunk-VBRGN5QX.js";
+} from "./chunk-C5KUQ6XX.js";
 import {
   ANIMATION_MODULE_TYPE,
   Inject,
@@ -29,11 +36,11 @@ import {
   ɵɵdefineInjector,
   ɵɵdefineNgModule,
   ɵɵinject
-} from "./chunk-7B7CU6D7.js";
+} from "./chunk-Z5IWENK5.js";
 import {
   __objRest,
   __spreadValues
-} from "./chunk-WDMUDEB6.js";
+} from "./chunk-YHCV7DAQ.js";
 
 // node_modules/@angular/animations/fesm2022/browser.mjs
 var LINE_START = "\n - ";
@@ -4176,13 +4183,13 @@ var NoopAnimationsModule = class _NoopAnimationsModule {
 function provideNoopAnimations() {
   return [...BROWSER_NOOP_ANIMATIONS_PROVIDERS];
 }
+
 export {
-  ANIMATION_MODULE_TYPE,
+  InjectableAnimationEngine,
   BrowserAnimationsModule,
-  NoopAnimationsModule,
   provideAnimations,
-  provideNoopAnimations,
-  InjectableAnimationEngine as ɵInjectableAnimationEngine
+  NoopAnimationsModule,
+  provideNoopAnimations
 };
 /*! Bundled license information:
 
@@ -4200,4 +4207,8 @@ export {
    * License: MIT
    *)
 */
-//# sourceMappingURL=@angular_platform-browser_animations.js.map
+<<<<<<<< HEAD:dream-fontend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-IISYMBQT.js
+//# sourceMappingURL=chunk-IISYMBQT.js.map
+========
+//# sourceMappingURL=chunk-ZE2ZKY6Y.js.map
+>>>>>>>> 0c4d48b1d655473c268ca72d57168fc447ad771e:dream-fontend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-ZE2ZKY6Y.js

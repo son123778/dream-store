@@ -1,16 +1,20 @@
 import { createRequire } from 'module';const require = createRequire(import.meta.url);
 import {
+  ROUTES,
+  Router,
+  loadChildren
+} from "./chunk-PBZ35URQ.js";
+import {
   INITIAL_CONFIG,
   SERVER_CONTEXT,
   platformServer,
   renderApplication,
   renderModule
+<<<<<<<< HEAD:dream-fontend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-5DFFN34X.js
+} from "./chunk-3K2YFUY4.js";
+========
 } from "./chunk-O722O4FA.js";
-import {
-  ROUTES,
-  Router,
-  loadChildren
-} from "./chunk-PBZ35URQ.js";
+>>>>>>>> 0c4d48b1d655473c268ca72d57168fc447ad771e:dream-fontend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-VSGFCIHH.js
 import {
   APP_BASE_HREF,
   PlatformLocation
@@ -11534,4 +11538,8 @@ export {
   AngularAppEngine,
   createRequestHandler
 };
-//# sourceMappingURL=chunk-WK4I7FNG.js.map
+<<<<<<<< HEAD:dream-fontend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-5DFFN34X.js
+//# sourceMappingURL=chunk-5DFFN34X.js.map
+========
+//# sourceMappingURL=chunk-VSGFCIHH.js.map
+>>>>>>>> 0c4d48b1d655473c268ca72d57168fc447ad771e:dream-fontend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-VSGFCIHH.js
