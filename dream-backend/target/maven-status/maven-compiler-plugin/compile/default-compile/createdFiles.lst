@@ -89,7 +89,6 @@ com\example\dreambackend\requests\MauSacRequest.class
 com\example\dreambackend\services\coao\ICoAoService.class
 com\example\dreambackend\responses\SanPhamRespone.class
 com\example\dreambackend\repositories\SanPhamOnlineRepository.class
-com\example\dreambackend\controllers\AnhController$WebMvcConfig.class
 com\example\dreambackend\repositories\NhanVienRepository.class
 com\example\dreambackend\requests\ThuongHieuRequest.class
 com\example\dreambackend\controllers\GioHangChiTietController.class

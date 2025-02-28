@@ -21,5 +21,4 @@ public class AnhRespone {
     private int trangThai;
 
     private Integer idSanPham;
-
 }
