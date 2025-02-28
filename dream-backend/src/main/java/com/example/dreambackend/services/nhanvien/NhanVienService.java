@@ -30,6 +30,7 @@ public class NhanVienService implements INhanVienService {
     @Override
     public Page<NhanVien> getAllNhanVienPaged(int page, int size) {
         return nhanVienRepository.findAll(PageRequest.of(page, size));
+
     }
 
 

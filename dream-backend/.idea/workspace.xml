@@ -6,29 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="5d7dcb88-d015-40bd-b1c2-e4c2578857ff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/controllers/NhanVienController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/controllers/NhanVienController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/services/nhanvien/NhanVienService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/services/nhanvien/NhanVienService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/controllers/NhanVienController$WebMvcConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/controllers/NhanVienController$WebMvcConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/controllers/NhanVienController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/controllers/NhanVienController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/request/ThongKeRequest$ThongKeRequestBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/request/ThongKeRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/respones/AnhRespone.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/respones/ChatLieuRespone.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/respones/CoAoRespone.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/respones/MauSacRepone.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/respones/SanPhamChiTietRespone.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/respones/SanPhamRespone.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/respones/SizeRespone.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/respones/ThuongHieuRespone.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/respones/XuatXuRespone.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/response/ThongKeHomNayResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/response/ThongKeResponse$ThongKeResponseBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/response/ThongKeResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/response/ThongKeThangNayResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/response/ThongKeThangResponse$ThongKeThangResponseBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/response/ThongKeThangResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/response/TopSanPhamResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/services/nhanvien/NhanVienService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/dreambackend/services/nhanvien/NhanVienService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend/src/app/nhanvien/nhanvien.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend/src/app/nhanvien/nhanvien.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -220,5 +201,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/dreambackend/services/nhanvien/NhanVienService.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

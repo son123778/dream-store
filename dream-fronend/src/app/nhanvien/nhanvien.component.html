@@ -20,6 +20,7 @@
           <th>Giới Tính</th>
           <th>Ngày Sinh</th>
           <th>Email</th>
+          <th>Anh</th>
           <th>Số Điện Thoại</th>
           <th>Tài Khoản</th>
           <th>Vai Trò</th>
@@ -37,6 +38,9 @@
           <td>{{ nhanVien.gioiTinh ? 'Nam' : 'Nữ' }}</td>
           <td>{{ nhanVien.ngaySinh | date: 'dd/MM/yyyy' }}</td>
           <td>{{ nhanVien.email }}</td>
+          <td>
+            <img *ngIf="nhanVien.anh" [src]="nhanVien.anh" alt="Ảnh nhân viên" class="employee-image" />
+          </td>          
           <td>{{ nhanVien.soDienThoai }}</td>
           <td>{{ nhanVien.taiKhoan }}</td>
           <td>{{ nhanVien.vaiTro ? nhanVien.vaiTro.ten : 'Chưa có vai trò' }}</td>
