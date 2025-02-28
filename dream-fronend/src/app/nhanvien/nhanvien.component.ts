@@ -92,19 +92,24 @@ export class NhanvienComponent implements OnInit {
  // Khi mở form sửa nhân viên, nếu đã có ảnh cũ thì gán vào imagePreview
  editNhanVien(nhanVienId: number) {
   this.nhanVienService.getNhanVienDetail(nhanVienId).subscribe((nhanVien) => {
-    this.nhanVienEdit = { ...nhanVien };  // Gán dữ liệu vào đối tượng nhanVienEdit
+    this.nhanVienEdit = { ...nhanVien };  // Gán dữ liệu vào biến chỉnh sửa
     console.log("Dữ liệu nhân viên:", this.nhanVienEdit);
     
-    // Kiểm tra đường dẫn ảnh
+    // Kiểm tra nếu nhân viên có ảnh thì lấy đường dẫn từ API
     if (this.nhanVienEdit.anh) {
-      this.imagePreview = `http://localhost:8080${this.nhanVienEdit.anh}`;
+      this.imagePreview = this.nhanVienService.getNhanVienImage(this.nhanVienEdit.anh);
       console.log("Đường dẫn ảnh:", this.imagePreview);
     } else {
       this.imagePreview = null;
     }
+    
     this.showModalEdit = true;  // Hiển thị modal chỉnh sửa
+  }, (error) => {
+    console.error("Lỗi khi lấy thông tin nhân viên:", error);
+    alert("Không tìm thấy nhân viên!");
   });
 }
+
 
 
   

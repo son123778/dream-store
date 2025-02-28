@@ -61,4 +61,10 @@ export class NhanVienService {
   updateVaiTro(vaiTro: any): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/vai-tro/update`, vaiTro);
   }
+
+  // 🖼 API lấy ảnh nhân viên
+getNhanVienImage(filename: string): string {
+  return `${this.apiUrl}/nhan-vien/image/${filename}`;
+}
+
 }

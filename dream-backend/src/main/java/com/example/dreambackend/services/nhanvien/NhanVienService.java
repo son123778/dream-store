@@ -69,7 +69,7 @@ public class NhanVienService implements INhanVienService {
             // Lưu ảnh vào thư mục
             Files.write(path, file.getBytes());
 
-            existingNhanVien.setAnh("/" + UPLOAD_DIR + fileName); // Cập nhật đường dẫn ảnh
+            existingNhanVien.setAnh(fileName); // Cập nhật đường dẫn ảnh
         }
 
         return nhanVienRepository.save(existingNhanVien);

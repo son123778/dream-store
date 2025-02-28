@@ -2,9 +2,13 @@ package com.example.dreambackend.controllers;
 
 import com.example.dreambackend.entities.NhanVien;
 import com.example.dreambackend.services.nhanvien.NhanVienService;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+
 import org.springframework.data.domain.Page;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +17,11 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 @RestController
@@ -23,15 +31,6 @@ public class NhanVienController {
 
     @Autowired
     private NhanVienService nhanVienService;
-
-    @Configuration
-    public class WebMvcConfig implements WebMvcConfigurer {
-        @Override
-        public void addResourceHandlers(ResourceHandlerRegistry registry) {
-            registry.addResourceHandler("/uploads/images/**")
-                    .addResourceLocations("file:D:/dream-store/dream-backend/uploads/images/");
-        }
-    }
 
     // Hiển thị danh sách nhân viên có phân trang
     @GetMapping("/hien-thi")
@@ -80,4 +79,33 @@ public class NhanVienController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
     }
+
+    private final String UPLOAD_DIR = "D:/dream-store/dream-backend/uploads/images/";
+
+    @GetMapping("/image/{filename}")
+    public ResponseEntity<Resource> getImage(@PathVariable String filename) {
+        try {
+            Path filePath = Paths.get(UPLOAD_DIR).resolve(filename).normalize();
+            File file = filePath.toFile();
+
+            // Kiểm tra file có tồn tại không
+            if (!file.exists() || !file.canRead()) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            }
+
+            Resource resource = new UrlResource(file.toURI());
+
+            // Trả về ảnh với header HTTP đúng cách
+            return ResponseEntity.ok()
+                    .contentType(MediaType.IMAGE_JPEG) // Nếu ảnh PNG, đổi thành MediaType.IMAGE_PNG
+                    .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + resource.getFilename() + "\"")
+                    .body(resource);
+
+        } catch (MalformedURLException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
+
 }
