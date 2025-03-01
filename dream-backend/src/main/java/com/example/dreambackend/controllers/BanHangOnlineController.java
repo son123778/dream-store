@@ -20,7 +20,7 @@ public class BanHangOnlineController {
     @GetMapping("/hien-thi")
     public ResponseEntity<Page<SanPhamDto>> hienThi(
             @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "16") int size) {
+            @RequestParam(defaultValue = "20") int size) {
         Pageable pageable = PageRequest.of(page, size, Sort.by("id").descending());
         Page<SanPhamDto> sanPhamDtos = sanPhamOnlineService.getSanPhamOnline(pageable);
         return ResponseEntity.ok(sanPhamDtos);

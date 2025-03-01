@@ -1,15 +1,15 @@
 package com.example.dreambackend.responses;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class NhanVienResponse {
-
     private Integer id;               // ID nhân viên
     private String ma;                // Mã nhân viên
     private String ten;               // Tên nhân viên
@@ -20,8 +20,9 @@ public class NhanVienResponse {
     private String taiKhoan;          // Tài khoản đăng nhập
     private String matKhau;           // Mật khẩu
     private String anh;               // Đường dẫn ảnh đại diện
-    private LocalDateTime ngayTao;        // Ngày tạo bản ghi
-    private LocalDateTime ngaySua;        // Ngày sửa bản ghi
-    private Integer trangThai;         // Trạng thái (Active/Inactive)
+    private LocalDate ngayTao;    // Ngày tạo bản ghi
+    private LocalDate ngaySua;    // Ngày sửa bản ghi
+    private Integer trangThai;        // Trạng thái (Active/Inactive)
     private String tenVaiTro;         // Tên vai trò (lấy từ bảng VaiTro)
+
 }

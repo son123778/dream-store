@@ -13,8 +13,9 @@ export class BanhangComponent{
   sanPhamOnlines: any[] = [];
   totalPages: number = 0;
   currentPage: number = 0;
-  size: number = 16;
+  size: number = 20;
   modalCard: boolean = false;
+
   constructor(private banHangService : BanhangService) {}
 
   ngOnInit(): void {
@@ -41,7 +42,6 @@ export class BanhangComponent{
       }
     );
   }
-
   nextPage(): void {
     if (this.currentPage < this.totalPages - 1) {
       this.loadSanPhamOnline(this.currentPage + 1);

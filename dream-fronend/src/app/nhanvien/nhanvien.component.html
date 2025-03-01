@@ -1,142 +1,413 @@
-<!-- Danh sách Nhân Viên -->
-<div class="container" *ngIf="state === 'list'">
-  <h2>Quản lý Nhân Viên</h2>
+<p class="title">Danh sách nhân viên</p>
 
-  <!-- Tìm kiếm và Lọc -->
-  <div class="search-filter">
-    <input type="text" placeholder="Tìm kiếm nhân viên..." [(ngModel)]="searchTen" (input)="searchNhanVien()" />
-    <div class="filter">
-      <label>
-        <input type="radio" name="status" value="" [(ngModel)]="filterTrangThai" (change)="filterNhanVien()" />
-        Tất cả
-      </label>
-      <label>
-        <input type="radio" name="status" value="1" [(ngModel)]="filterTrangThai" (change)="filterNhanVien()" />
-        Đang làm
-      </label>
-      <label>
-        <input type="radio" name="status" value="0" [(ngModel)]="filterTrangThai" (change)="filterNhanVien()" />
-        Nghỉ việc
-      </label>
-    </div>
-    
+<div class="header-container">
+  <button (click)="openModal()" class="btn btn-primary add-product-button">Thêm Nhân Viên</button>
+  <div class="search-container">
+    <p>Tìm Kiếm:</p>
+    <input type="text" (input)="filterNhanViens()" class="input search-input"
+      placeholder="Nhập tên nhân viên cần tìm..." [(ngModel)]="searchText" />
   </div>
-
-  <!-- Nút Thêm Nhân Viên -->
-  <button (click)="showCreateForm()">Thêm Nhân Viên</button>
-
-  <!-- Bảng danh sách nhân viên -->
-  <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Vai Trò</th>
-        <th>Mã NV</th>
-        <th>Tên</th>
-        <th>Giới Tính</th>
-        <th>Ngày Sinh</th>
-        <th>Email</th>
-        <th>SĐT</th>
-        <th>Tài Khoản</th>
-        <th>Mật Khẩu</th>
-        <th>Ảnh</th>
-        <th>Trạng Thái</th>
-        <th>Ngày Tạo</th>
-        <th>Ngày Sửa</th>
-        <th>Hành Động</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let nhanVien of nhanViens">
-        <td>{{ nhanVien.id }}</td>
-        <td>{{ nhanVien.tenVaiTro }}</td>
-        <td>{{ nhanVien.ma }}</td>
-        <td>{{ nhanVien.ten }}</td>
-        <td>{{ nhanVien.gioiTinh ? 'Nam' : 'Nữ' }}</td>
-        <td>{{ nhanVien.ngaySinh }}</td>
-        <td>{{ nhanVien.email }}</td>
-        <td>{{ nhanVien.soDienThoai }}</td>
-        <td>{{ nhanVien.taiKhoan }}</td>
-        <td>{{ nhanVien.matKhau ? '******' : '' }}</td>
-        <td>
-          <img [src]="nhanVien.anh ? nhanVien.anh : 'assets/default-avatar.png'" alt="Ảnh nhân viên" width="50" />
-        </td>
-        <td>{{ nhanVien.trangThai === 1 ? 'Đang làm' : 'Nghỉ việc' }}</td>
-        <td>{{ nhanVien.ngayTao }}</td>
-        <td>{{ nhanVien.ngaySua }}</td>
-        <td>
-          <button (click)="showEditForm(nhanVien)">Sửa</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
 </div>
 
-<!-- Form Thêm/Sửa Nhân Viên -->
-<div *ngIf="state === 'form'" class="form-container">
-  <h2>{{ isEditing ? 'Sửa Nhân Viên' : 'Thêm Nhân Viên' }}</h2>
-  <form (ngSubmit)="saveNhanVien()">
-    <div>
-      <label>Vai Trò:</label>
-      <select [(ngModel)]="currentNhanVien.idVaiTro" name="idVaiTro" required>
-        <option *ngFor="let vaiTro of vaiTros" [value]="vaiTro.id">{{ vaiTro.ten }}</option>
-      </select>
-    </div>
-    <div>
-      <label>Mã NV:</label>
-      <input type="text" [(ngModel)]="currentNhanVien.ma" name="ma" required />
-    </div>
-    <div>
-      <label>Họ và Tên:</label>
-      <input type="text" [(ngModel)]="currentNhanVien.ten" name="ten" required />
-    </div>
-    <div>
-      <label>Giới Tính:</label>
-      <label><input type="radio" [(ngModel)]="currentNhanVien.gioiTinh" [value]="true" name="gioiTinh" /> Nam</label>
-      <label><input type="radio" [(ngModel)]="currentNhanVien.gioiTinh" [value]="false" name="gioiTinh" /> Nữ</label>
-    </div>
-    <div>
-      <label>Ngày Sinh:</label>
-      <input type="date" [(ngModel)]="currentNhanVien.ngaySinh" name="ngaySinh" required />
-    </div>
-    <div>
-      <label>Email:</label>
-      <input type="email" [(ngModel)]="currentNhanVien.email" name="email" required />
-    </div>
-    <div>
-      <label>Số Điện Thoại:</label>
-      <input type="text" [(ngModel)]="currentNhanVien.soDienThoai" name="soDienThoai" required />
-    </div>
-    <div>
-      <label>Tài Khoản:</label>
-      <input type="text" [(ngModel)]="currentNhanVien.taiKhoan" name="taiKhoan" required />
-    </div>
-    <div>
-      <label>Mật Khẩu:</label>
-      <input type="password" [(ngModel)]="currentNhanVien.matKhau" name="matKhau" required />
-    </div>
-    <div>
-      <label>Ảnh:</label>
-      <input type="file" (change)="onFileSelected($event)" />
-    </div>
-    <div>
-      <label>Trạng Thái:</label>
-      <select [(ngModel)]="currentNhanVien.trangThai" name="trangThai">
-        <option value="1">Đang làm</option>
-        <option value="0">Nghỉ việc</option>
-      </select>
-    </div>
-    <div>
-      <label>Ngày Tạo:</label>
-      <input type="datetime-local" [(ngModel)]="currentNhanVien.ngayTao" name="ngayTao" [disabled]="isEditing" />
-    </div>
-    
-    <div>
-      <label>Ngày Sửa:</label>
-      <input type="datetime-local" [(ngModel)]="currentNhanVien.ngaySua" name="ngaySua" readonly />
-    </div>
-    
-    <button type="submit">{{ isEditing ? 'Lưu Thay Đổi' : 'Thêm' }}</button>
-    <button type="button" (click)="backToList()">Hủy</button>
-  </form>
+<div class="table-container">
+  <div class="table-scrollable">
+    <table class="product-table">
+      <thead>
+        <tr>
+          <th>STT</th>
+          <th>Mã Nhân Viên</th>
+          <th>Tên Nhân Viên</th>
+          <th>Giới Tính</th>
+          <th>Ngày Sinh</th>
+          <th>Email</th>
+          <th>Số Điện Thoại</th>
+          <th>Tài Khoản</th>
+          <th>Vai Trò</th>
+          <th>Trạng Thái</th>
+          <th>Ngày Tạo</th>
+          <th>Ngày Sửa</th>
+          <th colspan="2" style="text-align: center;">Hành động</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let nhanVien of filteredNhanViens">
+          <td>{{ nhanVien.id }}</td>
+          <td>{{ nhanVien.ma }}</td>
+          <td>{{ nhanVien.ten }}</td>
+          <td>{{ nhanVien.gioiTinh ? 'Nam' : 'Nữ' }}</td>
+          <td>{{ nhanVien.ngaySinh | date: 'dd/MM/yyyy' }}</td>
+          <td>{{ nhanVien.email }}</td>
+          <td>{{ nhanVien.soDienThoai }}</td>
+          <td>{{ nhanVien.taiKhoan }}</td>
+          <td>{{ nhanVien.vaiTro ? nhanVien.vaiTro.ten : 'Chưa có vai trò' }}</td>
+          <td>{{ nhanVien.trangThai ? 'Hoạt động' : 'Không hoạt động' }}</td>
+          <td>{{ nhanVien.ngayTao | date: 'dd/MM/yyyy' }}</td>
+          <td>{{ nhanVien.ngaySua | date: 'dd/MM/yyyy' }}</td>
+          <td>
+            <button (click)="showDetail(nhanVien.id)" class="button btn-primary">Chi tiết</button>
+            <button (click)="editNhanVien(nhanVien.id)" class="button btn-primary">Sửa</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="pagination-actions">
+    <!-- Pagination -->
+    <nav aria-label="Page navigation">
+      <ul class="pagination">
+        <!-- Nút Trang trước -->
+        <li class="page-item" [class.disabled]="currentPage === 0">
+          <button class="page-link" (click)="goToPreviousPage()" [disabled]="currentPage === 0">
+            &laquo;
+          </button>
+        </li>
+        <li class="page-item" *ngFor="let page of visiblePages" [class.active]="currentPage === page">
+          <button class="page-link" (click)="goToPage(page)">{{ page + 1 }}</button>
+        </li>
+        <!-- Nút Trang sau -->
+        <li class="page-item" [class.disabled]="currentPage >= totalPages - 1">
+          <button class="page-link" (click)="goToNextPage()" [disabled]="currentPage >= totalPages - 1">
+            &raquo;
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </div>
+
+
+<!-- Modal hiển thị chi tiết nhân viên -->
+<div class="modal-overlay" *ngIf="showModalDetail" (click)="closeModalDetail()">
+  <div class="modal-box" (click)="$event.stopPropagation()">
+    <button class="close-btn" (click)="closeModalDetail()">×</button>
+    <p class="titleadd">Chi tiết Nhân viên</p> <br> <br>
+
+    <!-- Form hiển thị chi tiết nhân viên -->
+    <form *ngIf="selectedNhanVien">
+      <div class="input-row">
+        <div class="input-field">
+          <input type="text" class="input" [(ngModel)]="selectedNhanVien.ma" name="ma" readonly />
+          <label for="ma">Mã nhân viên</label>
+        </div>
+        <div class="input-field">
+          <input type="text" class="input" [(ngModel)]="selectedNhanVien.ten" name="ten" readonly />
+          <label for="ten">Tên nhân viên</label>
+        </div>
+      </div>
+
+      <div class="input-row">
+        <div class="input-field">
+          <input type="text" class="input" [value]="selectedNhanVien.gioiTinh ? 'Nam' : 'Nữ'" readonly />
+          <label for="gioiTinh">Giới tính</label>
+        </div>
+        <div class="input-field">
+          <input type="date" class="input" [(ngModel)]="selectedNhanVien.ngaySinh" name="ngaySinh" readonly />
+          <label for="ngaySinh">Ngày sinh</label>
+        </div>
+      </div>
+
+      <div class="input-row">
+        <div class="input-field">
+          <input type="email" class="input" [(ngModel)]="selectedNhanVien.email" name="email" readonly />
+          <label for="email">Email</label>
+        </div>
+        <div class="input-field">
+          <input type="text" class="input" [(ngModel)]="selectedNhanVien.soDienThoai" name="soDienThoai" readonly />
+          <label for="soDienThoai">Số điện thoại</label>
+        </div>
+      </div>
+
+      <div class="input-row">
+        <div class="input-field">
+          <input type="text" class="input" [(ngModel)]="selectedNhanVien.taiKhoan" name="taiKhoan" readonly />
+          <label for="taiKhoan">Tài khoản</label>
+        </div>
+        <div class="input-field">
+          <input type="password" class="input" [(ngModel)]="selectedNhanVien.matKhau" name="matKhau" readonly />
+          <label for="matKhau">Mật khẩu</label>
+        </div>
+      </div>
+
+      <div class="input-row">
+        <div class="input-field">
+          <input type="date" class="input" [(ngModel)]="selectedNhanVien.ngayTao" name="ngayTao" readonly />
+          <label for="ngayTao">Ngày tạo</label>
+        </div>
+        <div class="input-field">
+          <input type="date" class="input" [(ngModel)]="selectedNhanVien.ngaySua" name="ngaySua" readonly />
+          <label for="ngaySua">Ngày sửa</label>
+        </div>
+      </div>
+
+      <div class="input-row">
+        <div class="input-field">
+          <input type="text" class="input" [value]="selectedNhanVien.trangThai === 1 ? 'Hoạt động' : 'Không hoạt động'" readonly />
+          <label for="trangThai">Trạng thái</label>
+        </div>
+      </div>
+
+      <div class="input-row">
+        <div class="input-field">
+          <input type="text" class="input" value="{{selectedNhanVien.vaiTro?.ten}}" name="vaiTro" readonly />
+          <label for="vaiTro">Vai trò</label>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+<!-- Modal hiển thị chi tiết nhân viên khi sửa -->
+<div class="modal-overlay" *ngIf="showModalEdit" (click)="closeModalEdit()">
+  <div class="modal-box" (click)="$event.stopPropagation()">
+    <button class="close-btn" (click)="closeModalEdit()">×</button>
+    <p class="titleadd">Sửa Nhân Viên</p> <br> <br>
+
+    <!-- Form hiển thị chi tiết nhân viên và cho phép sửa -->
+    <form (ngSubmit)="updateNhanVien()" #nhanVienForm="ngForm">
+      <div class="input-row">
+        <div class="input-field">
+          <!-- Trường ID là readonly -->
+          <input type="text" class="input" [(ngModel)]="nhanVienEdit.id" name="id" readonly />
+          <label for="id">ID</label>
+        </div>
+        <div class="input-field">
+          <input type="text" class="input" [(ngModel)]="nhanVienEdit.ma" name="ma" required readonly />
+          <label for="ma">Mã nhân viên</label>
+          <div class="tooltip-error" *ngIf="errors.ma">
+            Mã nhân viên không được để trống!
+          </div>
+        </div>
+        <div class="input-field">
+          <input type="text" class="input" [(ngModel)]="nhanVienEdit.ten" name="ten" required (input)="clearError('ten')" />
+          <label for="ten">Tên nhân viên</label>
+          <div class="tooltip-error" *ngIf="errors.ten">
+            {{ errors.ten }}
+          </div>
+        </div>
+      </div>
+
+      <div class="input-row">
+        <div class="input-field">
+          <input type="text" class="input" [(ngModel)]="nhanVienEdit.email" name="email" required (input)="clearError('email')" />
+          <label for="email">Email</label>
+          <div class="tooltip-error" *ngIf="errors.email">
+            {{ errors.email }}
+          </div>
+        </div>
+        <div class="input-field">
+          <input type="text" class="input" [(ngModel)]="nhanVienEdit.soDienThoai" name="soDienThoai" required (input)="clearError('soDienThoai')" />
+          <label for="soDienThoai">Số điện thoại</label>
+          <div class="tooltip-error" *ngIf="errors.soDienThoai">
+            {{ errors.soDienThoai }}
+          </div>
+        </div>
+      </div>
+
+      <div class="input-row">
+        <div class="input-field">
+          <input type="date" class="input" [(ngModel)]="nhanVienEdit.ngaySinh" name="ngaySinh" required (input)="clearError('ngaySinh')" />
+          <label for="ngaySinh">Ngày sinh</label>
+          <div class="tooltip-error" *ngIf="errors.ngaySinh">
+            {{ errors.ngaySinh }}
+          </div>
+        </div>
+        <div class="input-field">
+          <select class="input" [(ngModel)]="nhanVienEdit.gioiTinh" name="gioiTinh" required (change)="clearError('gioiTinh')">
+            <option [value]="true">Nam</option>
+            <option [value]="false">Nữ</option>
+          </select>
+          <label for="gioiTinh">Giới tính</label>
+          <div class="tooltip-error" *ngIf="errors.gioiTinh">
+            {{ errors.gioiTinh }}
+          </div>
+        </div>
+      </div>
+
+      <div class="input-row">
+        <div class="input-field">
+          <input type="text" class="input" [(ngModel)]="nhanVienEdit.taiKhoan" name="taiKhoan" required (input)="clearError('taiKhoan')" />
+          <label for="taiKhoan">Tài khoản</label>
+          <div class="tooltip-error" *ngIf="errors.taiKhoan">
+            {{ errors.taiKhoan }}
+          </div>
+        </div>
+        <div class="input-field">
+          <input type="password" class="input" [(ngModel)]="nhanVienEdit.matKhau" name="matKhau" required (input)="clearError('matKhau')" />
+          <label for="matKhau">Mật khẩu</label>
+          <div class="tooltip-error" *ngIf="errors.matKhau">
+            {{ errors.matKhau }}
+          </div>
+        </div>
+      </div>
+
+      <div class="input-row">
+        <div class="input-field">
+          <input type="date" class="input" [(ngModel)]="nhanVienEdit.ngayTao" name="ngayTao" required (input)="clearError('ngayTao')" />
+          <label for="ngayTao">Ngày tạo</label>
+          <div class="tooltip-error" *ngIf="errors.ngayTao">
+            {{ errors.ngayTao }}
+          </div>
+        </div>
+        <div class="input-field">
+          <input type="date" class="input" [(ngModel)]="nhanVienEdit.ngaySua" name="ngaySua" required (input)="clearError('ngaySua')" />
+          <label for="ngaySua">Ngày sửa</label>
+          <div class="tooltip-error" *ngIf="errors.ngaySua">
+            {{ errors.ngaySua }}
+          </div>
+        </div>
+      </div>
+
+      <div class="input-row">
+        <div class="input-field">
+          <select class="input" [(ngModel)]="nhanVienEdit.trangThai" name="trangThai" required (change)="clearError('trangThai')">
+            <option [value]="1">Hoạt động</option>
+            <option [value]="0">Không hoạt động</option>
+          </select>
+          <label for="trangThai">Trạng thái</label>
+          <div class="tooltip-error" *ngIf="errors.trangThai">
+            {{ errors.trangThai }}
+          </div>
+        </div>
+      </div>
+
+      <div class="input-row">
+        <div class="input-field">
+          <select class="input" [(ngModel)]="nhanVienEdit.vaiTro.id" name="vaiTro" required (change)="clearError('vaiTro')">
+            <option *ngFor="let vaiTro of danhSachVaiTro" [value]="vaiTro.id">{{ vaiTro.ten }}</option>
+          </select>
+          <label for="vaiTro">Vai trò</label>
+          <div class="tooltip-error" *ngIf="errors.vaiTro">
+            {{ errors.vaiTro }}
+          </div>          
+        </div>
+      </div>
+
+      <div class="button-container">
+        <button type="submit" class="button btn-primary">Lưu thay đổi</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<!-- Modal thêm nhân viên -->
+<div class="modal-overlay" *ngIf="showModal" (click)="closeModal()">
+  <div class="modal-box" (click)="$event.stopPropagation()">
+    <button class="close-btn" (click)="closeModal()">×</button>
+    <p class="titleadd">Thêm Nhân Viên</p> <br> <br>
+
+    <!-- Form thêm nhân viên -->
+    <form (ngSubmit)="addNhanVien()" #nhanVienForm="ngForm">
+      <div class="input-row">
+        <div class="input-field">
+          <input type="text" class="input" [(ngModel)]="nhanVien.ma" name="ma" autocomplete="off" required
+            (input)="clearError('ma')" />
+          <label for="ma">Mã nhân viên</label>
+          <div class="tooltip-error" *ngIf="errors.ma">
+            {{ errors.ma}}
+          </div>
+        </div>
+        <div class="input-field">
+          <input type="text" class="input" [(ngModel)]="nhanVien.ten" name="ten" required
+            (input)="clearError('ten')" />
+          <label for="ten">Tên nhân viên</label>
+          <div class="tooltip-error" *ngIf="errors.ten">
+            {{ errors.ten}}
+          </div>
+        </div>
+      </div>
+
+      <div class="input-row">
+        <div class="input-field">
+          <select class="input" [(ngModel)]="nhanVien.gioiTinh" name="gioiTinh" required
+            (change)="clearError('gioiTinh')">
+            <option value="" disabled selected>Chọn giới tính</option>
+            <option [ngValue]="true">Nam</option>
+            <option [ngValue]="false">Nữ</option>
+          </select>
+          <label for="gioiTinh">Giới tính</label>
+          <div class="tooltip-error" *ngIf="errors.gioiTinh">
+            {{ errors.gioiTinh}}
+          </div>
+        </div>
+        <div class="input-field">
+          <input type="date" class="input" [(ngModel)]="nhanVien.ngaySinh" name="ngaySinh" required
+            (input)="clearError('ngaySinh')" />
+          <label for="ngaySinh">Ngày sinh</label>
+          <div class="tooltip-error" *ngIf="errors.ngaySinh">
+            {{ errors.ngaySinh}}
+          </div>
+        </div>
+      </div>
+
+      <div class="input-row">
+        <div class="input-field">
+          <input type="email" class="input" [(ngModel)]="nhanVien.email" name="email" required
+            (input)="clearError('email')" />
+          <label for="email">Email</label>
+          <div class="tooltip-error" *ngIf="errors.email">
+            {{ errors.email}}
+          </div>
+        </div>
+        <div class="input-field">
+          <input type="text" class="input" [(ngModel)]="nhanVien.soDienThoai" name="soDienThoai" required
+            (input)="clearError('soDienThoai')" />
+          <label for="soDienThoai">Số điện thoại</label>
+          <div class="tooltip-error" *ngIf="errors.soDienThoai">
+            {{ errors.soDienThoai}}
+          </div>
+        </div>
+      </div>
+
+      <div class="input-row">
+        <div class="input-field">
+          <input type="text" class="input" [(ngModel)]="nhanVien.taiKhoan" name="taiKhoan" required
+            (input)="clearError('taiKhoan')" />
+          <label for="taiKhoan">Tài khoản</label>
+          <div class="tooltip-error" *ngIf="errors.taiKhoan">
+            {{ errors.taiKhoan}}
+          </div>
+        </div>
+        <div class="input-field">
+          <input type="password" class="input" [(ngModel)]="nhanVien.matKhau" name="matKhau" required
+            (input)="clearError('matKhau')" />
+          <label for="matKhau">Mật khẩu</label>
+          <div class="tooltip-error" *ngIf="errors.matKhau">
+            {{ errors.matKhau}}
+          </div>
+        </div>
+      </div>
+
+      <div class="input-row">
+        <div class="input-field">
+          <select class="input" [(ngModel)]="nhanVien.vaiTro.id" name="vaiTro" required (change)="clearError('vaiTro')">
+            <option *ngFor="let vaiTro of danhSachVaiTro" [value]="vaiTro.id">{{ vaiTro.ten }}</option>
+          </select>
+          <label for="vaiTro">Vai trò</label>
+          <div class="tooltip-error" *ngIf="errors.vaiTro">
+            {{ errors.vaiTro }}
+          </div>          
+        </div>
+        <div class="input-field">
+          <select class="input" [(ngModel)]="nhanVien.trangThai" name="trangThai" required
+            (change)="clearError('trangThai')">
+            <option [value]="1">Hoạt động</option>
+            <option [value]="0">Không hoạt động</option>
+          </select>
+          <label for="trangThai">Trạng thái</label>
+          <div class="tooltip-error" *ngIf="errors.trangThai">
+            {{ errors.trangThai}}
+          </div>
+        </div>
+      </div>
+
+      <div class="button-container">
+        <button type="submit" class="button btn-primary">Thêm Nhân Viên</button>
+      </div>
+    </form>
+  </div>
+</div>
+

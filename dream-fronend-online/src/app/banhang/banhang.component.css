@@ -2,6 +2,89 @@
   background: #294764;
   height: 40px;
 }
+
+.footer{
+  text-align: center;
+  color: #294764;
+}
+
+.footer i{
+  color: red;
+}
+
+.imgbr img {
+  padding-top: 78px;
+  width: 100%;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.imgbr img:hover {
+  opacity: 0.5; /* Làm ảnh mờ đi 50% khi trỏ chuột vào */
+}
+
+.lien-he{
+  height: 350px;
+  background-color: rgb(33, 33, 33);
+  padding-top: 40px;
+  display: flex; /* Đặt các phần tử con cùng một hàng */
+  justify-content: space-between;
+  padding-right: 100px;
+}
+
+.left{
+  color: white;
+  padding-left: 100px;
+}
+
+.left img{
+  height: 50px;
+}
+
+.logo-lh img {
+  width: 100px; /* Điều chỉnh kích thước logo */
+  height: 100px; /* Đảm bảo logo là hình vuông */
+  border-radius: 50%; /* Làm tròn hình ảnh */
+  object-fit: cover; /* Đảm bảo ảnh không bị méo */
+  border: 2px solid #ccc; /* Viền nhẹ để đẹp hơn (có thể bỏ) */
+}
+
+.center {
+  padding-top: 50px;
+  color: white;
+  margin-left: -155px;
+  display: flex;
+  flex-direction: column; /* Đưa các phần tử con (h5 và .img-network) xuống hàng */
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  text-align: center; /* Căn giữa nội dung văn bản */
+}
+
+.img-network {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px; /* Khoảng cách giữa các icon */
+  width: 100%;
+  margin-top: 10px; /* Tạo khoảng cách giữa chữ và ảnh */
+}
+
+.img-network img {
+  border-radius: 100%;
+  object-fit: cover;
+  height: 40px;
+  transition: opacity 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+.img-network img:hover {
+  opacity: 0.5;
+  filter: blur(2px);
+}
+
+.right{
+  color: white;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -54,7 +137,7 @@ body {
 .text {
   text-align: center;
   color: #294764;
-  margin-top: 110px;
+  margin-top: 90px;
 }
 /* Phần từ <hr> trở xuống sẽ cuộn được */
 .scroll-container {
@@ -67,10 +150,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 15px; /* Khoảng cách giữa ảnh trong cùng một hàng */
+  margin-bottom: 15px; /* Khoảng cách giữa các hàng */
 }
 
 .image-banner img {
-  width: 250px; /* Thu nhỏ ảnh */
+  width: 200px; /* Thu nhỏ ảnh */
   height: auto;
   transition: transform 0.3s ease-in-out; /* Hiệu ứng mượt */
 }
