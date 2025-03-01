@@ -407,19 +407,21 @@ editSanPhamChiTiet(sanPhamChiTiet: any): void {
     /** Gọi API lấy ảnh theo sản phẩm */
     loadAnhCuaSanPham() {
       if (!this.idSanPham) return;
-
+    
       this.sanphamService.getAllAnh(this.idSanPham).subscribe(response => {
         if (Array.isArray(response)) {
           this.anhHienCo = response.map(anh => ({
             ...anh,
             anhUrl: `http://localhost:8080${anh.anhUrl}`
-          }));      
-          this.cdRef.detectChanges(); 
+          }));
         } else {
           this.anhHienCo = [];
         }
+        this.cdRef.markForCheck();
       });
     }
+    
+    
 
     /** Khi người dùng chọn file */
     onFileSelected(event: any, fileInput: HTMLInputElement) {
@@ -436,8 +438,13 @@ editSanPhamChiTiet(sanPhamChiTiet: any): void {
       this.selectedFiles = selectedFiles; // Gán danh sách file đã chọn
     }
     /** Hiển thị preview ảnh mới */
+    private filePreviewMap = new Map<File, string>();
+
     getImagePreview(file: File): string {
-      return URL.createObjectURL(file);
+      if (!this.filePreviewMap.has(file)) {
+        this.filePreviewMap.set(file, URL.createObjectURL(file));
+      }
+      return this.filePreviewMap.get(file)!;
     }
 
     /** Upload ảnh lên server */
