@@ -217,7 +217,7 @@
             <div class="image-container">
               <div class="image-item" *ngFor="let anh of anhHienCo">
                 <img [src]="anh.anhUrl" class="image-preview">
-                <button class="delete-btn" (click)="xoaAnh(anh.id)">×</button>
+                <button type="button" class="delete-btn" (click)="xoaAnh(anh.id)">×</button>
               </div>
             </div>
           </div>
@@ -233,7 +233,7 @@
             <div class="image-container">
               <div class="image-item" *ngFor="let file of selectedFiles; let i = index">
                 <img [src]="getImagePreview(file)" alt="Ảnh mới" class="image-preview">
-                <button class="delete-btn" (click)="xoaAnhDaChon(i, fileInput)">×</button>
+                <button type="button" class="delete-btn" (click)="xoaAnhDaChon(i, fileInput)">×</button>
               </div>
             </div>
           </div>      

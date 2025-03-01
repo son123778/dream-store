@@ -5,121 +5,564 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d7dcb88-d015-40bd-b1c2-e4c2578857ff" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/configs/WebMvcConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/controllers/BanHangOnlineController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/repositories/SanPhamOnlineRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/services/sanphamonline/ISanPhamOnlineService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/services/sanphamonline/SanPhamOnlineService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/configs/WebMvcConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/images/1740579900515_download (3).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/images/1740579910334_images.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/images/1740579929503_download.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/images/1740579940469_images.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/images/1740583140520_download (3).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/images/1740665679258_Screenshot 2025-02-20 214216.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/images/1740665764920_Screenshot 2025-02-26 221447.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/images/1740754864734_download (1).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/images/1740756232801_Screenshot 2025-02-23 210247.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/images/1740756373763_6-426f4c85-2109-429e-89ca-a7573ee98c09.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/images/1740756373816_img-1706-1.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/images/1740759259731_img-0715-1.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/images/1740759482897_img-2069-1.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/images/1740759807092_img-1706-1.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/images/1740759964059_images.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/.tsbuildinfo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/@angular_common.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/@angular_common.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/@angular_common_http.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/@angular_common_http.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/@angular_core.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/@angular_core.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/@angular_forms.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/@angular_forms.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/@angular_material_button.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/@angular_material_button.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/@angular_material_icon.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/@angular_material_icon.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/@angular_material_sidenav.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/@angular_material_sidenav.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/@angular_material_toolbar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/@angular_material_toolbar.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/@angular_platform-browser.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/@angular_platform-browser.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/@angular_platform-browser_animations.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/@angular_platform-browser_animations.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/@angular_router.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/@angular_router.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/_metadata.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/chunk-7IE36W2U.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/chunk-7IE36W2U.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/chunk-AQJ636C7.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/chunk-AQJ636C7.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/chunk-BXC4AUBF.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/chunk-BXC4AUBF.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/chunk-EY26LY7S.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/chunk-EY26LY7S.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/chunk-GDAOHDFN.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/chunk-GDAOHDFN.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/chunk-R5N7VWCM.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/chunk-R5N7VWCM.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_common.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_common.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_common_http.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_common_http.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_core.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_core.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_forms.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_forms.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_material_button.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_material_button.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_material_icon.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_material_icon.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_material_sidenav.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_material_sidenav.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_material_toolbar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_material_toolbar.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_platform-browser.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_platform-browser.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_platform-browser_animations.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_platform-browser_animations.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_platform-server.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_platform-server.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_router.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_router.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_ssr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_ssr.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_ssr_node.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/@angular_ssr_node.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/_metadata.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-32WADN2A.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-32WADN2A.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-C5KUQ6XX.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-C5KUQ6XX.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-IUKGO5CI.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-IUKGO5CI.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-O722O4FA.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-O722O4FA.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-PBZ35URQ.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-PBZ35URQ.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-S3KOMQG5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-S3KOMQG5.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-TES4JXVL.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-TES4JXVL.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-VSGFCIHH.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-VSGFCIHH.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-YHCV7DAQ.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-YHCV7DAQ.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-Z5IWENK5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-Z5IWENK5.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-ZE2ZKY6Y.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-ZE2ZKY6Y.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/express.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/express.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/xhr2-TXIMV6CV.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/xhr2-TXIMV6CV.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.editorconfig" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/configs/WebMvcConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/controllers/BanHangOnlineController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/repositories/SanPhamOnlineRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/services/sanphamonline/ISanPhamOnlineService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/services/sanphamonline/SanPhamOnlineService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/.angular/cache/19.1.8/dream-angular/.tsbuildinfo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@esbuild/win32-x64/esbuild.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@esbuild/win32-x64/esbuild.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@inquirer/confirm/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@inquirer/confirm/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@inquirer/confirm/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@inquirer/confirm/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@inquirer/prompts/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@inquirer/prompts/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@inquirer/prompts/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@inquirer/prompts/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@lmdb/lmdb-win32-x64/node.napi.node" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@lmdb/lmdb-win32-x64/node.napi.node" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@lmdb/lmdb-win32-x64/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@lmdb/lmdb-win32-x64/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@ngtools/webpack/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@ngtools/webpack/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@npmcli/git/node_modules/.bin/node-which.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@npmcli/git/node_modules/.bin/node-which.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@npmcli/package-json/node_modules/.bin/glob.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@npmcli/package-json/node_modules/.bin/glob.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@npmcli/promise-spawn/node_modules/.bin/node-which.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@npmcli/promise-spawn/node_modules/.bin/node-which.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@npmcli/run-script/lib/node-gyp-bin/node-gyp.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@npmcli/run-script/lib/node-gyp-bin/node-gyp.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@npmcli/run-script/node_modules/.bin/node-which.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@npmcli/run-script/node_modules/.bin/node-which.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@parcel/watcher/node_modules/.bin/detect-libc.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@parcel/watcher/node_modules/.bin/detect-libc.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@rollup/rollup-win32-x64-msvc/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@rollup/rollup-win32-x64-msvc/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@rollup/rollup-win32-x64-msvc/rollup.win32-x64-msvc.node" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@rollup/rollup-win32-x64-msvc/rollup.win32-x64-msvc.node" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@schematics/angular/config/files/karma.conf.js.template" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@schematics/angular/config/files/karma.conf.js.template" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@schematics/angular/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@schematics/angular/config/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@schematics/angular/environments/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@schematics/angular/environments/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@schematics/angular/library/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@schematics/angular/library/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@schematics/angular/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@schematics/angular/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@schematics/angular/service-worker/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@schematics/angular/service-worker/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@schematics/angular/third_party/github.com/Microsoft/TypeScript/lib/typescript.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@schematics/angular/third_party/github.com/Microsoft/TypeScript/lib/typescript.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@schematics/angular/third_party/github.com/Microsoft/TypeScript/lib/typescript.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@schematics/angular/third_party/github.com/Microsoft/TypeScript/lib/typescript.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@schematics/angular/utility/latest-versions.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@schematics/angular/utility/latest-versions.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@schematics/angular/utility/latest-versions.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@schematics/angular/utility/latest-versions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@schematics/angular/utility/latest-versions/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@schematics/angular/utility/latest-versions/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@schematics/angular/utility/workspace-models.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@schematics/angular/utility/workspace-models.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@schematics/angular/utility/workspace-models.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@schematics/angular/utility/workspace-models.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@schematics/angular/workspace/files/package.json.template" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@schematics/angular/workspace/files/package.json.template" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/body-parser/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/body-parser/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/bonjour/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/bonjour/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/connect-history-api-fallback/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/connect-history-api-fallback/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/connect/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/connect/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/cors/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/cors/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/eslint-scope/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/eslint-scope/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/eslint/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/eslint/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/estree/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/estree/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/express-serve-static-core/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/express-serve-static-core/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/express/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/express/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/http-errors/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/http-errors/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/http-proxy/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/http-proxy/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/jasmine/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/jasmine/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/json-schema/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/json-schema/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/mime/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/mime/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/node-forge/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/node-forge/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/node/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/node/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/qs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/qs/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/range-parser/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/range-parser/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/retry/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/retry/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/send/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/send/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/serve-index/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/serve-index/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/serve-static/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/serve-static/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/sockjs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/sockjs/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/ws/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@types/ws/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@webassemblyjs/floating-point-hex-parser/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/@webassemblyjs/floating-point-hex-parser/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/babel-plugin-polyfill-corejs2/node_modules/.bin/semver.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/babel-plugin-polyfill-corejs2/node_modules/.bin/semver.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/big.js/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/big.js/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/big.js/LICENCE" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/big.js/LICENCE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/big.js/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/big.js/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/big.js/big.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/big.js/big.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/big.js/big.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/big.js/big.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/big.js/big.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/big.js/big.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/big.js/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/big.js/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/cacache/node_modules/.bin/glob.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/cacache/node_modules/.bin/glob.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/cacache/node_modules/.bin/mkdirp.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/cacache/node_modules/.bin/mkdirp.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/caniuse-lite/data/features/css-text-box-trim.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/caniuse-lite/data/features/css-text-box-trim.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/caniuse-lite/data/features/push-api.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/caniuse-lite/data/features/push-api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/caniuse-lite/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/caniuse-lite/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/color-name/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/color-name/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/color-name/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/color-name/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/color-name/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/color-name/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/color-name/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/color-name/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/copy-anything/dist/index.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/copy-anything/dist/index.cjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/copy-anything/dist/index.es.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/copy-anything/dist/index.es.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/copy-anything/dist/types/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/copy-anything/dist/types/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/cross-spawn/node_modules/.bin/node-which.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/cross-spawn/node_modules/.bin/node-which.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/electron-to-chromium/full-chromium-versions.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/electron-to-chromium/full-chromium-versions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/electron-to-chromium/full-chromium-versions.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/electron-to-chromium/full-chromium-versions.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/electron-to-chromium/full-versions.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/electron-to-chromium/full-versions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/electron-to-chromium/full-versions.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/electron-to-chromium/full-versions.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/electron-to-chromium/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/electron-to-chromium/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/electron-to-chromium/versions.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/electron-to-chromium/versions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/electron-to-chromium/versions.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/electron-to-chromium/versions.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/es-module-lexer/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/es-module-lexer/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/es-module-lexer/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/es-module-lexer/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/es-module-lexer/lexer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/es-module-lexer/lexer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/es-module-lexer/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/es-module-lexer/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/es-module-lexer/types/lexer.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/es-module-lexer/types/lexer.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/esbuild-wasm/esbuild.wasm" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/esbuild-wasm/esbuild.wasm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/esbuild-wasm/esm/browser.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/esbuild-wasm/esm/browser.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/esbuild-wasm/esm/browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/esbuild-wasm/esm/browser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/esbuild-wasm/esm/browser.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/esbuild-wasm/esm/browser.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/esbuild-wasm/lib/browser.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/esbuild-wasm/lib/browser.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/esbuild-wasm/lib/browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/esbuild-wasm/lib/browser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/esbuild-wasm/lib/browser.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/esbuild-wasm/lib/browser.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/esbuild-wasm/lib/main.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/esbuild-wasm/lib/main.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/esbuild-wasm/lib/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/esbuild-wasm/lib/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/esbuild-wasm/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/esbuild-wasm/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/esbuild/bin/esbuild" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/esbuild/bin/esbuild" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/esbuild/lib/main.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/esbuild/lib/main.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/esbuild/lib/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/esbuild/lib/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/esbuild/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/esbuild/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/fast-json-stable-stringify/.eslintrc.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/fast-json-stable-stringify/.github/FUNDING.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/fast-json-stable-stringify/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/fast-json-stable-stringify/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/fast-json-stable-stringify/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/fast-json-stable-stringify/benchmark/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/fast-json-stable-stringify/benchmark/test.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/fast-json-stable-stringify/example/key_cmp.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/fast-json-stable-stringify/example/nested.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/fast-json-stable-stringify/example/str.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/fast-json-stable-stringify/example/value_cmp.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/fast-json-stable-stringify/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/fast-json-stable-stringify/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/fast-json-stable-stringify/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/fast-json-stable-stringify/test/cmp.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/fast-json-stable-stringify/test/nested.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/fast-json-stable-stringify/test/str.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/fast-json-stable-stringify/test/to-json.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/fastq/.github/workflows/ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/fastq/.github/workflows/ci.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/fastq/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/fastq/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/fastq/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/fastq/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/foreground-child/dist/commonjs/all-signals.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/foreground-child/dist/commonjs/all-signals.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/foreground-child/dist/commonjs/all-signals.d.ts.map" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/foreground-child/dist/commonjs/all-signals.d.ts.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/foreground-child/dist/commonjs/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/foreground-child/dist/commonjs/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/foreground-child/dist/commonjs/index.d.ts.map" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/foreground-child/dist/commonjs/index.d.ts.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/foreground-child/dist/commonjs/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/foreground-child/dist/commonjs/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/foreground-child/dist/commonjs/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/foreground-child/dist/commonjs/index.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/foreground-child/dist/commonjs/proxy-signals.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/foreground-child/dist/commonjs/proxy-signals.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/foreground-child/dist/commonjs/proxy-signals.d.ts.map" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/foreground-child/dist/commonjs/proxy-signals.d.ts.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/foreground-child/dist/commonjs/watchdog.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/foreground-child/dist/commonjs/watchdog.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/foreground-child/dist/commonjs/watchdog.d.ts.map" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/foreground-child/dist/commonjs/watchdog.d.ts.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/foreground-child/dist/esm/all-signals.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/foreground-child/dist/esm/all-signals.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/foreground-child/dist/esm/all-signals.d.ts.map" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/foreground-child/dist/esm/all-signals.d.ts.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/foreground-child/dist/esm/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/foreground-child/dist/esm/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/foreground-child/dist/esm/index.d.ts.map" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/foreground-child/dist/esm/index.d.ts.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/foreground-child/dist/esm/proxy-signals.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/foreground-child/dist/esm/proxy-signals.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/foreground-child/dist/esm/proxy-signals.d.ts.map" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/foreground-child/dist/esm/proxy-signals.d.ts.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/foreground-child/dist/esm/watchdog.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/foreground-child/dist/esm/watchdog.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/foreground-child/dist/esm/watchdog.d.ts.map" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/foreground-child/dist/esm/watchdog.d.ts.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/foreground-child/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/foreground-child/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/fraction.js/fraction.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/fraction.js/fraction.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/http-proxy/.auto-changelog" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/http-proxy/.auto-changelog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/is-what/dist/index.cjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/is-what/dist/index.cjs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/is-what/dist/index.esm.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/is-what/dist/index.esm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/is-what/types/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/is-what/types/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/jsonc-parser/LICENSE.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/jsonc-parser/LICENSE.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/karma-coverage/node_modules/.bin/semver.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/karma-coverage/node_modules/.bin/semver.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/karma-jasmine-html-reporter/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/karma-jasmine-html-reporter/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/karma-jasmine-html-reporter/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/karma-jasmine-html-reporter/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/karma-jasmine-html-reporter/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/karma-jasmine-html-reporter/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/karma-jasmine-html-reporter/src/boot.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/karma-jasmine-html-reporter/src/boot.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/karma-jasmine-html-reporter/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/karma-jasmine-html-reporter/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/less/dist/less.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/less/dist/less.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/less/dist/less.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/less/dist/less.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/less/dist/less.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/less/dist/less.min.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/less/lib/less/parser/parser.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/less/lib/less/parser/parser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/less/lib/less/parser/parser.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/less/lib/less/parser/parser.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/less/lib/less/tree/nested-at-rule.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/less/lib/less/tree/nested-at-rule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/less/lib/less/tree/nested-at-rule.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/less/lib/less/tree/nested-at-rule.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/less/lib/less/tree/query-in-parens.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/less/lib/less/tree/query-in-parens.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/less/lib/less/tree/query-in-parens.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/less/lib/less/tree/query-in-parens.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/less/node_modules/.bin/mime.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/less/node_modules/.bin/mime.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/less/node_modules/.bin/semver.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/less/node_modules/.bin/semver.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/less/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/less/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/less/test/browser/generator/generate.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/less/test/browser/generator/generate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/less/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/less/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/lmdb/dependencies/lmdb/libraries/liblmdb/mdb.c" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/lmdb/dependencies/lmdb/libraries/liblmdb/mdb.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/lmdb/dependencies/lz4/lib/dll/example/fullbench-dll.sln" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/lmdb/dependencies/lz4/lib/dll/example/fullbench-dll.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/lmdb/dependencies/lz4/lib/dll/example/fullbench-dll.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/lmdb/dependencies/lz4/lib/dll/example/fullbench-dll.vcxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/lmdb/dist/index.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/lmdb/dist/index.cjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/lmdb/dist/index.cjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/lmdb/dist/index.cjs.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/lmdb/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/lmdb/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/lmdb/read.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/lmdb/read.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/lmdb/src/txn.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/lmdb/src/txn.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/minipass-fetch/lib/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/minipass-fetch/lib/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/minipass-fetch/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/minipass-fetch/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/minizlib/node_modules/.bin/glob.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/minizlib/node_modules/.bin/glob.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/minizlib/node_modules/.bin/rimraf.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/minizlib/node_modules/.bin/rimraf.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/mrmime/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/mrmime/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/mrmime/index.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/mrmime/index.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/mrmime/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/mrmime/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/mrmime/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/mrmime/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/needle/examples/parsed-stream2.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/needle/examples/parsed-stream2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/needle/test/compression_spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/needle/test/compression_spec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/node-gyp/gyp/gyp.bat" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/node-gyp/gyp/gyp.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/node-gyp/node_modules/.bin/glob.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/node-gyp/node_modules/.bin/glob.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/node-gyp/node_modules/.bin/mkdirp.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/node-gyp/node_modules/.bin/mkdirp.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/node-gyp/node_modules/.bin/node-which.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/node-gyp/node_modules/.bin/node-which.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/npm-package-arg/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/npm-package-arg/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/npm-package-arg/lib/npa.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/npm-package-arg/lib/npa.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/npm-package-arg/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/npm-package-arg/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/postcss-media-query-parser/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/postcss-media-query-parser/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/postcss-media-query-parser/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/postcss-media-query-parser/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/postcss-media-query-parser/dist/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/postcss-media-query-parser/dist/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/postcss-media-query-parser/dist/nodes/Container.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/postcss-media-query-parser/dist/nodes/Container.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/postcss-media-query-parser/dist/nodes/Node.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/postcss-media-query-parser/dist/nodes/Node.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/postcss-media-query-parser/dist/parsers.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/postcss-media-query-parser/dist/parsers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/postcss/lib/input.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/postcss/lib/input.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/postcss/lib/input.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/postcss/lib/input.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/postcss/lib/node.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/postcss/lib/node.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/postcss/lib/parser.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/postcss/lib/parser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/postcss/lib/postcss.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/postcss/lib/postcss.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/postcss/lib/processor.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/postcss/lib/processor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/postcss/lib/rule.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/postcss/lib/rule.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/postcss/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/postcss/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/reflect-metadata/AUTHORS.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/reflect-metadata/AUTHORS.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/reflect-metadata/CopyrightNotice.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/reflect-metadata/CopyrightNotice.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/reflect-metadata/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/reflect-metadata/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/reflect-metadata/no-conflict.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/reflect-metadata/no-conflict.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/reflect-metadata/standalone.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/reflect-metadata/standalone.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/regjsparser/node_modules/.bin/jsesc.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/regjsparser/node_modules/.bin/jsesc.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/reusify/.coveralls.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/reusify/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/reusify/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/reusify/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/reusify/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/reusify/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/reusify/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/reusify/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rollup/dist/bin/rollup" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rollup/dist/bin/rollup" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rollup/dist/es/getLogFilter.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rollup/dist/es/getLogFilter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rollup/dist/es/parseAst.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rollup/dist/es/parseAst.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rollup/dist/es/rollup.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rollup/dist/es/rollup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rollup/dist/es/shared/node-entry.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rollup/dist/es/shared/node-entry.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rollup/dist/es/shared/parseAst.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rollup/dist/es/shared/parseAst.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rollup/dist/es/shared/watch.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rollup/dist/es/shared/watch.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rollup/dist/getLogFilter.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rollup/dist/getLogFilter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rollup/dist/loadConfigFile.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rollup/dist/loadConfigFile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rollup/dist/parseAst.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rollup/dist/parseAst.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rollup/dist/rollup.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rollup/dist/rollup.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rollup/dist/rollup.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rollup/dist/rollup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rollup/dist/shared/fsevents-importer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rollup/dist/shared/fsevents-importer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rollup/dist/shared/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rollup/dist/shared/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rollup/dist/shared/loadConfigFile.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rollup/dist/shared/loadConfigFile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rollup/dist/shared/parseAst.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rollup/dist/shared/parseAst.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rollup/dist/shared/rollup.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rollup/dist/shared/rollup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rollup/dist/shared/watch-cli.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rollup/dist/shared/watch-cli.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rollup/dist/shared/watch.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rollup/dist/shared/watch.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rollup/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rollup/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rxjs/dist/bundles/rxjs.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/rxjs/dist/bundles/rxjs.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/sass-loader/dist/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/sass-loader/dist/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/sass-loader/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/sass-loader/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/sass/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/sass/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/sass/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/sass/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/sass/sass.dart.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/sass/sass.dart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/semver/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/semver/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/semver/bin/semver.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/semver/bin/semver.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/semver/classes/semver.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/semver/classes/semver.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/semver/functions/diff.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/semver/functions/diff.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/semver/internal/re.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/semver/internal/re.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/semver/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/semver/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/send/node_modules/.bin/mime.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/send/node_modules/.bin/mime.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/sockjs/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/sockjs/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/sprintf-js/dist/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/sprintf-js/dist/.gitattributes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/tar/node_modules/.bin/mkdirp.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/tar/node_modules/.bin/mkdirp.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/terser-webpack-plugin/dist/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/terser-webpack-plugin/dist/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/terser-webpack-plugin/dist/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/terser-webpack-plugin/dist/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/terser-webpack-plugin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/terser-webpack-plugin/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/terser-webpack-plugin/types/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/terser-webpack-plugin/types/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/terser-webpack-plugin/types/utils.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/terser-webpack-plugin/types/utils.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/terser/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/terser/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/terser/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/terser/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/terser/dist/bundle.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/terser/dist/bundle.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/terser/lib/ast.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/terser/lib/ast.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/terser/lib/compress/compressor-flags.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/terser/lib/compress/compressor-flags.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/terser/lib/compress/drop-side-effect-free.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/terser/lib/compress/drop-side-effect-free.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/terser/lib/compress/evaluate.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/terser/lib/compress/evaluate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/terser/lib/compress/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/terser/lib/compress/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/terser/lib/compress/inference.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/terser/lib/compress/inference.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/terser/lib/equivalent-to.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/terser/lib/equivalent-to.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/terser/lib/mozilla-ast.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/terser/lib/mozilla-ast.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/terser/lib/output.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/terser/lib/output.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/terser/lib/parse.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/terser/lib/parse.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/terser/lib/size.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/terser/lib/size.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/terser/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/terser/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/tslib/CopyrightNotice.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/tslib/CopyrightNotice.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/tslib/LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/tslib/LICENSE.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/tslib/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/tslib/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/tslib/modules/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/tslib/modules/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/tslib/modules/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/tslib/modules/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/tslib/tslib.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/tslib/tslib.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/tslib/tslib.es6.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/tslib/tslib.es6.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/tslib/tslib.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/tslib/tslib.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/typescript/LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/typescript/LICENSE.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/typescript/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/typescript/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/typescript/ThirdPartyNoticeText.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/typescript/ThirdPartyNoticeText.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/typescript/lib/typesMap.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/typescript/lib/typesMap.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/update-browserslist-db/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/update-browserslist-db/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/update-browserslist-db/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/update-browserslist-db/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/es5/uri.all.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/es5/uri.all.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/es5/uri.all.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/es5/uri.all.min.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/es5/uri.all.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/es5/uri.all.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/esnext/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/esnext/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/esnext/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/esnext/regexps-iri.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/esnext/regexps-iri.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/esnext/regexps-iri.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/esnext/regexps-uri.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/esnext/regexps-uri.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/esnext/regexps-uri.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/esnext/schemes/http.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/esnext/schemes/http.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/esnext/schemes/http.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/esnext/schemes/https.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/esnext/schemes/https.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/esnext/schemes/https.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/esnext/schemes/mailto.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/esnext/schemes/mailto.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/esnext/schemes/mailto.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/esnext/schemes/urn-uuid.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/esnext/schemes/urn-uuid.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/esnext/schemes/urn-uuid.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/esnext/schemes/urn.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/esnext/schemes/urn.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/esnext/schemes/urn.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/esnext/schemes/ws.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/esnext/schemes/ws.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/esnext/schemes/ws.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/esnext/schemes/wss.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/esnext/schemes/wss.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/esnext/schemes/wss.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/esnext/uri.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/esnext/uri.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/esnext/uri.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/esnext/util.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/esnext/util.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/dist/esnext/util.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/node_modules/punycode/LICENSE-MIT.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/node_modules/punycode/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/node_modules/punycode/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/node_modules/punycode/punycode.es6.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/node_modules/punycode/punycode.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/uri-js/yarn.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/vite/dist/client/client.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/vite/dist/client/client.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/vite/dist/node-cjs/publicUtils.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/vite/dist/node-cjs/publicUtils.cjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/vite/dist/node/chunks/dep-B42HB7IL.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/vite/dist/node/chunks/dep-CJRd4GTw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/vite/dist/node/chunks/dep-Cg8OuIew.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/vite/dist/node/chunks/dep-DcIXjcop.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/vite/dist/node/cli.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/vite/dist/node/cli.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/vite/dist/node/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/vite/dist/node/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/vite/dist/node/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/vite/dist/node/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/vite/dist/node/module-runner.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/vite/dist/node/module-runner.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/vite/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/vite/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/void-elements/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/void-elements/.gitattributes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/void-elements/.npmignore" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/void-elements/.npmignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/void-elements/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/void-elements/.travis.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/void-elements/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/void-elements/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/void-elements/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/void-elements/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/void-elements/pre-publish.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/void-elements/pre-publish.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/void-elements/test/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/void-elements/test/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/weak-lru-cache/LRFUExpirer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/weak-lru-cache/LRFUExpirer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/weak-lru-cache/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/weak-lru-cache/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/weak-lru-cache/dist/index.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/weak-lru-cache/dist/index.cjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/weak-lru-cache/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/weak-lru-cache/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/weak-lru-cache/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/weak-lru-cache/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/weak-lru-cache/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/weak-lru-cache/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/weak-lru-cache/rollup.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/weak-lru-cache/rollup.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/weak-lru-cache/tests/benchmark.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/weak-lru-cache/tests/benchmark.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/weak-lru-cache/tests/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/weak-lru-cache/tests/test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/Compilation.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/Compilation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/Module.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/Module.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/ModuleFilenameHelpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/ModuleFilenameHelpers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/asset/AssetModulesPlugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/asset/AssetModulesPlugin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/config/defaults.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/config/defaults.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/css/CssLoadingRuntimeModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/css/CssLoadingRuntimeModule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/css/CssModulesPlugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/css/CssModulesPlugin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/dependencies/CommonJsImportsParserPlugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/dependencies/CommonJsImportsParserPlugin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/dependencies/CssLocalIdentifierDependency.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/dependencies/CssLocalIdentifierDependency.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/dependencies/JsonExportsDependency.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/dependencies/JsonExportsDependency.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/esm/ModuleChunkLoadingRuntimeModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/esm/ModuleChunkLoadingRuntimeModule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/javascript/JavascriptModulesPlugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/javascript/JavascriptModulesPlugin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/json/JsonModulesPlugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/json/JsonModulesPlugin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/json/JsonParser.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/json/JsonParser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/optimize/SplitChunksPlugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/optimize/SplitChunksPlugin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/runtime/AutoPublicPathRuntimeModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/runtime/AutoPublicPathRuntimeModule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/stats/DefaultStatsFactoryPlugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/stats/DefaultStatsFactoryPlugin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/util/semver.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/util/semver.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/validateSchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/validateSchema.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/wasm-async/AsyncWebAssemblyModulesPlugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/wasm-async/AsyncWebAssemblyModulesPlugin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/wasm-sync/WebAssemblyModulesPlugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/wasm-sync/WebAssemblyModulesPlugin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/wasm/EnableWasmLoadingPlugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/wasm/EnableWasmLoadingPlugin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/web/JsonpChunkLoadingRuntimeModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/lib/web/JsonpChunkLoadingRuntimeModule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv-keywords/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv-keywords/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv-keywords/ajv-keywords.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv-keywords/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv-keywords/keywords/_formatLimit.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv-keywords/keywords/_util.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv-keywords/keywords/allRequired.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv-keywords/keywords/anyRequired.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv-keywords/keywords/deepProperties.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv-keywords/keywords/deepRequired.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv-keywords/keywords/dot/_formatLimit.jst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv-keywords/keywords/dot/patternRequired.jst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv-keywords/keywords/dot/switch.jst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv-keywords/keywords/dotjs/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv-keywords/keywords/dotjs/_formatLimit.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv-keywords/keywords/dotjs/patternRequired.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv-keywords/keywords/dotjs/switch.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv-keywords/keywords/dynamicDefaults.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv-keywords/keywords/formatMaximum.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv-keywords/keywords/formatMinimum.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv-keywords/keywords/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv-keywords/keywords/instanceof.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv-keywords/keywords/oneRequired.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv-keywords/keywords/patternRequired.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv-keywords/keywords/prohibited.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv-keywords/keywords/range.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv-keywords/keywords/regexp.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv-keywords/keywords/select.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv-keywords/keywords/switch.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv-keywords/keywords/transform.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv-keywords/keywords/typeof.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv-keywords/keywords/uniqueItemProperties.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv-keywords/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/.tonic_example.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/dist/ajv.bundle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/dist/ajv.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/dist/ajv.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/ajv.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/ajv.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/cache.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/compile/async.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/compile/equal.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/compile/error_classes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/compile/formats.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/compile/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/compile/resolve.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/compile/rules.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/compile/schema_obj.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/compile/ucs2length.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/compile/util.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/definition_schema.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dot/_limit.jst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dot/_limitItems.jst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dot/_limitLength.jst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dot/_limitProperties.jst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dot/allOf.jst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dot/anyOf.jst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dot/coerce.def" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dot/comment.jst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dot/const.jst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dot/contains.jst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dot/custom.jst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dot/defaults.def" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dot/definitions.def" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dot/dependencies.jst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dot/enum.jst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dot/errors.def" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dot/format.jst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dot/if.jst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dot/items.jst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dot/missing.def" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dot/multipleOf.jst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dot/not.jst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dot/oneOf.jst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dot/pattern.jst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dot/properties.jst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dot/propertyNames.jst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dot/ref.jst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dot/required.jst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dot/uniqueItems.jst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dot/validate.jst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dotjs/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dotjs/_limit.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dotjs/_limitItems.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dotjs/_limitLength.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dotjs/_limitProperties.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dotjs/allOf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dotjs/anyOf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dotjs/comment.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dotjs/const.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dotjs/contains.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dotjs/custom.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dotjs/dependencies.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dotjs/enum.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dotjs/format.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dotjs/if.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dotjs/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dotjs/items.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dotjs/multipleOf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dotjs/not.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dotjs/oneOf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dotjs/pattern.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dotjs/properties.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dotjs/propertyNames.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dotjs/ref.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dotjs/required.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dotjs/uniqueItems.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/dotjs/validate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/keyword.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/refs/data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/refs/json-schema-draft-04.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/refs/json-schema-draft-06.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/refs/json-schema-draft-07.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/lib/refs/json-schema-secure.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/scripts/.eslintrc.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/scripts/bundle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/scripts/compile-dots.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/scripts/info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/scripts/prepare-tests" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/scripts/publish-built-version" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/ajv/scripts/travis-gh-pages" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/json-schema-traverse/.eslintrc.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/json-schema-traverse/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/json-schema-traverse/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/json-schema-traverse/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/json-schema-traverse/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/json-schema-traverse/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/json-schema-traverse/spec/.eslintrc.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/json-schema-traverse/spec/fixtures/schema.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/json-schema-traverse/spec/index.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/schema-utils/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/schema-utils/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/schema-utils/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/schema-utils/declarations/ValidationError.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/schema-utils/declarations/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/schema-utils/declarations/keywords/absolutePath.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/schema-utils/declarations/keywords/undefinedAsNull.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/schema-utils/declarations/util/Range.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/schema-utils/declarations/util/hints.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/schema-utils/declarations/validate.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/schema-utils/dist/ValidationError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/schema-utils/dist/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/schema-utils/dist/keywords/absolutePath.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/schema-utils/dist/keywords/undefinedAsNull.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/schema-utils/dist/util/Range.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/schema-utils/dist/util/hints.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/schema-utils/dist/validate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/node_modules/schema-utils/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/schemas/plugins/JsonModulesPluginParser.check.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/schemas/plugins/JsonModulesPluginParser.check.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/schemas/plugins/JsonModulesPluginParser.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/schemas/plugins/JsonModulesPluginParser.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/types.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/node_modules/webpack/types.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/src/app/banhang/banhang.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/src/app/banhang/banhang.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dream-fronend-online/src/app/banhang/banhang.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../dream-fronend-online/src/app/banhang/banhang.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,35 +602,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.DreamBackendApplication.executor": "Run",
-    "JUnit.All in dream-backend.executor": "Run",
-    "Maven.dream-backend [clean,install].executor": "Run",
-    "Maven.dream-backend [clean,spring-boot:run].executor": "Run",
-    "Maven.dream-backend [clean].executor": "Run",
-    "Maven.dream-backend [spring-boot:debug].executor": "Run",
-    "Maven.dream-backend [spring-boot:run].executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.DreamBackendApplication.executor": "Run",
-    "Spring Boot.Unnamed.executor": "Run",
-    "git-widget-placeholder": "huy-hung",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/dream-store/dream-backend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.DreamBackendApplication.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in dream-backend.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.dream-backend [clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.dream-backend [clean,spring-boot:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.dream-backend [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.dream-backend [spring-boot:debug].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.dream-backend [spring-boot:run].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.DreamBackendApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;huy-hung&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/dream-store/dream-backend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\controllers" />
@@ -287,7 +730,8 @@
       <workItem from="1740489923803" duration="5470000" />
       <workItem from="1740496948704" duration="3149000" />
       <workItem from="1740665167763" duration="1993000" />
-      <workItem from="1740753870255" duration="6360000" />
+      <workItem from="1740753870255" duration="10159000" />
+      <workItem from="1740804570554" duration="1948000" />
     </task>
     <servers />
   </component>
