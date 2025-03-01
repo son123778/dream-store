@@ -1,32 +1,20 @@
 import { createRequire } from 'module';const require = createRequire(import.meta.url);
 import {
-<<<<<<<< HEAD:dream-fronend/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-IM2O66SX.js
-========
-  ROUTES,
-  Router,
-  loadChildren
-} from "./chunk-FNK7UN6C.js";
-import {
->>>>>>>> huy-hung:dream-fronend-online/.angular/cache/19.2.0/dream-angular/vite/deps_ssr/chunk-YORNJREY.js
   INITIAL_CONFIG,
   SERVER_CONTEXT,
   platformServer,
   renderApplication,
   renderModule
-<<<<<<<< HEAD:dream-fronend/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-IM2O66SX.js
 } from "./chunk-5SVZCHU5.js";
 import {
   ROUTES,
   Router,
   loadChildren
 } from "./chunk-PBZ35URQ.js";
-========
-} from "./chunk-TRVPKDE7.js";
->>>>>>>> huy-hung:dream-fronend-online/.angular/cache/19.2.0/dream-angular/vite/deps_ssr/chunk-YORNJREY.js
 import {
   APP_BASE_HREF,
   PlatformLocation
-} from "./chunk-BMOTRGRB.js";
+} from "./chunk-C5KUQ6XX.js";
 import {
   ApplicationRef,
   Compiler,
@@ -40,7 +28,7 @@ import {
   makeEnvironmentProviders,
   resetCompiledComponents,
   runInInjectionContext
-} from "./chunk-Q2625NID.js";
+} from "./chunk-Z5IWENK5.js";
 import {
   __async,
   __asyncGenerator,
@@ -1137,8 +1125,7 @@ function requireNode$1() {
       if (opts.index) {
         pos = this.positionInside(opts.index);
       } else if (opts.word) {
-        let inputString = "document" in this.source.input ? this.source.input.document : this.source.input.css;
-        let stringRepresentation = inputString.slice(sourceOffset(inputString, this.source.start), sourceOffset(inputString, this.source.end));
+        let stringRepresentation = this.source.input.css.slice(sourceOffset(this.source.input.css, this.source.start), sourceOffset(this.source.input.css, this.source.end));
         let index = stringRepresentation.indexOf(opts.word);
         if (index !== -1) pos = this.positionInside(index);
       }
@@ -1147,11 +1134,10 @@ function requireNode$1() {
     positionInside(index) {
       let column = this.source.start.column;
       let line = this.source.start.line;
-      let inputString = "document" in this.source.input ? this.source.input.document : this.source.input.css;
-      let offset = sourceOffset(inputString, this.source.start);
+      let offset = sourceOffset(this.source.input.css, this.source.start);
       let end = offset + index;
       for (let i = offset; i < end; i++) {
-        if (inputString[i] === "\n") {
+        if (this.source.input.css[i] === "\n") {
           column = 1;
           line += 1;
         } else {
@@ -1181,8 +1167,7 @@ function requireNode$1() {
         line: start.line
       };
       if (opts.word) {
-        let inputString = "document" in this.source.input ? this.source.input.document : this.source.input.css;
-        let stringRepresentation = inputString.slice(sourceOffset(inputString, this.source.start), sourceOffset(inputString, this.source.end));
+        let stringRepresentation = this.source.input.css.slice(sourceOffset(this.source.input.css, this.source.start), sourceOffset(this.source.input.css, this.source.end));
         let index = stringRepresentation.indexOf(opts.word);
         if (index !== -1) {
           start = this.positionInside(index);
@@ -1994,8 +1979,6 @@ function requireInput() {
       } else {
         this.hasBOM = false;
       }
-      this.document = this.css;
-      if (opts.document) this.document = opts.document.toString();
       if (opts.from) {
         if (!pathAvailable || /^\w+:\/\//.test(opts.from) || isAbsolute2(opts.from)) {
           this.file = opts.from;
@@ -3246,8 +3229,6 @@ function requireParser() {
         if (prev && prev.type === "rule" && !prev.raws.ownSemicolon) {
           prev.raws.ownSemicolon = this.spaces;
           this.spaces = "";
-          prev.source.end = this.getPosition(token[2]);
-          prev.source.end.offset += prev.raws.ownSemicolon.length;
         }
       }
     }
@@ -4192,7 +4173,7 @@ function requireProcessor() {
   let Root2 = requireRoot();
   class Processor {
     constructor(plugins = []) {
-      this.version = "8.5.2";
+      this.version = "8.4.49";
       this.plugins = this.normalize(plugins);
     }
     normalize(plugins) {
@@ -10171,135 +10152,49 @@ var RouteTree = class _RouteTree {
 var MODULE_PRELOAD_MAX = 10;
 var URL_PARAMETER_REGEXP = /(?<!\\):([^/]+)/g;
 var VALID_REDIRECT_RESPONSE_CODES = /* @__PURE__ */ new Set([301, 302, 303, 307, 308]);
-function handleRoute(options) {
-  return __asyncGenerator(this, null, function* () {
-    try {
-      const {
-        metadata,
-        currentRoutePath,
-        route,
-        compiler,
-        parentInjector,
-        serverConfigRouteTree,
-        entryPointToBrowserMapping,
-        invokeGetPrerenderParams,
-        includePrerenderFallbackRoutes
-      } = options;
-      const {
-        redirectTo,
-        loadChildren: loadChildren2,
-        loadComponent,
-        children,
-        ɵentryName
-      } = route;
-      if (ɵentryName && loadComponent) {
-        appendPreloadToMetadata(ɵentryName, entryPointToBrowserMapping, metadata, true);
-      }
-      if (metadata.renderMode === RenderMode.Prerender) {
-        yield* __yieldStar(handleSSGRoute(serverConfigRouteTree, typeof redirectTo === "string" ? redirectTo : void 0, metadata, parentInjector, invokeGetPrerenderParams, includePrerenderFallbackRoutes));
-      } else if (typeof redirectTo === "string") {
-        if (metadata.status && !VALID_REDIRECT_RESPONSE_CODES.has(metadata.status)) {
-          yield {
-            error: `The '${metadata.status}' status code is not a valid redirect response code. Please use one of the following redirect response codes: ${[...VALID_REDIRECT_RESPONSE_CODES.values()].join(", ")}.`
-          };
-        } else {
-          yield __spreadProps(__spreadValues({}, metadata), {
-            redirectTo: resolveRedirectTo(metadata.route, redirectTo)
-          });
-        }
-      } else {
-        yield metadata;
-      }
-      if (children?.length) {
-        yield* __yieldStar(traverseRoutesConfig(__spreadProps(__spreadValues({}, options), {
-          routes: children,
-          parentRoute: currentRoutePath,
-          parentPreloads: metadata.preload
-        })));
-      }
-      if (loadChildren2) {
-        if (ɵentryName) {
-          appendPreloadToMetadata(ɵentryName, entryPointToBrowserMapping, metadata, false);
-        }
-        const loadedChildRoutes = yield new __await(loadChildren(route, compiler, parentInjector).toPromise());
-        if (loadedChildRoutes) {
-          const {
-            routes: childRoutes,
-            injector = parentInjector
-          } = loadedChildRoutes;
-          yield* __yieldStar(traverseRoutesConfig(__spreadProps(__spreadValues({}, options), {
-            routes: childRoutes,
-            parentInjector: injector,
-            parentRoute: currentRoutePath,
-            parentPreloads: metadata.preload
-          })));
-        }
-      }
-    } catch (error) {
-      yield {
-        error: `Error in handleRoute for '${options.currentRoutePath}': ${error.message}`
-      };
-    }
-  });
-}
 function traverseRoutesConfig(options) {
   return __asyncGenerator(this, null, function* () {
     const {
-      routes: routeConfigs,
-      parentPreloads,
+      routes,
+      compiler,
+      parentInjector,
       parentRoute,
-      serverConfigRouteTree
+      serverConfigRouteTree,
+      entryPointToBrowserMapping,
+      parentPreloads,
+      invokeGetPrerenderParams,
+      includePrerenderFallbackRoutes
     } = options;
-    for (const route of routeConfigs) {
-      const {
-        matcher,
-        path: path2 = matcher ? "**" : ""
-      } = route;
-      const currentRoutePath = joinUrlParts(parentRoute, path2);
-      if (matcher && serverConfigRouteTree) {
-        let foundMatch = false;
-        for (const matchedMetaData2 of serverConfigRouteTree.traverse()) {
-          if (!matchedMetaData2.route.startsWith(currentRoutePath)) {
-            continue;
-          }
-          foundMatch = true;
-          matchedMetaData2.presentInClientRouter = true;
-          if (matchedMetaData2.renderMode === RenderMode.Prerender) {
+    for (const route of routes) {
+      try {
+        const {
+          path: path2 = "",
+          matcher,
+          redirectTo,
+          loadChildren: loadChildren2,
+          loadComponent,
+          children,
+          ɵentryName
+        } = route;
+        const currentRoutePath = joinUrlParts(parentRoute, path2);
+        let matchedMetaData;
+        if (serverConfigRouteTree) {
+          if (matcher) {
             yield {
-              error: `The route '${stripLeadingSlash(currentRoutePath)}' is set for prerendering but has a defined matcher. Routes with matchers cannot use prerendering. Please specify a different 'renderMode'.`
+              error: `The route '${stripLeadingSlash(currentRoutePath)}' uses a route matcher that is not supported.`
             };
             continue;
           }
-          yield* __yieldStar(handleRoute(__spreadProps(__spreadValues({}, options), {
-            currentRoutePath,
-            route,
-            metadata: __spreadProps(__spreadValues({}, matchedMetaData2), {
-              preload: parentPreloads,
-              route: matchedMetaData2.route,
-              presentInClientRouter: void 0
-            })
-          })));
+          matchedMetaData = serverConfigRouteTree.match(currentRoutePath);
+          if (!matchedMetaData) {
+            yield {
+              error: `The '${stripLeadingSlash(currentRoutePath)}' route does not match any route defined in the server routing configuration. Please ensure this route is added to the server routing configuration.`
+            };
+            continue;
+          }
+          matchedMetaData.presentInClientRouter = true;
         }
-        if (!foundMatch) {
-          yield {
-            error: `The route '${stripLeadingSlash(currentRoutePath)}' has a defined matcher but does not match any route in the server routing configuration. Please ensure this route is added to the server routing configuration.`
-          };
-        }
-        continue;
-      }
-      let matchedMetaData;
-      if (serverConfigRouteTree) {
-        matchedMetaData = serverConfigRouteTree.match(currentRoutePath);
-        if (!matchedMetaData) {
-          yield {
-            error: `The '${stripLeadingSlash(currentRoutePath)}' route does not match any route defined in the server routing configuration. Please ensure this route is added to the server routing configuration.`
-          };
-          continue;
-        }
-        matchedMetaData.presentInClientRouter = true;
-      }
-      yield* __yieldStar(handleRoute(__spreadProps(__spreadValues({}, options), {
-        metadata: __spreadProps(__spreadValues({
+        const metadata = __spreadProps(__spreadValues({
           renderMode: RenderMode.Prerender
         }, matchedMetaData), {
           preload: parentPreloads,
@@ -10308,10 +10203,55 @@ function traverseRoutesConfig(options) {
           // ['one', 'two', 'three'] -> 'one/two/three'
           route: path2 === "" ? addTrailingSlash(currentRoutePath) : currentRoutePath,
           presentInClientRouter: void 0
-        }),
-        currentRoutePath,
-        route
-      })));
+        });
+        if (ɵentryName && loadComponent) {
+          appendPreloadToMetadata(ɵentryName, entryPointToBrowserMapping, metadata, true);
+        }
+        if (metadata.renderMode === RenderMode.Prerender) {
+          yield* __yieldStar(handleSSGRoute(serverConfigRouteTree, typeof redirectTo === "string" ? redirectTo : void 0, metadata, parentInjector, invokeGetPrerenderParams, includePrerenderFallbackRoutes));
+        } else if (typeof redirectTo === "string") {
+          if (metadata.status && !VALID_REDIRECT_RESPONSE_CODES.has(metadata.status)) {
+            yield {
+              error: `The '${metadata.status}' status code is not a valid redirect response code. Please use one of the following redirect response codes: ${[...VALID_REDIRECT_RESPONSE_CODES.values()].join(", ")}.`
+            };
+            continue;
+          }
+          yield __spreadProps(__spreadValues({}, metadata), {
+            redirectTo: resolveRedirectTo(metadata.route, redirectTo)
+          });
+        } else {
+          yield metadata;
+        }
+        if (children?.length) {
+          yield* __yieldStar(traverseRoutesConfig(__spreadProps(__spreadValues({}, options), {
+            routes: children,
+            parentRoute: currentRoutePath,
+            parentPreloads: metadata.preload
+          })));
+        }
+        if (loadChildren2) {
+          if (ɵentryName) {
+            appendPreloadToMetadata(ɵentryName, entryPointToBrowserMapping, metadata, false);
+          }
+          const loadedChildRoutes = yield new __await(loadChildren(route, compiler, parentInjector).toPromise());
+          if (loadedChildRoutes) {
+            const {
+              routes: childRoutes,
+              injector = parentInjector
+            } = loadedChildRoutes;
+            yield* __yieldStar(traverseRoutesConfig(__spreadProps(__spreadValues({}, options), {
+              routes: childRoutes,
+              parentInjector: injector,
+              parentRoute: currentRoutePath,
+              parentPreloads: metadata.preload
+            })));
+          }
+        }
+      } catch (error) {
+        yield {
+          error: `Error processing route '${stripLeadingSlash(route.path ?? "")}': ${error.message}`
+        };
+      }
     }
   });
 }
@@ -11594,8 +11534,4 @@ export {
   AngularAppEngine,
   createRequestHandler
 };
-<<<<<<<< HEAD:dream-fronend/.angular/cache/19.1.8/dream-angular/vite/deps_ssr/chunk-IM2O66SX.js
-//# sourceMappingURL=chunk-IM2O66SX.js.map
-========
-//# sourceMappingURL=chunk-YORNJREY.js.map
->>>>>>>> huy-hung:dream-fronend-online/.angular/cache/19.2.0/dream-angular/vite/deps_ssr/chunk-YORNJREY.js
+//# sourceMappingURL=chunk-3C43Z5V7.js.map
