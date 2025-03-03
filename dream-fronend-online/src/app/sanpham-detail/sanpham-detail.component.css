@@ -1,0 +1,30 @@
+.product-detail{
+    padding-top: 200px;
+    justify-content: center
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .product-info p{
+    color: black;
+  }
+  
+  .quantity-control button {
+    background-color: #294764;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  .quantity-control input {
+    width: 50px;
+    text-align: center;
+    font-size: 18px;
+  }
+  

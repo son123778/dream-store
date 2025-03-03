@@ -14,10 +14,10 @@ import {
   getRtlScrollAxisType,
   hasModifierKey,
   supportsScrollBehavior
-} from "./chunk-VGM2GA6S.js";
+} from "./chunk-UZG6CQTT.js";
 import {
   DOCUMENT
-} from "./chunk-5TLVH2CW.js";
+} from "./chunk-CNYVAVHM.js";
 import {
   ANIMATION_MODULE_TYPE,
   ChangeDetectionStrategy,
@@ -101,7 +101,7 @@ import {
   ɵɵstyleProp,
   ɵɵtemplate,
   ɵɵviewQuery
-} from "./chunk-7UDU6PMQ.js";
+} from "./chunk-BB7KJL6U.js";
 
 // node_modules/@angular/cdk/fesm2022/collections.mjs
 var DataSource = class {

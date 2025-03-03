@@ -1,0 +1,41 @@
+<app-header></app-header>
+<!-- Nội dung chi tiết sản phẩm -->
+<div class="product-detail">
+    <div class="product-images">
+      <div *ngFor="let sp of sanPham">
+        <img [src]="'http://localhost:8080' + sp.anhUrl" alt="Sản phẩm">
+      </div>      
+    </div>
+    <div class="product-info">
+      <h1>{{ sanPham.tenSanPham }}</h1>
+      <p class="price">{{ sanPham.gia }} VND</p>
+
+      <p><strong>Chất liệu:</strong> {{ sanPham.tenChatLieu }}</p>
+      <p><strong>Cổ áo:</strong> {{ sanPham.tenCoAo }}</p>
+      <p><strong>Thương hiệu:</strong> {{ sanPham.tenThuongHieu }}</p>
+      <p><strong>Xuất xứ:</strong> {{ sanPham.tenXuatXu }}</p>
+      <p><strong>Số lượng trong kho:</strong> {{ sanPham.soLuongSanPham }}</p>
+
+      <!-- Chọn màu sắc -->
+      <label for="mauSac"><strong>Màu sắc:</strong></label>
+      <select id="mauSac" [(ngModel)]="selectedMauSac">
+        <option *ngFor="let mau of danhSachMauSac" [value]="mau.ten">{{ mau.ten }}</option>
+      </select>
+
+      <!-- Chọn kích thước -->
+      <label for="size"><strong>Kích thước:</strong></label>
+      <select id="size" [(ngModel)]="selectedSize">
+        <option *ngFor="let size of danhSachSize" [value]="size.ten">{{ size.ten }}</option>
+      </select>
+
+      <!-- Điều chỉnh số lượng mua -->
+      <div class="quantity-control">
+        <button (click)="giamSoLuong()">-</button>
+        <input type="number" [(ngModel)]="soLuongMua" min="1">
+        <button (click)="tangSoLuong()">+</button>
+      </div>
+
+      <button class="btn">Thêm vào giỏ</button>
+      <button class="btn">Mua ngay</button>
+    </div>
+</div>

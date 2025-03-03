@@ -13,4 +13,5 @@ export class BanhangService {
   getSanPhamOnline(page: number, size: number): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/hien-thi?page=${page}&size=${size}`);
   }
+  
 }

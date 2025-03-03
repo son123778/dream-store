@@ -1,24 +1,6 @@
-<div class="header">
-  <div class="logo">
-    <img src="https://media.licdn.com/dms/image/v2/D4D0BAQG4-oyhJObyeQ/company-logo_200_200/company-logo_200_200/0/1692049150669/dream_store_brinquedos_logo?e=2147483647&v=beta&t=tMKRIMyWlenH5Iv1wIijIfCBTSAuiZ6FAW9vWR5M0Cs" alt="Logo">
-  </div>
-  <nav class="nav-icons">
-    <a href="#"><i class="bi bi-search"></i></a>
-    <a href="#" (click)="cardModal()"><i class="bi bi-bag"></i></a>
-    <a href="#"><i class="bi bi-person-circle"></i></a>
-  </nav>
-</div>
-<!-- Modal giỏ hàng -->
-<div class="cart-modal" [class.show]="modalCard">
-  <div class="cart-content">
-    <button class="close-btn" (click)="cardModal()">x</button>
-    <h2>Giỏ hàng</h2>
-    <p>Danh sách sản phẩm trong giỏ hàng...</p>
-  </div>
-</div>
-
+<app-header></app-header> 
 <div class="imgbr">
-  <img src="https://pos.nvncdn.com/4260cc-24295/bn/20250211_IgIRoUjC.gif" alt="">
+  <img src="https://theme.hstatic.net/200000499507/1000925471/14/slideshow_1.jpg?v=241" alt="">
 </div>
 
  <div class="text">
@@ -40,7 +22,9 @@
           <div class="card-body">
             <h5 class="card-title">{{ sanPham.ten }}</h5>
             <p class="card-text"><strong>Giá:</strong> {{ sanPham.gia }} VND</p>
-            <button class="btn">Xem chi tiết</button>
+            <button class="btn" [routerLink]="['/sanpham', sanPham.id]">
+              Xem chi tiết
+            </button>                                  
           </div>
         </div>
       </div>

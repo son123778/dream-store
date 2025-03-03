@@ -86,6 +86,7 @@ D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\vou
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\controllers\SanPhamChiTietController.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\coao\ICoAoService.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\controllers\ThuongHieuController.java
+D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\dtos\SanPhamChiTietOnlineDto.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\controllers\SizeController.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\responses\VaiTroResponse.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\entities\SanPham.java
@@ -93,6 +94,7 @@ D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\siz
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\dtos\XuatXuDto.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\repositories\XuatXuRepository.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\dtos\ChatLieuDto.java
+D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\repositories\SanPhamChiTietOnlineRepository.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\sanphamchitiet\ISanPhamChiTietService.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\responses\ThuongHieuRespone.java
 D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\responses\HoaDonResponse.java
