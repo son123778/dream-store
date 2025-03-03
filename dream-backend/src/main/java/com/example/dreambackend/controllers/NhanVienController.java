@@ -4,13 +4,16 @@ import com.example.dreambackend.entities.NhanVien;
 import com.example.dreambackend.requests.NhanVienRequest;
 import com.example.dreambackend.responses.NhanVienResponse;
 import com.example.dreambackend.services.nhanvien.NhanVienService;
+import jakarta.annotation.security.PermitAll;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/nhan-vien")
+
 @CrossOrigin(origins = "http://localhost:4200") // Cho phép kết nối từ Angular
 public class NhanVienController {
 
@@ -44,6 +47,7 @@ public class NhanVienController {
     /**
      * Thêm nhân viên mới
      */
+
     @PostMapping("/add")
     public NhanVien addNhanVien(@RequestBody NhanVienRequest nhanVienRequest) {
         return nhanVienService.addNhanVien(nhanVienRequest);
@@ -52,8 +56,10 @@ public class NhanVienController {
     /**
      * Cập nhật nhân viên
      */
+
     @PutMapping("/update")
     public NhanVien updateNhanVien(@RequestBody NhanVienRequest nhanVienRequest) {
         return nhanVienService.updateNhanVien(nhanVienRequest);
     }
+
 }

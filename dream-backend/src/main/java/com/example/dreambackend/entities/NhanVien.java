@@ -1,5 +1,6 @@
 package com.example.dreambackend.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -58,5 +59,6 @@ public class NhanVien {
 
     @ManyToOne
     @JoinColumn(name = "id_vai_tro", referencedColumnName = "id", nullable = false) // Tham chiếu đến cột id của VaiTro
+    @JsonBackReference
     private VaiTro vaiTro;
 }

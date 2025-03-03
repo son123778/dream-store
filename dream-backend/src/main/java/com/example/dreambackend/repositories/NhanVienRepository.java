@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface NhanVienRepository extends JpaRepository<NhanVien, Integer> {
@@ -78,4 +79,7 @@ public interface NhanVienRepository extends JpaRepository<NhanVien, Integer> {
         WHERE nv.trangThai = :trangThai
     """)
     List<NhanVienResponse> filterNhanVienByTrangThai(Integer trangThai);
+    // Tìm nhân viên dựa trên email
+    Optional<NhanVien> findByEmail(String email);
+    NhanVien findByTaiKhoan(String taiKhoan);
 }

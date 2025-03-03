@@ -1,10 +1,12 @@
 package com.example.dreambackend.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Builder
 @Getter
@@ -25,4 +27,8 @@ public class VaiTro {
 
     @Column(name = "trang_thai", nullable = false)
     private Integer trangThai;
+
+    @OneToMany(mappedBy = "vaiTro")
+    @JsonManagedReference // Ánh xạ ngược lại từ VaiTro đến NhanVien
+    private List<NhanVien> nhanViens;
 }

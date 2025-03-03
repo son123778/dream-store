@@ -1,0 +1,31 @@
+<div class="wrapper">
+    <div class="container main">
+        <div class="row">
+            <div class="col-md-6 side-image">
+                <!-- Optional: Side image or other content can be placed here -->
+            </div>
+            <div class="col-md-6 right">
+                <div class="input-box">
+                    <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
+                        <header>LOGIN</header>
+                        <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+                        <div class="input-field">
+                          <input type="text" class="input" id="email" required name="email" autocomplete="off" [(ngModel)]="loginData.email" #email="ngModel" (input)="onInputChange()">
+                          <label for="email">Email</label>
+                          <div *ngIf="email.invalid && email.touched" class="error">Email không được để trống!</div>
+                        </div>
+                        <div class="input-field">
+                          <input type="password" class="input" id="pass" required name="password" [(ngModel)]="loginData.password" #password="ngModel" (input)="onInputChange()">
+                          <label for="pass">Password</label>
+                          <div *ngIf="password.invalid && password.touched" class="error">Mật khẩu không được để trống!</div>
+                        </div>
+                        <div class="input-field">
+                          <button type="submit" class="submit" [disabled]="loginForm.invalid || loading">Login</button>
+                        </div>
+                      </form>
+                      
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
