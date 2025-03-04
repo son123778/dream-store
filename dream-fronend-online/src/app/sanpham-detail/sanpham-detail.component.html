@@ -1,41 +1,72 @@
 <app-header></app-header>
-<!-- Nội dung chi tiết sản phẩm -->
-<div class="product-detail">
-    <div class="product-images">
-      <div *ngFor="let sp of sanPham">
-        <img [src]="'http://localhost:8080' + sp.anhUrl" alt="Sản phẩm">
-      </div>      
+<div class="product-detail" *ngIf="selectedSanPham">
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+    <div class="carousel-indicators">
+      <button *ngFor="let anh of danhSachAnh; let i = index" type="button" 
+        data-bs-target="#carouselExampleIndicators" 
+        [attr.data-bs-slide-to]="i" 
+        [class.active]="i === 0" 
+        [attr.aria-label]="'Slide ' + (i + 1)">
+      </button>
     </div>
-    <div class="product-info">
-      <h1>{{ sanPham.tenSanPham }}</h1>
-      <p class="price">{{ sanPham.gia }} VND</p>
-
-      <p><strong>Chất liệu:</strong> {{ sanPham.tenChatLieu }}</p>
-      <p><strong>Cổ áo:</strong> {{ sanPham.tenCoAo }}</p>
-      <p><strong>Thương hiệu:</strong> {{ sanPham.tenThuongHieu }}</p>
-      <p><strong>Xuất xứ:</strong> {{ sanPham.tenXuatXu }}</p>
-      <p><strong>Số lượng trong kho:</strong> {{ sanPham.soLuongSanPham }}</p>
-
-      <!-- Chọn màu sắc -->
-      <label for="mauSac"><strong>Màu sắc:</strong></label>
-      <select id="mauSac" [(ngModel)]="selectedMauSac">
-        <option *ngFor="let mau of danhSachMauSac" [value]="mau.ten">{{ mau.ten }}</option>
-      </select>
-
-      <!-- Chọn kích thước -->
-      <label for="size"><strong>Kích thước:</strong></label>
-      <select id="size" [(ngModel)]="selectedSize">
-        <option *ngFor="let size of danhSachSize" [value]="size.ten">{{ size.ten }}</option>
-      </select>
-
-      <!-- Điều chỉnh số lượng mua -->
-      <div class="quantity-control">
-        <button (click)="giamSoLuong()">-</button>
-        <input type="number" [(ngModel)]="soLuongMua" min="1">
-        <button (click)="tangSoLuong()">+</button>
+    <div class="carousel-inner">
+      <div *ngFor="let anh of danhSachAnh; let i = index" class="carousel-item" [class.active]="i === 0">
+        <img [src]="'http://localhost:8080' + anh" class="d-block w-100" alt="Ảnh sản phẩm">
       </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>  
+  
+  <div class="product-info">
+    <h1>{{ selectedSanPham.tenSanPham }}</h1>
+    <hr>
+    <p class="price">
+      <strong>Giá:</strong>
+      <span *ngIf="tinhGiaSauGiam() !== selectedSanPham.giaGoc">
+        <span class="original-price">{{ selectedSanPham.giaGoc | number }} VND</span>
+        <span class="discounted-price">{{ tinhGiaSauGiam() | number }} VND</span>
+      </span>
+      <span *ngIf="tinhGiaSauGiam() === selectedSanPham.giaGoc" class="regular-price">
+        {{ selectedSanPham.giaGoc | number }} VND
+      </span>
+    </p>
+        
+    <p><strong>Chất liệu:</strong> {{ selectedSanPham.tenChatLieu }}</p>
+    <p><strong>Cổ áo:</strong> {{ selectedSanPham.tenCoAo }}</p>
+    <p><strong>Thương hiệu:</strong> {{ selectedSanPham.tenThuongHieu }}</p>
+    <p><strong>Xuất xứ:</strong> {{ selectedSanPham.tenXuatXu }}</p>
+    <p><strong>Số lượng trong kho:</strong> {{ selectedSanPham.soLuongSanPham }}</p>
 
+    <label for="mauSac"><strong>Màu sắc:</strong></label>
+    <select id="mauSac" [(ngModel)]="selectedMauSac" (change)="onSelectionChange()">
+      <option *ngFor="let mau of filteredDanhSachMauSac" [value]="mau">
+        {{ mau }}
+      </option>
+    </select>
+    
+    <label for="size"><strong>Size:</strong></label>
+    <select id="size" [(ngModel)]="selectedSize" (change)="onSizeChange()">
+      <option *ngFor="let size of filteredDanhSachSize" [value]="size">
+        {{ size }}
+      </option>
+    </select>
+    
+    <div class="quantity-control">
+      <button (click)="giamSoLuong()">-</button>
+      <input type="number" [(ngModel)]="soLuongMua" min="1" (change)="kiemTraSoLuong()" (blur)="kiemTraSoLuong()">
+      <button (click)="tangSoLuong()">+</button>
+    </div>    
+    
+    <div class="button-group">
       <button class="btn">Thêm vào giỏ</button>
       <button class="btn">Mua ngay</button>
     </div>
+    
 </div>

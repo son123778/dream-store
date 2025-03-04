@@ -45,6 +45,4 @@ public class KhuyenMai {
 
     @Column(name = "ngay_ket_thuc", nullable = false)
     private LocalDate ngayKetThuc;
-
-
 }

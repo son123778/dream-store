@@ -4,14 +4,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class SanPhamChiTietOnlineDto {
-    private Integer idSanPhamChiTiet; // ID của SanPhamChiTiet
+    private Integer idSanPhamChiTiet;
     private String tenSanPham;
-    private String anhUrl; // Đổi lại đúng tên field trong DB
-    private Double gia;
+    private String anhUrl;
+    private Double giaGoc;
     private String tenChatLieu;
     private String tenCoAo;
     private String tenThuongHieu;
@@ -20,4 +22,6 @@ public class SanPhamChiTietOnlineDto {
     private String tenSize;
     private Integer soLuongSanPham;
     private Integer soLuongGioHang;
+    private Boolean hinhThucGiam;
+    private BigDecimal giaTriGiam;
 }

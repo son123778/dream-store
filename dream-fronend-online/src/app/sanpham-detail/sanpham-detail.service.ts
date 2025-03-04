@@ -24,5 +24,4 @@ export class SanphamDetailService {
   getMauSac(): Observable<any[]> {
     return this.http.get<any[]>(this.apiMauSac);
   }
-  
 }

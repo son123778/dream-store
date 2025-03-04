@@ -1,30 +1,139 @@
-.product-detail{
-    padding-top: 200px;
-    justify-content: center
+.product-detail {
+  padding-top: 150px;
+  display: flex;
+  align-items: flex-start;
+  gap: 200px;
+  justify-content: center;
+  color: #294764; /* Màu chữ */
 }
 
-.quantity-control {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
+.carousel {
+  max-width: 500px;
+  border: 1px solid #294764; /* Viền ảnh */
+  border-radius: 15px; /* Bo góc ảnh */
+  overflow: hidden; /* Tránh viền bị lệch */
+}
 
-  .product-info p{
-    color: black;
-  }
-  
-  .quantity-control button {
-    background-color: #294764;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    font-size: 18px;
-    cursor: pointer;
-  }
-  
-  .quantity-control input {
-    width: 50px;
-    text-align: center;
-    font-size: 18px;
-  }
-  
+.carousel-inner {
+  width: 500px;
+  height: 500px;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 5px; /* Bo góc ảnh */
+}
+
+.product-info {
+  width: 400px;
+}
+
+.product-info h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.product-info p {
+  font-size: 16px;
+  color: #294764;
+  display: block; /* Đảm bảo mỗi dòng xuống hàng */
+  margin-bottom: 8px;
+}
+
+/* Chỉnh lại dropdown màu sắc và size xuống dòng */
+.product-info label,
+.product-info select {
+  display: block;
+  margin-top: 10px;
+}
+
+/* Nút tăng giảm số lượng */
+.quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding-top: 10px;
+}
+
+.quantity-control button {
+  background-color: #294764;
+  color: white;
+  border: 1px solid #294764;
+  width: 30px;
+  height: 30px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.quantity-control input {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  font-size: 18px;
+  border: 2px solid #294764;
+  border-radius: 5px;
+}
+
+/* Căn chỉnh lại layout cho button mua hàng */
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.btn {
+  flex: 1;
+  background-color: #294764;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 13px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  background-color: #1f3a56;
+}
+
+/* Giá màu đỏ */
+.original-price {
+  text-decoration: line-through; /* Gạch ngang giá gốc */
+  color: #294764; /* Màu giống các trường khác */
+  margin-right: 10px;
+}
+
+/* Giá sau giảm có màu đỏ */
+.discounted-price {
+  color: red;
+  font-weight: bold;
+}
+
+/* Giá bình thường khi không có giảm giá */
+.regular-price {
+  color: red;
+  font-weight: normal;
+  font-weight: bold;
+}
+
+/* Style cho combobox */
+select {
+  background-color: #294764;
+  color: white;
+  border: 1px solid #294764;
+  padding: 4px;
+  font-size: 14px;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+}
+
+select option {
+  background-color: white;
+  color: black;
+}
+
