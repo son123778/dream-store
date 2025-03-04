@@ -7,11 +7,15 @@ import com.example.dreambackend.repositories.GioHangChiTietRepository;
 import com.example.dreambackend.repositories.KhachHangRepository;
 import com.example.dreambackend.repositories.SanPhamChiTietRepository;
 import com.example.dreambackend.requests.GioHangChiTietRequest;
+import com.example.dreambackend.requests.GioHangSearchRequest;
 import com.example.dreambackend.responses.GioHangChiTietResponse;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,6 +30,11 @@ public class GioHangChiTietService implements IGioHangChiTietService {
 
     @Autowired
     private SanPhamChiTietRepository spctRepository;
+    @Autowired
+    private GioHangChiTietRepository gioHangChiTietRepository;
+
+    @PersistenceContext
+    private EntityManager em;
 
     @Override
     public GioHangChiTietResponse addToGioHang(Integer khachHangId, GioHangChiTietRequest request) {
@@ -100,6 +109,11 @@ public class GioHangChiTietService implements IGioHangChiTietService {
         });
 
         ghctRepository.saveAll(ghctRepository.findByKhachHang(khachHang));
+    }
+
+    @Override
+    public List<GioHangChiTietResponse> search(GioHangSearchRequest request) {
+        return gioHangChiTietRepository.search(request,em);
     }
 
     private GioHangChiTietResponse convertToDTO(GioHangChiTiet entity) {

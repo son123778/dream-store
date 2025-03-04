@@ -5,18 +5,19 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class HoaDonChiTietRequest {
+public class HoaDonChiTietSearchRequest {
     private Integer idHoaDon;
-    private Integer idSanPhamChiTiet;
-    private String ma;
-    private Integer soLuong;
+    private String maHoaDon;
+    private String tenSanPham;
     private Double donGia;
-    private LocalDate ngayTao;
-    private LocalDate ngaySua;
+    private String ngayTaoTu;
+    private String ngayTaoDen;
     private Integer trangThai;
+    private Integer page;
+    private Integer pageSize;
+    private Integer totalRecords;
 }

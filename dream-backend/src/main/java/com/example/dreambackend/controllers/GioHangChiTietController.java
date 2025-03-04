@@ -1,6 +1,7 @@
 package com.example.dreambackend.controllers;
 
 import com.example.dreambackend.requests.GioHangChiTietRequest;
+import com.example.dreambackend.requests.GioHangSearchRequest;
 import com.example.dreambackend.responses.GioHangChiTietResponse;
 import com.example.dreambackend.services.giohangchitiet.IGioHangChiTietService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,5 +53,11 @@ public class GioHangChiTietController {
     public ResponseEntity<Void> clearGioHang(@PathVariable Integer khachHangId) {
         gioHangChiTietService.clearGioHang(khachHangId);
         return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping("/all")
+    public ResponseEntity<List<GioHangChiTietResponse>> getAllGioHang(GioHangSearchRequest request) {
+        List<GioHangChiTietResponse> response = gioHangChiTietService.search(request);
+        return ResponseEntity.ok(response);
     }
 }

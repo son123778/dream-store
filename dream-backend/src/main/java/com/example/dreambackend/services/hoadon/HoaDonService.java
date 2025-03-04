@@ -3,7 +3,10 @@ package com.example.dreambackend.services.hoadon;
 import com.example.dreambackend.entities.*;
 import com.example.dreambackend.repositories.*;
 import com.example.dreambackend.requests.HoaDonRequest;
+import com.example.dreambackend.requests.HoaDonSearchRequest;
 import com.example.dreambackend.responses.HoaDonResponse;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +27,8 @@ public class HoaDonService implements IHoaDonService {
     private VoucherRepository voucherRepository;
     @Autowired
     private PhuongThucThanhToanRepository ptttRepository;
-
+    @PersistenceContext
+    private EntityManager em;
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     @Override
@@ -70,9 +74,8 @@ public class HoaDonService implements IHoaDonService {
     }
 
     @Override
-    public List<HoaDonResponse> getAllHoaDon() {
-        List<HoaDon> hoaDons = hoaDonRepository.findAllByTrangThai(1);
-        return hoaDons.stream().map(this::convertToDTO).toList();
+    public List<HoaDonResponse> getAllHoaDon(HoaDonSearchRequest request) {
+        return hoaDonRepository.search(request, em);
     }
 
     private HoaDon convertToEntity(HoaDonRequest request) {
@@ -113,11 +116,11 @@ public class HoaDonService implements IHoaDonService {
     private HoaDonResponse convertToDTO(HoaDon hoaDon) {
         return HoaDonResponse.builder()
                 .id(hoaDon.getId())
-                .idKhachHang(hoaDon.getKhachHang().getId())
-                .idNhanVien(hoaDon.getNhanVien().getId())
-                .idVoucher(hoaDon.getVoucher() != null ? hoaDon.getVoucher().getId() : null)
-                .idPhuongThucThanhToan(hoaDon.getPhuongThucThanhToan().getId())
-                .ma(hoaDon.getMa())
+//                .idKhachHang(hoaDon.getKhachHang().getId())
+//                .idNhanVien(hoaDon.getNhanVien().getId())
+//                .idVoucher(hoaDon.getVoucher() != null ? hoaDon.getVoucher().getId() : null)
+//                .idPhuongThucThanhToan(hoaDon.getPhuongThucThanhToan().getId())
+                .maHoaDon(hoaDon.getMa())
                 .tenNguoiNhan(hoaDon.getTenNguoiNhan())
                 .sdtNguoiNhan(hoaDon.getSdtNguoiNhan())
                 .diaChiNhanHang(hoaDon.getDiaChiNhanHang())
@@ -138,10 +141,10 @@ public class HoaDonService implements IHoaDonService {
     }
 
     private String generateMaHoaDon() {
-            String ma;
-            do {
-                ma = "HD" + LocalDate.now().format(DateTimeFormatter.ofPattern("yyMMdd"));
-            } while (hoaDonRepository.findByMa(ma).isPresent());
-            return ma;
+        String ma;
+        do {
+            ma = "HD" + LocalDate.now().format(DateTimeFormatter.ofPattern("yyMMdd"));
+        } while (hoaDonRepository.findByMa(ma).isPresent());
+        return ma;
     }
 }

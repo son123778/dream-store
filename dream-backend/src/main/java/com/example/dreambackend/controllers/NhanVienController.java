@@ -6,6 +6,7 @@ import com.example.dreambackend.responses.NhanVienResponse;
 import com.example.dreambackend.services.nhanvien.NhanVienService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -45,7 +46,9 @@ public class NhanVienController {
      * Thêm nhân viên mới
      */
     @PostMapping("/add")
-    public NhanVien addNhanVien(@RequestBody NhanVienRequest nhanVienRequest) {
+    public NhanVien addNhanVien(
+            @RequestParam("file") MultipartFile file,
+            @RequestPart NhanVienRequest nhanVienRequest) {
         return nhanVienService.addNhanVien(nhanVienRequest);
     }
 
