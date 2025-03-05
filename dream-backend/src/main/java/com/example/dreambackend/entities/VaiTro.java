@@ -1,34 +1,25 @@
 package com.example.dreambackend.entities;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.List;
-
-@Builder
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Entity
 @Table(name = "vai_tro")
 public class VaiTro {
 
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Integer id;
 
-    @Column(name = "ten", nullable = false, length = 250)
+    @Column(name = "ten")
     private String ten;
 
-    @Column(name = "trang_thai", nullable = false)
+    @Column(name = "trang_thai")
     private Integer trangThai;
-
-    @OneToMany(mappedBy = "vaiTro")
-    @JsonManagedReference // Ánh xạ ngược lại từ VaiTro đến NhanVien
-    private List<NhanVien> nhanViens;
 }

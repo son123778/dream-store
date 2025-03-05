@@ -15818,11 +15818,14 @@ var require_call_bound = __commonJS({
     var $indexOf = callBindBasic([GetIntrinsic("%String.prototype.indexOf%")]);
     module.exports = function callBoundIntrinsic(name, allowMissing) {
       var intrinsic = (
-        /** @type {Parameters<typeof callBindBasic>[0][0]} */
+        /** @type {(this: unknown, ...args: unknown[]) => unknown} */
         GetIntrinsic(name, !!allowMissing)
       );
       if (typeof intrinsic === "function" && $indexOf(name, ".prototype.") > -1) {
-        return callBindBasic([intrinsic]);
+        return callBindBasic(
+          /** @type {const} */
+          [intrinsic]
+        );
       }
       return intrinsic;
     };
@@ -21826,9 +21829,9 @@ var require_application = __commonJS({
   }
 });
 
-// node_modules/accepts/node_modules/negotiator/lib/charset.js
+// node_modules/negotiator/lib/charset.js
 var require_charset = __commonJS({
-  "node_modules/accepts/node_modules/negotiator/lib/charset.js"(exports, module) {
+  "node_modules/negotiator/lib/charset.js"(exports, module) {
     "use strict";
     module.exports = preferredCharsets;
     module.exports.preferredCharsets = preferredCharsets;
@@ -21917,9 +21920,9 @@ var require_charset = __commonJS({
   }
 });
 
-// node_modules/accepts/node_modules/negotiator/lib/encoding.js
+// node_modules/negotiator/lib/encoding.js
 var require_encoding = __commonJS({
-  "node_modules/accepts/node_modules/negotiator/lib/encoding.js"(exports, module) {
+  "node_modules/negotiator/lib/encoding.js"(exports, module) {
     "use strict";
     module.exports = preferredEncodings;
     module.exports.preferredEncodings = preferredEncodings;
@@ -22019,9 +22022,9 @@ var require_encoding = __commonJS({
   }
 });
 
-// node_modules/accepts/node_modules/negotiator/lib/language.js
+// node_modules/negotiator/lib/language.js
 var require_language = __commonJS({
-  "node_modules/accepts/node_modules/negotiator/lib/language.js"(exports, module) {
+  "node_modules/negotiator/lib/language.js"(exports, module) {
     "use strict";
     module.exports = preferredLanguages;
     module.exports.preferredLanguages = preferredLanguages;
@@ -22118,9 +22121,9 @@ var require_language = __commonJS({
   }
 });
 
-// node_modules/accepts/node_modules/negotiator/lib/mediaType.js
+// node_modules/negotiator/lib/mediaType.js
 var require_mediaType = __commonJS({
-  "node_modules/accepts/node_modules/negotiator/lib/mediaType.js"(exports, module) {
+  "node_modules/negotiator/lib/mediaType.js"(exports, module) {
     "use strict";
     module.exports = preferredMediaTypes;
     module.exports.preferredMediaTypes = preferredMediaTypes;
@@ -22284,9 +22287,9 @@ var require_mediaType = __commonJS({
   }
 });
 
-// node_modules/accepts/node_modules/negotiator/index.js
+// node_modules/negotiator/index.js
 var require_negotiator = __commonJS({
-  "node_modules/accepts/node_modules/negotiator/index.js"(exports, module) {
+  "node_modules/negotiator/index.js"(exports, module) {
     "use strict";
     var preferredCharsets = require_charset();
     var preferredEncodings = require_encoding();

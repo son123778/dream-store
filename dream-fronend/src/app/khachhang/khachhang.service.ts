@@ -3,20 +3,29 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class KhachHangService {
-  private apiUrl = 'http://localhost:8080/api/khachhang'; // URL backend
-
+  private apiUrl = 'http://localhost:8080/api'; // URL backend
+  
   constructor(private http: HttpClient) {}
-
-  // Lấy danh sách nhân viên
-  getAllKhachHang(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+  // Lấy danh sách sản phẩm từ backend
+  // hàm sản phẩm
+  getKhachHang(page: number, size: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/khach-hang/hien-thi?page=${page}&size=${size}`);
   }
-
-  // Lấy thông tin chi tiết nhân viên theo ID
-  getKhachHangById(id: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/${id}`);
+  addKhachHang(khachhang: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/khach-hang/add`, khachhang).pipe(
+    );
   }
+  getKhachHangDetail(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/khach-hang/${id}`);
+  }
+  updateKhachHang(khachhang: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/khach-hang/update`, khachhang);
+  }
+  searchKhachHangByName(name: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/khach-hang/search?ten=${name}`);
+  }
+ 
 }

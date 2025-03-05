@@ -1,9 +1,10 @@
 package com.example.dreambackend.requests;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
@@ -20,8 +21,9 @@ public class NhanVienRequest {
     private String taiKhoan;          // Tài khoản đăng nhập
     private String matKhau;           // Mật khẩu
     private String anh;               // Đường dẫn ảnh đại diện
-    private LocalDateTime ngayTao;        // Ngày tạo bản ghi
-    private LocalDateTime ngaySua;        // Ngày sửa bản ghi
+    private LocalDate ngayTao;        // Ngày tạo bản ghi
+    private LocalDate ngaySua;        // Ngày sửa bản ghi
     private Integer trangThai;         // Trạng thái (Active/Inactive)
     private Integer idVaiTro;         // Khóa ngoại tham chiếu đến VaiTro
+
 }
