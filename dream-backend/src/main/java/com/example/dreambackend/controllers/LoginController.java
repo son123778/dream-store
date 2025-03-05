@@ -21,17 +21,17 @@ public class LoginController {
      */
 
     @PostMapping("/login")
-    public ResponseEntity<Object> login(@RequestParam String email, @RequestParam String password) {
+    public ResponseEntity<?> login(@RequestParam String email, @RequestParam String password) {
         try {
-            // Gọi phương thức login từ NhanVienService
-            NhanVien nhanVien = nhanVienService.login(email, password);
+            // Gọi phương thức login từ NhanVienService và nhận ResponseEntity
+            ResponseEntity<?> response = nhanVienService.login(email, password);
 
-            // Nếu đăng nhập thành công, trả về thông tin nhân viên
-            return ResponseEntity.ok(nhanVien);
+            // Nếu đăng nhập thành công, trả về thông tin nhân viên hoặc thông báo thành công
+            return response; // Đảm bảo rằng phương thức login trả về ResponseEntity từ NhanVienService
         } catch (RuntimeException e) {
-            // Nếu có lỗi (đăng nhập thất bại), trả về lỗi 401 Unauthorized
+            // Nếu có lỗi (đăng nhập thất bại), trả về lỗi 401 Unauthorized với thông báo lỗi
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                    .body(e.getMessage());  // Trả về thông báo lỗi (ví dụ: sai mật khẩu hoặc không tìm thấy nhân viên)
+                    .body("Đăng nhập thất bại: " + e.getMessage());  // Trả về thông báo lỗi chi tiết
         }
     }
     }

@@ -1,6 +1,6 @@
 package com.example.dreambackend.services.nhanvien;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import com.example.dreambackend.entities.NhanVien;
 import com.example.dreambackend.entities.VaiTro;
 import com.example.dreambackend.repositories.NhanVienRepository;
@@ -9,18 +9,10 @@ import com.example.dreambackend.requests.NhanVienRequest;
 import com.example.dreambackend.responses.NhanVienResponse;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-//import org.springframework.security.crypto.password.PasswordEncoder;
 import java.time.LocalDateTime;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class NhanVienService implements INhanVienService {
@@ -86,27 +78,26 @@ public class NhanVienService implements INhanVienService {
 
     // Phương thức kiểm tra đăng nhập
     @Override
-    public NhanVien login(String email, String password) {
+    public ResponseEntity<?> login(String email, String password) {
         // Kiểm tra xem nhân viên có tồn tại không
         Optional<NhanVien> nhanVienOptional = nhanVienRepository.findByEmail(email);
 
         if (nhanVienOptional.isPresent()) {
             NhanVien nhanVien = nhanVienOptional.get();
 
-//            // Kiểm tra mật khẩu
-//            if (passwordEncoder.matches(password, nhanVien.getMatKhau())) {
-//                // Đăng nhập thành công, trả về thông tin nhân viên
-//                return nhanVien; // Trả về thông tin nhân viên nếu đăng nhập thành công
-                if (password.equals(nhanVien.getMatKhau())) {
-                    // Đăng nhập thành công, trả về thông tin nhân viên
-                    return nhanVien; // Trả về thông tin nhân viên nếu đăng nhập thành công
+            // Kiểm tra mật khẩu
+            if (password.equals(nhanVien.getMatKhau())) {
+                // Đăng nhập thành công, trả về thông tin nhân viên
+                return ResponseEntity.ok(nhanVien); // Trả về thông tin nhân viên nếu đăng nhập thành công
             } else {
                 // Mật khẩu không đúng
-                throw new RuntimeException("Sai mật khẩu.");
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                        .body("Sai mật khẩu."); // Trả về lỗi với mã HTTP 401 (Unauthorized)
             }
         } else {
             // Không tìm thấy nhân viên với email này
-            throw new RuntimeException("Không tìm thấy nhân viên với email: " + email);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body("Email không tồn tại: "); // Trả về lỗi với mã HTTP 404 (Not Found)
         }
     }
 

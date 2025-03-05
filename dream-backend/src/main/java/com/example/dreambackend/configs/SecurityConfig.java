@@ -71,19 +71,19 @@ public class SecurityConfig  {
         return http.build();
     }
 
-    @Bean
-    public UserDetailsService userDetailsService() {
-        return new CustomUserDetailsService();
-    }
-
-    @Bean
-    public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
-        AuthenticationManagerBuilder authenticationManagerBuilder =
-                http.getSharedObject(AuthenticationManagerBuilder.class);
-
-        // Cấu hình AuthenticationManager
-        authenticationManagerBuilder.userDetailsService(userDetailsService());
-
-        return authenticationManagerBuilder.build();  // Trả về AuthenticationManager
-    }
+//    @Bean
+//    public UserDetailsService userDetailsService() {
+//        return new CustomUserDetailsService();
+//    }
+//
+//    @Bean
+//    public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
+//        AuthenticationManagerBuilder authenticationManagerBuilder =
+//                http.getSharedObject(AuthenticationManagerBuilder.class);
+//
+//        // Cấu hình AuthenticationManager
+//        authenticationManagerBuilder.userDetailsService(userDetailsService());
+//
+//        return authenticationManagerBuilder.build();  // Trả về AuthenticationManager
+//    }
 }

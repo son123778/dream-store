@@ -3,6 +3,7 @@ package com.example.dreambackend.services.nhanvien;
 import com.example.dreambackend.entities.NhanVien;
 import com.example.dreambackend.requests.NhanVienRequest;
 import com.example.dreambackend.responses.NhanVienResponse;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
@@ -15,6 +16,6 @@ public interface INhanVienService {
     NhanVien addNhanVien(NhanVienRequest nhanVienRequest);
     NhanVien updateNhanVien(NhanVienRequest nhanVienRequest);
     // Phương thức đăng nhập (trả về boolean)
-    NhanVien login(String email, String password);
+    ResponseEntity<?> login(String email, String password);
 
 }

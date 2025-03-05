@@ -3,10 +3,16 @@
     font-family: 'Poppins', sans-serif;
 }
 .wrapper {
-    background-image: url('/assets/login3.webp');
+    background-image: url('/assets/image.png');
     padding: 0 20px 0 20px;
 }
 
+.error{
+    color: red;
+    font-size: 13px;
+    margin-top: -15px;
+    padding-bottom: 15px;
+}
 
 .side-image-img {
     width: 100%;
@@ -20,7 +26,7 @@
     min-height: 100vh;
 }
 .side-image{
-    background-image: url('/assets/image.png');
+    background-image: url('/assets/taoanhdep_lam_net_anh_7724.jpeg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
