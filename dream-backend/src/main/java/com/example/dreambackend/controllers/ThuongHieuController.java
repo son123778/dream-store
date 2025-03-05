@@ -1,14 +1,17 @@
 package com.example.dreambackend.controllers;
-import com.example.dreambackend.dtos.ThuongHieuDto;
-import com.example.dreambackend.entities.ThuongHieu;
 import com.example.dreambackend.requests.ThuongHieuRequest;
-import com.example.dreambackend.respones.ThuongHieuRespone;
+import com.example.dreambackend.responses.ThuongHieuRespone;
 import com.example.dreambackend.services.thuonghieu.ThuongHieuService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/thuong-hieu")
@@ -25,9 +28,18 @@ public class ThuongHieuController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<?> add(@RequestBody ThuongHieuRequest thuongHieuRequest) {
+    public ResponseEntity<?> add(@Valid @RequestBody ThuongHieuRequest thuongHieuRequest, BindingResult result) {
+        if (result.hasErrors()) {
+            Map<String, String> errors = new HashMap<>();
+            for (FieldError error : result.getFieldErrors()) {
+                errors.put(error.getField(), error.getDefaultMessage());
+            }
+            return ResponseEntity.badRequest().body(errors);
+        }
         thuongHieuService.addThuongHieu(thuongHieuRequest);
-        return ResponseEntity.ok("Thêm thành công");
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "Thêm thành công");
+        return ResponseEntity.ok(response);
     }
 
     @PutMapping("/update")

@@ -19,6 +19,8 @@
           <th>Tên Voucher</th>
           <th>Hình thức giảm</th>
           <th>Giá trị giảm</th>
+          <th>Đơn tối thiểu</th>
+          <th>Giảm tối đa</th>
           <th>Trạng thái</th>
           <th>Ngày tạo</th>
           <th>Ngày sửa</th>
@@ -34,6 +36,8 @@
           <td>{{ voucher.ten }}</td>
           <td>{{ voucher.hinhThucGiam ? 'Giảm tiền' : 'Giảm %' }}</td>
           <td>{{ voucher.giaTriGiam }} {{ voucher.hinhThucGiam ? 'VND' : '%' }} </td>
+          <td>{{ voucher.donToiThieu}}</td>
+          <td>{{ voucher.giamToiDa }}</td>
           <td>{{ voucher.trangThai ? "Hoạt động" : "Không hoạt động" }}</td>
           <td>{{ voucher.ngayTao }}</td>
           <td>{{ voucher.ngaySua }}</td>
@@ -106,6 +110,17 @@
 
         <div class="input-row">
           <div class="input-field">
+            <input type="text" class="input" [(ngModel)]="selectedVoucher.donToiThieu" name="donToiThieu" readonly />
+            <label for="ma">Đơn tối thiểu</label>
+          </div>
+          <div class="input-field">
+            <input type="text" class="input" [(ngModel)]="selectedVoucher.giamToiDa" name="giamToiDa" readonly />
+            <label for="ten">Giảm tối đa</label>
+          </div>
+        </div>
+
+        <div class="input-row">
+          <div class="input-field">
             <input type="date" class="input" [(ngModel)]="selectedVoucher.ngayBatDau" name="ngayBatDau" readonly />
             <label for="ngayBatDau">Ngày bắt đầu</label>
           </div>
@@ -143,7 +158,7 @@
             <input type="text" class="input" [(ngModel)]="voucherEdit.ma" name="ma" required readonly />
             <label for="ma">Mã voucher</label>
             <div class="tooltip-error" *ngIf="errors.ma">
-              Mã voucher không được để trống!
+            {{errors.ma}}
             </div>
           </div>
           <div class="input-field">
@@ -165,7 +180,7 @@
             </select>
             <label for="hinhThucGiam">Hình thức giảm</label>
             <div class="tooltip-error" *ngIf="errors.hinhThucGiam">
-              {{ errors.hinhThucGiam}
+              {{ errors.hinhThucGiam}}
             </div>
           </div>
           <div class="input-field">
@@ -178,6 +193,23 @@
             <label for="giaTriGiam">Giá trị giảm</label>
             <div class="tooltip-error" *ngIf="errors.giaTriGiam">
               {{ errors.giaTriGiam }}
+            </div>
+          </div>
+        </div>
+
+        <div class="input-row">
+          <div class="input-field">
+            <input type="text" class="input" [(ngModel)]="voucherEdit.donToiThieu" name="donToiThieu" required />
+            <label for="donToiThieu">Đơn tối thiểu</label>
+            <div class="tooltip-error" *ngIf="errors.donToiThieu">
+             {{errors.donToiThieu}}
+            </div>
+          </div>
+          <div class="input-field">
+            <input type="text" class="input" [(ngModel)]="voucherEdit.giamToiDa" name="giamToiDa" required />
+            <label for="giamToiDa">Giảm tối đa</label>
+            <div class="tooltip-error" *ngIf="errors.giamToiDa">
+              {{ errors.giamToiDa}}
             </div>
           </div>
         </div>
@@ -276,9 +308,28 @@
             </div>
           </div>
         </div>
+
         <div class="input-row">
           <div class="input-field">
+            <input type="text" class="input" [(ngModel)]="voucher.donToiThieu" name="donToiThieu" autocomplete="off" required
+              autocomplete="off" #ma="ngModel" (input)="clearError('donToiThieu')" />
+            <label for="donToiThie">Đơn tối thiểu</label>
+            <div class="tooltip-error" *ngIf="errors.donToiThieu">
+              {{ errors.donToiThieu}}
+            </div>
+          </div>
+          <div class="input-field">
+            <input type="text" class="input" [(ngModel)]="voucher.giamToiDa" name="giamToiDa" required #ten="ngModel"
+              (input)="clearError('giamToiDa')" />
+            <label for="ten">Giảm tối đa</label>
+            <div class="tooltip-error" *ngIf="errors.giamToiDa">
+              {{ errors.giamToiDa}}
+            </div>
+          </div>
+        </div>
 
+        <div class="input-row">
+          <div class="input-field">
             <input type="date" class="input" [(ngModel)]="voucher.ngayBatDau" name="ngayBatDau" required
               (input)="clearError('ngayBatDau')" />
             <label for="ngayBatDau">Ngày bắt đầu</label>

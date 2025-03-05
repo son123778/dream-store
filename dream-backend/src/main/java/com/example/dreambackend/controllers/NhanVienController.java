@@ -2,60 +2,63 @@ package com.example.dreambackend.controllers;
 
 import com.example.dreambackend.entities.KhachHang;
 import com.example.dreambackend.entities.NhanVien;
-import com.example.dreambackend.request.NhanVienRequest;
-import com.example.dreambackend.response.NhanVienResponse;
+import com.example.dreambackend.services.nhanvien.INhanVienService;
 import com.example.dreambackend.services.nhanvien.NhanVienService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/nhan-vien")
-@CrossOrigin(origins = "http://localhost:4200") // Cho phép kết nối từ Angular
+@CrossOrigin(origins = "http://localhost:4200")
 public class NhanVienController {
 
     @Autowired
     private NhanVienService nhanVienService;
 
-    /**
-     * Lấy danh sách tất cả nhân viên
-     */
+    // Hiển thị danh sách nhân viên có phân trang
     @GetMapping("/hien-thi")
-    public List<NhanVienResponse> getAllNhanVien() {
-        return nhanVienService.getAllNhanVien();
+    public ResponseEntity<Page<NhanVien>> hienThiPaged(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "8") int size) {
+        Page<NhanVien> pagedNhanViens = nhanVienService.getAllNhanVienPaged(page, size);
+        return ResponseEntity.ok(pagedNhanViens);
     }
 
-    /**
-     * Tìm kiếm nhân viên theo tên
-     */
-    @GetMapping("/tim-kiem")
-    public List<NhanVienResponse> searchNhanVienByName(@RequestParam String ten) {
+    // Thêm nhân viên mới (bao gồm thông tin vai trò nếu có)
+    @PostMapping("/add")
+    public ResponseEntity<NhanVien> addNhanVien(@RequestBody NhanVien nhanVien) {
+        System.out.println("Received nhanVien: " + nhanVien);
+        NhanVien savedNhanVien = nhanVienService.addNhanVien(nhanVien);
+        return ResponseEntity.ok(savedNhanVien);
+    }
+
+    // Cập nhật nhân viên
+    @PostMapping("/update")
+    public ResponseEntity<NhanVien> updateNhanVien(@RequestBody NhanVien nhanVien) {
+        NhanVien updatedNhanVien = nhanVienService.updateNhanVien(nhanVien);
+        return ResponseEntity.ok(updatedNhanVien);
+    }
+
+    // Tìm kiếm nhân viên theo tên
+    @GetMapping("/search")
+    public List<NhanVien> searchNhanVienByName(@RequestParam("ten") String ten) {
         return nhanVienService.searchNhanVienByName(ten);
     }
 
-    /**
-     * Lọc nhân viên theo trạng thái (1: Đang làm, 0: Nghỉ việc)
-     */
-    @GetMapping("/loc-trang-thai")
-    public List<NhanVienResponse> filterNhanVienByTrangThai(@RequestParam Integer trangThai) {
-        return nhanVienService.filterNhanVienByTrangThai(trangThai);
-    }
-
-    /**
-     * Thêm nhân viên mới
-     */
-    @PostMapping("/add")
-    public NhanVien addNhanVien(@RequestBody NhanVienRequest nhanVienRequest) {
-        return nhanVienService.addNhanVien(nhanVienRequest);
-    }
-
-    /**
-     * Cập nhật nhân viên
-     */
-    @PutMapping("/update")
-    public NhanVien updateNhanVien(@RequestBody NhanVienRequest nhanVienRequest) {
-        return nhanVienService.updateNhanVien(nhanVienRequest);
+    // Lấy chi tiết nhân viên theo id
+    @GetMapping("/{id}")
+    public ResponseEntity<NhanVien> getNhanVienDetail(@PathVariable Integer id) {
+        try {
+            NhanVien nhanVien = nhanVienService.getNhanVienById(id);
+            return ResponseEntity.ok(nhanVien);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
     }
     @GetMapping("/tk")
     public NhanVien getNhanVienByTK(@RequestParam("taiKhoan") String taiKhoan) {

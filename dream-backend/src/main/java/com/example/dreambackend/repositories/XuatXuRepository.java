@@ -1,7 +1,7 @@
 package com.example.dreambackend.repositories;
 
 import com.example.dreambackend.entities.XuatXu;
-import com.example.dreambackend.respones.XuatXuRespone;
+import com.example.dreambackend.responses.XuatXuRespone;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface XuatXuRepository extends JpaRepository<XuatXu, Integer> {
     @Query("""
-    select new com.example.dreambackend.respones.XuatXuRespone(
+    select new com.example.dreambackend.responses.XuatXuRespone(
         xx.id,
         xx.ma,
         xx.ten,
@@ -21,4 +21,8 @@ public interface XuatXuRepository extends JpaRepository<XuatXu, Integer> {
         ) from XuatXu xx
         """)
     List<XuatXuRespone> getAllXuatXuRespone();
+
+    boolean existsByMa(String ma);
+
+    boolean existsByTen(String ten);
 }

@@ -58,11 +58,13 @@ export class KhachhangComponent implements OnInit {
   }
   editKhachHang(khachHangId: number) {
     this.khachHangEdit = this.khachhangs.find(khachhang => khachhang.id === khachHangId);
+
     if(this.khachHangEdit==null){
       alert('null');
     }else{
       alert('not null');
     }
+
     this.showModalEdit = true;
     
   }

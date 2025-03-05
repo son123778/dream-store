@@ -18,7 +18,6 @@ public class KhachHangController {
     @Autowired
     KhachHangService khachHangService;
 
-
     @GetMapping("/hien-thi")
     public ResponseEntity<Page<KhachHang>> hienThiPaged(
             @RequestParam(defaultValue = "0") int page,
@@ -43,8 +42,8 @@ public class KhachHangController {
     }
     @PutMapping("/{id}")
     public ResponseEntity<KhachHang> getKhachHangDetail(@PathVariable Integer id) {
-            KhachHang khachHang= khachHangService.getKhachHangById(id);
-            return ResponseEntity.ok(khachHang);
+        KhachHang khachHang= khachHangService.getKhachHangById(id);
+        return ResponseEntity.ok(khachHang);
     }
     @GetMapping("/sdt")
     public KhachHang getKhachHangByid(@RequestParam("soDienThoai") String soDienThoai) {

@@ -189,8 +189,13 @@
           <div class="input-field">
             <select class="input" [(ngModel)]="khachHangEdit.trangThai"  [value]="khachHangEdit.trangThai" name="trangThai" required
               (change)="clearErrorEdit('trangThai')">
+<<<<<<< HEAD
               <option [value]="0">Hoạt động</option>
               <option [value]="1">Không hoạt động</option>
+=======
+              <option [value]="0">Không hoạt động</option>
+              <option [value]="1">Hoạt động</option>
+>>>>>>> 0e8d3a9360056e86582919be3e6ed1d065a5aedf
             </select>
             <label for="trangThai">Trạng thái</label>
             <div class="tooltip-error" *ngIf="errors.trangThai">

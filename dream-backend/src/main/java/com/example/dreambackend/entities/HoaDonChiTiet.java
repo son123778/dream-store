@@ -19,11 +19,14 @@ public class HoaDonChiTiet {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Column(name = "ma")
+    private String ma;
+
     @Column(name = "so_luong")
-    private int soLuong;
+    private Integer soLuong;
 
     @Column(name = "don_gia")
-    private Float donGia;
+    private Double donGia;
 
     @Column(name = "ngay_sua")
     private LocalDate ngaySua;
@@ -32,13 +35,13 @@ public class HoaDonChiTiet {
     private LocalDate ngayTao;
 
     @Column(name = "trang_thai")
-    private int trangThai;
+    private Integer trangThai;
+
+    @ManyToOne
+    @JoinColumn(name = "id_hoa_don",referencedColumnName = "id")
+    private HoaDon hoaDon;
 
     @ManyToOne
     @JoinColumn(name = "id_san_pham_chi_tiet",referencedColumnName = "id")
     private SanPhamChiTiet sanPhamChiTiet;
-
-    @ManyToOne
-    @JoinColumn(name="id_hoa_don",referencedColumnName = "id")
-    private HoaDon hoaDon;
 }
