@@ -1,20 +1,20 @@
 package com.example.dreambackend.services.thuonghieu;
 
 
-import com.example.dreambackend.dtos.ThuongHieuDto;
-
 import com.example.dreambackend.entities.ThuongHieu;
+import com.example.dreambackend.requests.ThuongHieuRequest;
+import com.example.dreambackend.responses.ThuongHieuRespone;
 
 import java.util.List;
 
 public interface IThuongHieuService {
-    List<ThuongHieu> getAllThuongHieu();
+    List<ThuongHieuRespone> getAllThuongHieu();
 
 
-    ThuongHieu getThuongHieu(Integer idThuongHieu);
+    ThuongHieu getThuongHieu(Integer id);
 
-    ThuongHieu addThuongHieu(ThuongHieuDto thuongHieuDto);
+    ThuongHieu addThuongHieu(ThuongHieuRequest thuongHieuRequest);
 
-    ThuongHieu updateThuongHieu(Integer idThuongHieu, ThuongHieuDto thuongHieuDto);
+    ThuongHieu updateThuongHieu(ThuongHieuRequest thuongHieuRequest);
 
 }

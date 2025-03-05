@@ -32,7 +32,10 @@
           <td>{{ khachhang.ma }}</td>
           <td>{{ khachhang.ten }}</td>
           <td>{{ khachhang.gioiTinh ? 'Nam' : 'Nữ' }}</td>
+<<<<<<< HEAD
           <td>{{ khachhang.email }}</td>
+=======
+>>>>>>> f1f7959d3d8d09d1f9128c659e1bc975cfddada8
           <td>{{ khachhang.soDienThoai }}</td>
           <td>{{ khachhang.matKhau}}</td>
           <td>{{ khachhang.ngayTao}}</td>
@@ -99,6 +102,7 @@
             <label for="gioiTinh">Giới tính</label>
           </div>
           <div class="input-field">
+<<<<<<< HEAD
             <input type="text" class="input" [(ngModel)]="selectedKhachHang.email" name="email" readonly />
             <label for="email">Email</label>
           </div>
@@ -110,15 +114,26 @@
             <input type="number" class="input" [(ngModel)]="selectedKhachHang.soDienThoai" name="soDienThoai" readonly />
             <label for="soDienThoai">Số điện thoại</label>
           </div>
+=======
+            <input type="number" class="input" [(ngModel)]="selectedKhachHang.soDienThoai" name="soDienThoai" readonly />
+            <label for="soDienThoai">Số điện thoại</label>
+          </div>
+        </div>
+
+        <div class="input-row">
+>>>>>>> f1f7959d3d8d09d1f9128c659e1bc975cfddada8
           <div class="input-field">
             <input type="text" class="input" [(ngModel)]="selectedKhachHang.matKhau" name="matKhau" readonly />
             <label for="matKhau">Mật khẩu</label>
           </div>
+<<<<<<< HEAD
           
           
         </div>
         <div class="input-row">
 
+=======
+>>>>>>> f1f7959d3d8d09d1f9128c659e1bc975cfddada8
           <div class="input-field">
             <input type="text" class="input" [value]="selectedKhachHang.trangThai ? 'Hoạt động' : 'Không hoạt động'"
               readonly />
@@ -180,6 +195,7 @@
 
           
           <div class="input-field">
+<<<<<<< HEAD
             <input type="email" class="input" [(ngModel)]="khachHangEdit.email" name="email" required
               (input)="clearErrorEdit('email')" />
             <label for="email">Email</label>
@@ -191,6 +207,8 @@
 
         <div class="input-row">
           <div class="input-field">
+=======
+>>>>>>> f1f7959d3d8d09d1f9128c659e1bc975cfddada8
             <input type="text" class="input" [(ngModel)]="khachHangEdit.soDienThoai" name="soDienThoai" required
               (input)="clearErrorEdit('soDienThoai')" />
             <label for="soDienThoai">Số điện thoại</label>
@@ -198,6 +216,12 @@
               {{ errors.soDienThoai}}
             </div>
           </div>
+<<<<<<< HEAD
+=======
+        </div>
+
+        <div class="input-row">
+>>>>>>> f1f7959d3d8d09d1f9128c659e1bc975cfddada8
           <div class="input-field">
             <input type="text" class="input" [(ngModel)]="khachHangEdit.matKhau" name="matKhau" required />
             <label for="matKhau">Mật khẩu</label>
@@ -205,6 +229,7 @@
               {{ errors.matKhau}}
             </div>
           </div>
+<<<<<<< HEAD
           
 
           
@@ -216,12 +241,33 @@
               (change)="clearErrorEdit('trangThai')">
               <option [value]="1">Hoạt động</option>
               <option [value]="0">Không hoạt động</option>
+=======
+          <div class="input-field">
+            <select class="input" [(ngModel)]="khachHangEdit.trangThai"  [value]="khachHangEdit.trangThai" name="trangThai" required
+              (change)="clearErrorEdit('trangThai')">
+<<<<<<< HEAD
+              <option [value]="0">Hoạt động</option>
+              <option [value]="1">Không hoạt động</option>
+=======
+              <option [value]="0">Không hoạt động</option>
+              <option [value]="1">Hoạt động</option>
+>>>>>>> 0e8d3a9360056e86582919be3e6ed1d065a5aedf
+>>>>>>> f1f7959d3d8d09d1f9128c659e1bc975cfddada8
             </select>
             <label for="trangThai">Trạng thái</label>
             <div class="tooltip-error" *ngIf="errors.trangThai">
               {{ errors.trangThai}}
             </div>
           </div> 
+<<<<<<< HEAD
+=======
+
+          
+        </div>
+
+        <div class="input-row">
+          
+>>>>>>> f1f7959d3d8d09d1f9128c659e1bc975cfddada8
         </div>
 
         <div class="button-container">
@@ -246,7 +292,18 @@
       <p class="titleadd">Thêm khách hàng</p> <br> <br>
       <form (ngSubmit)="addKhachHang()" #khachHangForm="ngForm">
         <div class="input-row">
+<<<<<<< HEAD
           
+=======
+          <div class="input-field">
+            <input type="text" class="input" [(ngModel)]="khachhang.ma" name="ma" autocomplete="off" required
+              autocomplete="off" #ma="ngModel" (input)="clearError('ma')" />
+            <label for="ma">Mã khách hàng</label>
+            <div class="tooltip-error" *ngIf="errors.ma">
+              {{ errors.ma}}
+            </div>
+          </div>
+>>>>>>> f1f7959d3d8d09d1f9128c659e1bc975cfddada8
           <div class="input-field">
             <input type="text" class="input" [(ngModel)]="khachhang.ten" name="ten" required #ten="ngModel"
               (input)="clearError('ten')" />
@@ -255,6 +312,7 @@
               {{ errors.ten}}
             </div>
           </div>
+<<<<<<< HEAD
             <div class="input-field">
               <select class="input"  [(ngModel)]="khachhang.gioiTinh" name="gioiTinh" required
                 (change)="clearError('gioiTinh')">
@@ -267,11 +325,14 @@
               </div>
             </div>
           
+=======
+>>>>>>> f1f7959d3d8d09d1f9128c659e1bc975cfddada8
 
           
 
         </div>
         <div class="input-row">
+<<<<<<< HEAD
           
           
           <div class="input-field">
@@ -282,6 +343,20 @@
               {{ errors.email}}
             </div>
           </div>
+=======
+          <div class="input-field">
+            <select class="input" [(ngModel)]="khachhang.gioiTinh" name="gioiTinh" required
+              (change)="clearError('gioiTinh')">
+              <option [value]="true">Nam</option>
+              <option [value]="false">Nữ</option>
+            </select>
+            <label for="gioiTinh">Giới tính</label>
+            <div class="tooltip-error" *ngIf="errors.gioiTinh">
+              {{ errors.gioiTinh}}
+            </div>
+          </div>
+          
+>>>>>>> f1f7959d3d8d09d1f9128c659e1bc975cfddada8
           <div class="input-field">
             <input type="text" class="input" [(ngModel)]="khachhang.soDienThoai" name="soDienThoai" required #soDienThoai="ngModel"
               (input)="clearError('soDienThoai')" />
@@ -292,7 +367,10 @@
           </div>
         </div>
         <div class="input-row">
+<<<<<<< HEAD
           
+=======
+>>>>>>> f1f7959d3d8d09d1f9128c659e1bc975cfddada8
           <div class="input-field">
             <input type="text" class="input" [(ngModel)]="khachhang.matKhau" name="matKhau" required #matKhau="ngModel"
               (input)="clearError('matKhau')" />

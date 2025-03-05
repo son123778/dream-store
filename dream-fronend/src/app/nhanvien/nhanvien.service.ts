@@ -3,20 +3,53 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
-export class NhanvienService {
-  private apiUrl = 'http://localhost:8080/api/nhanvien'; // URL backend
+export class NhanVienService {
+  private apiUrl = 'http://localhost:8080/api'; // URL backend
 
   constructor(private http: HttpClient) {}
 
-  // Lấy danh sách nhân viên
-  getAllNhanVien(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+  // 🟢 Nhân viên API
+
+  // Lấy danh sách nhân viên có phân trang
+  getNhanVien(page: number, size: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/nhan-vien/hien-thi?page=${page}&size=${size}`);
   }
 
-  // Lấy thông tin chi tiết nhân viên theo ID
-  getNhanVienById(id: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/${id}`);
+  // Thêm nhân viên mới
+  addNhanVien(nhanVien: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/nhan-vien/add`, nhanVien);
+  }
+
+  // Lấy chi tiết nhân viên theo ID
+  getNhanVienDetail(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/nhan-vien/${id}`);
+  }
+
+  // Cập nhật thông tin nhân viên
+  updateNhanVien(nhanVien: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/nhan-vien/update`, nhanVien);
+  }
+
+  // 🔎 Tìm kiếm nhân viên theo tên
+  searchNhanVienByName(name: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/nhan-vien/search?ten=${name}`);
+  }
+
+  // 🟢 Vai trò API
+
+  // Lấy danh sách tất cả vai trò
+  getVaiTros(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/vai-tro/hien-thi`);
+  }
+  // ✅ Thêm vai trò
+  addVaiTro(vaiTro: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/vai-tro/add`, vaiTro);
+  }
+
+  // ✅ Cập nhật vai trò
+  updateVaiTro(vaiTro: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/vai-tro/update`, vaiTro);
   }
 }

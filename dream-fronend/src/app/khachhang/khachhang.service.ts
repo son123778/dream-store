@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class KhachHangService {
   private apiUrl = 'http://localhost:8080/api'; // URL backend
-  
+
   constructor(private http: HttpClient) {}
   // Lấy danh sách sản phẩm từ backend
   // hàm sản phẩm
@@ -30,5 +30,5 @@ export class KhachHangService {
   getKhachHangByEmail(email: String): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/khach-hang/detail?email=${email}`);
   }
- 
+
 }

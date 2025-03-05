@@ -1,4 +1,3 @@
-
 package com.example.dreambackend.repositories;
 
 import com.example.dreambackend.entities.VaiTro;

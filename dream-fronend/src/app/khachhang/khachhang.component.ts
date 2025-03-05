@@ -30,12 +30,19 @@ export class KhachhangComponent implements OnInit {
     ma: '',
     ten: '',
     gioiTinh: true,
+<<<<<<< HEAD
     email: '',
+=======
+>>>>>>> f1f7959d3d8d09d1f9128c659e1bc975cfddada8
     soDienThoai: '',
     matKhau: '',
     ngayTao: '',
     ngaySua: '',
+<<<<<<< HEAD
     trangThai: 1
+=======
+    trangThai: null
+>>>>>>> f1f7959d3d8d09d1f9128c659e1bc975cfddada8
   };
 
   constructor(private khachHangService: KhachHangService) { }
@@ -48,18 +55,36 @@ export class KhachhangComponent implements OnInit {
     this.khachhang = {
     ma: '',
     ten: '',
+<<<<<<< HEAD
     gioiTinh: true,
     email: '',
+=======
+    gioiTinh: null,
+>>>>>>> f1f7959d3d8d09d1f9128c659e1bc975cfddada8
     soDienThoai: '',
     matKhau: '',
     ngayTao: '',
     ngaySua: '',
+<<<<<<< HEAD
     trangThai: 1,
+=======
+    trangThai: null,
+>>>>>>> f1f7959d3d8d09d1f9128c659e1bc975cfddada8
     };
 
   }
   editKhachHang(khachHangId: number) {
     this.khachHangEdit = this.khachhangs.find(khachhang => khachhang.id === khachHangId);
+<<<<<<< HEAD
+=======
+
+    if(this.khachHangEdit==null){
+      alert('null');
+    }else{
+      alert('not null');
+    }
+
+>>>>>>> f1f7959d3d8d09d1f9128c659e1bc975cfddada8
     this.showModalEdit = true;
     
   }
@@ -122,6 +147,7 @@ export class KhachhangComponent implements OnInit {
   } else if (!phoneRegex.test(this.khachhang.soDienThoai)) {
     this.errors.soDienThoai = 'Số điện thoại không hợp lệ!';
   }
+<<<<<<< HEAD
   if (!this.khachhang.email.trim()) {
     this.errors.email = 'Email không được để trống!';
   }else{
@@ -133,6 +159,8 @@ export class KhachhangComponent implements OnInit {
         } 
       });
   }
+=======
+>>>>>>> f1f7959d3d8d09d1f9128c659e1bc975cfddada8
     if (!this.khachhang.matKhau.trim()) {
       this.errors.matKhau = 'Mật khẩu khách hàng không được để trống!';
     }
@@ -191,6 +219,7 @@ export class KhachhangComponent implements OnInit {
   } else if (!phoneRegex.test(this.khachHangEdit.soDienThoai)) {
     this.errors.soDienThoai = 'Số điện thoại không hợp lệ!';
   }
+<<<<<<< HEAD
   if (!this.khachhang.email.trim()) {
     this.errors.email = 'Email không được để trống!';
   }else{
@@ -202,6 +231,8 @@ export class KhachhangComponent implements OnInit {
         } 
       });
   }
+=======
+>>>>>>> f1f7959d3d8d09d1f9128c659e1bc975cfddada8
     if (!this.khachHangEdit.matKhau.trim()) {
       this.errors.matKhau = 'Mật khẩu khách hàng không được để trống!';
     }
