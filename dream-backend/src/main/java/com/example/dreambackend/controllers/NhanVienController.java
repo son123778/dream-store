@@ -1,5 +1,6 @@
 package com.example.dreambackend.controllers;
 
+import com.example.dreambackend.entities.NhanVien;
 import com.example.dreambackend.services.nhanvien.NhanVienService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -19,7 +20,8 @@ public class NhanVienController {
 
     // Hiển thị danh sách nhân viên có phân trang
     @GetMapping("/hien-thi")
-    public ResponseEntity<Page<NhanVien>> hienThiPaged(
+    public ResponseEntity<Page<
+            NhanVien>> hienThiPaged(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "8") int size) {
         Page<NhanVien> pagedNhanViens = nhanVienService.getAllNhanVienPaged(page, size);

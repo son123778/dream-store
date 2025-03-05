@@ -5,18 +5,73 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d7dcb88-d015-40bd-b1c2-e4c2578857ff" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/entities/VaiTro.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/repositories/VaiTroRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/services/nhanvien/INhanVienService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/services/nhanvien/NhanVienService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/services/vaitro/IVaiTroService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/services/vaitro/VaiTroService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/dtos/OtpRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/controllers/KhachHangController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/controllers/KhachHangController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/controllers/NhanVienController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/controllers/NhanVienController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/entities/NhanVien.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/entities/NhanVien.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/repositories/NhanVienRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/repositories/NhanVienRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/services/NhanVien/INhanVienService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/services/NhanVien/NhanVienService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/dtos/KhachHangDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/dtos/KhachHangDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/entities/KhachHang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/entities/KhachHang.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/repositories/KhachHangRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/repositories/KhachHangRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/services/khachhang/IKhachHangService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/services/khachhang/IKhachHangService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/services/khachhang/KhachHangService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/services/khachhang/KhachHangService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/DreamBackendApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/configs/SwaggerConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/controllers/ChatLieuController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/controllers/CoAoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/controllers/KhachHangController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/controllers/NhanVienController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/controllers/SanPhamChiTietController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/controllers/SanPhamController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/controllers/ThuongHieuController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/controllers/XuatXuController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/dtos/ChatLieuDto$ChatLieuDtoBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/dtos/ChatLieuDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/dtos/CoAoDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/dtos/KhachHangDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/dtos/SanPhamChiTietDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/dtos/SanPhamDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/dtos/ThuongHieuDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/dtos/XuatXuDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/entities/ChatLieu$ChatLieuBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/entities/ChatLieu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/entities/CoAo$CoAoBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/entities/CoAo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/entities/KhachHang$KhachHangBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/entities/KhachHang.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/entities/NhanVien.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/entities/SanPham$SanPhamBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/entities/SanPham.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/entities/SanPhamChiTiet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/entities/ThuongHieu$ThuongHieuBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/entities/ThuongHieu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/entities/XuatXu$XuatXuBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/entities/XuatXu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/repositories/ChatLieuRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/repositories/CoAoRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/repositories/KhachHangRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/repositories/NhanVienRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/repositories/SanPhamChiTietRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/repositories/SanPhamRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/repositories/ThuongHieuRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/repositories/XuatXuRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/services/NhanVien/INhanVienService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/services/NhanVien/NhanVienService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/services/chatlieu/ChatLieuService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/services/chatlieu/IChatLieuService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/services/coao/CoAoService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/services/coao/ICoAoService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/services/khachhang/IKhachHangService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/services/khachhang/KhachHangService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/services/sanpham/ISanPhamService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/services/sanpham/SanPhamService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/services/thuonghieu/IThuongHieuService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/services/thuonghieu/ThuongHieuService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/services/xuatxu/IXuatXuService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dreambackend/services/xuatxu/XuatXuService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +89,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;duonghdph48079&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/HuyHung-04/dream-store.git&quot;,
+    &quot;accountId&quot;: &quot;c5c3043f-ad7d-42fe-a257-25d64186d4c2&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -58,7 +125,7 @@
     "git-widget-placeholder": "duong",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Duong/Documents/java4/banmoi/dream-store/dream-backend/src/main/java/com/example/dreambackend/services",
+    "last_opened_file_path": "C:/Users/Duong/Downloads/dream-store-duong/dream-backend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -72,9 +139,10 @@
       <recent name="C:\Users\Duong\Documents\java4\banmoi\dream-store\dream-backend\src\main\java\com\example\dreambackend\services" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.dreambackend.dtos" />
+      <recent name="com.example.dreambackend.repositories" />
       <recent name="com.example.dreambackend.entities" />
       <recent name="com.example.dreambackend.controllers" />
-      <recent name="com.example.dreambackend.repositories" />
       <recent name="org.example.dreambackend.entity" />
     </key>
   </component>
@@ -144,6 +212,12 @@
       <workItem from="1735621551541" duration="1148000" />
       <workItem from="1735652505084" duration="4511000" />
       <workItem from="1735658759808" duration="1657000" />
+      <workItem from="1740804044010" duration="380000" />
+      <workItem from="1740818589140" duration="27000" />
+      <workItem from="1740997519952" duration="1539000" />
+      <workItem from="1741007141271" duration="163000" />
+      <workItem from="1741169582742" duration="7000" />
+      <workItem from="1741169872436" duration="1285000" />
     </task>
     <servers />
   </component>
