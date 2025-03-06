@@ -2,7 +2,7 @@ package com.example.dreambackend.controllers;
 
 import com.example.dreambackend.requests.GioHangChiTietRequest;
 import com.example.dreambackend.responses.GioHangChiTietResponse;
-import com.example.dreambackend.services.giohangchitiet.IGioHangChiTietService;
+import com.example.dreambackend.services.giohangchitiet.GioHangChiTietService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,46 +11,32 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/gio-hang")
+@CrossOrigin(origins = {"http://localhost:4201", "http://localhost:4200"})
 public class GioHangChiTietController {
-
     @Autowired
-    private IGioHangChiTietService gioHangChiTietService;
+    GioHangChiTietService gioHangChiTietService;
 
+    @GetMapping("/hien-thi")
+    public ResponseEntity<List<GioHangChiTietResponse>> getGioHangChiTiet(@RequestParam Integer idKhachHang) {
+        List<GioHangChiTietResponse> responseList = gioHangChiTietService.getGioHangChiTietByKhachHangId(idKhachHang);
+        return ResponseEntity.ok(responseList);
+    }
 
-    @PostMapping("/{khachHangId}/add")
-    public ResponseEntity<GioHangChiTietResponse> addToGioHang(
-            @PathVariable Integer khachHangId,
-            @RequestBody GioHangChiTietRequest request) {
-        GioHangChiTietResponse response = gioHangChiTietService.addToGioHang(khachHangId, request);
+    @PostMapping("/add")
+    public ResponseEntity<GioHangChiTietResponse> themSanPhamVaoGio(@RequestBody GioHangChiTietRequest request) {
+        GioHangChiTietResponse response = gioHangChiTietService.themSanPhamVaoGio(request);
         return ResponseEntity.ok(response);
     }
 
-
-    @PutMapping("/{gioHangChiTietId}/update")
-    public ResponseEntity<GioHangChiTietResponse> updateSoLuong(
-            @PathVariable Integer gioHangChiTietId,
-            @RequestParam Integer soLuong) {
-        GioHangChiTietResponse response = gioHangChiTietService.updateSoLuong(gioHangChiTietId, soLuong);
-        return ResponseEntity.ok(response);
-    }
-
-
-    @DeleteMapping("/{gioHangChiTietId}/remove")
-    public ResponseEntity<Void> removeFromGioHang(@PathVariable Integer gioHangChiTietId) {
-        gioHangChiTietService.removeFromGioHang(gioHangChiTietId);
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Void> deleteGioHangChiTiet(@PathVariable Integer id) {
+        gioHangChiTietService.xoaSanPhamKhoiGio(id);
         return ResponseEntity.noContent().build();
     }
 
-
-    @GetMapping("/{khachHangId}")
-    public ResponseEntity<List<GioHangChiTietResponse>> getGioHangByKhachHang(@PathVariable Integer khachHangId) {
-        List<GioHangChiTietResponse> response = gioHangChiTietService.getGioHangByKhachHang(khachHangId);
+    @PutMapping("/update-soluong/{id}")
+    public ResponseEntity<GioHangChiTietResponse> suaSoLuongSanPham(@PathVariable Integer id, @RequestParam Integer soLuongMoi) {
+        GioHangChiTietResponse response = gioHangChiTietService.suaSoLuongSanPham(id, soLuongMoi);
         return ResponseEntity.ok(response);
-    }
-
-    @DeleteMapping("/{khachHangId}/clear")
-    public ResponseEntity<Void> clearGioHang(@PathVariable Integer khachHangId) {
-        gioHangChiTietService.clearGioHang(khachHangId);
-        return ResponseEntity.noContent().build();
     }
 }

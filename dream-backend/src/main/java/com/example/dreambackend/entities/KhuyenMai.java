@@ -26,7 +26,7 @@ public class KhuyenMai {
     private String ten;
 
     @Column(name = "hinh_thuc_giam", nullable = false)
-    private boolean hinhThucGiam;
+    private Boolean hinhThucGiam;
 
     @Column(name = "gia_tri_giam", nullable = false, precision = 10, scale = 2)
     private BigDecimal giaTriGiam;

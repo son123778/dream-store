@@ -1,129 +1,132 @@
 package com.example.dreambackend.services.giohangchitiet;
 
-import com.example.dreambackend.entities.GioHangChiTiet;
-import com.example.dreambackend.entities.KhachHang;
-import com.example.dreambackend.entities.SanPhamChiTiet;
+import com.example.dreambackend.entities.*;
+import com.example.dreambackend.repositories.AnhRepository;
 import com.example.dreambackend.repositories.GioHangChiTietRepository;
 import com.example.dreambackend.repositories.KhachHangRepository;
 import com.example.dreambackend.repositories.SanPhamChiTietRepository;
 import com.example.dreambackend.requests.GioHangChiTietRequest;
 import com.example.dreambackend.responses.GioHangChiTietResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Optional;
 
 @Service
 public class GioHangChiTietService implements IGioHangChiTietService {
+    @Autowired
+    private GioHangChiTietRepository gioHangChiTietRepository;
 
     @Autowired
-    private GioHangChiTietRepository ghctRepository;
+    KhachHangRepository khachHangRepository;
 
     @Autowired
-    private KhachHangRepository khachHangRepository;
+    SanPhamChiTietRepository sanPhamChiTietRepository;
 
     @Autowired
-    private SanPhamChiTietRepository spctRepository;
+    AnhRepository anhRepository;
+
+    public List<GioHangChiTietResponse> getGioHangChiTietByKhachHangId(Integer idKhachHang) {
+        return gioHangChiTietRepository.findGioHangChiTietByKhachHangId(idKhachHang);
+    }
 
     @Override
-    public GioHangChiTietResponse addToGioHang(Integer khachHangId, GioHangChiTietRequest request) {
-        KhachHang khachHang = khachHangRepository.findById(khachHangId)
-                .orElseThrow(() -> new RuntimeException("Khách hàng không tồn tại"));
-        SanPhamChiTiet sanPhamChiTiet = spctRepository.findById(request.getIdSanPhamChiTiet())
-                .orElseThrow(() -> new RuntimeException("Sản phẩm chi tiết không tồn tại"));
+    public GioHangChiTietResponse themSanPhamVaoGio(GioHangChiTietRequest request) {
+        Optional<GioHangChiTiet> existingItem = gioHangChiTietRepository.findByKhachHangIdAndSanPhamChiTietId(
+                request.getIdKhachHang(), request.getIdSanPhamChiTiet()
+        );
 
-        List<GioHangChiTiet> existingItems = ghctRepository.findByKhachHangAndSanPhamChiTiet(khachHang, sanPhamChiTiet);
-
-        GioHangChiTiet savedItem;
-        if (!existingItems.isEmpty()) {
-            // Tổng hợp số lượng của tất cả mục giỏ hàng trùng nhau
-            int totalSoLuong = existingItems.stream().mapToInt(GioHangChiTiet::getSoLuong).sum() + request.getSoLuong();
-
-            // Xóa tất cả mục cũ
-            ghctRepository.deleteAll(existingItems);
-
-            // Tạo một mục mới với số lượng đã cộng dồn
-            GioHangChiTiet newItem = convertToEntity(request, khachHang, sanPhamChiTiet);
-            newItem.setSoLuong(totalSoLuong); // Gán tổng số lượng mới
-            savedItem = ghctRepository.save(newItem);
+        GioHangChiTiet gioHangChiTiet;
+        if (existingItem.isPresent()) {
+            gioHangChiTiet = existingItem.get();
+            gioHangChiTiet.setSoLuong(gioHangChiTiet.getSoLuong() + request.getSoLuong());
+            gioHangChiTiet.setNgaySua(LocalDate.now());
+            gioHangChiTiet.setDonGia(gioHangChiTiet.getSanPhamChiTiet().getGia() * gioHangChiTiet.getSoLuong());
         } else {
-            GioHangChiTiet newItem = convertToEntity(request, khachHang, sanPhamChiTiet);
-            savedItem = ghctRepository.save(newItem);
+            gioHangChiTiet = new GioHangChiTiet();
+            gioHangChiTiet.setKhachHang(khachHangRepository.findById(request.getIdKhachHang()).orElseThrow());
+            gioHangChiTiet.setSanPhamChiTiet(sanPhamChiTietRepository.findById(request.getIdSanPhamChiTiet()).orElseThrow());
+            gioHangChiTiet.setSoLuong(request.getSoLuong());
+            // Tính đơn giá: giá sản phẩm × số lượng
+            gioHangChiTiet.setDonGia(gioHangChiTiet.getSanPhamChiTiet().getGia() * gioHangChiTiet.getSoLuong());
+            gioHangChiTiet.setTrangThai(1);
+            gioHangChiTiet.setNgayTao(LocalDate.now());
+            gioHangChiTiet.setNgaySua(LocalDate.now());
         }
 
-        return convertToDTO(savedItem);
+        gioHangChiTiet = gioHangChiTietRepository.save(gioHangChiTiet);
+
+        // Lấy ảnh đầu tiên từ bảng Anh
+        String anhUrl = anhRepository.findFirstBySanPhamIdAndTrangThaiOrderByNgayTaoAsc(
+                        gioHangChiTiet.getSanPhamChiTiet().getSanPham().getId(), 1)
+                .map(Anh::getAnhUrl)
+                .orElse(null); // Nếu không có ảnh thì để null
+
+        KhuyenMai khuyenMai = gioHangChiTiet.getSanPhamChiTiet().getKhuyenMai();
+        Boolean hinhThucGiam = (khuyenMai != null) ? khuyenMai.getHinhThucGiam() : null;
+        BigDecimal giaTriGiam = (khuyenMai != null) ? khuyenMai.getGiaTriGiam() : null;
+
+        return new GioHangChiTietResponse(
+                gioHangChiTiet.getId(),
+                anhUrl, // Đã sửa lỗi lấy ảnh đúng
+                gioHangChiTiet.getSanPhamChiTiet().getSanPham().getTen(),
+                gioHangChiTiet.getSanPhamChiTiet().getMauSac().getTen(), // Lấy tên màu sắc
+                gioHangChiTiet.getSanPhamChiTiet().getSize().getTen(), // Lấy tên kích thước
+                gioHangChiTiet.getSoLuong(),
+                gioHangChiTiet.getDonGia(), // Đơn giá đã cập nhật
+                hinhThucGiam,
+                giaTriGiam,
+                gioHangChiTiet.getTrangThai(),
+                gioHangChiTiet.getKhachHang().getId(),
+                gioHangChiTiet.getSanPhamChiTiet().getId()
+        );
     }
 
     @Override
-    public GioHangChiTietResponse updateSoLuong(Integer id, Integer soLuong) {
-        GioHangChiTiet item = ghctRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Mục giỏ hàng không tồn tại"));
+    public void xoaSanPhamKhoiGio(Integer idGioHangChiTiet) {
+        gioHangChiTietRepository.deleteById(idGioHangChiTiet);
+    }
 
-        if (soLuong <= 0) {
-            throw new RuntimeException("Số lượng phải lớn hơn 0");
+    @Override
+    public GioHangChiTietResponse suaSoLuongSanPham(Integer idGioHangChiTiet, Integer soLuongMoi) {
+        GioHangChiTiet gioHangChiTiet = gioHangChiTietRepository.findById(idGioHangChiTiet)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Sản phẩm không tồn tại trong giỏ hàng"));
+
+        if (soLuongMoi <= 0) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Số lượng phải lớn hơn 0");
         }
 
-        item.setSoLuong(soLuong);
-        item.setNgaySua(LocalDate.now());
-        return convertToDTO(ghctRepository.save(item));
+        gioHangChiTiet.setSoLuong(soLuongMoi);
+        gioHangChiTiet.setDonGia(gioHangChiTiet.getSanPhamChiTiet().getGia() * soLuongMoi);
+        gioHangChiTiet.setNgaySua(LocalDate.now());
+
+        gioHangChiTiet = gioHangChiTietRepository.save(gioHangChiTiet);
+        // Lấy ảnh đầu tiên từ bảng Anh
+        String anhUrl = anhRepository.findFirstBySanPhamIdAndTrangThaiOrderByNgayTaoAsc(
+                        gioHangChiTiet.getSanPhamChiTiet().getSanPham().getId(), 1)
+                .map(Anh::getAnhUrl)
+                .orElse(null); // Nếu không có ảnh thì để null
+
+        return new GioHangChiTietResponse(
+                gioHangChiTiet.getId(),
+                anhUrl,
+                gioHangChiTiet.getSanPhamChiTiet().getSanPham().getTen(),
+                gioHangChiTiet.getSanPhamChiTiet().getMauSac().getTen(),
+                gioHangChiTiet.getSanPhamChiTiet().getSize().getTen(),
+                gioHangChiTiet.getSoLuong(),
+                gioHangChiTiet.getDonGia(),
+                gioHangChiTiet.getSanPhamChiTiet().getKhuyenMai() != null ? gioHangChiTiet.getSanPhamChiTiet().getKhuyenMai().getHinhThucGiam() : null,
+                gioHangChiTiet.getSanPhamChiTiet().getKhuyenMai() != null ? gioHangChiTiet.getSanPhamChiTiet().getKhuyenMai().getGiaTriGiam() : null,
+                gioHangChiTiet.getTrangThai(),
+                gioHangChiTiet.getKhachHang().getId(),
+                gioHangChiTiet.getSanPhamChiTiet().getId()
+        );
     }
 
-    @Override
-    public void removeFromGioHang(Integer id) {
-        GioHangChiTiet item = ghctRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Mục giỏ hàng không tồn tại"));
-        item.setTrangThai(0);
-        item.setNgaySua(LocalDate.now());
-        ghctRepository.save(item);
-    }
 
-    @Override
-    public List<GioHangChiTietResponse> getGioHangByKhachHang(Integer khachHangId) {
-        KhachHang khachHang = khachHangRepository.findById(khachHangId)
-                .orElseThrow(() -> new RuntimeException("Khách hàng không tồn tại"));
-        return ghctRepository.findByKhachHang(khachHang)
-                .stream()
-                .map(this::convertToDTO)
-                .collect(Collectors.toList());
-    }
-
-    @Override
-    public void clearGioHang(Integer khachHangId) {
-        KhachHang khachHang = khachHangRepository.findById(khachHangId)
-                .orElseThrow(() -> new RuntimeException("Khách hàng không tồn tại"));
-
-        ghctRepository.findByKhachHang(khachHang).forEach(item -> {
-            item.setTrangThai(0);
-            item.setNgaySua(LocalDate.now());
-        });
-
-        ghctRepository.saveAll(ghctRepository.findByKhachHang(khachHang));
-    }
-
-    private GioHangChiTietResponse convertToDTO(GioHangChiTiet entity) {
-        return GioHangChiTietResponse.builder()
-                .id(entity.getId())
-                .soLuong(entity.getSoLuong())
-                .donGia(entity.getDonGia() != null ? entity.getDonGia() : 0.0)
-                .ngayTao(entity.getNgayTao())
-                .ngaySua(entity.getNgaySua())
-                .trangThai(entity.getTrangThai())
-                .idKhachHang(entity.getKhachHang().getId())
-                .idSanPhamChiTiet(entity.getSanPhamChiTiet().getId())
-                .build();
-    }
-
-    private GioHangChiTiet convertToEntity(GioHangChiTietRequest request, KhachHang khachHang, SanPhamChiTiet sanPhamChiTiet) {
-        return GioHangChiTiet.builder()
-                .khachHang(khachHang)
-                .sanPhamChiTiet(sanPhamChiTiet)
-                .soLuong(request.getSoLuong())
-                .donGia(sanPhamChiTiet.getGia() != null ? sanPhamChiTiet.getGia() : 0.0) // Tránh null giá
-                .ngayTao(LocalDate.now())
-                .ngaySua(LocalDate.now())
-                .trangThai(1)
-                .build();
-    }
 }

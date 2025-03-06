@@ -8,6 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface AnhRepository extends JpaRepository<Anh, Integer> {
@@ -24,4 +25,6 @@ public interface AnhRepository extends JpaRepository<Anh, Integer> {
     List<AnhRespone> getAllAnhRespones(@Param("idSanPham") Integer idSanPham);
 
     List<Anh> findBySanPhamId(Integer idSanPham);
+
+    Optional<Anh> findFirstBySanPhamIdAndTrangThaiOrderByNgayTaoAsc(Integer sanPhamId, Integer trangThai);
 }

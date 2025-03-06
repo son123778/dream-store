@@ -60,12 +60,12 @@
     
     <div class="quantity-control">
       <button (click)="giamSoLuong()">-</button>
-      <input type="number" [(ngModel)]="soLuongMua" min="1" (change)="kiemTraSoLuong()" (blur)="kiemTraSoLuong()">
+      <input type="text" [(ngModel)]="soLuongMua" min="1" (change)="kiemTraSoLuong()" (blur)="kiemTraSoLuong()" readonly>
       <button (click)="tangSoLuong()">+</button>
     </div>    
     
     <div class="button-group">
-      <button class="btn">Thêm vào giỏ</button>
+      <button class="btn" (click)="themVaoGio()">Thêm vào giỏ</button>
       <button class="btn">Mua ngay</button>
     </div>
     

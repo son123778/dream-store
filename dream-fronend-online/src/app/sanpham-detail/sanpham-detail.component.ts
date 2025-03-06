@@ -1,10 +1,11 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { SanphamDetailService } from './sanpham-detail.service';
 import { HeaderComponent } from '../header/header.component';
+import { HeaderService } from '../header/header.service'
 
 @Component({
   selector: 'app-sanpham-detail',
@@ -26,9 +27,11 @@ export class SanphamDetailComponent implements OnInit {
   soLuongMua: number = 1;
   filteredDanhSachMauSac: any[] = [];
   filteredDanhSachSize: any[] = [];
+  idKhachHang: number = 1; // Giả sử ID khách hàng = 1
 
   private route = inject(ActivatedRoute);
   private sanphamService = inject(SanphamDetailService);
+  constructor(private headerService: HeaderService) {}
 
   ngOnInit(): void {
     this.loadSanPhamChiTiet();
@@ -45,7 +48,7 @@ export class SanphamDetailComponent implements OnInit {
     if (id) {
       this.sanphamService.getSanPhamById(id).subscribe({
         next: (data) => {
-          console.log("Dữ liệu sản phẩm từ API:", data);
+          // console.log("Dữ liệu sản phẩm từ API:", data);
           if (Array.isArray(data) && data.length > 0) {
             this.sanPhamList = data;
             this.selectedSanPham = data[0]; // Chọn sản phẩm đầu tiên làm mặc định
@@ -76,7 +79,7 @@ export class SanphamDetailComponent implements OnInit {
   loadMauSac(): void {
     this.sanphamService.getMauSac().subscribe({
       next: (data) => {
-        console.log("Dữ liệu màu sắc:", data); // Kiểm tra dữ liệu nhận được
+        // console.log("Dữ liệu màu sắc:", data); // Kiểm tra dữ liệu nhận được
         this.danhSachMauSac = data;
         if (data.length > 0) {
           this.selectedMauSac = data[0].tenMauSac;
@@ -89,7 +92,7 @@ export class SanphamDetailComponent implements OnInit {
   loadSize(): void {
     this.sanphamService.getSizes().subscribe({
       next: (data) => {
-        console.log("Dữ liệu kích thước:", data); // Kiểm tra dữ liệu nhận được
+        // console.log("Dữ liệu kích thước:", data); // Kiểm tra dữ liệu nhận được
         this.danhSachSize = data;
         if (data.length > 0) {
           this.selectedSize = data[0].tenSize;
@@ -182,12 +185,41 @@ export class SanphamDetailComponent implements OnInit {
   }
 
   tangSoLuong() {
-    this.soLuongMua++;
+    if (this.soLuongMua < this.selectedSanPham.soLuongSanPham) {
+      this.soLuongMua++;
+    } else {
+      alert(`Số lượng mua vượt quá số lượng tồn kho`);
+    }
   }
+  
 
   kiemTraSoLuong() {
     if (this.soLuongMua < 1 || isNaN(this.soLuongMua)) {
       this.soLuongMua = 1;
+    } else if (this.soLuongMua > this.selectedSanPham.soLuongSanPham) {
+      alert(`Số lượng mua vượt quá số lượng tồn kho`);
+      this.soLuongMua = this.selectedSanPham.soLuongSanPham;
     }
   }
+
+  themVaoGio() {
+    const sanPhamGioHang = {
+        idKhachHang: this.idKhachHang,
+        idSanPhamChiTiet: this.selectedSanPham.idSanPhamChiTiet, // Đúng field
+        mauSac: this.selectedMauSac,
+        size: this.selectedSize,
+        soLuong: this.soLuongMua
+    };
+
+    // console.log("Dữ liệu gửi lên API:", sanPhamGioHang);
+
+    this.headerService.addToCart(sanPhamGioHang).subscribe(response => {
+        // console.log("Thêm vào giỏ hàng thành công:", response);
+        this.headerService.notifyGioHangUpdated();
+        this.soLuongMua = 1;
+    }, error => {
+        console.error("Lỗi khi thêm vào giỏ hàng:", error);
+    });
+  }
+  
 }

@@ -13,7 +13,6 @@ export class SanphamDetailService {
   constructor(private http: HttpClient) {}
 
   getSanPhamById(id: string): Observable<any> {
-    console.log("Gọi API:", `${this.apiUrl}/hien-thi-spct/${id}`);
     return this.http.get<any>(`${this.apiUrl}/hien-thi-spct/${id}`);
   }
 

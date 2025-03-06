@@ -138,7 +138,6 @@ com\example\dreambackend\repositories\ThuongHieuRepository.class
 com\example\dreambackend\repositories\CoAoRepository.class
 com\example\dreambackend\entities\ThuongHieu$ThuongHieuBuilder.class
 com\example\dreambackend\services\thuonghieu\IThuongHieuService.class
-com\example\dreambackend\responses\GioHangChiTietResponse$GioHangChiTietResponseBuilder.class
 com\example\dreambackend\requests\HoaDonRequest.class
 com\example\dreambackend\responses\HoaDonResponse.class
 com\example\dreambackend\requests\GioHangChiTietRequest$GioHangChiTietRequestBuilder.class
