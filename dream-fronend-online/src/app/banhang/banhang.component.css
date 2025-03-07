@@ -159,23 +159,6 @@
   transform: scale(1.05);
 }
 
-/* Giỏ hàng khi di chuột vào ảnh */
-.cart-icon {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 15px;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 8px;
-  border-radius: 50%;
-  display: none;
-}
-
-/* Hiện icon khi hover vào card */
-.card:hover .cart-icon {
-  display: block;
-}
 
 .card-body {
   text-align: center;

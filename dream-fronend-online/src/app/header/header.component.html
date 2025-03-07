@@ -12,6 +12,8 @@
     </nav>
   </div>
 
+  <div class="cart-overlay" [class.show]="modalCard" (click)="cardModal($event)"></div>
+
   <div class="cart-modal" [class.show]="modalCard">
     <div class="cart-content">
       <button class="close-btn" (click)="cardModal($event)">x</button>

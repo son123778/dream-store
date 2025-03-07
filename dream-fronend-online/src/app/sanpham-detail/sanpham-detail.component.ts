@@ -28,6 +28,7 @@ export class SanphamDetailComponent implements OnInit {
   filteredDanhSachMauSac: any[] = [];
   filteredDanhSachSize: any[] = [];
   idKhachHang: number = 1; // Giả sử ID khách hàng = 1
+  showModalThanhToan: boolean = false; // mở modal thanh toán
 
   private route = inject(ActivatedRoute);
   private sanphamService = inject(SanphamDetailService);
@@ -210,9 +211,7 @@ export class SanphamDetailComponent implements OnInit {
         size: this.selectedSize,
         soLuong: this.soLuongMua
     };
-
     // console.log("Dữ liệu gửi lên API:", sanPhamGioHang);
-
     this.headerService.addToCart(sanPhamGioHang).subscribe(response => {
         // console.log("Thêm vào giỏ hàng thành công:", response);
         this.headerService.notifyGioHangUpdated();
@@ -220,6 +219,16 @@ export class SanphamDetailComponent implements OnInit {
     }, error => {
         console.error("Lỗi khi thêm vào giỏ hàng:", error);
     });
+  }
+
+  // code modalThanhToan khi ấn mua ngay//////////////////////////////////////////
+
+  openModalThanhToan(){
+    this.showModalThanhToan = true;
+  }
+
+  closeModalThanhToan(){
+    this.showModalThanhToan = false;
   }
   
 }
