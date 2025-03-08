@@ -9,5 +9,6 @@ import java.util.List;
 @Repository
 public interface KhachHangRepository extends JpaRepository<KhachHang, Integer> {
     List<KhachHang> findByTenContainingIgnoreCase(String ten);
-    KhachHang findKhachHangBySoDienThoai(String soDienThoai);
+
+    KhachHang findKhachHangByEmail(String email);
 }

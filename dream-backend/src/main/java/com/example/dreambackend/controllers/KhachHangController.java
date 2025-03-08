@@ -1,6 +1,7 @@
 package com.example.dreambackend.controllers;
 
 import com.example.dreambackend.dtos.KhachHangDto;
+import com.example.dreambackend.dtos.OtpRequest;
 import com.example.dreambackend.entities.KhachHang;
 import com.example.dreambackend.services.khachhang.KhachHangService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,10 +11,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/khach-hang")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4201")
 public class KhachHangController {
     @Autowired
     KhachHangService khachHangService;
@@ -45,8 +47,20 @@ public class KhachHangController {
         KhachHang khachHang= khachHangService.getKhachHangById(id);
         return ResponseEntity.ok(khachHang);
     }
-    @GetMapping("/sdt")
-    public KhachHang getKhachHangByid(@RequestParam("soDienThoai") String soDienThoai) {
-        return khachHangService.getKhachHangBySoDienThoai(soDienThoai);
+    @GetMapping("/detail")
+    public KhachHang getKhachHangByEmail(@RequestParam("email") String email) {
+        return khachHangService.getKhachHangByEmail(email);
+    }
+    @PostMapping("/send")
+    public ResponseEntity<KhachHang> sendOtp(@RequestParam("email") String email) {
+        return ResponseEntity.ok(khachHangService.updateOtpKhachHang(email));
+    }
+    @PostMapping("/deleteotp")
+    public ResponseEntity<KhachHang> deleteOtp(@RequestParam("email") String email) {
+        return ResponseEntity.ok(khachHangService.deleteOtpKhachHang(email));
+    }
+    @PostMapping("/compare")
+    public ResponseEntity<KhachHang> compareOtp(@RequestBody OtpRequest otpRequest) {
+        return ResponseEntity.ok(khachHangService.compareOtp(otpRequest.getEmail(),otpRequest.getOtp()));
     }
 }

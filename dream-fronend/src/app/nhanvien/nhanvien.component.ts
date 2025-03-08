@@ -19,10 +19,10 @@ export class NhanvienComponent implements OnInit {
   showModalSearch: boolean = false;
   showModalEdit: boolean = false;
   
-  maxVisiblePages = 3;
+  maxVisiblePages = 8;
   totalPages: number = 0;
   currentPage: number = 0;
-  pageSize: number = 10;
+  pageSize: number = 4;
   
   selectedNhanVien: any = null;
   nhanVienEdit: any = {};
@@ -30,20 +30,22 @@ export class NhanvienComponent implements OnInit {
   visiblePages: number[] = [];
   filteredNhanViens: any[] = [];
   errors: any = {};
-  
+  selectedFile: File | null = null; // To store the selected file
+  imagePreview: string | ArrayBuffer | null = null; // To store the image preview URL
   nhanVien: any = {
     id: '',
     ma: '',
     ten: '',
+    anh:null,
     gioiTinh: null,
     ngaySinh: '',
     email: '',
     soDienThoai: '',
     taiKhoan: '',
     matKhau: '',
-    trangThai: null,
+    trangThai: 1,
     vaiTro: {
-      id: '',  // Đây là phần liên kết với vai trò. Bạn sẽ cần phải cập nhật ID vai trò khi chọn vai trò cho nhân viên.
+      id: 2,  // Đây là phần liên kết với vai trò. Bạn sẽ cần phải cập nhật ID vai trò khi chọn vai trò cho nhân viên.
          // Nếu cần, bạn có thể thêm tên vai trò hoặc các thuộc tính khác của vai trò ở đây
     },
     ngayTao: '',
@@ -60,59 +62,104 @@ export class NhanvienComponent implements OnInit {
       id: '',
       ma: '',
       ten: '',
+      anh:null,
       gioiTinh: null,
       ngaySinh: '',
       email: '',
       soDienThoai: '',
       taiKhoan: '',
       matKhau: '',
-      trangThai: null,
+      trangThai: 1,
       vaiTro: {
-        id: '',   // Vai trò của nhân viên, cần được chọn từ danh sách vai trò
+        id: 2,   // Vai trò của nhân viên, cần được chọn từ danh sách vai trò
       },
       ngayTao: '',
       ngaySua: ''
     };
   }
-  // Method loadData để tải dữ liệu nhân viên và vai trò
-  // loadData() {
-  //   this.nhanVienService.getVaiTros().subscribe(vaiTros => {
-  //     this.danhSachVaiTro = vaiTros; // Giả sử vaiTros là danh sách vai trò từ API
-  //   });
-  
-  //   // Tải danh sách nhân viên
-  //   this.nhanVienService.getNhanVien(this.currentPage, this.pageSize).subscribe(data => {
-  //     this.nhanViens = data.content;
-  //     this.totalPages = data.totalPages;
-  //     this.visiblePages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
-  //   });
-  // }
-  editNhanVien(nhanVienId: number) {
-    this.nhanVienService.getNhanVienDetail(nhanVienId).subscribe((nhanVien) => {
-      this.nhanVienEdit = { ...nhanVien };  // Gán dữ liệu vào đối tượng nhanVienEdit
-      // Đảm bảo rằng vai trò được gán chính xác
-      if (this.nhanVienEdit.vaiTro) {
-        this.nhanVienEdit.vaiTro.id = this.nhanVienEdit.vaiTro.id || null;
-      }
-      this.showModalEdit = true;  // Hiển thị modal chỉnh sửa
-    });
+ editNhanVien(nhanVienId: number) {
+  this.nhanVienService.getNhanVienDetail(nhanVienId).subscribe((nhanVien) => {
+    this.nhanVienEdit = { ...nhanVien };  // Gán dữ liệu vào biến chỉnh sửa
+    console.log("Dữ liệu nhân viên:", this.nhanVienEdit);
+    
+    // Kiểm tra nếu nhân viên có ảnh thì lấy đường dẫn từ API
+    if (this.nhanVienEdit.anh) {
+      this.imagePreview = this.nhanVienService.getNhanVienImage(this.nhanVienEdit.anh);
+      console.log("Đường dẫn ảnh:", this.imagePreview);
+    } else {
+      this.imagePreview = null;
+    }
+    
+    this.showModalEdit = true;  // Hiển thị modal chỉnh sửa
+  }, (error) => {
+    console.error("Lỗi khi lấy thông tin nhân viên:", error);
+    alert("Không tìm thấy nhân viên!");
+  });
+}
+  // Method to handle file selection and preview the image
+  onFileSelected(event: any): void {
+    const file = event.target.files[0];
+    if (file) {
+      this.selectedFile = file;
+      // Create a FileReader to preview the image
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.imagePreview = e.target.result; // Store the preview URL
+      };
+      reader.readAsDataURL(file); // Read the selected file as a Data URL
+    }
   }
+  onFileSelectedForEdit(event: any): void {
+    const file = event.target.files[0];
+    if (file) {
+      this.selectedFile = file;
   
+      // Tạo một FileReader để xem trước ảnh
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.imagePreview = e.target.result; // Lưu URL của ảnh để hiển thị xem trước
+      };
+      reader.readAsDataURL(file); // Đọc tệp đã chọn dưới dạng Data URL
+    }
+  }
   addNhanVien() {
     if (!this.validateForm()) {
-      return; 
+      return; // Prevent submission if form is not valid
     }
-  
-    this.nhanVienService.addNhanVien(this.nhanVien).subscribe(
+    this.nhanVien.vaiTro = { id: 2 };
+    // Gửi dữ liệu nhân viên mà không có ảnh
+    const nhanVienData = { ...this.nhanVien }; // Tạo bản sao dữ liệu nhân viên
+    // Gọi API để thêm nhân viên
+    this.nhanVienService.addNhanVien(nhanVienData).subscribe(
       (response) => {
         alert('Thêm nhân viên thành công!');
-        this.loadData();  // Tải lại danh sách nhân viên
-        this.closeModal();  // Đóng modal
-        this.resetForm();  // Reset form sau khi thêm
+        this.loadData(); // Load lại dữ liệu nhân viên
+        this.closeModal(); // Đóng modal
+        this.resetForm(); // Reset form
+        // Sau khi thêm nhân viên thành công, gọi API để thêm ảnh
+        if (this.selectedFile) {
+          this.addImageForNhanVien(response.id);
+        }
       },
       (error) => {
         console.error('Error:', error);
         alert('Có lỗi xảy ra khi thêm nhân viên.');
+      }
+    );
+  } 
+  addImageForNhanVien(nhanVienId: number) {
+    if (!this.selectedFile) {
+      console.error('No file selected.');
+      return;
+    }
+    // Gọi API để gửi file ảnh (File) trực tiếp
+    this.nhanVienService.addImageForNhanVien(nhanVienId, this.selectedFile).subscribe(
+      (response) => { 
+        this.loadData(); // Tải lại dữ liệu nhân viên
+      },
+      (error) => {
+        console.error('Error:', error);
+        alert('Có lỗi xảy ra khi thêm ảnh.');
       }
     );
   }
@@ -128,13 +175,13 @@ export class NhanvienComponent implements OnInit {
     // Kiểm tra mã nhân viên
     if (!this.nhanVien.ma || this.nhanVien.ma.trim() === '') {
       this.errors.ma = 'Mã nhân viên không được để trống!';
-    } else {
+  } else {
       // Kiểm tra trùng lặp mã nhân viên trong danh sách
-      const isDuplicate = this.nhanViens.some(nv => nv.ma === this.nhanVien.ma);
+      const isDuplicate = this.nhanViens.some(nv => nv.ma === this.nhanVien.ma && nv.id !== this.nhanVien.id);
       if (isDuplicate) {
-        this.errors.ma = 'Mã nhân viên đã tồn tại!';
+          this.errors.ma = 'Mã nhân viên đã tồn tại!';
       }
-    }
+  }
   
     // Kiểm tra tên nhân viên
     if (!this.nhanVien.ten || this.nhanVien.ten.trim() === '') {
@@ -189,10 +236,6 @@ export class NhanvienComponent implements OnInit {
       this.errors.matKhau = 'Mật khẩu phải có ít nhất 6 ký tự!';
     }
   
-    // Kiểm tra vai trò
-    if (!this.nhanVien.vaiTro || !this.nhanVien.vaiTro.id) {
-      this.errors.vaiTro = 'Vui lòng chọn vai trò!';
-    }
   
     // Kiểm tra trạng thái
     if (this.nhanVien.trangThai === null || this.nhanVien.trangThai === undefined) {
@@ -206,7 +249,6 @@ export class NhanvienComponent implements OnInit {
       alert('Vui lòng nhập tên nhân viên để tìm kiếm.');
       return;
     }
-  
     // Gọi API tìm kiếm nhân viên theo tên
     this.nhanVienService.searchNhanVienByName(this.searchText).subscribe(
       (data) => {
@@ -276,19 +318,12 @@ export class NhanvienComponent implements OnInit {
     if (!this.nhanVienEdit.taiKhoan || !this.nhanVienEdit.taiKhoan.trim()) {
       this.errors.taiKhoan = 'Tài khoản không được để trống!';
     }
-  
     // Kiểm tra mật khẩu (chỉ validate nếu thay đổi)
     if (this.nhanVienEdit.matKhau && this.nhanVienEdit.matKhau.trim() !== '') {
       if (this.nhanVienEdit.matKhau.length < 6) {
         this.errors.matKhau = 'Mật khẩu phải có ít nhất 6 ký tự!';
       }
     }
-  
-    // Kiểm tra vai trò
-    if (!this.nhanVienEdit.vaiTro || !this.nhanVienEdit.vaiTro.id) {
-      this.errors.vaiTro = 'Vui lòng chọn vai trò!';
-    }
-  
     // Kiểm tra trạng thái
     if (this.nhanVienEdit.trangThai === null || this.nhanVienEdit.trangThai === undefined) {
       this.errors.trangThai = 'Vui lòng chọn trạng thái!';
@@ -298,16 +333,23 @@ export class NhanvienComponent implements OnInit {
   }
   updateNhanVien() {
     if (!this.validateEditForm()) {
-      return;  // Dừng nếu form không hợp lệ
+      return; // Dừng nếu form không hợp lệ
     }
-  
     if (this.nhanVienEdit.id) {
+      // Nếu vai trò là Admin, giữ nguyên
+      if (this.nhanVienEdit.vaiTro.ten !== 'Admin') {
+        this.nhanVienEdit.vaiTro = { id: 2, ten: 'Nhân viên' };
+      }
       this.nhanVienService.updateNhanVien(this.nhanVienEdit).subscribe(
         (response) => {
           alert('Cập nhật nhân viên thành công!');
-          this.loadData();  // Tải lại danh sách nhân viên
-          console.log('Updated NhanVien:', this.nhanVienEdit.ngaySua);  // In thông tin cập nhật
-          this.closeModalEdit();  // Đóng modal chỉnh sửa
+          this.loadData();
+          console.log('Updated NhanVien:', this.nhanVienEdit.ngaySua);
+          this.closeModalEdit();
+          // Cập nhật ảnh nếu có file mới
+          if (this.selectedFile) {
+            this.addImageForNhanVien(this.nhanVienEdit.id);
+          }
         },
         (error) => {
           console.error('Error:', error);
@@ -322,8 +364,6 @@ showDetail(nhanVienId: number) {
   this.selectedNhanVien = this.nhanViens.find(nhanVien => nhanVien.id === nhanVienId);
   this.showModalDetail = true; // Hiển thị modal chi tiết
 }
-
-
   // 🟢 Lấy danh sách nhân viên
   loadData(): void {
     this.loadPage(0);
@@ -353,7 +393,6 @@ getNhanVienDetail(id: number): void {
     }
   );
 }
-
   loadPage(page: number): void {
     this.nhanVienService.getNhanVien(page, this.pageSize).subscribe(
       (response) => {
@@ -413,7 +452,6 @@ getNhanVienDetail(id: number): void {
   updateVisiblePages(): void {
     const startPage = Math.floor(this.currentPage / this.maxVisiblePages) * this.maxVisiblePages;
     const endPage = Math.min(startPage + this.maxVisiblePages, this.totalPages);
-  
     this.visiblePages = Array.from({ length: endPage - startPage }, (_, i) => startPage + i);
   }
   goToNextPage(): void {
@@ -421,7 +459,6 @@ getNhanVienDetail(id: number): void {
       this.loadPage(this.currentPage + 1);
     }
   }
-  
   openModal() {
     this.resetForm();
     this.showModal = true;
@@ -431,8 +468,6 @@ getNhanVienDetail(id: number): void {
     this.resetForm();
     this.showModal = false;
   }
-
- 
   openModalDetail() {
     this.resetForm();
     this.showModalDetail = true;
@@ -458,50 +493,4 @@ getNhanVienDetail(id: number): void {
     this.resetForm();
     this.showModalSearch = false;
   }
-  // addVaiTro() {
-  //   if (!this.vaiTro.ten?.trim()) {
-  //     alert("Tên vai trò không được để trống!");
-  //     return;
-  //   }
-  
-  //   this.nhanVienService.addVaiTro(this.vaiTro).subscribe(
-  //     () => {
-  //       alert("Thêm vai trò thành công!");
-  //       this.getVaiTros();
-  //       this.vaiTro = {}; // Reset form
-  //     },
-  //     (error) => {
-  //       console.error("Lỗi khi thêm vai trò:", error);
-  //     }
-  //   );
-  // }
-  
-  // updateVaiTro() {
-  //   if (!this.vaiTro.ten?.trim()) {
-  //     alert("Tên vai trò không được để trống!");
-  //     return;
-  //   }
-  
-  //   this.nhanVienService.updateVaiTro(this.vaiTro).subscribe(
-  //     () => {
-  //       alert("Cập nhật vai trò thành công!");
-  //       this.getVaiTros();
-  //       this.vaiTro = {}; // Reset form
-  //     },
-  //     (error) => {
-  //       console.error("Lỗi khi cập nhật vai trò:", error);
-  //     }
-  //   );
-  // }
-  // // ✅ Lấy danh sách nhân viên từ API
-  // loadNhanVien() {
-  //   this.nhanVienService.getNhanVien(0, 100).subscribe(
-  //     (data) => {
-  //       this.danhSachNhanVien = data.content;
-  //     },
-  //     (error) => {
-  //       console.error("Lỗi khi tải danh sách nhân viên:", error);
-  //     }
-  //   );
-  // }
 }
