@@ -1,25 +1,39 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
 export class NhanVienService {
   private apiUrl = 'http://localhost:8080/api'; // URL backend
-
   constructor(private http: HttpClient) {}
-
   // 🟢 Nhân viên API
-
   // Lấy danh sách nhân viên có phân trang
   getNhanVien(page: number, size: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/nhan-vien/hien-thi?page=${page}&size=${size}`);
+    return this.http.get<any>(`${this.apiUrl}/nhan-vien/hien-thi?page=${page}&size=${size}`).pipe(
+      map(response => {
+        response.content.forEach((nhanVien: any) => {
+          if (nhanVien.anh) {
+            nhanVien.anh = `${this.apiUrl}/nhan-vien/image/${nhanVien.anh}`;
+          }
+        });
+        return response;
+      })
+    );
+  }
+  // Thêm nhân viên mà không có ảnh
+  addNhanVien(nhanVien: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/nhan-vien/add`, nhanVien); // Thêm /nhan-vien/ vào URL
   }
 
-  // Thêm nhân viên mới
-  addNhanVien(nhanVien: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/nhan-vien/add`, nhanVien);
+  // Thêm ảnh cho nhân viên
+  addImageForNhanVien(id: number, file: File): Observable<any> {
+    const formData = new FormData();
+    formData.append('file', file, file.name);
+
+    // Gửi yêu cầu POST đến API để cập nhật ảnh
+    return this.http.post<any>(`${this.apiUrl}/nhan-vien/add-image/${id}`, formData); // Đảm bảo API chính xác
   }
 
   // Lấy chi tiết nhân viên theo ID
@@ -36,7 +50,6 @@ export class NhanVienService {
   searchNhanVienByName(name: string): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/nhan-vien/search?ten=${name}`);
   }
-
   // 🟢 Vai trò API
 
   // Lấy danh sách tất cả vai trò
@@ -51,5 +64,10 @@ export class NhanVienService {
   // ✅ Cập nhật vai trò
   updateVaiTro(vaiTro: any): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/vai-tro/update`, vaiTro);
+  }
+
+  // 🖼 API lấy ảnh nhân viên
+  getNhanVienImage(filename: string): string {
+  return `${this.apiUrl}/nhan-vien/image/${filename}`;
   }
 }

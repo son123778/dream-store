@@ -580,3 +580,60 @@
     /* Đảm bảo các phần tử giãn đều chiều ngang */
   }
 }
+.employee-image {
+  width: 50px;  /* Đặt chiều rộng ảnh */
+  height: 50px; /* Đặt chiều cao ảnh */
+  object-fit: cover; /* Giữ tỉ lệ ảnh và cắt nếu cần */
+  border-radius: 5px; /* Bo tròn nhẹ các góc */
+  display: block;
+  margin: auto;
+}
+.small-employee-image {
+  width: 200px;  /* Giảm kích thước ảnh nhỏ nhất có thể */
+  height: 200px;
+  object-fit: cover; /* Giữ tỷ lệ ảnh mà không bị méo */
+  border-radius: 5%; /* Bo tròn ảnh */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.image-container {
+  display: flex;
+  gap: 5px; /* Khoảng cách giữa ảnh hiện tại và ảnh mới */
+  justify-content: center;
+  margin-top: 2px; /* Đẩy ảnh xuống dưới */
+}
+
+.image-field {
+  text-align: center;
+}
+.image-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  margin-top: -80px; /* Dịch ảnh lên gần dòng trên hơn */
+  margin-left: 160px; /* Dịch ảnh sang phải một chút */
+}
+
+.small-employee-image {
+  max-width: 120px;
+  max-height: 120px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.image-preview {
+  display: block;
+  max-width: 120px;
+  max-height: 120px;
+  border-radius: 8px;
+  margin-top: -60px; /* Đưa ảnh gần dòng trên hơn */
+  margin-left: 20px; /* Lệch nhẹ sang phải */
+}
+
