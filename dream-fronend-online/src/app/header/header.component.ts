@@ -26,7 +26,6 @@ export class HeaderComponent implements OnInit {
 
   loadGioHang(): void {
     this.headerService.getGioHang(this.idKhachHang).subscribe((data) => {
-      console.log("Dữ liệu giỏ hàng từ API:", data); // Kiểm tra dữ liệu
       this.gioHang = data;
     });
   }
@@ -44,7 +43,6 @@ export class HeaderComponent implements OnInit {
   }
 
   getTongTien(): number {
-    console.log("Giỏ hàng:", this.gioHang);
     return this.gioHang.reduce((total, item) => {
       // console.log(`Sản phẩm: ${item.tenSanPham} - Đơn giá đã nhân số lượng: ${item.donGia}`);
       return total + item.donGia; 
