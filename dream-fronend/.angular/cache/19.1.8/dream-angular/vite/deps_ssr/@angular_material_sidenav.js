@@ -1,12 +1,5 @@
 import { createRequire } from 'module';const require = createRequire(import.meta.url);
 import {
-  animate,
-  state,
-  style,
-  transition,
-  trigger
-} from "./chunk-4GE3LJ2V.js";
-import {
   CdkScrollable,
   CdkScrollableModule,
   ScrollDispatcher,
@@ -28,6 +21,13 @@ import {
 import {
   Directionality
 } from "./chunk-BNPQWMRO.js";
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger
+} from "./chunk-4GE3LJ2V.js";
 import {
   DOCUMENT
 } from "./chunk-6Z34FHOS.js";

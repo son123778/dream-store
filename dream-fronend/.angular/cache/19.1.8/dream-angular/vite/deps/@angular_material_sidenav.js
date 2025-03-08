@@ -1,11 +1,4 @@
 import {
-  animate,
-  state,
-  style,
-  transition,
-  trigger
-} from "./chunk-V4E6ECEI.js";
-import {
   CdkScrollable,
   CdkScrollableModule,
   ScrollDispatcher,
@@ -27,6 +20,13 @@ import {
 import {
   Directionality
 } from "./chunk-EFVCIGUW.js";
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger
+} from "./chunk-V4E6ECEI.js";
 import {
   DOCUMENT
 } from "./chunk-B36KQ4TD.js";
