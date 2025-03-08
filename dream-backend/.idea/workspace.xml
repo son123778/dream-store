@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d7dcb88-d015-40bd-b1c2-e4c2578857ff" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="5d7dcb88-d015-40bd-b1c2-e4c2578857ff" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +13,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -22,22 +21,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;HuyHung-04&quot;
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "HuyHung-04"
   }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/HuyHung-04/dream-store.git&quot;,
-    &quot;accountId&quot;: &quot;c5c3043f-ad7d-42fe-a257-25d64186d4c2&quot;
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/HuyHung-04/dream-store.git",
+    "accountId": "c5c3043f-ad7d-42fe-a257-25d64186d4c2"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 7
-}</component>
+    &quot;customColor&quot;: &quot;&quot;,
+    &quot;associatedIndex&quot;: 7
+    }</component>
   <component name="ProjectId" id="2szj47W1qDqpDOBRuOSuqxhiyDI" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -60,28 +59,27 @@
     "RunOnceActivity.git.unshallow": "true",
     "Spring Boot.DreamBackendApplication.executor": "Run",
     "Spring Boot.Unnamed.executor": "Run",
-    "git-widget-placeholder": "duong",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Duong/Documents/java4/banmoi2/dream-backend",
+    "last_opened_file_path": "C:/Users/Duong/Downloads/dream-store-duong/dream-backend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2024.3.1.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Duong\Documents\java4\banmoi\dream-store\dream-backend\src\main\java\com\example\dreambackend" />
       <recent name="D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\controllers" />
       <recent name="D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\repositories" />
       <recent name="D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\dtos" />
       <recent name="D:\dream-store\dream-backend\src\main\java\com\example\dreambackend\services" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.dreambackend.dtos" />
       <recent name="com.example.dreambackend.entities" />
       <recent name="org.example.dreambackend.entity" />
     </key>
@@ -168,10 +166,19 @@
       <workItem from="1739865638208" duration="5244000" />
       <workItem from="1739971791545" duration="8852000" />
       <workItem from="1740059956685" duration="4797000" />
-      <workItem from="1741180480734" duration="32000" />
-      <workItem from="1741350195211" duration="711000" />
-      <workItem from="1741392522833" duration="717000" />
-      <workItem from="1741393295125" duration="4044000" />
+      <workItem from="1740833897591" duration="5055000" />
+      <workItem from="1740880837100" duration="700000" />
+      <workItem from="1740920878388" duration="4579000" />
+      <workItem from="1740990906657" duration="743000" />
+      <workItem from="1741007697672" duration="5612000" />
+      <workItem from="1741067234637" duration="3254000" />
+      <workItem from="1741075038205" duration="1510000" />
+      <workItem from="1741092647887" duration="5172000" />
+      <workItem from="1741153596893" duration="7143000" />
+      <workItem from="1741177472707" duration="8303000" />
+      <workItem from="1741238189369" duration="11506000" />
+      <workItem from="1741264735461" duration="4272000" />
+      <workItem from="1741401744260" duration="3416000" />
     </task>
     <servers />
   </component>
