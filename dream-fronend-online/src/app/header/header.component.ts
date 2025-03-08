@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit {
   gioHang: any[] = []; // Danh sách sản phẩm trong giỏ hàng
   idKhachHang: number = 1; // Giả sử ID khách hàng là 1
 
+  
   constructor(private headerService: HeaderService) {}
 
   ngOnInit(): void {
@@ -22,6 +23,7 @@ export class HeaderComponent implements OnInit {
     this.headerService.gioHangUpdated$.subscribe(() => {
       this.loadGioHang(); // Cập nhật giỏ hàng ngay lập tức
   });
+
   }
 
   loadGioHang(): void {
@@ -49,11 +51,14 @@ export class HeaderComponent implements OnInit {
     }, 0);
   }
   
-  
-  
   cardModal(event: Event): void {
     event.preventDefault();
     event.stopPropagation();
     this.modalCard = !this.modalCard;
+  }
+  // hiện modal thanh toán
+  openModalThanhToan() {
+    console.log("Nút Thanh toán được ấn!"); // Debug
+    this.headerService.openModalThanhToan();
   }
 }

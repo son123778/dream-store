@@ -159,6 +159,7 @@ select option {
   background: #fff;
   padding: 20px;
   border-radius: 10px;
+  height: 680px;
   width: 800px;
   position: relative;
   z-index: 10000; /* Đảm bảo modal nằm trên lớp nền */
@@ -216,6 +217,7 @@ select option {
   margin-top: 20px;
   width: 100%;
   padding: 10px;
+  height: 40px; /* Điều chỉnh chiều cao */
   background-color: #294764;
   color: white;
   border: none;
@@ -227,6 +229,7 @@ select option {
 .btn-success:hover {
   background-color: #1f3a56;
 }
+
 
 .close-btn {
   position: absolute;
@@ -246,6 +249,10 @@ select option {
   max-width: 100%; /* Giúp responsive trên thiết bị nhỏ */
   padding: 6px;
   font-size: 14px;
+}
+
+.form-group {
+  margin-bottom: 9px; /* Tạo khoảng cách giữa các nhóm form */
 }
 
 .form-group label {

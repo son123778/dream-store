@@ -7,6 +7,9 @@ import { Observable, BehaviorSubject  } from 'rxjs';
 })
 export class HeaderService {
   private apiUrl = 'http://localhost:8080/api/gio-hang';
+  // hiện modal thanh toán
+  private modalThanhToanSubject = new BehaviorSubject<boolean>(false);
+  modalThanhToan$ = this.modalThanhToanSubject.asObservable();
   
   private gioHangUpdated = new BehaviorSubject<boolean>(false);
   gioHangUpdated$ = this.gioHangUpdated.asObservable();
@@ -31,6 +34,14 @@ export class HeaderService {
 
   notifyGioHangUpdated() {
     this.gioHangUpdated.next(true);
+  }
+  // hiện modal thanh toán
+  openModalThanhToan() {
+    this.modalThanhToanSubject.next(true);
+  }
+
+  closeModalThanhToan() {
+    this.modalThanhToanSubject.next(false);
   }
   
 }

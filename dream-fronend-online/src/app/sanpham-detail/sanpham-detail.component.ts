@@ -32,6 +32,7 @@ export class SanphamDetailComponent implements OnInit {
 
   private route = inject(ActivatedRoute);
   private sanphamService = inject(SanphamDetailService);
+  // thao tác 2 component
   constructor(private headerService: HeaderService) {}
 
   ngOnInit(): void {
@@ -42,6 +43,12 @@ export class SanphamDetailComponent implements OnInit {
   if (this.selectedMauSac) {
     this.onSelectionChange();
   }
+
+  // hiện modal thanh toán header
+  this.headerService.modalThanhToan$.subscribe(status => {
+    console.log("Trạng thái modal từ HeaderService:", status); // Debug
+    this.showModalThanhToan = status;
+  });
   }
 
   loadSanPhamChiTiet(): void {
@@ -221,7 +228,7 @@ export class SanphamDetailComponent implements OnInit {
     });
   }
 
-  // code modalThanhToan khi ấn mua ngay//////////////////////////////////////////
+  // code modalThanhToan khi ấn mua ngay/////////////////////////////////
 
   openModalThanhToan(){
     this.showModalThanhToan = true;
@@ -229,6 +236,11 @@ export class SanphamDetailComponent implements OnInit {
 
   closeModalThanhToan(){
     this.showModalThanhToan = false;
+  }
+
+  // hiện modal thanh toán bên header
+  closeModalThanhToanHeader(){
+    this.headerService.closeModalThanhToan();
   }
   
 }
