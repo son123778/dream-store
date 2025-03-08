@@ -6,36 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5d7dcb88-d015-40bd-b1c2-e4c2578857ff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/requests/AnhRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/requests/ChatLieuRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/requests/CoAoRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/requests/MauSacRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/requests/SanPhamChiTietRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/requests/SanPhamRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/requests/SizeRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/requests/ThuongHieuRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/requests/XuatXuRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/respones/AnhRespone.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/respones/ChatLieuRespone.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/respones/CoAoRespone.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/respones/MauSacRepone.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/respones/SanPhamChiTietRespone.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/respones/SanPhamRespone.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/respones/SizeRespone.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/respones/ThuongHieuRespone.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dreambackend/respones/XuatXuRespone.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/src/app/dangky/dangky.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/src/app/dangky/dangky.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/src/app/dangky/dangky.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/src/app/dangky/dangky.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/src/app/dangnhap/dangnhap.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/src/app/dangnhap/dangnhap.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/src/app/dangnhap/dangnhap.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/src/app/dangnhap/dangnhap.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/src/app/layotp/layotp.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/src/app/layotp/layotp.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/src/app/layotp/layotp.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dream-fronend/src/app/layotp/layotp.service.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,7 +171,7 @@
       <workItem from="1741180480734" duration="32000" />
       <workItem from="1741350195211" duration="711000" />
       <workItem from="1741392522833" duration="717000" />
-      <workItem from="1741393295125" duration="2468000" />
+      <workItem from="1741393295125" duration="4044000" />
     </task>
     <servers />
   </component>
