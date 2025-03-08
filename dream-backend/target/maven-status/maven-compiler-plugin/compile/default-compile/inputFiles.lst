@@ -61,6 +61,7 @@ C:\Users\Duong\Documents\java4\banmoi\dream-store\dream-backend\src\main\java\co
 C:\Users\Duong\Documents\java4\banmoi\dream-store\dream-backend\src\main\java\com\example\dreambackend\controllers\BanHangOnlineController.java
 C:\Users\Duong\Documents\java4\banmoi\dream-store\dream-backend\src\main\java\com\example\dreambackend\entities\CoAo.java
 C:\Users\Duong\Documents\java4\banmoi\dream-store\dream-backend\src\main\java\com\example\dreambackend\controllers\MauSacController.java
+C:\Users\Duong\Documents\java4\banmoi\dream-store\dream-backend\src\main\java\com\example\dreambackend\dtos\OtpRequest.java
 C:\Users\Duong\Documents\java4\banmoi\dream-store\dream-backend\src\main\java\com\example\dreambackend\requests\AnhRequest.java
 C:\Users\Duong\Documents\java4\banmoi\dream-store\dream-backend\src\main\java\com\example\dreambackend\entities\DiaChiKhachHang.java
 C:\Users\Duong\Documents\java4\banmoi\dream-store\dream-backend\src\main\java\com\example\dreambackend\services\khachhang\KhachHangService.java
