@@ -2,8 +2,6 @@ package com.example.dreambackend.services.nhanvien;
 
 import com.example.dreambackend.entities.NhanVien;
 import org.springframework.data.domain.Page;
-import org.springframework.http.ResponseEntity;
-
 import java.util.List;
 
 public interface INhanVienService {
@@ -21,7 +19,4 @@ public interface INhanVienService {
 
     // Tìm kiếm nhân viên theo tên
     List<NhanVien> searchNhanVienByName(String ten);
-
-    // Phương thức đăng nhập (trả về boolean)
-    ResponseEntity<?> login(String email, String password);
 }

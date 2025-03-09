@@ -8,7 +8,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
-import { HttpClientModule,provideHttpClient,withFetch  } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { routes } from './app.routes';
 import { FormsModule } from '@angular/forms';
 
@@ -16,7 +16,6 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideHttpClient(withFetch()),
     importProvidersFrom(
       CommonModule,
       BrowserAnimationsModule,

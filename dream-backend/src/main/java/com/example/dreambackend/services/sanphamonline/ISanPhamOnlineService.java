@@ -8,5 +8,4 @@ import java.util.List;
 
 public interface ISanPhamOnlineService {
     Page<SanPhamDto> getSanPhamOnline(Pageable pageable);
-    Page<SanPhamDto> timKiemSanPham (String ten,Pageable pageable);
 }
