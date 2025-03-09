@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản lý Hóa Đơn</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<h2>Quản lý Hóa Đơn</h2>
+
+<div>
+  <<input type="text" [(ngModel)]="searchParams.maHoaDon" placeholder="Mã hóa đơn">
+  <input type="text" [(ngModel)]="searchParams.tenKhachHang" placeholder="Tên khách hàng">
+  <select [(ngModel)]="searchParams.listTrangThai">
+    <option value="">Tất cả trạng thái</option>
+    <option value="1">Chưa thanh toán</option>
+    <option value="2">Đã thanh toán</option>
+    <option value="3">Đã huỷ</option>
+  </select>
+  <input type="date" [(ngModel)]="searchParams.ngayTaoFrom">
+
+  <button (click)="fetchHoaDons()">Tìm kiếm</button>
+</div>
+
+<h2>Danh sách Hóa Đơn</h2>
+
+<table border="1">
+  <thead>
+  <tr>
+    <th>STT</th>
+    <th>Mã Hóa Đơn</th>
+    <th>Tên Khách Hàng</th>
+    <th>Ngày Tạo</th>
+    <th>Ngày Sửa</th>
+    <th>Trạng Thái</th>
+  </tr>
+  </thead>
+  <tbody *ngIf="hoaDons && hoaDons.length > 0; else noData">
+  <tr *ngFor="let hoaDon of hoaDons; let i = index">
+    <td>{{ i + 1 + page * pageSize }}</td>
+    <td>{{ hoaDon.maHoaDon }}</td>
+    <td>{{ hoaDon.tenKhachHang }}</td>
+    <td>{{ hoaDon.ngaySua }}</td>
+    <td>{{ hoaDon.ngayTao }}</td>
+    <td>
+  <span [ngSwitch]="hoaDon.trangThai">
+    <span *ngSwitchCase="1">Chưa thanh toán</span>
+    <span *ngSwitchCase="2">Đã thanh toán</span>
+    <span *ngSwitchCase="4">Đã huỷ</span>
+  </span>
+    </td>
+  </tr>
+  </tbody>
+  <ng-template #noData>
+    <tbody>
+    <tr>
+      <td colspan="6">Không có hóa đơn nào.</td>
+    </tr>
+    </tbody>
+  </ng-template>
+</table>
+
+<!-- Phân trang -->
+<button (click)="onPageChange(page - 1)" [disabled]="page === 0">Trước</button>
+<span>Trang {{ page }}</span>
+<button (click)="onPageChange(page + 1)" [disabled]="(page + 1) * pageSize >= totalRecords">Sau</button>
+
+
+</body>
+</html>
