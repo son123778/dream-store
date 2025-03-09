@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { BanhangService } from './banhang.service';
 import { HeaderComponent } from '../header/header.component';
 import { RouterModule } from '@angular/router';
+
 @Component({
   selector: 'app-banhang',
   standalone: true,
@@ -16,11 +17,18 @@ export class BanhangComponent{
   totalPages: number = 0;
   currentPage: number = 0;
   size: number = 20;
-
+ // Khai báo biến lưu trữ kết quả tìm kiếm
+ searchResults: any[] = [];
   constructor(private banHangService : BanhangService) {}
 
   ngOnInit(): void {
     this.loadData();
+  // Kiểm tra dữ liệu trả về
+  this.banHangService.searchResults$.subscribe((results) => {
+    console.log('searchResults:', results);  // Kiểm tra xem đây có phải là mảng không
+    this.searchResults = results;
+    this.sanPhamOnlines = [...this.searchResults];  // Đảm bảo đây là một mảng
+  });
   }
 
   loadData(): void {

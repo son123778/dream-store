@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderService } from './header.service';
 import { CommonModule } from '@angular/common';
-
+import { BanhangService } from '../banhang/banhang.service'; 
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-header',
   standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule,FormsModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
@@ -13,8 +14,10 @@ export class HeaderComponent implements OnInit {
   modalCard: boolean = false;
   gioHang: any[] = []; // Danh sách sản phẩm trong giỏ hàng
   idKhachHang: number = 1; // Giả sử ID khách hàng là 1
-
-  constructor(private headerService: HeaderService) {}
+  searchQuery: string = ''; // 🔍 Từ khóa tìm kiếm
+  isSearching: boolean = false; // Trạng thái tìm kiếm
+  searchResults: any[] = []; // Kết quả tìm kiếm
+  constructor(private headerService: HeaderService,private banhangService: BanhangService) {}
 
   ngOnInit(): void {
     this.loadGioHang();
@@ -56,4 +59,22 @@ export class HeaderComponent implements OnInit {
     event.stopPropagation();
     this.modalCard = !this.modalCard;
   }
+
+  // Gọi phương thức tìm kiếm khi người dùng nhấn nút tìm kiếm hoặc Enter
+  searchSanPham(page: number = 0): void {
+    if (this.searchQuery.trim()) {
+      this.isSearching = true;
+      this.banhangService.timKiemSanPham(this.searchQuery, page, 10).subscribe(
+        (data) => {
+          this.banhangService.setSearchResults(data); // Lưu kết quả vào BanhangService
+          this.isSearching = false;
+        },
+        (error) => {
+          console.error('Lỗi khi tìm kiếm sản phẩm', error);
+          this.isSearching = false;
+        }
+      );
+    }
+  }
+  
 }

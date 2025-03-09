@@ -2,6 +2,7 @@ package com.example.dreambackend.services.nhanvien;
 
 import com.example.dreambackend.entities.NhanVien;
 import org.springframework.data.domain.Page;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -14,4 +15,6 @@ public interface INhanVienService {
     NhanVien getNhanVienById(Integer id);
     List<NhanVien> searchNhanVienByName(String ten);
     NhanVien addImageForNhanVien(Integer nhanVienId, MultipartFile file) throws IOException;
+    // Phương thức đăng nhập (trả về boolean)
+    ResponseEntity<?> login(String email, String password);
 }
