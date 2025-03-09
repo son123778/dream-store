@@ -1,0 +1,98 @@
+[33ma6d9a379[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mle-hoang[m[33m, [m[1;31morigin/le-hoang[m[33m)[m HEAD@{0}: commit (merge): pull main
+[33m66596b6f[m HEAD@{1}: commit: thaydoi
+[33m501a0169[m HEAD@{2}: checkout: moving from main to le-hoang
+[33mb63378fc[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{3}: reset: moving to origin/main
+[33m0e8d3a93[m HEAD@{4}: checkout: moving from le-hoang to main
+[33m501a0169[m HEAD@{5}: commit: them
+[33m051ec61d[m HEAD@{6}: commit: thay doi
+[33m42d332aa[m HEAD@{7}: commit (merge): pull code
+[33m3fd76f7f[m HEAD@{8}: checkout: moving from main to le-hoang
+[33m0e8d3a93[m HEAD@{9}: reset: moving to HEAD
+[33m0e8d3a93[m HEAD@{10}: reset: moving to HEAD
+[33m0e8d3a93[m HEAD@{11}: pull origin main: Fast-forward
+[33mc19cc485[m HEAD@{12}: checkout: moving from le-hoang to main
+[33m3fd76f7f[m HEAD@{13}: commit: thaydoi
+[33mfcc94c45[m HEAD@{14}: commit: update
+[33mb479e571[m HEAD@{15}: checkout: moving from dong-new to le-hoang
+[33m40d103e9[m[33m ([m[1;31morigin/dong-new[m[33m, [m[1;32mdong-new[m[33m)[m HEAD@{16}: checkout: moving from duong to dong-new
+[33m984f84e6[m[33m ([m[1;32mduong[m[33m)[m HEAD@{17}: checkout: moving from dong-new to duong
+[33m40d103e9[m[33m ([m[1;31morigin/dong-new[m[33m, [m[1;32mdong-new[m[33m)[m HEAD@{18}: commit: n
+[33m625ff914[m HEAD@{19}: commit: loadanh
+[33med30b96e[m HEAD@{20}: checkout: moving from le-hoang to dong-new
+[33mb479e571[m HEAD@{21}: commit: xoa online
+[33m65320160[m HEAD@{22}: checkout: moving from dong-new to le-hoang
+[33med30b96e[m HEAD@{23}: commit: load anh
+[33me6a06153[m HEAD@{24}: commit: thay đổi
+[33m71829009[m HEAD@{25}: commit (merge): nhanvien
+[33m3dd7b158[m HEAD@{26}: commit: nhanvien
+[33mfc0aeee6[m HEAD@{27}: commit: nhanvien
+[33me1f5c8ac[m HEAD@{28}: checkout: moving from le-hoang to dong-new
+[33m65320160[m HEAD@{29}: checkout: moving from dong-new to le-hoang
+[33me1f5c8ac[m HEAD@{30}: checkout: moving from main to dong-new
+[33mc19cc485[m HEAD@{31}: checkout: moving from dong-new to main
+[33me1f5c8ac[m HEAD@{32}: checkout: moving from le-hoang to dong-new
+[33m65320160[m HEAD@{33}: commit: thaydoi
+[33m1eff487b[m HEAD@{34}: checkout: moving from main to le-hoang
+[33mc19cc485[m HEAD@{35}: commit: xóa ảnh
+[33m4633cb82[m HEAD@{36}: checkout: moving from le-hoang to main
+[33m1eff487b[m HEAD@{37}: commit: xóa ảnh
+[33m3e2148a8[m HEAD@{38}: checkout: moving from main to le-hoang
+[33m4633cb82[m HEAD@{39}: commit: sửa lại
+[33mde66692f[m HEAD@{40}: commit (merge): giao diện online
+[33mbda9ec50[m HEAD@{41}: reset: moving to HEAD
+[33mbda9ec50[m HEAD@{42}: reset: moving to HEAD
+[33mbda9ec50[m HEAD@{43}: reset: moving to HEAD
+[33mbda9ec50[m HEAD@{44}: commit: Giao diện online
+[33m353043f6[m HEAD@{45}: commit: pull
+[33m8f58cd00[m HEAD@{46}: pull origin main: Fast-forward
+[33mb19d79ed[m HEAD@{47}: reset: moving to HEAD
+[33mb19d79ed[m HEAD@{48}: checkout: moving from le-hoang to main
+[33m3e2148a8[m HEAD@{49}: commit: them
+[33m868dc947[m HEAD@{50}: commit: pull
+[33m8ecb4ec8[m HEAD@{51}: commit: online
+[33mf964a4e4[m HEAD@{52}: commit: online
+[33mc6a0697b[m HEAD@{53}: commit: pull code
+[33md8bb7e49[m HEAD@{54}: commit: them
+[33mb19d79ed[m HEAD@{55}: checkout: moving from main to le-hoang
+[33mb19d79ed[m HEAD@{56}: checkout: moving from le-hoang to main
+[33mb19d79ed[m HEAD@{57}: checkout: moving from main to le-hoang
+[33mb19d79ed[m HEAD@{58}: merge le-hoang: Fast-forward
+[33me90caa6d[m HEAD@{59}: checkout: moving from le-hoang to main
+[33mb19d79ed[m HEAD@{60}: checkout: moving from main to le-hoang
+[33me90caa6d[m HEAD@{61}: checkout: moving from main to main
+[33me90caa6d[m HEAD@{62}: pull origin main: Fast-forward
+[33m3307d985[m HEAD@{63}: checkout: moving from le-hoang to main
+[33mb19d79ed[m HEAD@{64}: commit: them
+[33m585d85ed[m HEAD@{65}: commit: them
+[33m733799e1[m HEAD@{66}: commit: them
+[33mba4a6b1f[m HEAD@{67}: commit (merge): them
+[33m73525459[m HEAD@{68}: commit: them
+[33m3307d985[m HEAD@{69}: checkout: moving from main to le-hoang
+[33m3307d985[m HEAD@{70}: checkout: moving from le-hoang to main
+[33m3307d985[m HEAD@{71}: checkout: moving from main to le-hoang
+[33m3307d985[m HEAD@{72}: checkout: moving from le-hoang to main
+[33m3307d985[m HEAD@{73}: checkout: moving from main to le-hoang
+[33m3307d985[m HEAD@{74}: checkout: moving from main to main
+[33m3307d985[m HEAD@{75}: checkout: moving from main to main
+[33m3307d985[m HEAD@{76}: merge le-hoang: Fast-forward
+[33mb0e47914[m HEAD@{77}: checkout: moving from le-hoang to main
+[33m3307d985[m HEAD@{78}: commit: bổ sung
+[33m46a0fde6[m HEAD@{79}: checkout: moving from main to le-hoang
+[33mb0e47914[m HEAD@{80}: checkout: moving from le-hoang to main
+[33m46a0fde6[m HEAD@{81}: commit (merge): pull main
+[33m2a5b26d2[m HEAD@{82}: commit: them
+[33ma12f98cf[m HEAD@{83}: pull origin le-hoang: Fast-forward
+[33m71254fed[m HEAD@{84}: checkout: moving from main to le-hoang
+[33mb0e47914[m HEAD@{85}: commit (merge): pull main
+[33m6f75d8f1[m HEAD@{86}: commit: bổ sung
+[33md19fd6d6[m HEAD@{87}: checkout: moving from le-hoang to main
+[33m71254fed[m HEAD@{88}: checkout: moving from main to le-hoang
+[33md19fd6d6[m HEAD@{89}: checkout: moving from le-hoang to main
+[33m71254fed[m HEAD@{90}: checkout: moving from main to le-hoang
+[33md19fd6d6[m HEAD@{91}: checkout: moving from main to main
+[33md19fd6d6[m HEAD@{92}: branch: Reset to origin/main
+[33md19fd6d6[m HEAD@{93}: checkout: moving from le-hoang to main
+[33m71254fed[m HEAD@{94}: commit: bổ sung
+[33m58a23d85[m HEAD@{95}: commit: bản hoàn thiện
+[33m02956c90[m HEAD@{96}: commit: xoa
+[33md19fd6d6[m HEAD@{97}: clone: from https://github.com/HuyHung-04/dream-store.git
