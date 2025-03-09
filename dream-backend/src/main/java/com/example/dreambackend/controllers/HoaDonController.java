@@ -1,7 +1,6 @@
 package com.example.dreambackend.controllers;
 
 import com.example.dreambackend.requests.HoaDonRequest;
-import com.example.dreambackend.requests.HoaDonSearchRequest;
 import com.example.dreambackend.responses.HoaDonResponse;
 import com.example.dreambackend.services.hoadon.IHoaDonService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +36,16 @@ public class HoaDonController {
         }
     }
 
+//    @DeleteMapping("/{id}/delete")
+//    public ResponseEntity<?> deleteHoaDon(@PathVariable Integer id) {
+//        try {
+//            hoaDonService.deleteHoaDon(id);
+//            return ResponseEntity.noContent().build();
+//        } catch (RuntimeException e) {
+//            return ResponseEntity.badRequest().body(e.getMessage());
+//        }
+//    }
+
     @GetMapping("/{id}")
     public ResponseEntity<?> getHoaDonById(@PathVariable Integer id) {
         try {
@@ -47,23 +56,10 @@ public class HoaDonController {
         }
     }
 
-    @PostMapping("/all")
-    public ResponseEntity<List<HoaDonResponse>> getAllHoaDon(
-            @RequestBody HoaDonSearchRequest request
-    ) {
-        List<HoaDonResponse> response = hoaDonService.getAllHoaDon(request);
+    @GetMapping("/all")
+    public ResponseEntity<List<HoaDonResponse>> getAllHoaDon() {
+        List<HoaDonResponse> response = hoaDonService.getAllHoaDon();
         return ResponseEntity.ok(response);
     }
-
-    @PostMapping("/huy-don/{id}")
-    public ResponseEntity<?> cancelHoaDon(@PathVariable Integer id) {
-        try {
-            hoaDonService.cancelHoaDon(id);
-            return ResponseEntity.ok("Huỷ đơn hàng thành công");
-        } catch (RuntimeException e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
-    }
-
 }
 

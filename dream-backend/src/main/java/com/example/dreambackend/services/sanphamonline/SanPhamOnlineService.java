@@ -27,11 +27,4 @@ public class SanPhamOnlineService implements ISanPhamOnlineService {
     public List<SanPhamChiTietOnlineDto> getSanPhamChiTiet(Integer idSanPham) {
         return sanPhamChiTietOnlineRepository.getSanPhamChiTiet(idSanPham);
     }
-
-    @Override
-    // Phương thức tìm kiếm sản phẩm theo tên và trạng thái = 1 (đang bán)
-    public Page<SanPhamDto> searchSanPhamByNameAndTrangThai(String name, Pageable pageable) {
-        return sanPhamOnlineRepository.searchSanPhamByName(name, pageable);
-    }
-
 }

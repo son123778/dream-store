@@ -3,12 +3,7 @@
       <img src="https://media.licdn.com/dms/image/v2/D4D0BAQG4-oyhJObyeQ/company-logo_200_200/company-logo_200_200/0/1692049150669/dream_store_brinquedos_logo?e=2147483647&v=beta&t=tMKRIMyWlenH5Iv1wIijIfCBTSAuiZ6FAW9vWR5M0Cs" alt="Logo">
     </div>
     <nav class="nav-icons">
-      <div class="search-modal">
-        <input type="text" [(ngModel)]="searchQuery" placeholder="Nhập tên sản phẩm..." (keyup.enter)="searchSanPham(0)">
-        <button (click)="searchSanPham(0)">
-            <i class="bi bi-search"></i> <!-- Icon tìm kiếm -->
-        </button>
-    </div>
+      <a href="#"><i class="bi bi-search" ></i></a>
       <a href="#" (click)="cardModal($event)" class="cart-icon">
         <i class="bi bi-cart4"></i>
         <span *ngIf="gioHang.length > 0" class="cart-count">{{ gioHang.length }}</span>
@@ -53,15 +48,15 @@
           <p><strong>Tổng tiền: </strong> <span>{{ getTongTien() | number }} VND</span></p>
         </div>
         <div class="payment">
-          <button class="btn-payment">Thanh toán</button>
+          <button class="btn-payment" (click)="openModalThanhToan()">Thanh toán</button>
         </div>
       </div>
-      
       <ng-template #emptyCart>
         <p>Giỏ hàng trống</p>
       </ng-template>
     </div>
   </div>
+  
   
   
 

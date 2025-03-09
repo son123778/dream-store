@@ -39,19 +39,4 @@ public class BanHangOnlineController {
         List<SanPhamChiTietOnlineDto> danhSachSanPhamChiTiet = sanPhamOnlineService.getSanPhamChiTiet(idSanPham);
         return ResponseEntity.ok(danhSachSanPhamChiTiet);
     }
-
-    // API tìm kiếm sản phẩm theo tên và trạng thái là 1 (đang bán)
-    @GetMapping("/search")
-    public ResponseEntity<Page<SanPhamDto>> searchSanPham(
-            @RequestParam("name") String name,
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "20") int size) {
-        // Tạo đối tượng Pageable với tham số phân trang và sắp xếp
-        Pageable pageable = PageRequest.of(page, size, Sort.by("id").descending());
-
-        // Gọi service để tìm kiếm sản phẩm với tên và trạng thái là 1 (đang bán)
-        Page<SanPhamDto> sanPhamDtos = sanPhamOnlineService.searchSanPhamByNameAndTrangThai(name,  pageable);
-
-        return ResponseEntity.ok(sanPhamDtos);
-    }
 }
