@@ -13,4 +13,9 @@ export class BanhangService {
   getSanPhamOnline(page: number, size: number): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/hien-thi?page=${page}&size=${size}`);
   }
+
+   // ✅ Tìm kiếm sản phẩm theo tên có phân trang
+   timKiemSanPham(ten: string, page: number, size: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/tim-kiem?ten=${encodeURIComponent(ten)}&page=${page}&size=${size}`);
+  }
 }

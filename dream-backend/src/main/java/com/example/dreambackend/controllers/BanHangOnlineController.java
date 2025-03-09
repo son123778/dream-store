@@ -25,4 +25,15 @@ public class BanHangOnlineController {
         Page<SanPhamDto> sanPhamDtos = sanPhamOnlineService.getSanPhamOnline(pageable);
         return ResponseEntity.ok(sanPhamDtos);
     }
+
+    // ✅ API tìm kiếm sản phẩm theo tên
+    @GetMapping("/tim-kiem")
+    public ResponseEntity<Page<SanPhamDto>> timKiemSanPham(
+            @RequestParam String ten,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        Page<SanPhamDto> result = sanPhamOnlineService.timKiemSanPham(ten, pageable);
+        return ResponseEntity.ok(result);
+    }
 }

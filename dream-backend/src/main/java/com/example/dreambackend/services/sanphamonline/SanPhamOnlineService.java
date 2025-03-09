@@ -16,4 +16,8 @@ public class SanPhamOnlineService implements ISanPhamOnlineService {
     public Page<SanPhamDto> getSanPhamOnline(Pageable pageable) {
         return sanPhamOnlineRepository.getSanPhamChiTietOnline(pageable);
     }
+    @Override
+    public Page<SanPhamDto> timKiemSanPham(String ten, Pageable pageable) {
+        return sanPhamOnlineRepository.searchSanPhamByTen(ten, pageable);
+    }
 }

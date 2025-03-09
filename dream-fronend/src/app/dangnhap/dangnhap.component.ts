@@ -79,9 +79,8 @@ export class DangnhapComponent {
     this.dangnhapService.login(this.loginData.email, this.loginData.password).subscribe({
       next: (response) => {
         this.loading = false;
-      
         console.log("dau ra",this.storedUserData.email)
-        console.log("dau ra",this.storedUserData)
+        console.log("dau ra",response)
         // So sánh dữ liệu nhập vào với dữ liệu từ backend
        
             alert('Đăng nhập thành công!');
@@ -89,6 +88,7 @@ export class DangnhapComponent {
       },
       error: (err) => {
         this.loading = false;
+        console.error("Lỗi hệ thống: ", err);  // In ra chi tiết lỗi
         if (err.status === 401) {
           this.errors.password = 'Sai mật khẩu'; // Mật khẩu sai
         } else if (err.status === 404) {

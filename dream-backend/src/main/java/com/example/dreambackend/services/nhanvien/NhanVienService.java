@@ -10,6 +10,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -23,6 +24,8 @@ public class NhanVienService implements INhanVienService {
     private NhanVienRepository nhanVienRepository;
     @Autowired
     private VaiTroRepository vaiTroRepository;
+//    @Autowired
+//    private PasswordEncoder passwordEncoder; // Inject PasswordEncoder
 
     @Transactional
     @Override
@@ -40,6 +43,10 @@ public class NhanVienService implements INhanVienService {
         nhanVien.setVaiTro(vaiTro);
         // Gán ngày tạo hiện tại
         nhanVien.setNgayTao(LocalDate.now());
+
+//        // 🔹 Mã hóa mật khẩu trước khi lưu
+//        String encodedPassword = passwordEncoder.encode(nhanVien.getMatKhau());
+//        nhanVien.setMatKhau(encodedPassword);
         return nhanVienRepository.save(nhanVien);
     }
 

@@ -10,11 +10,14 @@ import { BanhangService } from './banhang.service';
   styleUrl: './banhang.component.css'
 })
 export class BanhangComponent{
+  @ViewChild('sanPhamList') sanPhamList!: ElementRef; 
   sanPhamOnlines: any[] = [];
   totalPages: number = 0;
   currentPage: number = 0;
   size: number = 16;
   modalCard: boolean = false;
+  searchQuery: string = ''; // 🔍 Từ khóa tìm kiếm
+  isSearching: boolean = false; // Trạng thái tìm kiếm
   constructor(private banHangService : BanhangService) {}
 
   ngOnInit(): void {
@@ -53,4 +56,28 @@ export class BanhangComponent{
       this.loadSanPhamOnline(this.currentPage - 1);
     }
   }
+
+  searchSanPham(page: number = 0): void {
+    if (!this.searchQuery.trim()) {
+      this.loadSanPhamOnline(page);
+      return;
+    }
+
+    this.isSearching = true;
+    this.banHangService.timKiemSanPham(this.searchQuery, page, this.size).subscribe(
+      (data) => {
+        this.sanPhamOnlines = data.content;
+        this.totalPages = data.totalPages;
+        this.currentPage = page;
+     // Sau khi tìm kiếm, cuộn xuống 200px
+     setTimeout(() => {
+      window.scrollBy({ top: 100, behavior: 'smooth' });
+    }, 300);
+  },
+      (error) => {
+        console.error('Lỗi khi tìm kiếm:', error);
+      }
+    );
+  }
+  
 }
