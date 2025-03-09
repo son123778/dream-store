@@ -30,6 +30,7 @@ export class KhachhangComponent implements OnInit {
     ma: '',
     ten: '',
     gioiTinh: true,
+    email:'',
     soDienThoai: '',
     matKhau: '',
     ngayTao: '',
