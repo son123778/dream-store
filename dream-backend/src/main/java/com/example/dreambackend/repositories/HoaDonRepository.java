@@ -36,18 +36,36 @@ public interface HoaDonRepository extends JpaRepository<HoaDon, Integer> {
             "ORDER BY YEAR(h.ngayNhanDuKien)")
     List<Object[]> getDoanhThuTungNam();
 
-//    List<HoaDon> findByKhachHang_Id(int khachHangId);
+    @Query("SELECT new com.example.dreambackend.responses.ThongKeThangNayResponse(" +
+            "DAY(h.ngayNhanDuKien), SUM(h.tongTienThanhToan)) " +
+            "FROM HoaDon h " +
+            "WHERE MONTH(h.ngayNhanDuKien) = MONTH(CURRENT_DATE) " +
+            "AND YEAR(h.ngayNhanDuKien) = YEAR(CURRENT_DATE) " +
+            "GROUP BY DAY(h.ngayNhanDuKien) " +
+            "ORDER BY DAY(h.ngayNhanDuKien)")
+    List<ThongKeThangNayResponse> getDoanhThuTungNgayTrongThang();
+
+    // Truy vấn doanh thu hôm nay
+    @Query("SELECT new com.example.dreambackend.responses.ThongKeHomNayResponse(" +
+            "COUNT(DISTINCT h.khachHang.id), SUM(h.tongTienThanhToan), COUNT(DISTINCT h.khachHang.id)) " +
+            "FROM HoaDon h " +
+            "WHERE h.ngayNhanDuKien = CURRENT_DATE")
+    ThongKeHomNayResponse getDoanhThuHomNay();
 
     List<HoaDon> findAllByTrangThai(int i);
 
     Optional<HoaDon> findByMa(String ma);
 
     default List<HoaDonResponse> search(HoaDonSearchRequest searchRequest, EntityManager entityManager) {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         StringBuilder sql = new StringBuilder();
         sql.append("""
                 SELECT
                     hd.id,
+                    hd.id_khach_hang idKhachHang,
+                    hd.id_nhan_vien idNhanVien,
+                    hd.id_voucher idVoucher,
+                    hd.id_phuong_thuc_thanh_toan idPhuongThucThanhToan,
                 	kh.ten AS tenKhachHang,
                 	nv.ten AS tenNhanVien,
                 	vc.ten AS tenVoucher,
@@ -92,6 +110,9 @@ public interface HoaDonRepository extends JpaRepository<HoaDon, Integer> {
         if (searchRequest.getListTrangThai() != null && !searchRequest.getListTrangThai().isEmpty()) {
             sql.append(" AND hd.trang_thai IN (:listTrangThai)");
         }
+        if (searchRequest.getIdHoaDon() != null) {
+            sql.append(" AND UPPER(hd.id) = UPPER(:idHoaDon)");
+        }
 
         sql.append(" ORDER BY hd.ngay_tao DESC");
         jakarta.persistence.Query query = entityManager.createNativeQuery(sql.toString(), "HoaDonResponseMapping");
@@ -114,15 +135,18 @@ public interface HoaDonRepository extends JpaRepository<HoaDon, Integer> {
         if (searchRequest.getListTrangThai() != null && !searchRequest.getListTrangThai().isEmpty()) {
             query.setParameter("listTrangThai", searchRequest.getListTrangThai());
         }
+        if (searchRequest.getIdHoaDon() != null) {
+            query.setParameter("idHoaDon", searchRequest.getIdHoaDon());
+        }
         if (searchRequest.getPage() != null && searchRequest.getPageSize() != null) {
-            query.setFirstResult((searchRequest.getPage()-1) * searchRequest.getPageSize());
+            query.setFirstResult((searchRequest.getPage() - 1) * searchRequest.getPageSize());
             query.setMaxResults(searchRequest.getPageSize());
         }
 
         List<HoaDonResponse> list = query.getResultList();
-        if(list.isEmpty()){
+        if (list.isEmpty()) {
             searchRequest.setTotalRecords(0);
-        }else {
+        } else {
             searchRequest.setTotalRecords(list.get(0).getTotalRecords());
         }
         return list;

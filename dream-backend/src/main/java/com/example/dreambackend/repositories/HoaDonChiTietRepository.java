@@ -6,35 +6,67 @@ import com.example.dreambackend.entities.HoaDonChiTiet;
 import com.example.dreambackend.entities.SanPhamChiTiet;
 import com.example.dreambackend.requests.HoaDonChiTietSearchRequest;
 import com.example.dreambackend.responses.HoaDonChiTietResponse;
+import com.example.dreambackend.responses.TopSanPhamResponse;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.Query;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
 @Repository
 public interface HoaDonChiTietRepository extends JpaRepository<HoaDonChiTiet, Integer> {
 
-//    @Query("SELECT new com.example.dreambackend.responses.TopSanPhamResponse(sp.ten, SUM(hdct.soLuong)) " +
-//            "FROM HoaDonChiTiet hdct " +
-//            "JOIN hdct.sanPhamChiTiet spct " +
-//            "JOIN spct.sanPham sp " +
-//            "GROUP BY sp.ten " +
-//            "ORDER BY SUM(hdct.soLuong) DESC")
-//    List<TopSanPhamResponse> getTopSanPhamBanChay(Pageable pageable);
-//
+    // Top sản phẩm bán chạy nhất trong ngày hôm nay
+    @Query("SELECT new com.example.dreambackend.responses.TopSanPhamResponse(sp.ten, SUM(hdct.soLuong)) " +
+            "FROM HoaDonChiTiet hdct " +
+            "JOIN hdct.sanPhamChiTiet spct " +
+            "JOIN spct.sanPham sp " +
+            "WHERE hdct.ngayTao = CURRENT_DATE " +
+            "GROUP BY sp.ten " +
+            "ORDER BY SUM(hdct.soLuong) DESC")
+    Page<TopSanPhamResponse> getTopSanPhamHomNay(Pageable pageable);
 
+    // Top sản phẩm bán chạy nhất trong tháng này
+    @Query("SELECT new com.example.dreambackend.responses.TopSanPhamResponse(sp.ten, SUM(hdct.soLuong)) " +
+            "FROM HoaDonChiTiet hdct " +
+            "JOIN hdct.sanPhamChiTiet spct " +
+            "JOIN spct.sanPham sp " +
+            "WHERE hdct.ngayTao BETWEEN :startDate AND :endDate " +
+            "GROUP BY sp.ten " +
+            "ORDER BY SUM(hdct.soLuong) DESC")
+    Page<TopSanPhamResponse> getTopSanPhamThangNay(Pageable pageable, LocalDate startDate, LocalDate endDate);
+
+    // Top sản phẩm bán chạy nhất trong năm nay
+    @Query("SELECT new com.example.dreambackend.responses.TopSanPhamResponse(sp.ten, SUM(hdct.soLuong)) " +
+            "FROM HoaDonChiTiet hdct " +
+            "JOIN hdct.sanPhamChiTiet spct " +
+            "JOIN spct.sanPham sp " +
+            "WHERE YEAR(hdct.ngayTao) = YEAR(CURRENT_DATE) " +
+            "GROUP BY sp.ten " +
+            "ORDER BY SUM(hdct.soLuong) DESC")
+    Page<TopSanPhamResponse> getTopSanPhamNamNay(Pageable pageable);
+
+    // Top sản phẩm bán chạy nhất tất cả thời gian
+    @Query("SELECT new com.example.dreambackend.responses.TopSanPhamResponse(sp.ten, SUM(hdct.soLuong)) " +
+            "FROM HoaDonChiTiet hdct " +
+            "JOIN hdct.sanPhamChiTiet spct " +
+            "JOIN spct.sanPham sp " +
+            "GROUP BY sp.ten " +
+            "ORDER BY SUM(hdct.soLuong) DESC")
+    Page<TopSanPhamResponse> getTopSanPhamTatCa(Pageable pageable);
     List<HoaDonChiTiet> findByHoaDonId(int id);
 
-    Optional<HoaDonChiTiet> findByHoaDonAndSanPhamChiTiet(HoaDon hoaDon, SanPhamChiTiet sanPhamChiTiet);
-
-    List<HoaDonChiTiet> findByHoaDon(HoaDon hoaDon);
+    HoaDonChiTiet findByHoaDonAndSanPhamChiTiet(HoaDon hoaDon, SanPhamChiTiet sanPhamChiTiet);
 
     default List<HoaDonChiTietResponse> search(HoaDonChiTietSearchRequest hoaDonChiTietSearchRequest, EntityManager entityManager) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         StringBuilder sb = new StringBuilder();
         sb.append("""
                 SELECT
@@ -72,12 +104,12 @@ public interface HoaDonChiTietRepository extends JpaRepository<HoaDonChiTiet, In
             sb.append(" AND CAST(hdct.ngay_tao AS DATE) >= :ngayTaoTu");
         }
         if (hoaDonChiTietSearchRequest.getNgayTaoDen() != null) {
-            sb.append(" AND CAST(hdct.ngay_tao AS DATE) >= :ngayTaoDen");
+            sb.append(" AND CAST(hdct.ngay_tao AS DATE) <= :ngayTaoDen");
         }
 
         sb.append(" ORDER BY hdct.ngay_tao DESC, hdct.ngay_sua DESC");
 
-        Query query = entityManager.createNativeQuery(sb.toString(), "HoaDonChiTietResponseMapping");
+        jakarta.persistence.Query query = entityManager.createNativeQuery(sb.toString(), "HoaDonChiTietResponseMapping");
         if (hoaDonChiTietSearchRequest.getPage() != null && hoaDonChiTietSearchRequest.getPageSize() != null) {
             query.setFirstResult((hoaDonChiTietSearchRequest.getPage() - 1) * hoaDonChiTietSearchRequest.getPageSize());
             query.setMaxResults(hoaDonChiTietSearchRequest.getPageSize());

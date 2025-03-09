@@ -54,5 +54,16 @@ public class HoaDonController {
         List<HoaDonResponse> response = hoaDonService.getAllHoaDon(request);
         return ResponseEntity.ok(response);
     }
+
+    @PostMapping("/huy-don/{id}")
+    public ResponseEntity<?> cancelHoaDon(@PathVariable Integer id) {
+        try {
+            hoaDonService.cancelHoaDon(id);
+            return ResponseEntity.ok("Huỷ đơn hàng thành công");
+        } catch (RuntimeException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
 }
 

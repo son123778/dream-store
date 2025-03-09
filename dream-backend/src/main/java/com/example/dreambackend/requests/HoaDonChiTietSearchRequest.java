@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -14,8 +16,8 @@ public class HoaDonChiTietSearchRequest {
     private String maHoaDon;
     private String tenSanPham;
     private Double donGia;
-    private String ngayTaoTu;
-    private String ngayTaoDen;
+    private LocalDate ngayTaoTu;
+    private LocalDate ngayTaoDen;
     private Integer trangThai;
     private Integer page;
     private Integer pageSize;

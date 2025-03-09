@@ -1,6 +1,7 @@
 package com.example.dreambackend.controllers;
 
 import com.example.dreambackend.entities.HoaDon;
+import com.example.dreambackend.requests.HoaDonChiTietRequest;
 import com.example.dreambackend.requests.HoaDonChiTietSearchRequest;
 import com.example.dreambackend.responses.HoaDonChiTietResponse;
 import com.example.dreambackend.services.hoadonchitiet.IHoaDonChiTietService;
@@ -17,13 +18,12 @@ public class HoaDonChiTietController {
     @Autowired
     private IHoaDonChiTietService hoaDonChiTietService;
 
-    @PostMapping("/{hoaDonId}/add/{sanPhamChiTietId}")
+    @PostMapping("/create")
     public ResponseEntity<?> addSanPhamToHoaDon(
-            @PathVariable Integer hoaDonId,
-            @PathVariable Integer sanPhamChiTietId,
-            @RequestParam Integer soLuong) {
+            @RequestBody HoaDonChiTietRequest request
+    ) {
         try {
-            HoaDonChiTietResponse response = hoaDonChiTietService.addSanPhamToHoaDon(hoaDonId, sanPhamChiTietId, soLuong);
+            HoaDonChiTietResponse response = hoaDonChiTietService.addSanPhamToHoaDon(request);
             return ResponseEntity.ok(response);
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -31,7 +31,10 @@ public class HoaDonChiTietController {
     }
 
     @PutMapping("/{id}/update")
-    public ResponseEntity<?> updateHoaDonChiTiet(@PathVariable Integer id, @RequestParam Integer soLuong) {
+    public ResponseEntity<?> updateHoaDonChiTiet(
+            @PathVariable Integer id,
+            @RequestParam Integer soLuong
+    ) {
         try {
             HoaDonChiTietResponse response = hoaDonChiTietService.updateHoaDonChiTiet(id, soLuong);
             return ResponseEntity.ok(response);
