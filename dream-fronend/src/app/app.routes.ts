@@ -7,11 +7,12 @@ import { KhuyenmaiComponent } from './khuyenmai/khuyenmai.component';
 import { NhanvienComponent } from './nhanvien/nhanvien.component';
 import { ThongkeComponent } from './thongke/thongke.component';
 import { VoucherComponent } from './voucher/voucher.component';
-
+import { DangnhapComponent } from './dangnhap/dangnhap.component'; 
 // Các routes được cấu hình cho ứng dụng
 export const routes: Routes = [
+  { path: '', component: DangnhapComponent }, // Trang đăng nhập là mặc định
   {
-    path: '',
+    path: 'layout',
     component: LayoutComponent,
     children: [
       { path: '', redirectTo: 'banhang', pathMatch: 'full' }, // Route mặc định

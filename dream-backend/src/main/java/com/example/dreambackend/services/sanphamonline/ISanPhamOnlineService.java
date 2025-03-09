@@ -12,4 +12,5 @@ public interface ISanPhamOnlineService {
     Page<SanPhamDto> getSanPhamOnline(Pageable pageable);
 
     List<SanPhamChiTietOnlineDto> getSanPhamChiTiet(Integer idSanPham);
+    Page<SanPhamDto> searchSanPhamByNameAndTrangThai(String name, Pageable pageable);
 }
