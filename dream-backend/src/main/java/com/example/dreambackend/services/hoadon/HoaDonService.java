@@ -7,12 +7,15 @@ import com.example.dreambackend.requests.HoaDonSearchRequest;
 import com.example.dreambackend.responses.HoaDonResponse;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class HoaDonService implements IHoaDonService {
@@ -30,16 +33,33 @@ public class HoaDonService implements IHoaDonService {
     @PersistenceContext
     private EntityManager em;
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    @Autowired
+    private HoaDonChiTietRepository hoaDonChiTietRepository;
+    @Autowired
+    private SanPhamChiTietRepository sanPhamChiTietRepository;
 
     @Override
+    @Transactional(rollbackOn = Exception.class)
     public HoaDonResponse updateHoaDon(Integer id, HoaDonRequest request) {
         HoaDon hoaDon = hoaDonRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Hóa đơn không tồn tại"));
 
         hoaDon.setTenNguoiNhan(request.getTenNguoiNhan());
+        if (request.getIdPhuongThucThanhToan() != null) {
+            PhuongThucThanhToan phuongThucThanhToan = ptttRepository.findById(request.getIdPhuongThucThanhToan())
+                    .orElseThrow(() -> new RuntimeException("Phương thức thanh toán không tồn tại"));
+            hoaDon.setPhuongThucThanhToan(phuongThucThanhToan);
+        }
+
         hoaDon.setSdtNguoiNhan(request.getSdtNguoiNhan());
         hoaDon.setDiaChiNhanHang(request.getDiaChiNhanHang());
         hoaDon.setPhiVanChuyen(request.getPhiVanChuyen());
+        hoaDon.setGhiChu(request.getGhiChu());
+        hoaDon.setHinhThucThanhToan(request.getHinhThucThanhToan());
+        hoaDon.setTongTienThanhToan(request.getTongTienThanhToan());
+        hoaDon.setTongTienTruocVoucher(request.getTongTienTruocVoucher());
+        hoaDon.setTrangThai(request.getTrangThai());
+
         hoaDon.setNgaySua(LocalDate.now());
 
         if (request.getIdVoucher() != null) {
@@ -52,19 +72,11 @@ public class HoaDonService implements IHoaDonService {
     }
 
     @Override
+    @Transactional(rollbackOn = Exception.class)
     public HoaDonResponse createHoaDon(HoaDonRequest request) {
         HoaDon hoaDon = convertToEntity(request);
         return convertToDTO(hoaDonRepository.save(hoaDon));
     }
-
-//    @Override
-//    public void deleteHoaDon(Integer id) {
-//        HoaDon hoaDon = hoaDonRepository.findById(id)
-//                .orElseThrow(() -> new RuntimeException("Hóa đơn không tồn tại"));
-//        hoaDon.setTrangThai(0); // Đánh dấu đã xóa
-//        hoaDon.setNgaySua(LocalDate.now());
-//        hoaDonRepository.save(hoaDon);
-//    }
 
     @Override
     public HoaDonResponse findById(Integer id) {
@@ -76,6 +88,32 @@ public class HoaDonService implements IHoaDonService {
     @Override
     public List<HoaDonResponse> getAllHoaDon(HoaDonSearchRequest request) {
         return hoaDonRepository.search(request, em);
+    }
+
+    @Override
+    @Transactional(rollbackOn = Exception.class)
+    public void cancelHoaDon(Integer id) {
+        HoaDon hoaDon = hoaDonRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Hoá đơn không tồn tại"));
+
+        if (hoaDon.getTrangThai() != 1) {
+            throw new RuntimeException("Không thể huỷ hoá đơn trong trang thái chờ");
+        }
+
+        hoaDon.setTrangThai(4);
+        hoaDonRepository.save(hoaDon);
+
+        List<HoaDonChiTiet> list = hoaDonChiTietRepository.findByHoaDonId(id);
+        List<SanPhamChiTiet> listSPCT = new ArrayList<>();
+        for (HoaDonChiTiet hdct : list) {
+            listSPCT.add(hdct.getSanPhamChiTiet());
+        }
+        for (SanPhamChiTiet sanPhamChiTiet : listSPCT) {
+            SanPhamChiTiet spct = sanPhamChiTietRepository.findById(sanPhamChiTiet.getId())
+                    .orElseThrow(() -> new RuntimeException("Sản phầm chi tiết không tồn tại"));
+            sanPhamChiTiet.setSoLuong(sanPhamChiTiet.getSoLuong() + spct.getSoLuong());
+            sanPhamChiTietRepository.save(sanPhamChiTiet);
+        }
     }
 
     private HoaDon convertToEntity(HoaDonRequest request) {
@@ -116,11 +154,10 @@ public class HoaDonService implements IHoaDonService {
     private HoaDonResponse convertToDTO(HoaDon hoaDon) {
         return HoaDonResponse.builder()
                 .id(hoaDon.getId())
-//                .idKhachHang(hoaDon.getKhachHang().getId())
-//                .idNhanVien(hoaDon.getNhanVien().getId())
-//                .idVoucher(hoaDon.getVoucher() != null ? hoaDon.getVoucher().getId() : null)
-//                .idPhuongThucThanhToan(hoaDon.getPhuongThucThanhToan().getId())
-                .maHoaDon(hoaDon.getMa())
+                .idKhachHang(hoaDon.getKhachHang().getId())
+                .idNhanVien(hoaDon.getNhanVien().getId())
+                .idVoucher(hoaDon.getVoucher() != null ? hoaDon.getVoucher().getId() : null)
+                .idPhuongThucThanhToan(hoaDon.getPhuongThucThanhToan().getId())
                 .tenNguoiNhan(hoaDon.getTenNguoiNhan())
                 .sdtNguoiNhan(hoaDon.getSdtNguoiNhan())
                 .diaChiNhanHang(hoaDon.getDiaChiNhanHang())
@@ -141,10 +178,6 @@ public class HoaDonService implements IHoaDonService {
     }
 
     private String generateMaHoaDon() {
-        String ma;
-        do {
-            ma = "HD" + LocalDate.now().format(DateTimeFormatter.ofPattern("yyMMdd"));
-        } while (hoaDonRepository.findByMa(ma).isPresent());
-        return ma;
+        return "HD" + UUID.randomUUID().toString().substring(0, 8).toUpperCase();
     }
 }

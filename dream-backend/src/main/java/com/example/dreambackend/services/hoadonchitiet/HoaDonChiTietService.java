@@ -11,9 +11,11 @@ import com.example.dreambackend.requests.HoaDonChiTietSearchRequest;
 import com.example.dreambackend.responses.HoaDonChiTietResponse;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -29,32 +31,33 @@ public class HoaDonChiTietService implements IHoaDonChiTietService {
     private final HoaDonRepository hoaDonRepository;
     private final SanPhamChiTietRepository spctRepository;
 
-    private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
     @Override
-    public HoaDonChiTietResponse addSanPhamToHoaDon(Integer hoaDonId, Integer sanPhamChiTietId, Integer soLuong) {
-        HoaDon hoaDon = hoaDonRepository.findById(hoaDonId)
+    @Transactional(rollbackOn = Exception.class)
+    public HoaDonChiTietResponse addSanPhamToHoaDon(HoaDonChiTietRequest hoaDonChiTietRequest) {
+        HoaDon hoaDon = hoaDonRepository.findById(hoaDonChiTietRequest.getIdHoaDon())
                 .orElseThrow(() -> new RuntimeException("Hóa đơn không tồn tại"));
-        SanPhamChiTiet spct = spctRepository.findById(sanPhamChiTietId)
+        SanPhamChiTiet spct = spctRepository.findById(hoaDonChiTietRequest.getIdSanPhamChiTiet())
                 .orElseThrow(() -> new RuntimeException("Sản phẩm chi tiết không tồn tại"));
 
-        if (spct.getSoLuong() < soLuong) {
+        if (spct.getSoLuong() < hoaDonChiTietRequest.getSoLuong()) {
             throw new RuntimeException("Số lượng vượt quá tồn kho");
         }
 
-        Optional<HoaDonChiTiet> existingHdct = hdctRepository.findByHoaDonAndSanPhamChiTiet(hoaDon, spct);
+        HoaDonChiTiet existingHdct = hdctRepository.findByHoaDonAndSanPhamChiTiet(hoaDon, spct);
 
         HoaDonChiTiet savedHdct;
-        if (existingHdct.isPresent()) {
-            HoaDonChiTiet hdct = existingHdct.get();
-            hdct.setSoLuong(hdct.getSoLuong() + soLuong);
+        if (existingHdct != null) {
+            HoaDonChiTiet hdct = existingHdct;
+            hdct.setSoLuong(hoaDonChiTietRequest.getSoLuong());
             hdct.setNgaySua(LocalDate.now());
             savedHdct = hdctRepository.save(hdct);
         } else {
             HoaDonChiTiet newHdct = HoaDonChiTiet.builder()
                     .hoaDon(hoaDon)
                     .sanPhamChiTiet(spct)
-                    .soLuong(soLuong)
+                    .soLuong(hoaDonChiTietRequest.getSoLuong())
                     .donGia(Optional.ofNullable(spct.getGia()).orElse(0.0))
                     .ngayTao(LocalDate.now())
                     .trangThai(1)
@@ -62,13 +65,14 @@ public class HoaDonChiTietService implements IHoaDonChiTietService {
             savedHdct = hdctRepository.save(newHdct);
         }
 
-        spct.setSoLuong(spct.getSoLuong() - soLuong);
+        spct.setSoLuong(spct.getSoLuong() - hoaDonChiTietRequest.getSoLuong());
         spctRepository.save(spct);
 
         return convertToDTO(savedHdct);
     }
 
     @Override
+    @Transactional(rollbackOn = Exception.class)
     public HoaDonChiTietResponse updateHoaDonChiTiet(Integer id, Integer soLuong) {
         HoaDonChiTiet hdct = hdctRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Chi tiết hóa đơn không tồn tại"));
@@ -80,11 +84,8 @@ public class HoaDonChiTietService implements IHoaDonChiTietService {
             if (spct.getSoLuong() < soLuongThayDoi) {
                 throw new RuntimeException("Số lượng vượt quá tồn kho");
             }
-            spct.setSoLuong(spct.getSoLuong() - soLuongThayDoi);
-        } else if (soLuongThayDoi < 0) {
-            spct.setSoLuong(spct.getSoLuong() - soLuongThayDoi);
         }
-
+        spct.setSoLuong(spct.getSoLuong() - soLuongThayDoi);
         spctRepository.save(spct);
 
         hdct.setSoLuong(soLuong);
@@ -95,7 +96,7 @@ public class HoaDonChiTietService implements IHoaDonChiTietService {
 
     @Override
     public List<HoaDonChiTietResponse> search(HoaDonChiTietSearchRequest searchRequest) {
-        return hdctRepository.search(searchRequest,em);
+        return hdctRepository.search(searchRequest, em);
     }
 
     private LocalDate parseDate(String dateString) {

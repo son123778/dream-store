@@ -21,6 +21,10 @@ import java.time.LocalDate;
                 targetClass = HoaDonResponse.class,
                 columns = {
                         @ColumnResult(name = "id",type = Integer.class),
+                        @ColumnResult(name = "idKhachHang",type = Integer.class),
+                        @ColumnResult(name = "idNhanVien",type = Integer.class),
+                        @ColumnResult(name = "idPhuongThucThanhToan",type = Integer.class),
+                        @ColumnResult(name = "idVoucher",type = Integer.class),
                         @ColumnResult(name = "tenKhachHang", type = String.class),
                         @ColumnResult(name = "tenNhanVien",type = String.class),
                         @ColumnResult(name = "tenVoucher",type = String.class),
@@ -47,6 +51,10 @@ import java.time.LocalDate;
 public class HoaDonResponse {
     @Id
     private Integer id;
+    private Integer idKhachHang;
+    private Integer idNhanVien;
+    private Integer idPhuongThucThanhToan;
+    private Integer idVoucher;
     private String tenKhachHang;
     private String tenNhanVien;
     private String tenVoucher;
@@ -61,11 +69,11 @@ public class HoaDonResponse {
     private Double phiVanChuyen;
     private Double tongTienTruocVoucher;
     private Double tongTienThanhToan;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate ngayNhanDuKien;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate ngayTao;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate ngaySua;
     private Integer trangThai;
     private String ghiChu;

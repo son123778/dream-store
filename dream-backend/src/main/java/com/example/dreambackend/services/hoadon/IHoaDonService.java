@@ -9,8 +9,7 @@ import java.util.List;
 public interface IHoaDonService {
     HoaDonResponse updateHoaDon(Integer id, HoaDonRequest request);
     HoaDonResponse createHoaDon(HoaDonRequest request);
-//    void deleteHoaDon(Integer id);
     HoaDonResponse findById(Integer id);
     List<HoaDonResponse> getAllHoaDon(HoaDonSearchRequest request);
-
+    void cancelHoaDon(Integer id);
 }

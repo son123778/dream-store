@@ -47,9 +47,9 @@ public class HoaDonChiTietResponse {
     private String tenSanPham;
     private Integer soLuong;
     private Double donGia;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate ngayTao;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate ngaySua;
     private Integer trangThai;
     private Integer totalRecords;
