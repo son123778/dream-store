@@ -13,10 +13,9 @@ import java.time.LocalDate;
 public class HoaDonChiTietRequest {
     private Integer idHoaDon;
     private Integer idSanPhamChiTiet;
-    private String ma;
     private Integer soLuong;
     private Double donGia;
-    private String ngayTao;
-    private String ngaySua;
+    private LocalDate ngayTao;
+    private LocalDate ngaySua;
     private Integer trangThai;
 }
