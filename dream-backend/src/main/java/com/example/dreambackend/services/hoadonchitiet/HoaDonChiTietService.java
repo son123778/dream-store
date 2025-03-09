@@ -99,10 +99,6 @@ public class HoaDonChiTietService implements IHoaDonChiTietService {
         return hdctRepository.search(searchRequest, em);
     }
 
-    private LocalDate parseDate(String dateString) {
-        return (dateString != null && !dateString.isEmpty()) ? LocalDate.parse(dateString, DATE_FORMATTER) : LocalDate.now();
-    }
-
     private HoaDonChiTiet convertToEntity(HoaDonChiTietRequest request) {
         HoaDon hoaDon = hoaDonRepository.findById(request.getIdHoaDon())
                 .orElseThrow(() -> new RuntimeException("Hóa đơn không tồn tại"));

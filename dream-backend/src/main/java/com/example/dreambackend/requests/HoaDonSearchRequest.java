@@ -13,13 +13,14 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 public class HoaDonSearchRequest {
+    private Integer idHoaDon;
+    private String maHoaDon;
     private String tenKhachHang;
     private String tenNhanVien;
-    private String maHoaDon;
     private LocalDate ngayTaoFrom;
     private LocalDate ngayTaoTo;
     private List<Integer> listTrangThai;
+    private Integer totalRecords;
     private Integer page;
     private Integer pageSize;
-    private Integer totalRecords;
 }

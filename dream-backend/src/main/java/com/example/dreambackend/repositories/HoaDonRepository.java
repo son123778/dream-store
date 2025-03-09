@@ -2,9 +2,7 @@ package com.example.dreambackend.repositories;
 
 import com.example.dreambackend.entities.HoaDon;
 import com.example.dreambackend.requests.HoaDonSearchRequest;
-import com.example.dreambackend.responses.HoaDonResponse;
-import com.example.dreambackend.responses.ThongKeResponse;
-import com.example.dreambackend.responses.ThongKeThangResponse;
+import com.example.dreambackend.responses.*;
 import jakarta.persistence.EntityManager;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
