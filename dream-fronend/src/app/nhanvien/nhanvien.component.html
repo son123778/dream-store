@@ -20,6 +20,7 @@
           <th>Giới Tính</th>
           <th>Ngày Sinh</th>
           <th>Email</th>
+          <th>Anh</th>
           <th>Số Điện Thoại</th>
           <th>Tài Khoản</th>
           <th>Vai Trò</th>
@@ -37,6 +38,9 @@
           <td>{{ nhanVien.gioiTinh ? 'Nam' : 'Nữ' }}</td>
           <td>{{ nhanVien.ngaySinh | date: 'dd/MM/yyyy' }}</td>
           <td>{{ nhanVien.email }}</td>
+          <td>
+            <img *ngIf="nhanVien.anh" [src]="nhanVien.anh" alt="Ảnh nhân viên" class="employee-image" />
+          </td>          
           <td>{{ nhanVien.soDienThoai }}</td>
           <td>{{ nhanVien.taiKhoan }}</td>
           <td>{{ nhanVien.vaiTro ? nhanVien.vaiTro.ten : 'Chưa có vai trò' }}</td>
@@ -145,8 +149,10 @@
           <input type="text" class="input" [value]="selectedNhanVien.trangThai === 1 ? 'Hoạt động' : 'Không hoạt động'" readonly />
           <label for="trangThai">Trạng thái</label>
         </div>
-      </div>
-
+        <div class="input-field image-field">
+          <img *ngIf="selectedNhanVien.anh" [src]="selectedNhanVien.anh" alt="Ảnh nhân viên" class="small-employee-image" />
+        </div>
+      </div>      
       <div class="input-row">
         <div class="input-field">
           <input type="text" class="input" value="{{selectedNhanVien.vaiTro?.ten}}" name="vaiTro" readonly />
@@ -157,14 +163,11 @@
   </div>
 </div>
 
-
-
 <!-- Modal hiển thị chi tiết nhân viên khi sửa -->
 <div class="modal-overlay" *ngIf="showModalEdit" (click)="closeModalEdit()">
   <div class="modal-box" (click)="$event.stopPropagation()">
     <button class="close-btn" (click)="closeModalEdit()">×</button>
     <p class="titleadd">Sửa Nhân Viên</p> <br> <br>
-
     <!-- Form hiển thị chi tiết nhân viên và cho phép sửa -->
     <form (ngSubmit)="updateNhanVien()" #nhanVienForm="ngForm">
       <div class="input-row">
@@ -188,7 +191,6 @@
           </div>
         </div>
       </div>
-
       <div class="input-row">
         <div class="input-field">
           <input type="text" class="input" [(ngModel)]="nhanVienEdit.email" name="email" required (input)="clearError('email')" />
@@ -205,7 +207,6 @@
           </div>
         </div>
       </div>
-
       <div class="input-row">
         <div class="input-field">
           <input type="date" class="input" [(ngModel)]="nhanVienEdit.ngaySinh" name="ngaySinh" required (input)="clearError('ngaySinh')" />
@@ -225,7 +226,6 @@
           </div>
         </div>
       </div>
-
       <div class="input-row">
         <div class="input-field">
           <input type="text" class="input" [(ngModel)]="nhanVienEdit.taiKhoan" name="taiKhoan" required (input)="clearError('taiKhoan')" />
@@ -242,7 +242,6 @@
           </div>
         </div>
       </div>
-
       <div class="input-row">
         <div class="input-field">
           <input type="date" class="input" [(ngModel)]="nhanVienEdit.ngayTao" name="ngayTao" required (input)="clearError('ngayTao')" />
@@ -259,8 +258,8 @@
           </div>
         </div>
       </div>
-
       <div class="input-row">
+        <!-- Trạng thái -->
         <div class="input-field">
           <select class="input" [(ngModel)]="nhanVienEdit.trangThai" name="trangThai" required (change)="clearError('trangThai')">
             <option [value]="1">Hoạt động</option>
@@ -271,20 +270,22 @@
             {{ errors.trangThai }}
           </div>
         </div>
-      </div>
-
-      <div class="input-row">
-        <div class="input-field">
-          <select class="input" [(ngModel)]="nhanVienEdit.vaiTro.id" name="vaiTro" required (change)="clearError('vaiTro')">
-            <option *ngFor="let vaiTro of danhSachVaiTro" [value]="vaiTro.id">{{ vaiTro.ten }}</option>
-          </select>
-          <label for="vaiTro">Vai trò</label>
-          <div class="tooltip-error" *ngIf="errors.vaiTro">
-            {{ errors.vaiTro }}
-          </div>          
+        <!-- Input chọn ảnh -->
+        <div class="input-field file-input-container">
+          <input type="file" class="input-file" (change)="onFileSelected($event)" />
+        </div>
+      </div> 
+      <!-- Ảnh hiển thị xuống dòng dưới -->
+      <div class="image-container">
+        <!-- Ảnh hiện tại -->
+        <div *ngIf="nhanVienEdit.anh && !imagePreview" class="image-field">
+          <img [src]="nhanVienEdit.anh" alt="Ảnh nhân viên" class="small-employee-image" />
+        </div> 
+        <!-- Nếu có ảnh mới, hiển thị ảnh mới -->
+        <div *ngIf="imagePreview" class="image-field">
+          <img [src]="imagePreview" alt="Ảnh mới" class="small-employee-image" />
         </div>
       </div>
-
       <div class="button-container">
         <button type="submit" class="button btn-primary">Lưu thay đổi</button>
       </div>
@@ -298,7 +299,6 @@
   <div class="modal-box" (click)="$event.stopPropagation()">
     <button class="close-btn" (click)="closeModal()">×</button>
     <p class="titleadd">Thêm Nhân Viên</p> <br> <br>
-
     <!-- Form thêm nhân viên -->
     <form (ngSubmit)="addNhanVien()" #nhanVienForm="ngForm">
       <div class="input-row">
@@ -319,7 +319,6 @@
           </div>
         </div>
       </div>
-
       <div class="input-row">
         <div class="input-field">
           <select class="input" [(ngModel)]="nhanVien.gioiTinh" name="gioiTinh" required
@@ -342,7 +341,6 @@
           </div>
         </div>
       </div>
-
       <div class="input-row">
         <div class="input-field">
           <input type="email" class="input" [(ngModel)]="nhanVien.email" name="email" required
@@ -361,7 +359,6 @@
           </div>
         </div>
       </div>
-
       <div class="input-row">
         <div class="input-field">
           <input type="text" class="input" [(ngModel)]="nhanVien.taiKhoan" name="taiKhoan" required
@@ -380,17 +377,7 @@
           </div>
         </div>
       </div>
-
       <div class="input-row">
-        <div class="input-field">
-          <select class="input" [(ngModel)]="nhanVien.vaiTro.id" name="vaiTro" required (change)="clearError('vaiTro')">
-            <option *ngFor="let vaiTro of danhSachVaiTro" [value]="vaiTro.id">{{ vaiTro.ten }}</option>
-          </select>
-          <label for="vaiTro">Vai trò</label>
-          <div class="tooltip-error" *ngIf="errors.vaiTro">
-            {{ errors.vaiTro }}
-          </div>          
-        </div>
         <div class="input-field">
           <select class="input" [(ngModel)]="nhanVien.trangThai" name="trangThai" required
             (change)="clearError('trangThai')">
@@ -403,11 +390,21 @@
           </div>
         </div>
       </div>
-
+      <div class="input-row">
+        <div class="input-field">
+          <input type="file" class="input" (change)="onFileSelected($event)" />
+          <label for="file">Chọn ảnh nhân viên</label>
+          <div *ngIf="selectedFile">
+            <img [src]="imagePreview" alt="Ảnh nhân viên" class="image-preview" />
+          </div>
+          <div class="tooltip-error" *ngIf="errors.file">
+            {{ errors.file }}
+          </div>
+        </div>
+      </div>
       <div class="button-container">
         <button type="submit" class="button btn-primary">Thêm Nhân Viên</button>
       </div>
     </form>
   </div>
 </div>
-

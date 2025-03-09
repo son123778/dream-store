@@ -1,33 +1,41 @@
 package com.example.dreambackend.responses;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 public class GioHangChiTietResponse {
-    private Integer id;
+        private Integer id;
 
-    private Integer soLuong;
+        private String anhUrl;
 
-    private Double donGia;
+        private String tenSanPham;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private LocalDate ngayTao;
+        private String mau;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private LocalDate ngaySua;
+        private String size;
 
-    private Integer trangThai;
+        private Integer soLuong;
 
-    private Integer idKhachHang;
+        private Double donGia;
 
-    private Integer idSanPhamChiTiet;
+        private Boolean hinhThucGiam; // True: Giảm tiền, False: Giảm %
+
+        private BigDecimal giaTriGiam;
+
+        private Integer trangThai;
+
+        private Integer idKhachHang;
+
+        private Integer idSanPhamChiTiet;
 }
+
+
+
+

@@ -12,17 +12,11 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Builder
 public class GioHangChiTietRequest {
-    private Integer soLuong;
-
-    private Double donGia;
-
-    private String ngayTao;
-
-    private String ngaySua;
-
-    private Integer trangThai;
-
     private Integer idKhachHang;
 
     private Integer idSanPhamChiTiet;
+
+    private Integer soLuong;
+
+    private Double donGia;
 }

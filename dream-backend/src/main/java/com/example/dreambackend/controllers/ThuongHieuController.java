@@ -16,7 +16,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/thuong-hieu")
 // cho phép các request Angular truy cập vào các API
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200", "http://localhost:4201"})
 public class ThuongHieuController {
     @Autowired
     ThuongHieuService thuongHieuService;

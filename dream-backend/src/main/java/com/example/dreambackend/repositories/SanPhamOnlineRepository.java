@@ -15,7 +15,8 @@ public interface SanPhamOnlineRepository extends JpaRepository<SanPham, Integer>
             "(SELECT a.anhUrl FROM Anh a WHERE a.sanPham.id = sp.id ORDER BY a.id ASC LIMIT 1)) " +
             "FROM SanPham sp " +
             "WHERE sp.trangThai = 1 " +
-            "AND EXISTS (SELECT 1 FROM Anh a WHERE a.sanPham.id = sp.id)")
+            "AND EXISTS (SELECT 1 FROM Anh a WHERE a.sanPham.id = sp.id) " +
+            "AND EXISTS (SELECT 1 FROM SanPhamChiTiet spct WHERE spct.sanPham.id = sp.id)")
     Page<SanPhamDto> getSanPhamChiTietOnline(Pageable pageable);
 }
 

@@ -2,59 +2,92 @@
   background: #294764;
   height: 40px;
 }
-body {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
 
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 20px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: white;
-  z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.logo {
-  display: flex;
-  justify-content: center;
-}
-
-.logo img {
-  height: 100px;
-}
-
-.nav-icons {
-  position: absolute;
-  right: 70px;
-  display: flex;
-  gap: 25px;
-}
-
-.nav-icons a i {
+.footer{
+  text-align: center;
   color: #294764;
-  font-size: 25px;
-  transition: transform 0.2s ease-in-out;
 }
 
-.nav-icons a i:hover {
-  transform: scale(1.2);
+.footer i{
+  color: red;
+}
+
+.imgbr img {
+  padding-top: 100px;
+  width: 100%;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.imgbr img:hover {
+  opacity: 0.6; /* Làm ảnh mờ đi 50% khi trỏ chuột vào */
+}
+
+.lien-he{
+  height: 350px;
+  background-color: rgb(33, 33, 33);
+  padding-top: 40px;
+  display: flex; /* Đặt các phần tử con cùng một hàng */
+  justify-content: space-between;
+  padding-right: 100px;
+}
+
+.left{
+  color: white;
+  padding-left: 100px;
+}
+
+.left img{
+  height: 50px;
+}
+
+.logo-lh img {
+  width: 100px; /* Điều chỉnh kích thước logo */
+  height: 100px; /* Đảm bảo logo là hình vuông */
+  border-radius: 50%; /* Làm tròn hình ảnh */
+  object-fit: cover; /* Đảm bảo ảnh không bị méo */
+  border: 2px solid #ccc; /* Viền nhẹ để đẹp hơn (có thể bỏ) */
+}
+
+.center {
+  padding-top: 50px;
+  color: white;
+  margin-left: -155px;
+  display: flex;
+  flex-direction: column; /* Đưa các phần tử con (h5 và .img-network) xuống hàng */
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  text-align: center; /* Căn giữa nội dung văn bản */
+}
+
+.img-network {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px; /* Khoảng cách giữa các icon */
+  width: 100%;
+  margin-top: 10px; /* Tạo khoảng cách giữa chữ và ảnh */
+}
+
+.img-network img {
+  border-radius: 100%;
+  object-fit: cover;
+  height: 40px;
+  transition: opacity 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+.img-network img:hover {
+  opacity: 0.5;
+}
+
+.right{
+  color: white;
 }
 
 .text {
   text-align: center;
   color: #294764;
-  margin-top: 110px;
+  margin-top: 90px;
 }
 /* Phần từ <hr> trở xuống sẽ cuộn được */
 .scroll-container {
@@ -67,13 +100,17 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 15px; /* Khoảng cách giữa ảnh trong cùng một hàng */
+  margin-bottom: 15px; /* Khoảng cách giữa các hàng */
+
 }
 
 .image-banner img {
-  width: 250px; /* Thu nhỏ ảnh */
+  width: 200px; /* Thu nhỏ ảnh */
   height: auto;
   transition: transform 0.3s ease-in-out; /* Hiệu ứng mượt */
 }
+
 .btn {
   background-color: #294764; /* Màu xanh */
   color: white; /* Chữ trắng */
@@ -93,8 +130,10 @@ body {
 .image-banner img:hover {
   transform: scale(1.2) rotate(10deg); /* Zoom 1.2 lần & xoay 10 độ */
   cursor: pointer;
+  opacity: 0.7;
 }
 
+/* card sản phẩm*/
 @media (min-width: 768px) {
   .col-md-2_4 {
     flex: 0 0 20%; /* 100% / 5 = 20% */
@@ -120,23 +159,6 @@ body {
   transform: scale(1.05);
 }
 
-/* Ẩn icon giỏ hàng mặc định */
-.cart-icon {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 15px;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 8px;
-  border-radius: 50%;
-  display: none;
-}
-
-/* Hiện icon khi hover vào card */
-.card:hover .cart-icon {
-  display: block;
-}
 
 .card-body {
   text-align: center;
@@ -160,59 +182,23 @@ body {
   gap: 10px;
   margin-top: 20px;
 }
-
 .pagination button {
-  background-color: #2C436D; /* Màu xanh đậm giống ảnh */
+  background-color: #2C436D;
   color: white;
   border: none;
   padding: 7px 9px;
   font-size: 14px;
   font-weight: bold;
   cursor: pointer;
-  border-radius: 8px; /* Bo tròn giống ảnh */
+  border-radius: 8px; 
   transition: 0.3s;
 }
 
 .pagination span {
-  color: #2C436D; /* Màu xanh đậm giống ảnh */
+  color: #2C436D; 
   font-size: 14px;
   font-weight: bold;
 }
 
-/*modal card*/
-.cart-modal {
-  z-index: 2000; 
-  position: fixed;
-  top: 0;
-  right: -33%; /* Ẩn modal ban đầu */
-  width: 33%;
-  height: 100%;
-  background: white;
-  box-shadow: -3px 0 10px rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  transform: translateX(100%);
-  transition: transform 0.3s ease-in-out;
-}
-
-.cart-modal.show {
-  transform: translateX(0);
-  right: 0;
-}
-
-.cart-content {
-  display: flex;
-  flex-direction: column;
-  color: #294764;
-}
-
-.close-btn {
-  background: none;
-  border: none;
-  font-size: 25px;
-  cursor: pointer;
-  font-weight: bold;
-  color: #294764;
-  align-self: flex-end;
-}
 
 

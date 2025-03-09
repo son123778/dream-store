@@ -46,5 +46,4 @@ import java.time.LocalDate;
         @ManyToOne
         @JoinColumn(name = "id_xuat_xu", referencedColumnName = "id")
         private XuatXu xuatXu;
-
     }

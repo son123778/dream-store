@@ -2,10 +2,12 @@ import { Component, ViewChild, ElementRef, AfterViewInit, HostListener } from '@
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { BanhangService } from './banhang.service';
+import { HeaderComponent } from '../header/header.component';
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-banhang',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule,HeaderComponent],
   templateUrl: './banhang.component.html',
   styleUrl: './banhang.component.css'
 })
@@ -13,8 +15,8 @@ export class BanhangComponent{
   sanPhamOnlines: any[] = [];
   totalPages: number = 0;
   currentPage: number = 0;
-  size: number = 16;
-  modalCard: boolean = false;
+  size: number = 20;
+
   constructor(private banHangService : BanhangService) {}
 
   ngOnInit(): void {
@@ -23,10 +25,6 @@ export class BanhangComponent{
 
   loadData(): void {
     this.loadSanPhamOnline(0);
-  }
-
-  cardModal(): void {
-    this.modalCard = !this.modalCard;
   }
 
   loadSanPhamOnline(page: number): void {
@@ -41,7 +39,6 @@ export class BanhangComponent{
       }
     );
   }
-
   nextPage(): void {
     if (this.currentPage < this.totalPages - 1) {
       this.loadSanPhamOnline(this.currentPage + 1);

@@ -6,9 +6,11 @@ import com.example.dreambackend.responses.GioHangChiTietResponse;
 import java.util.List;
 
 public interface IGioHangChiTietService {
-    GioHangChiTietResponse addToGioHang(Integer khachHangId, GioHangChiTietRequest request);
-    GioHangChiTietResponse updateSoLuong(Integer id, Integer soLuong);
-    void removeFromGioHang(Integer id);
-    List<GioHangChiTietResponse> getGioHangByKhachHang(Integer khachHangId);
-    void clearGioHang(Integer khachHangId);
+    List<GioHangChiTietResponse> getGioHangChiTietByKhachHangId(Integer idKhachHang);
+
+    GioHangChiTietResponse themSanPhamVaoGio(GioHangChiTietRequest request);
+
+    void xoaSanPhamKhoiGio(Integer idGioHangChiTiet);
+
+    GioHangChiTietResponse suaSoLuongSanPham(Integer idGioHangChiTiet, Integer soLuongMoi);
 }

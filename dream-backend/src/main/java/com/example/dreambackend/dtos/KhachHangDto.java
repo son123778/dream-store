@@ -12,11 +12,13 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class KhachHangDto {
 
-    private String ma;
+
 
     private String ten;
 
     private boolean gioiTinh;
+
+    private String email;
 
     private String soDienThoai;
 
