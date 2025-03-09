@@ -15785,7 +15785,7 @@ var require_get_intrinsic = __commonJS({
             if (!allowMissing) {
               throw new $TypeError("base intrinsic for " + name + " exists, but the property is not available.");
             }
-            return void 0;
+            return void undefined2;
           }
           if ($gOPD && i + 1 >= parts.length) {
             var desc = $gOPD(value, part);
@@ -15818,11 +15818,14 @@ var require_call_bound = __commonJS({
     var $indexOf = callBindBasic([GetIntrinsic("%String.prototype.indexOf%")]);
     module.exports = function callBoundIntrinsic(name, allowMissing) {
       var intrinsic = (
-        /** @type {Parameters<typeof callBindBasic>[0][0]} */
+        /** @type {(this: unknown, ...args: unknown[]) => unknown} */
         GetIntrinsic(name, !!allowMissing)
       );
       if (typeof intrinsic === "function" && $indexOf(name, ".prototype.") > -1) {
-        return callBindBasic([intrinsic]);
+        return callBindBasic(
+          /** @type {const} */
+          [intrinsic]
+        );
       }
       return intrinsic;
     };

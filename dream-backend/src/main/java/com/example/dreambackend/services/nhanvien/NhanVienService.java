@@ -8,6 +8,8 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -17,6 +19,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class NhanVienService implements INhanVienService {
@@ -121,5 +124,29 @@ public class NhanVienService implements INhanVienService {
     @Override
     public List<NhanVien> searchNhanVienByName(String ten) {
         return nhanVienRepository.findByTenContainingIgnoreCase(ten);
+    }
+
+    @Override
+    public ResponseEntity<?> login(String email, String password) {
+        // Kiểm tra xem nhân viên có tồn tại không
+        Optional<NhanVien> nhanVienOptional = nhanVienRepository.findByEmail(email);
+
+        if (nhanVienOptional.isPresent()) {
+            NhanVien nhanVien = nhanVienOptional.get();
+
+            // Kiểm tra mật khẩu
+            if (password.equals(nhanVien.getMatKhau())) {
+                // Đăng nhập thành công, trả về thông tin nhân viên
+                return ResponseEntity.ok(nhanVien); // Trả về thông tin nhân viên nếu đăng nhập thành công
+            } else {
+                // Mật khẩu không đúng
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                        .body("Sai mật khẩu."); // Trả về lỗi với mã HTTP 401 (Unauthorized)
+            }
+        } else {
+            // Không tìm thấy nhân viên với email này
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body("Email không tồn tại: "); // Trả về lỗi với mã HTTP 404 (Not Found)
+        }
     }
 }
