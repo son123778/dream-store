@@ -22,11 +22,14 @@ public interface DiaChiKhachHangRepository extends JpaRepository<DiaChiKhachHang
         dckh.ngayTao,
         dckh.ngaySua,
         dckh.trangThai,
-        dckh.khachHang.id,
-        dckh.khachHang.ten,
-        dckh.khachHang.soDienThoai
-        ) from DiaChiKhachHang dckh
-         where dckh.khachHang.id = :idKhachHang
+        kh.id,
+        kh.ten,
+        kh.soDienThoai
+        ) 
+    from KhachHang kh 
+    left join DiaChiKhachHang dckh on kh.id = dckh.khachHang.id
+    where kh.id = :idKhachHang
     """)
     List<DiaChiKhachHangRespone> getAllDiaChiKhachHang(@Param("idKhachHang") Integer idKhachHang);
+
 }

@@ -27,8 +27,19 @@ export class SanphamDetailComponent implements OnInit {
   soLuongMua: number = 1;
   filteredDanhSachMauSac: any[] = [];
   filteredDanhSachSize: any[] = [];
-  idKhachHang: number = 1; // Giả sử ID khách hàng = 1
+  idKhachHang: number = 2; // Giả sử ID khách hàng = 1
   showModalThanhToan: boolean = false; // mở modal thanh toán
+  khachHang: any = {
+    tenKhachHang: '',
+    soDienThoai: '',
+    thon: '',
+    tinhThanhPho: null,
+    quanHuyen: null,
+    phuongXa: null
+  };
+  tinhThanhPhoList: any[] = [];
+  quanHuyenList: any[] = [];
+  phuongXaList: any[] = [];
 
   private route = inject(ActivatedRoute);
   private sanphamService = inject(SanphamDetailService);
@@ -37,6 +48,7 @@ export class SanphamDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadSanPhamChiTiet();
+    this.loadTinhThanh();
     this.filteredDanhSachSize = this.danhSachSize;
     this.filteredDanhSachMauSac = this.danhSachMauSac;
     this.updateFilteredLists();
@@ -230,10 +242,27 @@ export class SanphamDetailComponent implements OnInit {
 
   // code modalThanhToan khi ấn mua ngay/////////////////////////////////
 
-  openModalThanhToan(){
-    this.showModalThanhToan = true;
+  openModalThanhToan(idKhachHang: number) {
+    this.sanphamService.getThongTinKhachHang(idKhachHang).subscribe(
+      (data) => {
+        console.log("Dữ liệu khách hàng nhận được:", data);
+        
+        // Kiểm tra nếu data là một mảng và có ít nhất một phần tử
+        if (Array.isArray(data) && data.length > 0) {
+          this.khachHang = data[0]; // Lấy phần tử đầu tiên
+        } else {
+          console.warn("Không có dữ liệu khách hàng!");
+          this.khachHang = null; // Để tránh lỗi binding trên giao diện
+        }
+  
+        this.showModalThanhToan = true;
+      },
+      (error) => {
+        console.error("Lỗi khi lấy thông tin khách hàng:", error);
+      }
+    );
   }
-
+  
   closeModalThanhToan(){
     this.showModalThanhToan = false;
   }
@@ -242,5 +271,32 @@ export class SanphamDetailComponent implements OnInit {
   closeModalThanhToanHeader(){
     this.headerService.closeModalThanhToan();
   }
-  
+
+  // Lấy danh sách tỉnh thành
+  loadTinhThanh() {
+    this.sanphamService.getTinhThanh().subscribe((data) => {
+      this.tinhThanhPhoList = data;
+    });
+  }
+
+  // Khi chọn tỉnh, lấy danh sách quận huyện
+  onSelectTinhThanh(event: any) {
+    const maTinh = event.target.value;
+    this.khachHang.tinhThanhPho = maTinh;
+    this.sanphamService.getQuanHuyen(maTinh).subscribe((data) => {
+      this.quanHuyenList = data.districts;
+      this.khachHang.quanHuyen = null;
+      this.phuongXaList = [];
+    });
+  }
+
+  // Khi chọn huyện, lấy danh sách phường xã
+  onSelectQuanHuyen(event: any) {
+    const maHuyen = event.target.value;
+    this.khachHang.quanHuyen = maHuyen;
+    this.sanphamService.getPhuongXa(maHuyen).subscribe((data) => {
+      this.phuongXaList = data.wards;
+      this.khachHang.phuongXa = null;
+    });
+  }
 }

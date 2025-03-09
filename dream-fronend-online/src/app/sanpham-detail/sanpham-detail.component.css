@@ -134,6 +134,7 @@ select {
   border-radius: 5px;
   outline: none;
   cursor: pointer;
+  max-height: 200px;
 }
 
 select option {
@@ -273,4 +274,5 @@ select option {
   white-space: nowrap; /* Giữ nút không bị xuống hàng */
   padding: 8px 12px;
 }
+
 

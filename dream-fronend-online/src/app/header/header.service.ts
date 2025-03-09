@@ -24,7 +24,7 @@ export class HeaderService {
     return this.http.post(`${this.apiUrl}/add`, sanPham);
   }
 
-    deleteFromCart(id: number): Observable<void> {
+  deleteFromCart(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/delete/${id}`);
   }
 

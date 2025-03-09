@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
 export class HeaderComponent implements OnInit {
   modalCard: boolean = false;
   gioHang: any[] = []; // Danh sách sản phẩm trong giỏ hàng
-  idKhachHang: number = 1; // Giả sử ID khách hàng là 1
+  idKhachHang: number = 2; // Giả sử ID khách hàng là 1
 
   
   constructor(private headerService: HeaderService) {}
@@ -55,6 +55,7 @@ export class HeaderComponent implements OnInit {
     event.preventDefault();
     event.stopPropagation();
     this.modalCard = !this.modalCard;
+    this.headerService.closeModalThanhToan();
   }
   // hiện modal thanh toán
   openModalThanhToan() {

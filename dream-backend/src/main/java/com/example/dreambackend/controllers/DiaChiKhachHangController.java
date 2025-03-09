@@ -14,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/dia-chi-khach-hang")
+@CrossOrigin(origins = {"http://localhost:4201", "http://localhost:4200"})
 public class DiaChiKhachHangController {
     @Autowired
     private DiaChiKhachHangService diaChiKhachHangService;
