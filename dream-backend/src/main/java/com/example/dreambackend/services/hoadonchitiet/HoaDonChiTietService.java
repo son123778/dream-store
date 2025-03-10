@@ -7,56 +7,52 @@ import com.example.dreambackend.repositories.HoaDonChiTietRepository;
 import com.example.dreambackend.repositories.HoaDonRepository;
 import com.example.dreambackend.repositories.SanPhamChiTietRepository;
 import com.example.dreambackend.requests.HoaDonChiTietRequest;
-import com.example.dreambackend.requests.HoaDonChiTietSearchRequest;
 import com.example.dreambackend.responses.HoaDonChiTietResponse;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
-import jakarta.transaction.Transactional;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
-@RequiredArgsConstructor
 public class HoaDonChiTietService implements IHoaDonChiTietService {
 
-    @PersistenceContext
-    private EntityManager em;
-    private final HoaDonChiTietRepository hdctRepository;
-    private final HoaDonRepository hoaDonRepository;
-    private final SanPhamChiTietRepository spctRepository;
+    @Autowired
+    private HoaDonChiTietRepository hdctRepository;
+    @Autowired
+    private HoaDonRepository hoaDonRepository;
+    @Autowired
+    private SanPhamChiTietRepository spctRepository;
 
-    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     @Override
-    @Transactional(rollbackOn = Exception.class)
-    public HoaDonChiTietResponse addSanPhamToHoaDon(HoaDonChiTietRequest hoaDonChiTietRequest) {
-        HoaDon hoaDon = hoaDonRepository.findById(hoaDonChiTietRequest.getIdHoaDon())
+    public HoaDonChiTietResponse addSanPhamToHoaDon(Integer hoaDonId, Integer sanPhamChiTietId, Integer soLuong) {
+        HoaDon hoaDon = hoaDonRepository.findById(hoaDonId)
                 .orElseThrow(() -> new RuntimeException("Hóa đơn không tồn tại"));
-        SanPhamChiTiet spct = spctRepository.findById(hoaDonChiTietRequest.getIdSanPhamChiTiet())
+        SanPhamChiTiet spct = spctRepository.findById(sanPhamChiTietId)
                 .orElseThrow(() -> new RuntimeException("Sản phẩm chi tiết không tồn tại"));
 
-        if (spct.getSoLuong() < hoaDonChiTietRequest.getSoLuong()) {
+        if (spct.getSoLuong() < soLuong) {
             throw new RuntimeException("Số lượng vượt quá tồn kho");
         }
 
-        HoaDonChiTiet existingHdct = hdctRepository.findByHoaDonAndSanPhamChiTiet(hoaDon, spct);
+        Optional<HoaDonChiTiet> existingHdct = hdctRepository.findByHoaDonAndSanPhamChiTiet(hoaDon, spct);
 
         HoaDonChiTiet savedHdct;
-        if (existingHdct != null) {
-            HoaDonChiTiet hdct = existingHdct;
-            hdct.setSoLuong(hoaDonChiTietRequest.getSoLuong());
+        if (existingHdct.isPresent()) {
+            HoaDonChiTiet hdct = existingHdct.get();
+            hdct.setSoLuong(hdct.getSoLuong() + soLuong);
             hdct.setNgaySua(LocalDate.now());
             savedHdct = hdctRepository.save(hdct);
         } else {
             HoaDonChiTiet newHdct = HoaDonChiTiet.builder()
                     .hoaDon(hoaDon)
                     .sanPhamChiTiet(spct)
-                    .soLuong(hoaDonChiTietRequest.getSoLuong())
+                    .soLuong(soLuong)
                     .donGia(Optional.ofNullable(spct.getGia()).orElse(0.0))
                     .ngayTao(LocalDate.now())
                     .trangThai(1)
@@ -64,14 +60,13 @@ public class HoaDonChiTietService implements IHoaDonChiTietService {
             savedHdct = hdctRepository.save(newHdct);
         }
 
-        spct.setSoLuong(spct.getSoLuong() - hoaDonChiTietRequest.getSoLuong());
+        spct.setSoLuong(spct.getSoLuong() - soLuong);
         spctRepository.save(spct);
 
         return convertToDTO(savedHdct);
     }
 
     @Override
-    @Transactional(rollbackOn = Exception.class)
     public HoaDonChiTietResponse updateHoaDonChiTiet(Integer id, Integer soLuong) {
         HoaDonChiTiet hdct = hdctRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Chi tiết hóa đơn không tồn tại"));
@@ -83,8 +78,11 @@ public class HoaDonChiTietService implements IHoaDonChiTietService {
             if (spct.getSoLuong() < soLuongThayDoi) {
                 throw new RuntimeException("Số lượng vượt quá tồn kho");
             }
+            spct.setSoLuong(spct.getSoLuong() - soLuongThayDoi);
+        } else if (soLuongThayDoi < 0) {
+            spct.setSoLuong(spct.getSoLuong() - soLuongThayDoi);
         }
-        spct.setSoLuong(spct.getSoLuong() - soLuongThayDoi);
+
         spctRepository.save(spct);
 
         hdct.setSoLuong(soLuong);
@@ -93,9 +91,34 @@ public class HoaDonChiTietService implements IHoaDonChiTietService {
         return convertToDTO(hdctRepository.save(hdct));
     }
 
+
     @Override
-    public List<HoaDonChiTietResponse> search(HoaDonChiTietSearchRequest searchRequest) {
-        return hdctRepository.search(searchRequest, em);
+    public void removeSanPhamFromHoaDon(Integer id) {
+        HoaDonChiTiet hdct = hdctRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Chi tiết hóa đơn không tồn tại"));
+
+        SanPhamChiTiet spct = hdct.getSanPhamChiTiet();
+        spct.setSoLuong(spct.getSoLuong() + hdct.getSoLuong());
+        spctRepository.save(spct);
+
+        hdctRepository.delete(hdct);
+    }
+
+    @Override
+    public HoaDonChiTietResponse findById(Integer id) {
+        HoaDonChiTiet hdct = hdctRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Chi tiết hóa đơn không tồn tại"));
+        return convertToDTO(hdct);
+    }
+
+    @Override
+    public List<HoaDonChiTietResponse> findByHoaDon(HoaDon hoaDon) {
+        List<HoaDonChiTiet> list = hdctRepository.findByHoaDon(hoaDon);
+        return list.stream().map(this::convertToDTO).collect(Collectors.toList());
+    }
+
+    private LocalDate parseDate(String dateString) {
+        return (dateString != null && !dateString.isEmpty()) ? LocalDate.parse(dateString, DATE_FORMATTER) : LocalDate.now();
     }
 
     private HoaDonChiTiet convertToEntity(HoaDonChiTietRequest request) {
@@ -107,10 +130,11 @@ public class HoaDonChiTietService implements IHoaDonChiTietService {
         return HoaDonChiTiet.builder()
                 .hoaDon(hoaDon)
                 .sanPhamChiTiet(spct)
+                .ma(request.getMa())
                 .soLuong(request.getSoLuong())
                 .donGia(Optional.ofNullable(request.getDonGia()).orElse(0.0))
-                .ngayTao(request.getNgayTao())
-                .ngaySua(request.getNgaySua())
+                .ngayTao(parseDate(request.getNgayTao()))
+                .ngaySua(parseDate(request.getNgaySua()))
                 .trangThai(request.getTrangThai())
                 .build();
     }
@@ -119,7 +143,7 @@ public class HoaDonChiTietService implements IHoaDonChiTietService {
         return HoaDonChiTietResponse.builder()
                 .idHoaDon(hdct.getHoaDon().getId())
                 .idSanPhamChiTiet(hdct.getSanPhamChiTiet().getId())
-                .maHoaDonChiTiet(hdct.getMa())
+                .ma(hdct.getMa())
                 .soLuong(hdct.getSoLuong())
                 .donGia(hdct.getDonGia())
                 .ngayTao(hdct.getNgayTao())

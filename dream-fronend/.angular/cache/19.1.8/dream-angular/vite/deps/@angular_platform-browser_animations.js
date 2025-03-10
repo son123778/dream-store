@@ -13,6 +13,11 @@ import {
 } from "./chunk-P2BAICBU.js";
 import "./chunk-KMXPMNBR.js";
 import {
+  BrowserModule,
+  DomRendererFactory2
+} from "./chunk-RLUWJXF3.js";
+import "./chunk-F3MCMHWK.js";
+import {
   DOCUMENT
 } from "./chunk-TDFL4F2O.js";
 import {
