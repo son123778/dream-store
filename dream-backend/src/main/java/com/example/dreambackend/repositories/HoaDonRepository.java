@@ -92,13 +92,13 @@ public interface HoaDonRepository extends CrudRepository<HoaDon, Integer> {
                 WHERE 1=1
                 """);
         if (searchRequest.getMaHoaDon() != null && !searchRequest.getMaHoaDon().isEmpty()) {
-            sql.append(" AND hd.ma = :maHoaDon))");
+            sql.append(" AND UPPER(hd.ma) LIKE UPPER(:maHoaDon)");
         }
         if (searchRequest.getTenKhachHang() != null && !searchRequest.getTenKhachHang().isEmpty()) {
-            sql.append(" AND UPPER(kh.ten) = UPPER(:tenKhachHang)");
+            sql.append(" AND UPPER(kh.ten) LIKE UPPER(:tenKhachHang)");
         }
         if (searchRequest.getTenNhanVien() != null && !searchRequest.getTenNhanVien().isEmpty()) {
-            sql.append(" AND UPPER(nv.ten) = UPPER(:tenNhanVien)");
+            sql.append(" AND UPPER(nv.ten) LIKE UPPER(:tenNhanVien)");
         }
         if (searchRequest.getNgayTaoFrom() != null) {
             sql.append(" AND CAST(hd.ngay_tao AS DATE) >= :ngayTaoFrom");
@@ -110,14 +110,14 @@ public interface HoaDonRepository extends CrudRepository<HoaDon, Integer> {
             sql.append(" AND hd.trang_thai IN (:listTrangThai)");
         }
         if (searchRequest.getIdHoaDon() != null) {
-            sql.append(" AND UPPER(hd.id) = UPPER(:idHoaDon)");
+            sql.append(" AND UPPER(hd.id) LIKE UPPER(:idHoaDon)");
         }
 
         sql.append(" ORDER BY hd.ngay_tao DESC");
         jakarta.persistence.Query query = entityManager.createNativeQuery(sql.toString(), "HoaDonResponseMapping");
 
         if (searchRequest.getMaHoaDon() != null && !searchRequest.getMaHoaDon().isEmpty()) {
-            query.setParameter("maHoaDon", searchRequest.getMaHoaDon());
+            query.setParameter("maHoaDon", "%" + searchRequest.getMaHoaDon() + "%");
         }
         if (searchRequest.getTenKhachHang() != null && !searchRequest.getTenKhachHang().isEmpty()) {
             query.setParameter("tenKhachHang", "%" + searchRequest.getTenKhachHang() + "%");
@@ -135,7 +135,7 @@ public interface HoaDonRepository extends CrudRepository<HoaDon, Integer> {
             query.setParameter("listTrangThai", searchRequest.getListTrangThai());
         }
         if (searchRequest.getIdHoaDon() != null) {
-            query.setParameter("idHoaDon", searchRequest.getIdHoaDon());
+            query.setParameter("idHoaDon", "%" + searchRequest.getIdHoaDon() + "%");
         }
         if (searchRequest.getPage() != null && searchRequest.getPageSize() != null) {
             query.setFirstResult((searchRequest.getPage() - 1) * searchRequest.getPageSize());

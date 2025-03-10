@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:4300")
 @RestController
 @RequestMapping("/api/hoa-don")
 public class HoaDonController {
@@ -31,16 +32,6 @@ public class HoaDonController {
     public ResponseEntity<?> updateHoaDon(@PathVariable Integer id, @RequestBody HoaDonRequest request) {
         try {
             HoaDonResponse response = hoaDonService.updateHoaDon(id, request);
-            return ResponseEntity.ok(response);
-        } catch (RuntimeException e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<?> getHoaDonById(@PathVariable Integer id) {
-        try {
-            HoaDonResponse response = hoaDonService.findById(id);
             return ResponseEntity.ok(response);
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
